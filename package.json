@@ -23,9 +23,23 @@
   "dev-server": "webpack-dev-server",
   "scripts": {
     "build": "webpack",
+    "test": "jest --config=jest.config.json",
     "dev-server": "webpack-dev-server"
   },
   "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "jest": "^22.4.3",
+    "jest-enzyme": "^6.0.0",
+    "raf": "^3.4.0",
     "webpack-cli": "^2.0.14"
-  }
+  },
+    "jest": {
+      "moduleNameMapper": {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+          "<rootDir>/config/__mocks__/fileMock.js",
+        "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+      }
+    }
 }
