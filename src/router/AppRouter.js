@@ -8,7 +8,7 @@ import createHistory from 'history/createBrowserHistory';
 import Home               from '../components/Home/Home';
 import AddEventsContainer from '../containers/AddEvent_Container';
 import AddEvent from '../components/AddEvent/AddEvent';
-import Profile            from '../components/Profile/Profile';
+import ProfileContainer   from '../containers/Profile_Container';
 import NotFound           from '../components/NotFound/NotFound';
 import NavBar             from '../components/NavBar/NavBar';
 // ========================================================================================
@@ -21,8 +21,8 @@ const AppRouter = () => (
       <NavBar />
       <Switch>
         <Route path="/"          component={Home}    exact={true} />
-        <Route path="/profile"   component={Profile}               />
-        <Route path="/add-event" component={AddEventsContainer}    />
+        <Route path="/profile"   component={ProfileContainer}     />
+        <Route path="/add-event" component={AddEventsContainer}   />
         <Route component={NotFound} />
       </Switch>
     </div>
