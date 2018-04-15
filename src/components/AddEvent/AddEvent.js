@@ -2,14 +2,12 @@
 import React from 'react';
 // ========================================================================================
 
-const Home = () => {
+const AddEvent = () => {
   return(
     <div>
-      <div className="home">
-        Home Page
-      </div>
+      Add Event Page!!!
     </div>
   )
 }
 
-export default Home;
+export default AddEvent;

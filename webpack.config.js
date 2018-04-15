@@ -27,6 +27,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     // can provide any option in at https://webpack.js.org/configuration/dev-server/
-    contentBase: path.join(__dirname, 'public')
+    contentBase: path.join(__dirname, 'public'),
+    historyApiFallback: true
   }
 }

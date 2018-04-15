@@ -2,14 +2,12 @@
 import React from 'react';
 // ========================================================================================
 
-const Home = () => {
+const Profile = () => {
   return(
     <div>
-      <div className="home">
-        Home Page
-      </div>
+      Profile Page!!!
     </div>
   )
 }
 
-export default Home;
+export default Profile;

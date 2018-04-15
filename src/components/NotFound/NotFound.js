@@ -2,14 +2,12 @@
 import React from 'react';
 // ========================================================================================
 
-const Home = () => {
+const NotFound = () => {
   return(
     <div>
-      <div className="home">
-        Home Page
-      </div>
+      Not Found Page!!!
     </div>
   )
 }
 
-export default Home;
+export default NotFound;
