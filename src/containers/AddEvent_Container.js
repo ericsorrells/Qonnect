@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import AddEvent from '../components/AddEvent/AddEvent';
 
 const mapDispachToProps = (dispatch) => {
-  console.log('ACTION_CREATORS: ', eventsActions);
   return bindActionCreators(eventsActions, dispatch)
 }
 
