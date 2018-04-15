@@ -31,7 +31,6 @@ class AddEvent extends React.Component {
 
   handleNameChange(e) {
     e.preventDefault()
-    console.log('EVENT: ', e.target.value);
     this.setState({ name: e.target.value });
   }
 

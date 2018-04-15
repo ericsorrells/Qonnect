@@ -7,7 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 // import PublicRoute from './PublicRoute';
 import Home               from '../components/Home/Home';
 import AddEventsContainer from '../containers/AddEvent_Container';
-import AddEvent from '../components/AddEvent/AddEvent';
+import EditProfileContainer   from '../containers/EditProfile_Container';
 import ProfileContainer   from '../containers/Profile_Container';
 import NotFound           from '../components/NotFound/NotFound';
 import NavBar             from '../components/NavBar/NavBar';
@@ -19,12 +19,15 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <NavBar />
-      <Switch>
-        <Route path="/"          component={Home}    exact={true} />
-        <Route path="/profile"   component={ProfileContainer}     />
-        <Route path="/add-event" component={AddEventsContainer}   />
-        <Route component={NotFound} />
-      </Switch>
+      <main>
+        <Switch>
+          <Route path="/" component={Home} exact={true} />
+          <Route path="/profile" component={ProfileContainer} />
+          <Route path="/edit-profile" component={EditProfileContainer} />
+          <Route path="/add-event" component={AddEventsContainer} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
     </div>
   </Router>
 );

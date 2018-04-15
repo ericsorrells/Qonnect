@@ -1,0 +1,19 @@
+html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  width: $container;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  width: 100%;
+  background-color: $purple;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
