@@ -1,13 +1,12 @@
 import React from 'react';
+import EventItem from '../components/EventItem/EventItem'
 
 export const showEvents = (props) => {
-  return props.map((event) => {
+  return props.map((event, index) => {
     return (
-      <li>
-        <div>{event.name}</div>
-        <div>{event.location}</div>
-        <div>{event.description}</div>
-      </li>
+      <EventItem {...event} key={index} />
     )
   })
 }
+
+export default EventItem;

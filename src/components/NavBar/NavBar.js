@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return(
-    <header>
+    <nav>
       <div className="nav">
         <div className="nav-title">
           qonnect
@@ -17,7 +17,7 @@ const NavBar = () => {
           <Link to="/add-event">Add Event</Link>
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
 export default NavBar;
