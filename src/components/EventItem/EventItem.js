@@ -1,8 +1,8 @@
 import React from 'react';
 
-const EventItem = ({id, url, name, location, description, inviter, date, history}) => {
+const EventItem = ({id, url, name, location, description, inviter, date, history, deleteEvent}) => {
   const deleteElement = () => {
-    console.log('DELETE ELEMENT CALLED!!!!', id);
+    deleteEvent(id);
   }
 
   const editElement = () => {
@@ -48,11 +48,5 @@ const EventItem = ({id, url, name, location, description, inviter, date, history
     </li>
   )
 }
-
-// const HoverButtons = () => {
-//   return(
-    
-//   )
-// };
 
 export default EventItem;

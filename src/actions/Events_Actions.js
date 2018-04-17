@@ -4,3 +4,18 @@ export const addEvent = (event) => {
     event
   }
 }
+
+export const editEvent = (id, updates) => {
+  return {
+    type: 'EDIT_EVENT',
+    id,
+    updates
+  }
+}
+
+export const deleteEvent = (id) => {
+  return {
+    type: 'DELETE_EXPENSE',
+    id
+  }
+}

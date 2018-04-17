@@ -1,6 +1,8 @@
 // ========================================================================================
-import React from 'react';
-import { connect } from 'react-redux';
+import React                  from 'react';
+import { connect }            from 'react-redux';
+import * as editActions       from '../actions/Events_Actions';
+import { bindActionCreators } from 'redux';
 // ========================================================================================
 import Profile from '../components/Profile/Profile'
 // ========================================================================================
@@ -12,4 +14,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Profile)
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(editActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
