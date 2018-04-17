@@ -50,7 +50,18 @@
   font-size: .9rem;
 }
 
+.event-item__location,
+.event-item__date {
+  display: flex;
+  flex-direction: row;
+}
+
 .event-item__description {
   color: $grey-text;
   font-size: .8rem;
+}
+
+.fa-calendar,
+.fa-map-marker {
+  margin-right: 10px;
 }

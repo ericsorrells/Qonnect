@@ -47,33 +47,37 @@ class AddEvent extends React.Component {
   render() {
     return (
       <div className="add-event-container">
-        <form onSubmit={this.handleAddEvent} className="event-form">
-          <input
-            type="text"
-            placeholder="Add Event Name"
-            value={this.state.name}
-            onChange={this.handleNameChange}
-          />
-          <br/>
-          <input
-            type="text"
-            placeholder="Add Location"
-            value={this.state.location}
-            onChange={this.handleLocationChange}
-          />
-          <br/>
-          <textarea
-            type="text"
-            placeholder="Add Description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
-          />
-          <br/>
-          <button>Add Event</button>
-        </form>
-        {
-          this.props.events && (<ul> { showEvents(this.props.events) } </ul>)
-        }
+        <aside>
+          <form onSubmit={this.handleAddEvent} className="event-form">
+            <input
+              type="text"
+              placeholder="Add Event Name"
+              value={this.state.name}
+              onChange={this.handleNameChange}
+            />
+            <br />
+            <input
+              type="text"
+              placeholder="Add Location"
+              value={this.state.location}
+              onChange={this.handleLocationChange}
+            />
+            <br />
+            <textarea
+              type="text"
+              placeholder="Add Description"
+              value={this.state.description}
+              onChange={this.handleDescriptionChange}
+            />
+            <br />
+            <button>Add Event</button>
+          </form>
+        </aside>
+        <section>
+          {
+            this.props.events && (<ul> {showEvents(this.props.events)} </ul>)
+          }
+        </section>
       </div>
     )
   }

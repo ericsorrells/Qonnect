@@ -14,8 +14,18 @@ const EventItem = ({url, name, location, description, inviter, date}) => {
           {inviter}
         </div>
         <div className="event-item__date_location">
-          <div>{location}</div>
-          <div>{date}</div>
+          <div className="event-item__location">
+            <div style={{ fontSize: '1em', color: '#6334e3' }}>
+              <i className="fas fa-map-marker"></i>
+            </div>
+            <div>{location}</div>
+            </div>
+          <div className="event-item__date">
+            <div style={{ fontSize: '1em', color: '#6334e3' }}>
+              <i class="fas fa-calendar"></i>
+            </div>
+            <div>{date}</div>
+          </div>
         </div>
         <div className="event-item__description">
           {description}
