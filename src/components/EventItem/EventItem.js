@@ -1,6 +1,14 @@
 import React from 'react';
 
-const EventItem = ({url, name, location, description, inviter, date}) => {
+const EventItem = ({id, url, name, location, description, inviter, date, history}) => {
+  const deleteElement = () => {
+    console.log('DELETE ELEMENT CALLED!!!!', id);
+  }
+
+  const editElement = () => {
+    history.push(`/edit-event/${id}`);          // passed from showEvents props
+  }
+
   return (
     <li className="event-item">
       <div className="event-item__left">
@@ -31,8 +39,20 @@ const EventItem = ({url, name, location, description, inviter, date}) => {
           {description}
         </div>
       </div>
+      <div className="hover-container">
+        <div className="hover-buttons">
+          <button className="edit-button" onClick={editElement}>Edit</button>
+          <button className="delete-button" onClick={deleteElement}>Delete</button>
+        </div>
+      </div>
     </li>
   )
 }
+
+// const HoverButtons = () => {
+//   return(
+    
+//   )
+// };
 
 export default EventItem;

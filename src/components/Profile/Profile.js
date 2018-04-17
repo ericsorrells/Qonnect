@@ -6,17 +6,17 @@ import EventItem from '../../components/EventItem/EventItem';
 import { showEvents } from '../../utils/displayUtils';
 // ========================================================================================
 
-const Profile = (props) => {
+const Profile = ({ events, history, profile }) => {
   return(
     <div className="profile-container">
       <aside>
-        Name: {props.profile.name} <br />
-        Location: {props.profile.location} <br />
-        Description: {props.profile.description} <br />
+        Name: {profile.name} <br />
+        Location: {profile.location} <br />
+        Description: {profile.description} <br />
         <Link to="edit-profile">Edit Profile</Link>
       </aside>
       <section>
-        { props.events && (<ul> { showEvents(props.events) } </ul>) }
+        { events && (<ul> { showEvents(events, history) } </ul>) }
       </section>
     </div>
   )

@@ -75,7 +75,7 @@ class AddEvent extends React.Component {
         </aside>
         <section>
           {
-            this.props.events && (<ul> {showEvents(this.props.events)} </ul>)
+            this.props.events && (<ul> {showEvents(this.props.events, this.props.history)} </ul>)
           }
         </section>
       </div>
