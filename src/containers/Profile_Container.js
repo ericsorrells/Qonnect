@@ -4,7 +4,7 @@ import { connect }            from 'react-redux';
 import * as editActions       from '../actions/Events_Actions';
 import { bindActionCreators } from 'redux';
 // ========================================================================================
-import Profile from '../components/Profile/Profile'
+import Profile from '../components/Profile'
 // ========================================================================================
 
 const mapStateToProps = (state) => {

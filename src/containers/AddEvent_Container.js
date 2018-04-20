@@ -1,8 +1,11 @@
+// ========================================================================================
 import React from 'react';
 import { connect } from 'react-redux';
 import * as eventsActions from '../actions/Events_Actions';
 import { bindActionCreators } from 'redux';
-import AddEvent from '../components/AddEvent/AddEvent';
+// ========================================================================================
+import AddEvent from '../components/AddEvent';
+// ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(eventsActions, dispatch)

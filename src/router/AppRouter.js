@@ -5,14 +5,15 @@ import createHistory from 'history/createBrowserHistory';
 // ========================================================================================
 // import PrivateRoute from './PrivateRoute';
 // import PublicRoute from './PublicRoute';
-import Home                 from '../components/Home/Home';
 import AddEventsContainer   from '../containers/AddEvent_Container';
 import EditProfileContainer from '../containers/EditProfile_Container';
 import ProfileContainer     from '../containers/Profile_Container';
-import NotFound             from '../components/NotFound/NotFound';
-import NavBar               from '../components/NavBar/NavBar';
-import EditEvent            from '../components/EditEvent/EditEvent';
 import ShowEventContainer   from '../containers/ShowEvent_Container';
+import Home                 from '../components/Home';
+import NotFound             from '../components/NotFound';
+import NavBar               from '../components/NavBar';
+import EditEvent            from '../components/EditEvent';
+import Footer               from '../components/Footer';
 // ========================================================================================
 
 export const history = createHistory();
@@ -32,6 +33,7 @@ const AppRouter = () => (
           <Route component={NotFound}                                       />
         </Switch>
       </main>
+      <Footer />
     </div>
   </Router>
 );

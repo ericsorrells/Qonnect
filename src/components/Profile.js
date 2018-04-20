@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // ========================================================================================
-import EventItem from '../../components/EventItem/EventItem';
-import { showEvents } from '../../utils/displayUtils';
+import EventItem from './EventItem';
+import { showEvents } from '../utils/displayUtils'
 // ========================================================================================
 
 const Profile = ({ events, history, profile, deleteEvent }) => {

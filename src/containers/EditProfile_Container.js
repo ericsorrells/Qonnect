@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as profileActions from '../actions/Profile_Actions';
 import { bindActionCreators } from 'redux';
 // ========================================================================================
-import EditProfile from '../components/EditProfile/EditProfile';
+import EditProfile from '../components/EditProfile';
 // ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {

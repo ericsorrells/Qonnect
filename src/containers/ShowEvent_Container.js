@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as eventsActions from '../actions/Events_Actions';
 import { bindActionCreators } from 'redux';
 // ========================================================================================
-import ShowEvent from '../components/ShowEvent/ShowEvent';
+import ShowEvent from '../components/ShowEvent';
 // ========================================================================================
 
 const mapStateToProps = (state, ownProps) => {

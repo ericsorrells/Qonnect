@@ -1,5 +1,8 @@
+// ========================================================================================
 import React from 'react';
-import EventItem from '../components/EventItem/EventItem'
+// ========================================================================================
+import EventItem from '../components/EventItem'
+// ========================================================================================
 
 export const showEvents = (props, history = null, deleteEvent = null, showEvent = null) => {
   return props.map((event, index) => {

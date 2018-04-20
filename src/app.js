@@ -6,7 +6,7 @@ import AppRouter, { history } from './router/AppRouter';
 import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 // ========================================================================================
-import Home from '../src/components/Home/Home';
+import Home from '../src/components/Home';
 // ========================================================================================
 import './styles/styles.scss';
 // ========================================================================================
