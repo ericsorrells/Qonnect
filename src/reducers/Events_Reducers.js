@@ -11,6 +11,8 @@ const eventsReducer = (state = defaultState, action) => {
         ...state,
         action.event
       ]
+    case 'SHOW_EVENT':
+      return state;
     case 'EDIT_EVENT':
       return state;        // CHANGE THIS!!!
     case 'DELETE_EXPENSE':

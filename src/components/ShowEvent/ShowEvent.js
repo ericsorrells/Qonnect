@@ -2,13 +2,13 @@
 import React from 'react';
 // ========================================================================================
 
-const Home = () => {
+const ShowEvent = (props) => {
+  console.log('PROPS', props);
   return(
-    <div className="home-container">
-      <div className="home-image">
-      </div>
+    <div>
+      SHOW EVENT PAGE!!!
     </div>
   )
 }
 
-export default Home;
+export default ShowEvent;

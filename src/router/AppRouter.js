@@ -12,22 +12,24 @@ import ProfileContainer     from '../containers/Profile_Container';
 import NotFound             from '../components/NotFound/NotFound';
 import NavBar               from '../components/NavBar/NavBar';
 import EditEvent            from '../components/EditEvent/EditEvent';
+import ShowEventContainer   from '../containers/ShowEvent_Container';
 // ========================================================================================
 
 export const history = createHistory();
 
 const AppRouter = () => (
   <Router history={history}>
-    <div>
+    <div className="router-container">
       <NavBar />
       <main>
         <Switch>
-          <Route path="/" component={Home} exact={true} />
-          <Route path="/profile" component={ProfileContainer} />
-          <Route path="/edit-profile" component={EditProfileContainer} />
-          <Route path="/add-event" component={AddEventsContainer} />
-          <Route path="/edit-event/:id" component={EditEvent} />
-          <Route component={NotFound} />
+          <Route path="/"                 component={Home}    exact={true}  />
+          <Route path="/profile"          component={ProfileContainer}      />
+          <Route path="/edit-profile"     component={EditProfileContainer}  />
+          <Route path="/show-event/:id"   component={ShowEventContainer}    />
+          <Route path="/add-event"        component={AddEventsContainer}    />
+          <Route path="/edit-event/:id"   component={EditEvent}             />
+          <Route component={NotFound}                                       />
         </Switch>
       </main>
     </div>
