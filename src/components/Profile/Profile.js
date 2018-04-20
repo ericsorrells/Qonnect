@@ -6,7 +6,7 @@ import EventItem from '../../components/EventItem/EventItem';
 import { showEvents } from '../../utils/displayUtils';
 // ========================================================================================
 
-const Profile = ({ events, history, profile, deleteEvent, showEvent }) => {
+const Profile = ({ events, history, profile, deleteEvent }) => {
   return(
     <div className="profile-container">
       <aside>
@@ -16,7 +16,7 @@ const Profile = ({ events, history, profile, deleteEvent, showEvent }) => {
         <Link to="edit-profile">Edit Profile</Link>
       </aside>
       <section>
-        { events && (<ul> { showEvents(events, history, deleteEvent, showEvent) } </ul>) }
+        { events && (<ul> { showEvents(events, history, deleteEvent) } </ul>) }
       </section>
     </div>
   )

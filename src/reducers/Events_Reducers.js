@@ -11,11 +11,9 @@ const eventsReducer = (state = defaultState, action) => {
         ...state,
         action.event
       ]
-    case 'SHOW_EVENT':
-      return state;
     case 'EDIT_EVENT':
       return state;        // CHANGE THIS!!!
-    case 'DELETE_EXPENSE':
+    case 'DELETE_EVENT':
       return state.filter((event) => event.id !== action.id);
     default:
       return state;  

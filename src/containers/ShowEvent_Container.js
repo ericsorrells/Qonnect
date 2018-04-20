@@ -7,13 +7,11 @@ import { bindActionCreators } from 'redux';
 import ShowEvent from '../components/ShowEvent/ShowEvent';
 // ========================================================================================
 
-const mapStateToProps = (state) => {
-  return { event: state.events }
+const mapStateToProps = (state, ownProps) => {
+  const paramId = parseInt(ownProps.match.params.id);
+  return {
+    event: state.events.find((event) => event.id === paramId)
+  }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators(eventsActions, dispatch);
-// }
-
 export default connect(mapStateToProps)(ShowEvent);
-// export default connect(mapStateToProps, mapDispatchToProps)(ShowEvent);

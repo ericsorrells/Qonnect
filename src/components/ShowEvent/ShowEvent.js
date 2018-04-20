@@ -2,11 +2,10 @@
 import React from 'react';
 // ========================================================================================
 
-const ShowEvent = (props) => {
-  console.log('PROPS', props);
+const ShowEvent = ({ event }) => {
   return(
     <div>
-      SHOW EVENT PAGE!!!
+      Name: { event.name }      
     </div>
   )
 }

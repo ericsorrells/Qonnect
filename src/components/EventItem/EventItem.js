@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EventItem = ({id, url, name, location, description, inviter, date, history, deleteEvent, showEvent }) => {
+const EventItem = ({id, url, name, location, description, inviter, date, history, deleteEvent }) => {
 
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
@@ -11,8 +11,7 @@ const EventItem = ({id, url, name, location, description, inviter, date, history
   }
 
   const showElement = () => {
-    showEvent(id);
-    history.push(`/show-event/${id}`);          // passed from showEvents props
+    history.push(`/show-event/${id}`); 
   }
 
   return (
@@ -47,9 +46,9 @@ const EventItem = ({id, url, name, location, description, inviter, date, history
       </div>
       <div className="hover-container">
         <div className="hover-buttons">
-          <button className="edit-button" onClick={showElement}>View</button>
-          <button className="edit-button" onClick={editElement}>Edit</button>
-          <button className="delete-button" onClick={deleteElement}>Delete</button>
+          <button className="edit-button"   onClick={showElement}   >View</button>
+          <button className="edit-button"   onClick={editElement}   >Edit</button>
+          <button className="delete-button" onClick={deleteElement} >Delete</button>
         </div>
       </div>
     </li>
