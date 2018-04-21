@@ -6,6 +6,12 @@ html {
 body{
   height: 100%;
 }
+ 
+main {
+  // width: $container;
+  // margin-left: auto;
+  // margin-right: auto;
+}
 
 .container {
   width: $container;
@@ -20,6 +26,8 @@ nav {
 
 aside {
   width: 25%;
+  // margin-right: auto;
+  // margin-left: auto;
 }
 
 section {

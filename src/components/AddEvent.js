@@ -1,7 +1,7 @@
 // ========================================================================================
 import React from 'react';
 // ========================================================================================
-import { showEvents } from '../utils/displayUtils'
+import EventItems from './EventItems';
 // ========================================================================================
 
 class AddEvent extends React.Component {
@@ -75,7 +75,12 @@ class AddEvent extends React.Component {
         </aside>
         <section>
           {
-            this.props.events && (<ul> {showEvents(this.props.events, this.props.history)} </ul>)
+            this.props.events &&
+            <EventItems
+              events={this.props.events}
+              history={this.props.history}
+              deleteEvent={this.props.deleteEvent} 
+            />
           }
         </section>
       </div>

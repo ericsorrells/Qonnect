@@ -6,28 +6,30 @@
   flex-direction: row;
   height: 150px;
   box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.32);
-  // overlay settings
-  position: relative;                                  
-  transition: .5s ease;
 }
 
 // overlay settings
+// ============================================================
+
+.event-item {
+  position: relative;                                  
+  transition: .5s ease;
+  background-color: white;
+}
+
 .event-item:hover .event-item__left {
   opacity: 0.3;
 }
 
-// overlay settings
 .event-item:hover .event-item__right {
   opacity: 0.3;
 }
 
-// overlay settings
 .event-item:hover .hover-container {
   opacity: 1;
   display: inline-block;
 }
 
-// overlay settings
 .hover-container{
   display: none;                       // gets toggled in component
   position: absolute;                  // positions absolutely w/in parent   
@@ -38,10 +40,12 @@
   opacity: 0;
 }
 
-// overlay settings
 .hover-buttons {
   display: flex;
 }
+
+// end overlay settings
+// ============================================================
 
 .edit-button,
 .delete-button {
