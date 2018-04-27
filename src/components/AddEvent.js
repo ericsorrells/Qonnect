@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import EventItems from './EventItems';
 // ========================================================================================
@@ -8,14 +9,14 @@ class AddEvent extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
-      name: '', 
+      name:     '', 
       location: '',
       description: ''
     }
 
-    this.handleAddEvent = this.handleAddEvent.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleLocationChange = this.handleLocationChange.bind(this);
+    this.handleAddEvent          = this.handleAddEvent.bind(this);
+    this.handleNameChange        = this.handleNameChange.bind(this);
+    this.handleLocationChange    = this.handleLocationChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this); 
   }
 
@@ -50,24 +51,24 @@ class AddEvent extends React.Component {
         <aside>
           <form onSubmit={this.handleAddEvent} className="event-form">
             <input
-              type="text"
-              placeholder="Add Event Name"
-              value={this.state.name}
-              onChange={this.handleNameChange}
+              type        = "text"
+              placeholder = "Add Event Name"
+              value       = {this.state.name}
+              onChange    = {this.handleNameChange}
             />
             <br />
             <input
-              type="text"
-              placeholder="Add Location"
-              value={this.state.location}
-              onChange={this.handleLocationChange}
+              type        = "text"
+              placeholder = "Add Location"
+              value       = {this.state.location}
+              onChange    = {this.handleLocationChange}
             />
             <br />
             <textarea
-              type="text"
-              placeholder="Add Description"
-              value={this.state.description}
-              onChange={this.handleDescriptionChange}
+              type        = "text"
+              placeholder = "Add Description"
+              value       = {this.state.description}
+              onChange    = {this.handleDescriptionChange}
             />
             <br />
             <button>Add Event</button>
@@ -77,9 +78,9 @@ class AddEvent extends React.Component {
           {
             this.props.events &&
             <EventItems
-              events={this.props.events}
-              history={this.props.history}
-              deleteEvent={this.props.deleteEvent} 
+              events      = {this.props.events}
+              history     = {this.props.history}
+              deleteEvent = {this.props.deleteEvent} 
             />
           }
         </section>
@@ -87,5 +88,11 @@ class AddEvent extends React.Component {
     )
   }
 }
+
+AddEvent.propTypes = {
+  events:      PropTypes.array,
+  history:     PropTypes.func,
+  deleteEvent: PropTypes.func 
+};
 
 export default AddEvent;

@@ -1,8 +1,13 @@
+// ========================================================================================
 import React from 'react';
+// ========================================================================================
 
 const UserInfo = ({ name, location, age, joinDate, description }) => {
   return (
     <div className="user-info">
+    {/*
+      <img className="user-info__silhouete" src="/images/user-silhouette.svg"/>
+    */}
       <h1>{name}</h1>
       <div className="user-info__personal-stats">
         <div className="user-info__item">

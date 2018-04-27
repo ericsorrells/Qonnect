@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 
 const EventItem = ({id, url, name, location, description, inviter, date, history, deleteEvent }) => {
@@ -22,39 +23,67 @@ const EventItem = ({id, url, name, location, description, inviter, date, history
         <img src={url} className="event-item__image" />
       </div>
       <div className="event-item__right">
-        <div className="event-item__title">
-          {name}
-        </div>
-        <div className="event-item__inviter">
-          {inviter}
-        </div>
+        <Info value={name} type={'title'} />
+        <Info value={inviter} type={'inviter'} />
         <div className="event-item__date_location">
-          <div className="event-item__location">
-            <div style={{ fontSize: '1em', color: '#6334e3' }}>
-              <i className="fas fa-map-marker"></i>
-            </div>
-            <div>{location}</div>
-            </div>
-          <div className="event-item__date">
-            <div style={{ fontSize: '1em', color: '#6334e3' }}>
-              <i class="fas fa-calendar"></i>
-            </div>
-            <div>{date}</div>
-          </div>
+          <SubInfo value={location} type={'location'} icon={'map-marker'} />
+          <SubInfo value={date} type={'date'} icon={'calendar'} />
         </div>
-        <div className="event-item__description">
-          {description}
-        </div>
+        <Info value={description} type={'description'} />
       </div>
+      {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
       <div className="hover-container">
         <div className="hover-buttons">
-          <button className="edit-button"   onClick={showElement}   >View</button>
-          <button className="edit-button"   onClick={editElement}   >Edit</button>
+          <button className="edit-button" onClick={showElement}   >View</button>
+          <button className="edit-button" onClick={editElement}   >Edit</button>
           <button className="delete-button" onClick={deleteElement} >Delete</button>
         </div>
       </div>
     </li>
   )
 }
+
+const Info = ({value, type}) => {
+  return (
+    <div className={`event-item__${type}`}>
+      {value}
+    </div>
+  )
+}
+
+const SubInfo = ({value, type, icon}) => {
+  return (
+    <div className={`event-item__${type}`}>
+      <div style={{ fontSize: '1em', color: '#6334e3' }}>
+        <i className={`fas fa-${icon}`}></i>
+      </div>
+      <div>{value}</div>
+    </div>
+  )
+}
+
+EventItem.propTypes = {
+  id:          PropTypes.number, 
+  url:         PropTypes.string, 
+  name:        PropTypes.string, 
+  location:    PropTypes.string, 
+  description: PropTypes.string, 
+  inviter:     PropTypes.string, 
+  date:        PropTypes.string, 
+  history:     PropTypes.func,
+  deleteEvent: PropTypes.func 
+};
+
+// const HoverButtons = (showElement, editElement, deleteElement) => {
+//   return(
+//     <div className="hover-container">
+//       <div className="hover-buttons">
+//         <button className="edit-button" onClick={showElement}   >View</button>
+//         <button className="edit-button" onClick={editElement}   >Edit</button>
+//         <button className="delete-button" onClick={deleteElement} >Delete</button>
+//       </div>
+//     </div> 
+//   )
+// }
 
 export default EventItem;

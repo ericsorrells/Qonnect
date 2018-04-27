@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import EventItem from '../components/EventItem'
 // ========================================================================================
@@ -21,5 +22,12 @@ export const EventItems = ({...props}, history = null, deleteEvent = null, showE
     )
   })
 }
+
+EventItem.propTypes = {
+  event:       PropTypes.object, 
+  history:     PropTypes.func,
+  showEvent:   PropTypes.func,
+  deleteEvent: PropTypes.func 
+};
 
 export default EventItems;

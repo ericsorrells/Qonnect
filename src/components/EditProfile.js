@@ -1,13 +1,17 @@
+// ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
+// ========================================================================================
+
 
 class EditProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
-      birthday: '',
-      location: '',
-      joinedOn: '',
+      name:        '',
+      birthday:    '',
+      location:    '',
+      joinedOn:    '',
       description: ''
     }
     
@@ -21,8 +25,8 @@ class EditProfile extends React.Component {
     console.log('PROPS_PROF', this.props);
     e.preventDefault();
     this.props.addProfile({
-      name: this.state.name,
-      location: this.state.location,
+      name:        this.state.name,
+      location:    this.state.location,
       description: this.state.description
     });
     this.setState({ name: '', location: '', description: '' })
@@ -48,24 +52,24 @@ class EditProfile extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input
-            type="text"
-            placeholder="Add Your Name"
-            value={this.state.name}
-            onChange={this.handleNameChange}
+            type        = "text"
+            placeholder = "Add Your Name"
+            value       = {this.state.name}
+            onChange    = {this.handleNameChange}
           />
           <br/>
           <input
-            type="text"
-            placeholder="Add Your Location"
-            value={this.state.location}
-            onChange={this.handleLocationChange}
+            type        = "text"
+            placeholder = "Add Your Location"
+            value       = {this.state.location}
+            onChange    = {this.handleLocationChange}
           />
           <br/>
           <textarea
-            type="text"
-            placeholder="Add Description"
-            value={this.state.description}
-            onChange={this.handleDescriptionChange}
+            type        = "text"
+            placeholder = "Add Description"
+            value       = {this.state.description}
+            onChange    = {this.handleDescriptionChange}
           />
           <br/>
           <button>Add Profile</button>

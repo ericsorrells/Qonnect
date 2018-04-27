@@ -2,9 +2,19 @@
   font-size: .9rem;
 }
 
+.user-info__silhouete{
+  max-width: 12rem;
+  border: 3px solid black;
+  background-color: white;
+  padding: 30px 10px 0 10px;
+  position: relative;
+  top:-200px;
+}
+
 .user-info__personal-stats,
 .user-info__description {
-  color: $grey-text;
+  // color: $grey-text;
+  color: black;
 }
 
 .user-info__personal-stats,
@@ -17,7 +27,8 @@
 .user-info__item {
   display: flex;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  margin-right: 10px;
 }
 
 .fa-globe,
@@ -27,9 +38,3 @@
   font-size: 1.25rem;
   margin-right: 1rem;
 }
-
-.user-info__item {
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-

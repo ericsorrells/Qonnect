@@ -1,16 +1,16 @@
 // ========================================================================================
 import React from 'react';
 // ========================================================================================
-import HowItWorks from './HowItWorks';
+import HowItWorksItem from './HowItWorksItem';
 // ========================================================================================
 
-const Home = () => {
-  return(
-    <div className="home-container">
-      <div className="home-image"></div>
-      <HowItWorks />
+const HowItWorks = () => {
+  return (
+    <div>
+      How It Works Component!!
+      <HowItWorksItem />
     </div>
   )
 }
 
-export default Home;
+export default HowItWorks;
