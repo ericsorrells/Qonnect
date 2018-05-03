@@ -2,12 +2,13 @@
 import React from 'react';
 // ========================================================================================
 import HowItWorks from './HowItWorks';
+import HomeBillboard from './HomeBillBoard';
 // ========================================================================================
 
 const Home = () => {
   return(
     <div className="home-container">
-      <div className="home-image"></div>
+      <HomeBillboard/>
       <HowItWorks />
     </div>
   )
