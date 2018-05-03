@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
 
-const EventItem = ({id, url, name, location, description, inviter, date, history, deleteEvent }) => {
+const EventItem = (event) => {
+  const { id, url, name, location, description, inviter, date, history, deleteEvent } = event;
 
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
@@ -34,8 +35,8 @@ const EventItem = ({id, url, name, location, description, inviter, date, history
       {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
       <div className="hover-container">
         <div className="hover-buttons">
-          <button className="edit-button" onClick={showElement}   >View</button>
-          <button className="edit-button" onClick={editElement}   >Edit</button>
+          <button className="edit-button" onClick={showElement} >View</button>
+          <button className="edit-button" onClick={editElement} >Edit</button>
           <button className="delete-button" onClick={deleteElement} >Delete</button>
         </div>
       </div>

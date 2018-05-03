@@ -3,12 +3,16 @@ import React from 'react';
 class EventForm extends React.Component {
   constructor(props) {
     super(props)
+    const { id, name, date, location, description } = this.props.event;
+
     this.state = {
-      name: '',
-      date: '',
-      location: '',
-      description: ''
+      id:          id || 1,
+      name:        name ? name:               '',
+      date:        date ? date:               '',
+      location:    location ? location:       '',
+      description: description ? description: ''
     }
+
     this.onFormSubmit        = this.onFormSubmit.bind(this);
     this.onNameChange        = this.onNameChange.bind(this);
     this.onDateChange        = this.onDateChange.bind(this);
@@ -19,10 +23,11 @@ class EventForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     this.props.onSubmit({
+      id:          this.state.id,
       name:        this.state.name,
       date:        this.state.date,
       location:    this.state.location,
-      description: this.state.descrption 
+      description: this.state.description 
     })
   }
 
@@ -44,27 +49,34 @@ class EventForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='form'>
         <form onSubmit={this.onFormSubmit} >
-          <div className='event-form__label'>
-            Event Name:
-          </div>
-          <input type='text' onChange={this.onNameChange} />
+          <label> Event Name: </label>
+          <input 
+            type='text' 
+            onChange={this.onNameChange} 
+            value={this.state.name}
+          />
 
-          <div className='event-form__label'>
-            Event Date:
-          </div>
-          <input type='text' onChange={this.onDateChange}/>
+          <label> Event Date: </label>
+          <input 
+            type='text' 
+            onChange={this.onDateChange}
+            value={this.state.date}
+          />
 
-          <div className='event-form__label'>
-            Event Location:
-          </div>
-          <input type='text' onChange={this.onLocationChange}/>
+          <label> Event Location: </label>
+          <input 
+            type='text' 
+            onChange={this.onLocationChange}
+            value={this.state.location}
+          />
 
-          <div className='event-form__label'>
-            Description:
-          </div>
-          <textarea onChange={this.onDescriptionChange}/>
+          <label> Description: </label>
+          <textarea 
+            onChange={this.onDescriptionChange}
+            value={this.state.description}  
+          />
 
           <button type='submit'>Submit</button>
         </form>

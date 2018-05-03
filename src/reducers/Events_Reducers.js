@@ -30,7 +30,17 @@ const eventsReducer = (state = defaultState, action) => {
         action.event
       ]
     case 'EDIT_EVENT':
-      return state;        // CHANGE THIS!!!
+      return state.map((event) => {
+        if(event.id === action.id) {
+          return {
+            ...event,
+            ...action.updates
+          }
+        } else {
+            return event
+          }
+        }
+      )
     case 'DELETE_EVENT':
       return state.filter((event) => event.id !== action.id);
     default:
