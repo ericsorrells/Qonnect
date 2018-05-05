@@ -1,14 +1,14 @@
 // ========================================================================================
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectComment } from '../actions/Comments_Actions';
+import { selectAcceptance } from '../actions/Comments_Actions';
 import { bindActionCreators } from 'redux';
 // ========================================================================================
-import ShowComment from '../components/ShowComment';
+import ShowAcceptance from '../components/ShowAcceptance';
 // ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
-  return { selectComment: (eventId, commentId) => dispatch(selectComment(eventId, commentId)) }
+  return { selectAcceptance: (eventId, commentId) => dispatch(selectAcceptance(eventId, commentId)) }
 }
 
-export default connect(null, mapDispatchToProps)(ShowComment);
+export default connect(null, mapDispatchToProps)(ShowAcceptance);

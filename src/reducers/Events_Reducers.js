@@ -1,12 +1,18 @@
 const defaultState = {
-  abc123: {
+  abc_123: {
     name: 'Falcons Game', 
     inviter: 'Jon Doe', 
     date: 'Nov 13, 2018', 
     location: 'Mercedes Benz', 
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/x443dJI.jpg',
-    selectedGuest: false
+    selectedGuest: '',
+    interestedUsers: {
+      user1: true,
+      user2: true,
+      user3: true,
+      user4: true
+    }
   },
   def_456: {
     name: 'Dinner With ME!', 
@@ -15,7 +21,11 @@ const defaultState = {
     location: 'Chilis', 
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna.', 
     url: 'https://i.imgur.com/hU6EISo.jpg',
-    selectedGuest: false
+    selectedGuest: '',
+    interestedUsers: {
+      user1: true,
+      user2: true
+    }
   },
   xyz_789: {
     name: 'ATL United Game', 
@@ -24,8 +34,50 @@ const defaultState = {
     location: 'Mercedes Benz', 
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/gc48lZa.png',
-    selectedGuest: false
-  }
+    selectedGuest: '',
+    interestedUsers: {
+      user1: true,
+      user2: true,
+      user3: true,
+      user4: true,
+      user5: true,
+      user6: true
+    }
+  },
+  xyz_234: {
+    name: 'ATL United Game vs DC', 
+    inviter: 'John Doe', 
+    date: 'May 5, 2018', 
+    location: 'DC Stadium', 
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
+    url: 'https://i.imgur.com/gc48lZa.png',
+    selectedGuest: 'user1',
+    interestedUsers: {
+      user1: true,
+      user2: true,
+      user3: true,
+      user4: true,
+      user5: true,
+      user6: true
+    } 
+  },
+  abc_456: {
+    name: 'Falcons Game', 
+    inviter: 'Jon Doe', 
+    date: 'Nov 13, 2018', 
+    location: 'Mercedes Benz', 
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
+    url: 'https://i.imgur.com/x443dJI.jpg',
+    selectedGuest: 'user2',
+    interestedUsers: {
+      user1: true,
+      user2: true,
+      user3: true,
+      user4: true,
+      user5: true,
+      user6: true
+    }
+  } 
 };
 
 const eventsReducer = (state = defaultState, action) => {
@@ -37,7 +89,6 @@ const eventsReducer = (state = defaultState, action) => {
         [(new Date).getTime()]: action.event
       }
     case 'EDIT_EVENT':
-     debugger
       return {
         ...state,                     // start with all of state  
         [action.id]: {                // grab the single event to change:

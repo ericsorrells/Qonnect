@@ -41,7 +41,7 @@
 // }
 
 const defaultState = {
-  abc123: {
+  abc_123: {
     c1: { responder:'Joe Smith', comment:'Pick me! Im the biggest Falcons fan ever!', selected: false },
     c2: { responder:'Amber Jones', comment:'I love the Falcons', selected: false },
     c3: { responder:'John Doe', comment:'RISE UP! Lets do this!', selected: false }
@@ -61,7 +61,7 @@ const defaultState = {
   }
 }
 
-const commentsReducer = (state = defaultState, action) => {
+const acceptancesReducer = (state = defaultState, action) => {
   switch(action.type) {
     case 'SELECT_COMMENT':
       return {
@@ -79,4 +79,4 @@ const commentsReducer = (state = defaultState, action) => {
   }
 }
 
-export default commentsReducer;
+export default acceptancesReducer;

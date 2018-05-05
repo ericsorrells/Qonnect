@@ -2,10 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
+import Acceptances  from './EventItem_Acceptances';
+// ========================================================================================
 
 const EventItem = (event) => {
-  const { id, url, name, location, description, inviter, date, history, deleteEvent } = event;
-
+  const { id, url, name, location, description, inviter, date, history, interestedUsers, deleteEvent } = event;
+  
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
   }
@@ -32,6 +34,7 @@ const EventItem = (event) => {
         </div>
         <Info value={description} type={'description'} />
       </div>
+      <Acceptances acceptances={Object.keys(interestedUsers).length}/>
       {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
       <div className="hover-container">
         <div className="hover-buttons">

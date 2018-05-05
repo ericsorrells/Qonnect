@@ -1,0 +1,12 @@
+.show-event {
+  display: flex;
+}
+
+.show-event__image {
+  height: 200px;
+  width: auto;    
+}
+
+.show-event__selected-comment {
+  border: 3px solid $red-border; 
+}

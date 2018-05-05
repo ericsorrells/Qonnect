@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // ========================================================================================
 import EventItem from './EventItem';
 import UserInfo from './UserInfo';
-import UserStats from './UserStats';
+import UserStats from '../containers/UserStats_Container';
 import EventItems from './EventItems';
 // ========================================================================================
 import { objToArray } from '../utils/utils'
@@ -16,7 +16,7 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
       <div className="container">
         <div className="profile__user-stats">
           <section>
-            <UserStats {...events} />
+            <UserStats />
           </section>
         </div>
       </div>

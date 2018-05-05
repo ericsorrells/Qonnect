@@ -1,0 +1,19 @@
+.acceptance {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px 20px;     
+}
+
+.acceptance__count {
+  font-size: $user-data-font;
+  color: $main-color;
+  font-weight: bold;
+}
+
+.acceptance__subheader {
+  color: $grey-text;
+  border-bottom: 1px solid black;
+  font-size: $user-data-subheader;
+  padding-bottom: 5px;
+}

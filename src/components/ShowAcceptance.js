@@ -3,7 +3,7 @@ import React from 'react';
 // ========================================================================================
 
 // TODO: make this a stateless component???
-class ShowComment extends React.Component {
+class ShowAcceptance extends React.Component {
   constructor(props) {
     super(props)
     this.onSelect = this.onSelect.bind(this);
@@ -11,7 +11,7 @@ class ShowComment extends React.Component {
   
   onSelect(eventId, commentId) {
     // TODO: deselect any selected comments
-    this.props.selectComment(eventId, commentId)
+    this.props.selectAcceptance(eventId, commentId)
   }
 
   render() {
@@ -28,4 +28,4 @@ class ShowComment extends React.Component {
   }
 }
 
-export default ShowComment;
+export default ShowAcceptance;
