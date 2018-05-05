@@ -10,7 +10,6 @@ import { objToArray } from '../utils/utils';
 export const EventItems = ({...props}, history = null, deleteEvent = null, showEvent = null) => {
   const { events } = props;
   const eventsArray = objToArray(events); 
-  console.log('EVENTS ARRAY', eventsArray);
   return eventsArray.map((event, index) => {
     return (
       <div>
@@ -20,7 +19,6 @@ export const EventItems = ({...props}, history = null, deleteEvent = null, showE
             key={event.id}
             history={props.history}
             deleteEvent={props.deleteEvent}
-            // showEvent={showEvent}        //TODO: remove this?
           />
         </ul>
       </div>

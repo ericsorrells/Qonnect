@@ -9,7 +9,7 @@ import EditEvent from '../components/EditEvent';
 import { objToArray } from '../utils/utils';
 // ========================================================================================
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return { editEvent: (id, event) => dispatch(editEvent(id, event)) }
 }
 

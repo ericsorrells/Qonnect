@@ -22,7 +22,6 @@ class EditProfile extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('PROPS_PROF', this.props);
     e.preventDefault();
     this.props.addProfile({
       name:        this.state.name,

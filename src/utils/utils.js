@@ -1,5 +1,4 @@
 export const objToArray = (myObj) => {
-  console.log('OBJ', myObj);
   const objWithKeys = Object.entries(myObj).map(entry => { 
     const objWithId = {
       ...entry[1],

@@ -4,7 +4,6 @@ class EventForm extends React.Component {
   constructor(props) {
     super(props)
     const { id, name, date, location, description } = this.props.event;
-    console.log('PROPS', this.props.event);
     
     this.state = {
       id:          id || 1,

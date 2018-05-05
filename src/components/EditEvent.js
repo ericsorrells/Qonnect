@@ -31,8 +31,6 @@ class EditEvent extends React.Component {
 
 // const EditEvent = (event, props) => {
 //   const onSubmit = (event)  => {
-//     console.log('PROPS', props);
-//     console.log('EVENT', event);
 //     const { id, name, date, location, description } = event;
 //     this.props.editEvent(id, { name, date, location, description })
 //     this.props.history.push(`/show-event/${id}`); 

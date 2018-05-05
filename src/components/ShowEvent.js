@@ -15,7 +15,6 @@ class ShowEvent extends React.Component {
 
   render() {
     const { event, comments, eventId } = this.props;
-    console.log('PROPS', this.props);
     const commentsArray = objToArray(comments);
     const selectedComment = comments.find((comment) => comment.selected === true);
     const unselectedComments = comments.filter((comment) => comment.selected !== true)
