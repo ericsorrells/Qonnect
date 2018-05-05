@@ -2,20 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
-import EventItem from '../components/EventItem'
+import EventItem from '../components/EventItem';
+// ========================================================================================
+import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 export const EventItems = ({...props}, history = null, deleteEvent = null, showEvent = null) => {
-  return props.events.map((event, index) => {
+  const { events } = props;
+  const eventsArray = objToArray(events); 
+  console.log('EVENTS ARRAY', eventsArray);
+  return eventsArray.map((event, index) => {
     return (
       <div>
         <ul>
           <EventItem 
             {...event}
-            key={index}
+            key={event.id}
             history={props.history}
             deleteEvent={props.deleteEvent}
-            // showEvent={showEvent}
+            // showEvent={showEvent}        //TODO: remove this?
           />
         </ul>
       </div>

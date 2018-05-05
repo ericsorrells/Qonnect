@@ -7,6 +7,8 @@ import UserInfo from './UserInfo';
 import UserStats from './UserStats';
 import EventItems from './EventItems';
 // ========================================================================================
+import { objToArray } from '../utils/utils'
+// ========================================================================================
 
 const Profile = ({ events, history, profile, deleteEvent }) => {
   return(
@@ -27,6 +29,7 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
             <EventsHeader />
             {events &&
               <EventItems
+                // events={objToArray(events)}
                 events={events}
                 history={history}
                 deleteEvent={deleteEvent}

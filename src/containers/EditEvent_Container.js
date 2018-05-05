@@ -6,14 +6,18 @@ import { bindActionCreators } from 'redux';
 // ========================================================================================
 import EditEvent from '../components/EditEvent';
 // ========================================================================================
+import { objToArray } from '../utils/utils';
+// ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
   return { editEvent: (id, event) => dispatch(editEvent(id, event)) }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const paramId = parseInt(ownProps.match.params.id);
-  return { event: state.events.find((event) => event.id === paramId) }
+  const paramId = ownProps.match.params.id;
+  const newEvent = state.events[paramId] 
+  newEvent.id = paramId
+  return { event: newEvent }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditEvent);

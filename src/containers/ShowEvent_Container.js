@@ -5,11 +5,15 @@ import { bindActionCreators } from 'redux';
 // ========================================================================================
 import ShowEvent from '../components/ShowEvent';
 // ========================================================================================
+import { objToArray } from '../utils/utils';
+// ========================================================================================
 
 const mapStateToProps = (state, ownProps) => {
-  const paramId = parseInt(ownProps.match.params.id);
+  const paramId = ownProps.match.params.id;
   return {
-    event: state.events.find((event) => event.id === paramId)
+    event: state.events[paramId],
+    eventId: paramId,
+    comments: objToArray(state.comments[paramId])
   }
 }
 

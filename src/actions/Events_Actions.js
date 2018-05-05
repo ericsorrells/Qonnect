@@ -19,13 +19,3 @@ export const deleteEvent = (id) => {
     id
   }
 }
-
-export const selectComment = (eventId, commentId) => {
-  console.log('SELEC_COMMENT eventId', eventId);
-  console.log('SELEC_COMMENT commentId', commentId);
-  return {
-    type: 'SELECT_COMMENT',
-    eventId, 
-    commentId
-  }
-}

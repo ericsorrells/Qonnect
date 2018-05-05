@@ -3,6 +3,7 @@ import React from 'react';
 // ========================================================================================
 
 // TODO: make this a stateless component???
+// TODO: onSelect is firing automatically, adding 'id' inside each comment
 class ShowComment extends React.Component {
   constructor(props) {
     super(props)
@@ -10,8 +11,8 @@ class ShowComment extends React.Component {
   }
   
   onSelect(eventId, commentId) {
-    console.log('ON_SEL_COMMENT eventId', eventId);
-    console.log('ON_SEL_COMMENT commentId', commentId);
+    console.log('ON SELECT FIRING!!!!!');
+    // TODO: deselect any selected comments
     this.props.selectComment(eventId, commentId)
   }
 
