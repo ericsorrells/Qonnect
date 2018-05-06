@@ -1,10 +1,10 @@
 const defaultState = {
-  sortBy:     'date',
   city:       '',
   startDate:  '',
   endDate:    '',
   category:   '',
-  searchTerm: ''
+  searchTerm: '',
+  sortBy:     true
 }
 
 const filtersReducer = (state = defaultState, action) => {

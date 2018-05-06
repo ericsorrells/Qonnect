@@ -1,9 +1,15 @@
-export const filterEvents = (events, { city, category, searchTerm }) => {
+export const filterEvents = (events, { city, category, searchTerm, sortBy }) => {
   console.log('FILTERING EVENTS!!!', events);
   const eventList = events
     .filter((event) => filterByCity(event, city))
     .filter((event) => filterByCategory(event, category))
     .filter((event) => filterBySearchTerm(event, searchTerm))
+    .sort((firstEvent, secondEvent) => {
+      if(sortBy === true) {
+        return firstEvent.createdAt > secondEvent.createdAt ? 1 : -1
+      }
+      return firstEvent.createdAt > secondEvent.createdAt ? -1 : 1
+    })
   return eventList
 }
 
@@ -29,5 +35,4 @@ const filterBySearchTerm = (event, searchTerm) => {
     return event.description.includes(searchTerm) || event.name.includes(searchTerm);
   }
   return event;
-
 }

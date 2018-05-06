@@ -9,27 +9,30 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      city: '',
-      date: '',
-      category: '',
-      searchTerm: ''
+      city:       '',
+      date:       '',
+      category:   '',
+      searchTerm: '',
+      sortBy:     true
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCityChange = this.handleCityChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleSubmit       = this.handleSubmit.bind(this);
+    this.handleCityChange   = this.handleCityChange.bind(this);
+    this.handleDateChange   = this.handleDateChange.bind(this);
     this.handCategoryChange = this.handCategoryChange.bind(this);
-    this.handleSearchTerm = this.handleSearchTerm.bind(this);
-    this.handleClear = this.handleClear.bind(this);
+    this.handleSearchTerm   = this.handleSearchTerm.bind(this);
+    this.handleRadioButton  = this.handleRadioButton.bind(this);
+    this.handleClear        = this.handleClear.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.setFilters({
-      city: this.state.city,
-      date: this.state.date,
-      category: this.state.category,
-      searchTerm: this.state.searchTerm
+      city:       this.state.city,
+      date:       this.state.date,
+      category:   this.state.category,
+      searchTerm: this.state.searchTerm,
+      sortBy:     this.state.sortBy
     });
   }
 
@@ -49,13 +52,19 @@ class Search extends React.Component {
     this.setState({ searchTerm: e.target.value })
   }
 
+  handleRadioButton(e) {
+    console.log('RAIOD', e.target.value);
+    this.setState({ sortBy: !this.state.sortBy })
+  }
+
   handleClear(e) {
     this.props.clearFilters();
     this.setState({
       city: '',
       date: '',
       category: '',
-      searchTerm: ''
+      searchTerm: '',
+      sortBy: true
     });
   }
 
@@ -63,10 +72,10 @@ class Search extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>City:</label>
-        <input type='text' onChange={this.handleCityChange} />
+        <input type='text' onChange={this.handleCityChange} value={this.state.city}/>
 
         <label>Date:</label>
-        <input type='text' onChange={this.handleDateChange} />
+        <input type='text' onChange={this.handleDateChange} value={this.state.date}/>
 
         <label>Category:</label>
         <select onChange={this.handCategoryChange} value={this.state.category ? this.state.category : ''}>
@@ -78,10 +87,16 @@ class Search extends React.Component {
         </select>
 
         <label>Search Term:</label>
-        <input type='text' onChange={this.handleSearchTerm} />
+        <input type='text' onChange={this.handleSearchTerm} value={this.state.searchTerm}/>
+        <br/>
 
-        <button type='submit'>Search For Events</button>
-        <button onClick={this.handleClear}>Clear</button>
+        <span>Sort By Date:</span>
+        Sooner<input type="radio" value='true' checked={this.state.sortBy}  onChange={this.handleRadioButton}/>
+        Later<input type="radio" value='false' checked={!this.state.sortBy} onChange={this.handleRadioButton}/>
+
+        <br/>
+          <button type='submit'>Search For Events</button>
+          <button onClick={this.handleClear}>Clear</button>
       </form>
     )
   }
