@@ -21,26 +21,26 @@ const EventItem = (event) => {
   }
 
   return (
-    <li className="event-item">
-      <div className="event-item__left">
-        <img src={url} className="event-item__image" />
+    <li className='event-item'>
+      <div className='event-item__left'>
+        <img src={url} className='event-item__image' />
       </div>
-      <div className="event-item__right">
+      <div className='event-item__right'>
         <Info value={name} type={'title'} />
         <Info value={inviter} type={'inviter'} />
-        <div className="event-item__date_location">
+        <div className='event-item__date_location'>
           <SubInfo value={location} type={'location'} icon={'map-marker'} />
           <SubInfo value={date} type={'date'} icon={'calendar'} />
         </div>
         <Info value={description} type={'description'} />
       </div>
-      <Acceptances acceptances={Object.keys(interestedUsers).length}/>
+      { interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length}/> }
       {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
-      <div className="hover-container">
-        <div className="hover-buttons">
-          <button className="edit-button" onClick={showElement} >View</button>
-          <button className="edit-button" onClick={editElement} >Edit</button>
-          <button className="delete-button" onClick={deleteElement} >Delete</button>
+      <div className='hover-container'>
+        <div className='hover-buttons'>
+          <button className='edit-button' onClick={showElement} >View</button>
+          <button className='edit-button' onClick={editElement} >Edit</button>
+          <button className='delete-button' onClick={deleteElement} >Delete</button>
         </div>
       </div>
     </li>

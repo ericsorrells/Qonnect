@@ -9,19 +9,19 @@ class ShowAcceptance extends React.Component {
     this.onSelect = this.onSelect.bind(this);
   }
   
-  onSelect(eventId, commentId) {
-    // TODO: deselect any selected comments
-    this.props.selectAcceptance(eventId, commentId)
+  onSelect(eventId, acceptanceId) {
+    // TODO: deselect any selected acceptances
+    this.props.selectAcceptance(eventId, acceptanceId)
   }
 
   render() {
-    const { id: commentId, comment: commentText, responder } = this.props.comment;
+    const { id: acceptanceId, acceptance: acceptanceText, responder } = this.props.acceptance;
     return (
       <li>
-        <div>{commentText}</div>
+        <div>{acceptanceText}</div>
         <div>
           <span>{responder}</span>
-          <button onClick={() => this.onSelect(this.props.eventId, commentId)}>Select Comment</button>
+          <button onClick={() => this.onSelect(this.props.eventId, acceptanceId)}>Select Acceptance</button>
         </div>
       </li>
     )

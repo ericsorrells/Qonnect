@@ -26,7 +26,7 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
             <UserInfo {...profile} />
           </aside>
           <section>
-            <EventsHeader />
+            <EventsHeader history={history} />
             {events &&
               <EventItems
                 // events={objToArray(events)}
@@ -42,10 +42,15 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
   )
 }
  
-const EventsHeader = () => {
+const EventsHeader = (props) => {
+  const handleClick = () => {
+    props.history.push(`/add-event/`);
+  }
+
   return(
-    <div className="events-header">
+    <div className='events-header'>
       <h1>My Events</h1>
+      <button className='events-header__button' onClick={handleClick}>Create</button>
     </div>
   )
 }

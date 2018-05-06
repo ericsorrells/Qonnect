@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
 import EventItems from './EventItems';
+import EventForm  from './EventForm';
 // ========================================================================================
 
 class AddEvent extends React.Component {
@@ -18,6 +19,7 @@ class AddEvent extends React.Component {
     this.handleNameChange        = this.handleNameChange.bind(this);
     this.handleLocationChange    = this.handleLocationChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this); 
+    this.handleSubmit            = this.handleSubmit.bind(this);
   }
 
   handleAddEvent(e) {
@@ -45,34 +47,17 @@ class AddEvent extends React.Component {
     this.setState({ description: e.target.value })
   }
 
+  handleSubmit(event) {
+    // e.preventDefault()
+    console.log('HANDLE SUBMIT!!!', event);
+    this.props.addEvent(event)
+  }
+
   render() {
     return (
       <div className="add-event-container">
         <aside>
-          <form onSubmit={this.handleAddEvent} className="event-form">
-            <input
-              type        = "text"
-              placeholder = "Add Event Name"
-              value       = {this.state.name}
-              onChange    = {this.handleNameChange}
-            />
-            <br />
-            <input
-              type        = "text"
-              placeholder = "Add Location"
-              value       = {this.state.location}
-              onChange    = {this.handleLocationChange}
-            />
-            <br />
-            <textarea
-              type        = "text"
-              placeholder = "Add Description"
-              value       = {this.state.description}
-              onChange    = {this.handleDescriptionChange}
-            />
-            <br />
-            <button>Add Event</button>
-          </form>
+          <EventForm event={null} onSubmit={this.handleSubmit}/>
         </aside>
         <section>
           {

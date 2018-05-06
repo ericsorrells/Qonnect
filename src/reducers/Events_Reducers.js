@@ -7,6 +7,7 @@ const defaultState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/x443dJI.jpg',
     selectedGuest: '',
+    createdAt: 10,
     interestedUsers: {
       user1: true,
       user2: true,
@@ -22,6 +23,7 @@ const defaultState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna.', 
     url: 'https://i.imgur.com/hU6EISo.jpg',
     selectedGuest: '',
+    createdAt: 9,
     interestedUsers: {
       user1: true,
       user2: true
@@ -35,6 +37,7 @@ const defaultState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/gc48lZa.png',
     selectedGuest: '',
+    createdAt: 8,
     interestedUsers: {
       user1: true,
       user2: true,
@@ -52,6 +55,7 @@ const defaultState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/gc48lZa.png',
     selectedGuest: 'user1',
+    createdAt: 7,
     interestedUsers: {
       user1: true,
       user2: true,
@@ -69,6 +73,7 @@ const defaultState = {
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. .', 
     url: 'https://i.imgur.com/x443dJI.jpg',
     selectedGuest: 'user2',
+    createdAt: 6,
     interestedUsers: {
       user1: true,
       user2: true,

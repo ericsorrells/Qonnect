@@ -2,54 +2,125 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opac
 
 TODO: remove 'bindActionCreators' from Containers?
 
+
+// FIREBASE SCHEMA:
 {
   "users": {
     "user1_abc123": {
+      "userName": "joeblow",
+      "fullName": "John Smith",
       "email": "user1@gmail.com",
-      ...
+      "location": "Atlanta, GA"
+      "age": 34,
+      "description": "some long description",
+      "createdAt": "November 21, 2000",
+      "userEvents": {
+        event1_xyz123: true,
+        event2_xyz456: true,
+        event3_xyz789: true
+      },
+      "acceptedEvents": {
+        event1_xyz123: false,
+        event2_xyz456: false,
+        event3_xyz789: true           // attended this event
+      }
     },
     "user2_xyz789": {
-      "email": "user2@gmail.com",
       ...
     }
   },
   "events": {
-    "user1_abc123": {
-      "event1_xyz123": {
-        "name": "500",
-        "date": "May 5",
-        "location": "Stadium"
+    "event1_xyz123": {
+      "userId": "user1_abc123"
+      "eventName": "500",
+      "date": "May 5",
+      "location": "Stadium",
+      "category": "sports",
+      "imageUrl": 'https://i.imgur.com/x443dJI.jpg',
+      "selectedUser": "user2_xyz789" 
+      "interestedUsers": {
+        user1: true,
+        user2: true,                        
+        user3: true,
+        user4: true
       },
-      "event2": {
-        "name": "500",
-        "date": "May 5",
-        "location": "Stadium"
-      },
+      timestamp: 12323433543 
     },
-    "user2_xyz789": {
-      "event1_xyz123": {
-        "name": "500",
-        "date": "May 5",
-        "location": "Stadium"
-      },
-      "event2": {
-        "name": "500",
-        "date": "May 5",
-        "location": "Stadium"
-      },
+    "event_rdg175": {
+      ...
+    },
+    "event1_xyz783": {
+      ...
     },
   },
-  "comments": {
+  "acceptances": {
     "event1_xyz123": {
-      "comment1": { responder: 'Alex Smith', comment: 'I love steak', selected: false },
-      "comment2": { responder: 'Alex Smith', comment: 'I love steak', selected: false },
-      "comment3": { responder: 'Alex Smith', comment: 'I love steak', selected: false } 
+      "acceptance_123": { userId: 'user1_abc123', eventId: event1_xyz123, userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_382": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_308": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } 
     },
-    "event2": {
-      "comment1": { responder: 'Alex Smith', comment: 'I love steak', selected: false },
-      "comment2": { responder: 'Alex Smith', comment: 'I love steak', selected: false },
-      "comment3": { responder: 'Alex Smith', comment: 'I love steak', selected: false }, 
-      "comment4": { responder: 'Alex Smith', comment: 'I love steak', selected: false } 
+    "event_jdh654": {
+      "acceptance_196": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_138": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }, 
+      "acceptance_145": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } 
     } 
   }
+}
+
+
+{
+  currentUser: { 
+    "userName": "joeblow",
+    "fullName": "John Smith",
+    "email": "user1@gmail.com",
+    "location": "Atlanta, GA"
+    "age": 34,
+    "description": "some long description",
+    "createdAt": "November 21, 2000",
+    "userEvents": {
+      event1_xyz123: true,
+      event2_xyz456: true,
+      event3_xyz789: true
+    },
+    "acceptedEvents": {
+      event1_xyz123: false,
+      event2_xyz456: false,
+      event3_xyz789: true           // attended this event
+    }
+  },
+  eventUser: {
+    ...
+    userId: user_abc123,
+  },
+  events: {
+    event_123: {
+      "userId": "user1_abc123"
+      "eventName": "Falcons Game",
+      "date": "May 5",
+      "location": "Stadium",
+      "category": "sports",
+      "imageUrl": 'https://i.imgur.com/x443dJI.jpg',
+      "interestedUsers": {
+        user1: true,
+        user2: true,
+        user3: true,
+        user4: true
+      },
+      timestamp: 12323433543 
+    },
+    event_456: {
+      ...
+    },
+    event_451: {
+      ...
+    }
+  },
+  acceptances: {
+    "acceptance_196": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+    "acceptance_138": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+    "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }, 
+    "acceptance_145": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } ...
+  },
+  loading: false
 }

@@ -14,14 +14,15 @@ class ShowEvent extends React.Component {
   }
 
   render() {
-    const { event, comments, eventId } = this.props;
-    let commentsArray, selectedComment, unselectedComments, formattedUnselectedComments;
-    if(comments) {
-      commentsArray = objToArray(comments);
-      selectedComment = comments.find((comment) => comment.selected === true) || null;
-      unselectedComments = comments.filter((comment) => comment.selected !== true) || null;
-      formattedUnselectedComments = unselectedComments.map((comment) => <ShowAcceptance_Container eventId={eventId} comment={comment} />)
+    const { event, acceptances, eventId } = this.props;
+    let acceptancesArray, selectedAcceptance, unselectedAcceptances, formattedUnselectedAcceptances;
+    if(acceptances) {
+      acceptancesArray = objToArray(acceptances);
+      selectedAcceptance = acceptances.find((acceptance) => acceptance.selected === true) || null;
+      unselectedAcceptances = acceptances.filter((acceptance) => acceptance.selected !== true) || null;
+      formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) => <ShowAcceptance_Container eventId={eventId} acceptance={acceptance} />)
     }
+
     return(
       <div className='show-event container'>
         <img src={event.url} className='show-event__image'/>
@@ -31,8 +32,8 @@ class ShowEvent extends React.Component {
           Inviter:     {event.inviter} <br />
           Location:    {event.location} <br />
           Description: {event.description} <br />
-          Selected:    {selectedComment ? <div className='show-event__selected-comment'>{selectedComment.comment}</div> : 'None Selected'} <br />
-          Comments:    {formattedUnselectedComments ? <ul>{formattedUnselectedComments}</ul> : 'None'}
+          Selected:    {selectedAcceptance ? <div className='show-event__selected-acceptance'>{selectedAcceptance.acceptance}</div> : 'None Selected'} <br />
+          Acceptances:    {formattedUnselectedAcceptances ? <ul>{formattedUnselectedAcceptances}</ul> : 'None'}
         </div>
       </div>
     )

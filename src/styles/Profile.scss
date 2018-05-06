@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 
-
 .profile__outer-container {
   background-color: $light-grey;
 }
@@ -21,5 +20,18 @@
 
 .events-header {
   width: $container;
-  margin: 0 auto;
+  margin-left: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.events-header__button {
+  background-color: $main-color;
+  min-width: 100px;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
 }

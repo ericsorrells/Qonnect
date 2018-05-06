@@ -1,16 +1,20 @@
+// ========================================================================================
 import React from 'react';
+// ========================================================================================
 
 class EventForm extends React.Component {
   constructor(props) {
     super(props)
-    const { id, name, date, location, description } = this.props.event;
-    
+    let id, name, date, location, description; 
+    // if(props.event){
+    //   { id , name, date, location, description } = props.event;
+    // }
     this.state = {
-      id:          id || 1,
-      name:        name ? name:               '',
-      date:        date ? date:               '',
-      location:    location ? location:       '',
-      description: description ? description: ''
+      id:          props.event ? props.event.id          : 1,
+      name:        props.event ? props.event.name        : '',
+      date:        props.event ? props.event.date        : '',
+      location:    props.event ? iprops.event.location   : '',
+      description: props.event ? props.event.description : ''
     }
 
     this.onFormSubmit        = this.onFormSubmit.bind(this);

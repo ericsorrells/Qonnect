@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     event: state.events[paramId],
     eventId: paramId,
-    comments: objToArray(state.comments[paramId]) || null
+    acceptances: objToArray(state.acceptances[paramId]) || null
   }
 }
 
