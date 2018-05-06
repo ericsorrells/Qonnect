@@ -23,7 +23,10 @@ const EventItem = (event) => {
   return (
     <li className='event-item'>
       <div className='event-item__left'>
-        <img src={url} className='event-item__image' />
+        { url ?
+            <img src={url} className='event-item__image' /> :
+            <img src='/images/default.png' className='event-item__image' />
+        }
       </div>
       <div className='event-item__right'>
         <Info value={name} type={'title'} />

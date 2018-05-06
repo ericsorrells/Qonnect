@@ -6,13 +6,15 @@ import EventItems from './EventItems';
 import EventForm  from './EventForm';
 // ========================================================================================
 
+
 class AddEvent extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
       name:     '', 
       location: '',
-      description: ''
+      description: '',
+      url: ''
     }
 
     this.handleAddEvent          = this.handleAddEvent.bind(this);
@@ -25,9 +27,10 @@ class AddEvent extends React.Component {
   handleAddEvent(e) {
     e.preventDefault();
     this.props.addEvent({
-      name: this.state.name,
-      location: this.state.location,
-      description: this.state.description
+      name:        this.state.name,
+      location:    this.state.location,
+      description: this.state.description,
+      url:         this.state.url  
     })
     this.setState({ name: '', location: '', description: '' })
   }
