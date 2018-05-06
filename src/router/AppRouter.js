@@ -8,6 +8,7 @@ import createHistory from 'history/createBrowserHistory';
 import AddEventsContainer   from '../containers/AddEvent_Container';
 import EditEventContainer   from '../containers/EditEvent_Container';
 import EditProfileContainer from '../containers/EditProfile_Container';
+import FindEventsContainer  from '../containers/FindEvents_Container';
 import ProfileContainer     from '../containers/Profile_Container';
 import ShowEventContainer   from '../containers/ShowEvent_Container';
 import Home                 from '../components/Home';
@@ -30,6 +31,8 @@ const AppRouter = () => (
           <Route path="/show-event/:id"   component={ShowEventContainer}    />
           <Route path="/add-event"        component={AddEventsContainer}    />
           <Route path="/edit-event/:id"   component={EditEventContainer}    />
+          <Route path="/edit-event/:id"   component={EditEventContainer}    />
+          <Route path="/find-events"      component={FindEventsContainer}   />
           <Route component={NotFound}                                       />
         </Switch>
       </main>

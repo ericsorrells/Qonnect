@@ -4,6 +4,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import eventsReducer       from '../reducers/Events_Reducers';
 import profileReducer      from '../reducers/Profile_Reducer';
 import acceptancesReducer  from '../reducers/Acceptances_Reducer';
+import filtersReducer      from '../reducers/Filters_Reducer';
 // ========================================================================================
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -13,7 +14,8 @@ export default () => {
     combineReducers({
       profile:     profileReducer,
       events:      eventsReducer,
-      acceptances: acceptancesReducer
+      acceptances: acceptancesReducer,
+      filters:     filtersReducer
     }),
     composeEnhancers(applyMiddleware())
   )

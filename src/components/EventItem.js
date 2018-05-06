@@ -7,7 +7,8 @@ import Acceptances  from './EventItem_Acceptances';
 
 const EventItem = (event) => {
   const { id, url, name, location, description, inviter, date, history, interestedUsers, deleteEvent } = event;
-  
+  const loggedIn = false;
+
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
   }
@@ -17,7 +18,7 @@ const EventItem = (event) => {
   }
 
   const showElement = () => {
-    history.push(`/show-event/${id}`); 
+    history.push(`/show-event/${id}`);
   }
 
   return (
@@ -39,13 +40,15 @@ const EventItem = (event) => {
       </div>
       { interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length}/> }
       {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
-      <div className='hover-container'>
+      {loggedIn &&
+        <div className='hover-container'>
         <div className='hover-buttons'>
-          <button className='edit-button' onClick={showElement} >View</button>
-          <button className='edit-button' onClick={editElement} >Edit</button>
-          <button className='delete-button' onClick={deleteElement} >Delete</button>
+        <button className='edit-button' onClick={showElement} >View</button>
+        <button className='edit-button' onClick={editElement} >Edit</button>
+        <button className='delete-button' onClick={deleteElement} >Delete</button>
         </div>
-      </div>
+        </div>
+      }
     </li>
   )
 }
@@ -70,15 +73,15 @@ const SubInfo = ({value, type, icon}) => {
 }
 
 EventItem.propTypes = {
-  id:          PropTypes.number, 
-  url:         PropTypes.string, 
-  name:        PropTypes.string, 
-  location:    PropTypes.string, 
-  description: PropTypes.string, 
-  inviter:     PropTypes.string, 
-  date:        PropTypes.string, 
+  id:          PropTypes.number,
+  url:         PropTypes.string,
+  name:        PropTypes.string,
+  location:    PropTypes.string,
+  description: PropTypes.string,
+  inviter:     PropTypes.string,
+  date:        PropTypes.string,
   history:     PropTypes.func,
-  deleteEvent: PropTypes.func 
+  deleteEvent: PropTypes.func
 };
 
 // const HoverButtons = (showElement, editElement, deleteElement) => {
@@ -89,7 +92,7 @@ EventItem.propTypes = {
 //         <button className="edit-button" onClick={editElement}   >Edit</button>
 //         <button className="delete-button" onClick={deleteElement} >Delete</button>
 //       </div>
-//     </div> 
+//     </div>
 //   )
 // }
 

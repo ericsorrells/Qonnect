@@ -37,14 +37,14 @@ TODO: remove 'bindActionCreators' from Containers?
       "location": "Stadium",
       "category": "sports",
       "imageUrl": 'https://i.imgur.com/x443dJI.jpg',
-      "selectedUser": "user2_xyz789" 
+      "selectedUser": "user2_xyz789"
       "interestedUsers": {
         user1: true,
-        user2: true,                        
+        user2: true,
         user3: true,
         user4: true
       },
-      timestamp: 12323433543 
+      timestamp: 12323433543
     },
     "event_rdg175": {
       ...
@@ -57,20 +57,20 @@ TODO: remove 'bindActionCreators' from Containers?
     "event1_xyz123": {
       "acceptance_123": { userId: 'user1_abc123', eventId: event1_xyz123, userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
       "acceptance_382": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
-      "acceptance_308": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } 
+      "acceptance_308": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }
     },
     "event_jdh654": {
       "acceptance_196": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
       "acceptance_138": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
-      "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }, 
-      "acceptance_145": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } 
-    } 
+      "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_145": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }
+    }
   }
 }
 
-
+// STATE
 {
-  currentUser: { 
+  currentUser: {
     "userName": "joeblow",
     "fullName": "John Smith",
     "email": "user1@gmail.com",
@@ -107,7 +107,7 @@ TODO: remove 'bindActionCreators' from Containers?
         user3: true,
         user4: true
       },
-      timestamp: 12323433543 
+      timestamp: 12323433543
     },
     event_456: {
       ...
@@ -119,8 +119,16 @@ TODO: remove 'bindActionCreators' from Containers?
   acceptances: {
     "acceptance_196": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
     "acceptance_138": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
-    "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }, 
+    "acceptance_181": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
     "acceptance_145": { userId: 'user1_abc123', eventId: event_jdh654,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 } ...
+  },
+  searchFilters: {
+    sortBy: 'date',
+    city: '',
+    startDate: '',
+    endDate: '',
+    cateogory: '',
+    searchTerm: ''
   },
   loading: false
 }
