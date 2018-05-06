@@ -23,6 +23,11 @@ TODO: remove 'bindActionCreators' from Containers?
         event1_xyz123: false,
         event2_xyz456: false,
         event3_xyz789: true           // attended this event
+      },
+      "uninterestedUsers": {
+        event1_xyz123: true,
+        event2_xyz456: true,
+        event3_xyz789: true
       }
     },
     "user2_xyz789": {
@@ -43,8 +48,7 @@ TODO: remove 'bindActionCreators' from Containers?
         user2: true,
         user3: true,
         user4: true
-      },
-      timestamp: 12323433543
+      }
     },
     "event_rdg175": {
       ...
