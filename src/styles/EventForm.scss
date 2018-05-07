@@ -1,3 +1,38 @@
 .form {
   display: flex;
 }
+
+.DateRangePickerInput__withBorder {
+  color: red;
+
+}
+
+.CalendarDay__selected_span {
+  background: rgb(144, 130, 224);
+  color: rgb(110, 3, 8);
+}
+
+.CalendarDay__hovered_span,
+.CalendarDay__hovered_span:hover{
+  background: $main-color-light;
+  color: white;
+}
+
+.CalendarDay__selected,
+.CalendarDay__selected:active,
+.CalendarDay__selected:hover {
+  background: $main-color;
+  color: white;
+  border: 1px solid $main-color;
+}
+
+.DateInput_input__focused {
+  border-bottom: 2px solid $main-color;
+}
+
+
+.CalendarDay__selected_span:active,
+.CalendarDay__selected_span:hover {
+  border: 1px solid $dark-grey;
+  border-color: 1px solid $dark-grey;
+}

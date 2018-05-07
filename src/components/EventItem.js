@@ -1,6 +1,7 @@
 // ========================================================================================
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 // ========================================================================================
 import Acceptances  from './EventItem_Acceptances';
 // ========================================================================================
@@ -62,6 +63,10 @@ const Info = ({value, type}) => {
 }
 
 const SubInfo = ({value, type, icon}) => {
+  if(type === 'date') {
+    value = moment(value).format("dddd, MMMM Do YYYY, h:mm A");
+  }
+
   return (
     <div className={`event-item__${type}`}>
       <div style={{ fontSize: '1em', color: '#6334e3' }}>

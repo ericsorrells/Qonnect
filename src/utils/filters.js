@@ -1,7 +1,9 @@
-export const filterEvents = (events, { city, category, searchTerm, sortBy }) => {
-  console.log('FILTERING EVENTS!!!', events);
+import moment from 'moment';
+
+export const filterEvents = (events, { city, category, searchTerm, sortBy, startDate, endDate }) => {
   const eventList = events
     .filter((event) => filterByCity(event, city))
+    .filter((event) => filterByDate(event, startDate, endDate))
     .filter((event) => filterByCategory(event, category))
     .filter((event) => filterBySearchTerm(event, searchTerm))
     .sort((firstEvent, secondEvent) => {
@@ -16,6 +18,14 @@ export const filterEvents = (events, { city, category, searchTerm, sortBy }) => 
 const filterByCity = (event, city) => {
   if (city) {
     return event.city === city
+  }
+  return event;
+}
+
+const filterByDate = (event, startDate, endDate) => {
+  console.log('FILTER BY DATE', event.date, startDate, endDate);
+  if(event.date && startDate && endDate) {
+    return moment(event.date).isBetween(startDate, endDate)
   }
   return event;
 }

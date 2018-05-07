@@ -1,7 +1,9 @@
+import moment from 'moment';
+
 const defaultState = {
   city:       '',
-  startDate:  '',
-  endDate:    '',
+  startDate:  moment(),
+  endDate:    null,
   category:   '',
   searchTerm: '',
   sortBy:     true

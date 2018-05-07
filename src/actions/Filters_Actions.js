@@ -5,7 +5,7 @@ export const setFilters = (searchParams) => {
   }
 }
 
-export const clearFilters = () => {
+export const clearFilters = (newState) => {
   return {
     type: 'CLEAR_FILTERS'
   }
