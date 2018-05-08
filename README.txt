@@ -136,3 +136,51 @@ TODO: remove 'bindActionCreators' from Containers?
   },
   loading: false
 }
+
+
+
+
+
+
+
+
+
+
+https://www.npmjs.com/package/rc-time-picker
+
+yarn add rc-time-picker
+
+import TimePicker from 'rc-time-picker';
+import 'rc-time-picker/assets/index.css';
+
+this.handleTimeChange   = this.handleTimeChange.bind(this);
+
+handleSubmit(e) {
+    e.preventDefault();
+    const dateTime = this.state.date.concat(` ${this.state.time}`)
+    console.log('DATETIME', dateTime);
+    this.props.setFilters({
+      city:       this.state.city,
+      date:       dateTime,
+      category:   this.state.category,
+      searchTerm: this.state.searchTerm,
+      sortBy:     this.state.sortBy,
+      startDate:  this.state.startDate,
+      endDate:    moment(this.state.endDate)
+    });
+  }
+
+    handleTimeChange(value) {
+    this.setState({ time: value })
+  }
+
+   <label>Date:</label>
+        <TimePicker
+          showSecond={false}
+          defaultValue={moment().hour(0).minute(0)}
+          className="xxx"
+          format={'h:mm A'}
+          use12Hours
+          inputReadOnly
+          onChange={this.handleTimeChange}
+        />

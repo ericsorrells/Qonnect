@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import AppRouter, { history } from './router/AppRouter';
 import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
+import './firebase/firebase';
 // ========================================================================================
 import Home from '../src/components/Home';
 // ========================================================================================
