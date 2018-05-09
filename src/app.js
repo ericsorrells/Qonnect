@@ -9,6 +9,7 @@ import 'normalize.css/normalize.css';
 import { auth, firebase } from './firebase/firebaseIndex';
 import { doSignOut } from './firebase/auth';
 import { signIn, signOut } from './actions/Auth';
+import { getEventsFromFirebase } from './actions/Events_Actions'
 // ========================================================================================
 import Home from '../src/components/Home';
 // ========================================================================================
@@ -29,6 +30,7 @@ firebase.auth.onAuthStateChanged((user) => {
   if (user) {
     // fetch events & redirect
     store.dispatch(signIn(user.uid));
+    store.dispatch(getEventsFromFirebase(user.uid))
     // store.dispatch(startSetExpenses()).then(() => {
     //   renderApp();
     //   if(history.location.pathname === '/') {

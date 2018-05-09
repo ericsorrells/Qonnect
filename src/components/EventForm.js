@@ -2,6 +2,7 @@
 import React from 'react';
 // ========================================================================================
 
+//TODO: add category, "selectedUser", interestedUsers, uninterestedUsers
 class EventForm extends React.Component {
   constructor(props) {
     super(props)
@@ -10,10 +11,9 @@ class EventForm extends React.Component {
     //   { id , name, date, location, description } = props.event;
     // }
     this.state = {
-      id:          props.event ? props.event.id          : 1,
-      name:        props.event ? props.event.name        : '',
+      eventName:   props.event ? props.event.eventName   : '',
       date:        props.event ? props.event.date        : '',
-      location:    props.event ? props.event.location   : '',
+      location:    props.event ? props.event.location    : '',
       description: props.event ? props.event.description : ''
     }
 
@@ -27,8 +27,7 @@ class EventForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     this.props.onSubmit({
-      id:          this.state.id,
-      name:        this.state.name,
+      eventName:   this.state.eventName,
       date:        this.state.date,
       location:    this.state.location,
       description: this.state.description
@@ -36,7 +35,7 @@ class EventForm extends React.Component {
   }
 
   onNameChange(e) {
-    this.setState({ name: e.target.value })
+    this.setState({ eventName: e.target.value })
   }
 
   onDateChange(e) {
