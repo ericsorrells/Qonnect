@@ -3,12 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 // ========================================================================================
-import Acceptances  from './EventItem_Acceptances';
+import Acceptances from './EventItem_Acceptances';
 // ========================================================================================
 
 const EventItem = (event) => {
   const { id, url, name, location, description, inviter, date, history, interestedUsers, deleteEvent } = event;
-  const loggedIn = false;
 
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
@@ -25,9 +24,9 @@ const EventItem = (event) => {
   return (
     <li className='event-item'>
       <div className='event-item__left'>
-        { url ?
-            <img src={url} className='event-item__image' /> :
-            <img src='/images/default.png' className='event-item__image' />
+        {url ?
+          <img src={url} className='event-item__image' /> :
+          <img src='/images/default.png' className='event-item__image' />
         }
       </div>
       <div className='event-item__right'>
@@ -39,22 +38,20 @@ const EventItem = (event) => {
         </div>
         <Info value={description} type={'description'} />
       </div>
-      { interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length}/> }
+      {interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length} />}
       {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
-      {loggedIn &&
-        <div className='hover-container'>
+      <div className='hover-container'>
         <div className='hover-buttons'>
-        <button className='edit-button' onClick={showElement} >View</button>
-        <button className='edit-button' onClick={editElement} >Edit</button>
-        <button className='delete-button' onClick={deleteElement} >Delete</button>
+          <button className='edit-button' onClick={showElement} >View</button>
+          <button className='edit-button' onClick={editElement} >Edit</button>
+          <button className='delete-button' onClick={deleteElement} >Delete</button>
         </div>
-        </div>
-      }
+      </div>
     </li>
   )
 }
 
-const Info = ({value, type}) => {
+const Info = ({ value, type }) => {
   return (
     <div className={`event-item__${type}`}>
       {value}
@@ -62,8 +59,8 @@ const Info = ({value, type}) => {
   )
 }
 
-const SubInfo = ({value, type, icon}) => {
-  if(type === 'date') {
+const SubInfo = ({ value, type, icon }) => {
+  if (type === 'date') {
     value = moment(value).format("dddd, MMMM Do YYYY, h:mm A");
   }
 
@@ -78,14 +75,14 @@ const SubInfo = ({value, type, icon}) => {
 }
 
 EventItem.propTypes = {
-  id:          PropTypes.number,
-  url:         PropTypes.string,
-  name:        PropTypes.string,
-  location:    PropTypes.string,
+  id: PropTypes.number,
+  url: PropTypes.string,
+  name: PropTypes.string,
+  location: PropTypes.string,
   description: PropTypes.string,
-  inviter:     PropTypes.string,
-  date:        PropTypes.string,
-  history:     PropTypes.func,
+  inviter: PropTypes.string,
+  date: PropTypes.string,
+  history: PropTypes.func,
   deleteEvent: PropTypes.func
 };
 

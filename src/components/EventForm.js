@@ -5,7 +5,7 @@ import React from 'react';
 class EventForm extends React.Component {
   constructor(props) {
     super(props)
-    let id, name, date, location, description; 
+    let id, name, date, location, description;
     // if(props.event){
     //   { id , name, date, location, description } = props.event;
     // }
@@ -13,7 +13,7 @@ class EventForm extends React.Component {
       id:          props.event ? props.event.id          : 1,
       name:        props.event ? props.event.name        : '',
       date:        props.event ? props.event.date        : '',
-      location:    props.event ? iprops.event.location   : '',
+      location:    props.event ? props.event.location   : '',
       description: props.event ? props.event.description : ''
     }
 
@@ -31,7 +31,7 @@ class EventForm extends React.Component {
       name:        this.state.name,
       date:        this.state.date,
       location:    this.state.location,
-      description: this.state.description 
+      description: this.state.description
     })
   }
 
@@ -56,30 +56,30 @@ class EventForm extends React.Component {
       <div className='form'>
         <form onSubmit={this.onFormSubmit} >
           <label> Event Name: </label>
-          <input 
-            type='text' 
-            onChange={this.onNameChange} 
+          <input
+            type='text'
+            onChange={this.onNameChange}
             value={this.state.name}
           />
 
           <label> Event Date: </label>
-          <input 
-            type='text' 
+          <input
+            type='text'
             onChange={this.onDateChange}
             value={this.state.date}
           />
 
           <label> Event Location: </label>
-          <input 
-            type='text' 
+          <input
+            type='text'
             onChange={this.onLocationChange}
             value={this.state.location}
           />
 
           <label> Description: </label>
-          <textarea 
+          <textarea
             onChange={this.onDescriptionChange}
-            value={this.state.description}  
+            value={this.state.description}
           />
 
           <button type='submit'>Submit</button>

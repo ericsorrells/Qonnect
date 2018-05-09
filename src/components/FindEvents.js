@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
 import EventItems from './EventItems';
-import SearchContainer     from '../containers/Search_Container';
+import SearchContainer from '../containers/Search_Container';
 // ========================================================================================
 
 const FindEvents = (props) => {
@@ -18,6 +18,8 @@ const FindEvents = (props) => {
           {events &&
             <EventItems
               events={events}
+              history={props.history}
+              deleteEvent={props.deleteEvent}
             />
           }
         </section>

@@ -25,15 +25,14 @@ const NavigationNonAuth = () => {
   )
 }
 
-const NavBar = ({ authUser }) => {
-  console.log('AUTH_USE', authUser);
+const NavBar = ({ user }) => {
   return (
     <nav>
       <div className="nav">
         <div className="nav-title">
           qonnect
         </div>
-        {authUser
+        {user
           ? <NavigationAuth />
           : <NavigationNonAuth />
         }

@@ -7,18 +7,18 @@ import EventItem from '../components/EventItem';
 import { objToArray } from '../utils/utils';
 // ========================================================================================
 
-export const EventItems = ({...props}, history = null, deleteEvent = null, showEvent = null) => {
-  const { events } = props;
-  const eventsArray = objToArray(events); 
+export const EventItems = ({events, history = null, deleteEvent = null}) => {
+  // const { events } = props;
+  const eventsArray = objToArray(events);
   return eventsArray.map((event, index) => {
     return (
       <div>
         <ul>
-          <EventItem 
+          <EventItem
             {...event}
             key={event.id}
-            history={props.history}
-            deleteEvent={props.deleteEvent}
+            history={history}
+            deleteEvent={deleteEvent}
           />
         </ul>
       </div>
@@ -27,10 +27,10 @@ export const EventItems = ({...props}, history = null, deleteEvent = null, showE
 }
 
 EventItem.propTypes = {
-  event:       PropTypes.object, 
+  event:       PropTypes.object,
   history:     PropTypes.func,
   showEvent:   PropTypes.func,
-  deleteEvent: PropTypes.func 
+  deleteEvent: PropTypes.func
 };
 
 export default EventItems;

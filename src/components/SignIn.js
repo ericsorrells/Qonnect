@@ -1,17 +1,22 @@
 // ========================================================================================
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { doSignIn } from '../actions/Auth';
 // ========================================================================================
 import { SignUpLink } from './SignUp';
 import { auth } from '../firebase/firebaseIndex';
 // ========================================================================================
 
-const SignIn = ({ history }) =>
-  <div>
+const SignIn = (props) => {
+  return(
+    <div>
     <h1>SignIn</h1>
-    <SignInForm history={history} />
+    <SignInForm history={props.history} doSignIn={props.doSignIn}/>
     <SignUpLink />
-  </div>
+    </div>
+  )
+}
 
 const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
@@ -31,20 +36,10 @@ class SignInForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(event) {
-    const { email, password } = this.state;
-    const { history } = this.props;
-
-    auth.doSignInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
-        history.push('/');
-      })
-      .catch(error => {
-        this.setState(byPropKey('error', error));
-      });
-
-    event.preventDefault();
+  onSubmit(e) {
+    e.preventDefault();
+    this.props.doSignIn({...this.state})
+    this.props.history.push('/');
   }
 
   render() {
@@ -78,7 +73,20 @@ class SignInForm extends Component {
   }
 }
 
-export default withRouter(SignIn);
+const mapStateToProps = (state) => ({
+  // isAuthenticated: !!state.auth.uid
+  password: state.password
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return { doSignIn: (email, password) => dispatch(doSignIn(email, password)) }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+
+// export default withRouter(SignIn);
 
 export {
   SignInForm,
