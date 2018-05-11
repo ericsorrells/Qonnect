@@ -4,7 +4,6 @@ export const createEventInFirebase = (event = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     event.uid = uid
-    console.log('EVENT TO ADD', event);
     return database.ref(`events`).push(event)
       .then((ref) => {
         dispatch(addEvent(ref.key, {...event}));

@@ -8,7 +8,7 @@ export const authReducer = (state = defaultState, action) => {
         uid: action.uid
       }
     case 'SIGN_OUT':
-      return {};
+      return defaultState;
     default:
       return state;
   }

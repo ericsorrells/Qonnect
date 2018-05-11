@@ -1,19 +1,18 @@
 // ========================================================================================
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { doSignIn } from '../actions/Auth';
 // ========================================================================================
 import { SignUpLink } from './SignUp';
-import { auth } from '../firebase/firebaseIndex';
+import ProfileForm from './ProfileForm';
 // ========================================================================================
 
 const SignIn = (props) => {
-  return(
+  return (
     <div>
-    <h1>SignIn</h1>
-    <SignInForm history={props.history} doSignIn={props.doSignIn}/>
-    <SignUpLink />
+      <h1>SignIn</h1>
+      <SignInForm history={props.history} doSignIn={props.doSignIn} />
+      <SignUpLink />
     </div>
   )
 }
@@ -22,32 +21,28 @@ const byPropKey = (propertyName, value) => () => ({
   [propertyName]: value,
 });
 
-const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
-};
-
 class SignInForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ...INITIAL_STATE };
+    this.state = {
+      email: '',
+      password: '',
+      error: null,
+    };
+
     this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
-    this.props.doSignIn({...this.state})
-    this.props.history.push('/');
+    const signInResult = this.props.doSignIn({ ...this.state })
+      .catch(error => this.setState({ error: error }))
   }
 
   render() {
-    const { email, password, error, } = this.state;
-
-    const isInvalid =
-      password === '' ||
-      email === '';
+    const { email, password, error } = this.state;
+    const isInvalid = password === '' || email === '';
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -67,27 +62,15 @@ class SignInForm extends Component {
           Sign In
         </button>
 
-        { error && <p>{error.message}</p> }
+        {error && <p className='error'>{error.message}</p>}
       </form>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  // isAuthenticated: !!state.auth.uid
-  password: state.password
-});
-
 const mapDispatchToProps = (dispatch) => {
   return { doSignIn: (email, password) => dispatch(doSignIn(email, password)) }
 }
 
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
-
-// export default withRouter(SignIn);
-
-export {
-  SignInForm,
-};
+export default connect(null, mapDispatchToProps)(SignIn)
+export { SignInForm };

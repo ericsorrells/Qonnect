@@ -23,7 +23,6 @@ const filterByCity = (event, city) => {
 }
 
 const filterByDate = (event, startDate, endDate) => {
-  console.log('FILTER BY DATE', event.date, startDate, endDate);
   if(event.date && startDate && endDate) {
     return moment(event.date).isBetween(startDate, endDate)
   }

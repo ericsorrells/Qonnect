@@ -8,10 +8,13 @@ TODO: remove 'bindActionCreators' from Containers?
   "users": {
     "user1_abc123": {
       "userName": "joeblow",
-      "fullName": "John Smith",
+      "firstName": "John",
+      "lastName": "Smith",
       "email": "user1@gmail.com",
-      "location": "Atlanta, GA"
-      "age": 34,
+      "photoURL": "",
+      "city": "Atlanta",
+      "state": "GA",
+      "birthDate": 1976-11-04,
       "description": "some long description",
       "createdAt": "November 21, 2000",
       "userEvents": {

@@ -12,6 +12,7 @@ import EditEventContainer from '../containers/EditEvent_Container';
 import EditProfileContainer from '../containers/EditProfile_Container';
 import FindEventsContainer from '../containers/FindEvents_Container';
 import ProfileContainer from '../containers/Profile_Container';
+import ProfileUpdateContainer from '../containers/ProfileUpdate_Container';
 import ShowEventContainer from '../containers/ShowEvent_Container';
 import Footer from '../components/Footer';
 import Home from '../components/Home';
@@ -30,16 +31,17 @@ const AppRouter = (props) => {
         <NavBar user={props.user} />
         <main>
           <Switch>
-            <Route path="/" component={Home} exact={true} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
-            <PrivateRoute path="/profile" component={ProfileContainer} />
-            <PrivateRoute path="/edit-profile" component={EditProfileContainer} />
-            <PrivateRoute path="/show-event/:id" component={ShowEventContainer} />
-            <PrivateRoute path="/add-event" component={AddEventsContainer} />
-            <PrivateRoute path="/edit-event/:id" component={EditEventContainer} />
-            <PrivateRoute path="/find-events" component={FindEventsContainer} />
-            <Route component={NotFound} />
+            <Route path="/"                      component={Home} exact={true}        />
+            <Route path="/signup"                component={SignUp}                   />
+            <Route path="/signin"                component={SignIn}                   />
+            <PrivateRoute path="/profile"        component={ProfileContainer}         />
+            <PrivateRoute path="/update-profile" component={ProfileUpdateContainer}   />
+            <PrivateRoute path="/edit-profile"   component={EditProfileContainer}     />
+            <PrivateRoute path="/show-event/:id" component={ShowEventContainer}       />
+            <PrivateRoute path="/add-event"      component={AddEventsContainer}       />
+            <PrivateRoute path="/edit-event/:id" component={EditEventContainer}       />
+            <PrivateRoute path="/find-events"    component={FindEventsContainer}      />
+            <Route                               component={NotFound}                 />
           </Switch>
         </main>
         <Footer />
