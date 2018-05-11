@@ -1,14 +1,26 @@
 // ========================================================================================
 import React from 'react';
 import { auth } from '../firebase/firebaseIndex';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOut } from '../actions/Auth';
 // ========================================================================================
 
-const SignOutButton = () =>
-  <button
-    type="button"
-    onClick={auth.doSignOut}
-  >
-    Sign Out
-  </button>
+const SignOutButton = (props) => {
+  const signUserOut = () => {
+    props.signOut();
+    props.history.push('/');
+  }
+  
+  return (
+    <button type="button" onClick={() => signUserOut()} >
+      Sign Out
+    </button>
+  )
+}
 
-export default SignOutButton;
+const mapDispatchToProps = (dispatch) => {
+  return { signOut: () => dispatch(signOut()) }
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(SignOutButton));

@@ -9,14 +9,20 @@ import { objToArray, calcOpenEvents } from '../utils/utils';
 // ========================================================================================
 
 const mapStateToProps = (state) => {
-  const eventsArray = objToArray(state.events);
+  const eventsArray    = objToArray(state.events);
+
   return {
     totalEvents:    eventsArray.length,
     openEvents:     calcOpenEvents(eventsArray).length,
-    eventsAttended: Object.keys(state.profile.eventsAttended).length,
-    followers:      Object.keys(state.profile.followers).length,
-    following:      Object.keys(state.profile.following).length
+    eventsAttended: setCount(state.profile.acceptedEvents),
+    followers:      setCount(state.profile.followers),
+    following:      setCount(state.profile.following)
   }
+}
+
+const setCount = (stat) => {
+  if(stat) { return Object.keys(stat).length }
+  return 0;
 }
 
 export default connect(mapStateToProps)(UserStats)

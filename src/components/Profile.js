@@ -10,6 +10,7 @@ import EventItems from './EventItems';
 import { objToArray } from '../utils/utils'
 // ========================================================================================
 
+// TODO: add link to update profile info
 const Profile = ({ events, history, profile, deleteEvent }) => {
   return(
     <div className="profile">
@@ -41,7 +42,7 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
     </div>
   )
 }
- 
+
 const EventsHeader = (props) => {
   const handleClick = () => {
     props.history.push(`/add-event/`);

@@ -101,11 +101,12 @@ const defaultState = {
 
 const eventsReducer = (state = defaultState, action) => {
   switch(action.type) {
+    case 'ADD_EVENTS':
+      return action.events;
     case 'ADD_EVENT':
       return {
         ...state,
-        // TODO: remove when moving to Firebase
-        [(new Date).getTime()]: action.event
+        [action.key]: action.event
       }
     case 'EDIT_EVENT':
       return {

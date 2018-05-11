@@ -9,6 +9,7 @@ import 'normalize.css/normalize.css';
 import { auth, firebase } from './firebase/firebaseIndex';
 import { doSignOut } from './firebase/auth';
 import { signIn, signOut } from './actions/Auth';
+import { getEventsFromFirebase } from './actions/Events_Actions'
 // ========================================================================================
 import Home from '../src/components/Home';
 // ========================================================================================
@@ -23,25 +24,26 @@ const masterRouter = (
   </Provider>
 );
 
+let hasRendered = false;
+const renderApp = () => {
+  if(!hasRendered) {
+    ReactDOM.render(masterRouter, document.getElementById('app'));
+    hasRendered = true;
+  }
+}
+
 ReactDOM.render(masterRouter, document.getElementById('app'));
 
 firebase.auth.onAuthStateChanged((user) => {
-  if (user) {
-    // fetch events & redirect
-    store.dispatch(signIn(user.uid));
-    // store.dispatch(startSetExpenses()).then(() => {
-    //   renderApp();
-    //   if(history.location.pathname === '/') {
-    //     history.push('/dashboard');
-    //   }
-    // });
-  // } else {
-  //   console.log('SIGNING OUT OF APP.JS');
-  //   auth.doSignOut()
-  //     .then(
-  //       store.dispatch(signOut())
-  //     )
-    // renderApp();
-    // history.push('/');
-  }
-});
+  // TODO: how to better handle onAuthStateChanged 
+  if(!user) {
+    history.push('/')
+  } else {
+    // store.dispatch(signIn(user.uid));
+    // store.dispatch(getEventsFromFirebase(user.uid))
+      // renderApp();
+      // if(history.location.pathname === '/') {
+      //   history.push('/profile');
+      // }
+  // })
+}})

@@ -1,17 +1,24 @@
 // ========================================================================================
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { auth } from '../firebase/firebaseIndex';
+import { doSignUp, signIn } from '../actions/Auth';
+import { updateProfile } from '../actions/Profile_Actions';
 // ========================================================================================
 
-const SignUp = ({ history }) =>
+const SignUp = ({ history, signIn, updateProfile }) =>
   <div>
     <h1>SignUp</h1>
-    <SignUpForm history={history} />
+    <SignUpForm
+      history={history}
+      doSignUp={doSignUp}
+      signIn={signIn}
+      updateProfile={updateProfile} 
+    />
   </div>
 
 const INITIAL_STATE = {
-  username: '',
   email: '',
   passwordOne: '',
   passwordTwo: '',
@@ -25,51 +32,38 @@ const byPropKey = (propertyName, value) => () => ({
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = { ...INITIAL_STATE };
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit(event) {
-    const { username, email, passwordOne, } = this.state;
-    const { history } = this.props;
+  onSubmit(e) {
+    e.preventDefault();
+    const { email, passwordOne } = this.state;
+    // TODO: WHY DOES THIS NOT WORK???
+    // this.props.doSignUp(dispatch, email, passwordOne)
 
-    auth.doCreateUserWithEmailAndPassword(email, passwordOne)
-      .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
-        history.push('/');
+    return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
+      .then((user) => {
+        this.props.signIn(user)
+        this.props.updateProfile({email: email})
+        this.props.history.push('/update-profile')
       })
-      .catch(error => {
-        this.setState(byPropKey('error', error));
+      .catch((error) => {
+        console.error('ERROR SIGNING UP: ', error)
+        this.setState({ error: error })
       });
-
-    event.preventDefault();
   }
 
   render() {
-    const {
-      username,
-      email,
-      passwordOne,
-      passwordTwo,
-      error,
-    } = this.state;
+    const { email, passwordOne, passwordTwo, error } = this.state;
 
     const isInvalid =
       passwordOne !== passwordTwo ||
       passwordOne === '' ||
-      email === '' ||
-      username === '';
+      email === ''
 
     return (
       <form onSubmit={this.onSubmit}>
-        <input
-          value={username}
-          onChange={event => this.setState(byPropKey('username', event.target.value))}
-          type="text"
-          placeholder="Full Name"
-        />
         <input
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
@@ -91,7 +85,7 @@ class SignUpForm extends Component {
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>
-        {error && <p>{error.message}</p>}
+        {error && <p className='error'>{error.message}</p>}
       </form>
     );
   }
@@ -104,7 +98,14 @@ const SignUpLink = () =>
     <Link to={'/signup'}>Sign Up</Link>
   </p>
 
-export default withRouter(SignUp);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (user) => dispatch(signIn(user.uid)),
+    updateProfile: (profileUpdates) => dispatch(updateProfile(profileUpdates))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SignUp);
 
 export {
   SignUpForm,

@@ -22,7 +22,6 @@ class ShowEvent extends React.Component {
       unselectedAcceptances = acceptances.filter((acceptance) => acceptance.selected !== true) || null;
       formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) => <ShowAcceptance_Container eventId={eventId} acceptance={acceptance} />)
     }
-    console.log('URL', event);
 
     return(
       <div className='show-event container'>
