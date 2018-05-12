@@ -1,4 +1,4 @@
-const defaultState = {}
+const defaultState = {auth: {uid: "NClNDy4YHLMdy7ILKcQGcHpI4OD3"}}
 
 export const authReducer = (state = defaultState, action) => {
   console.log('SIGN IN REDUCER', action);

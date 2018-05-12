@@ -48,3 +48,14 @@ export const objToPairedArray = (data) => {
   });
   return array;
 }
+
+export const formatTime = (time) => {
+  let period = 'AM'
+  let [hour, minutes] = time.split(':')
+  if(hour > 12) {
+    hour = hour - 12;
+    period = 'PM'
+  }
+  // const formattedTime = `${hour}:${minutes} ${period}`; 
+  return `${hour}:${minutes} ${period}`
+}

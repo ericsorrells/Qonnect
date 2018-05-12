@@ -7,7 +7,7 @@ import Acceptances from './EventItem_Acceptances';
 // ========================================================================================
 
 const EventItem = (event) => {
-  const { id, url, name, location, description, inviter, date, history, interestedUsers, deleteEvent } = event;
+  const { id, userName, imageUrl, eventName, location, description, time, date, history, interestedUsers, deleteEvent } = event;
 
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
@@ -24,14 +24,14 @@ const EventItem = (event) => {
   return (
     <li className='event-item'>
       <div className='event-item__left'>
-        {url ?
-          <img src={url} className='event-item__image' /> :
+        {imageUrl ?
+          <img src={imageUrl} className='event-item__image' /> :
           <img src='/images/default.png' className='event-item__image' />
         }
       </div>
       <div className='event-item__right'>
-        <Info value={name} type={'title'} />
-        <Info value={inviter} type={'inviter'} />
+        <Info value={eventName} type={'title'} />
+        <Info value={userName} type={'inviter'} />
         <div className='event-item__date_location'>
           <SubInfo value={location} type={'location'} icon={'map-marker'} />
           <SubInfo value={date} type={'date'} icon={'calendar'} />

@@ -16,6 +16,7 @@
     "node-sass": "^4.8.3",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
+    "rc-time-picker": "^3.3.1",
     "react": "^16.3.1",
     "react-addons-shallow-compare": "^15.6.2",
     "react-dates": "^16.6.1",

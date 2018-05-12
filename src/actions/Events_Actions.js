@@ -1,12 +1,12 @@
 import database from '../firebase/firebase';
+import { history } from '../router/AppRouter';
 
 export const createEventInFirebase = (event = {}) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    event.uid = uid
     return database.ref(`events`).push(event)
       .then((ref) => {
         dispatch(addEvent(ref.key, {...event}));
+        history.push(`/show-event/${encodeURIComponent(ref.key)}`)
       }
     )
   }

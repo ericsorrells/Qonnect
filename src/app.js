@@ -37,7 +37,7 @@ ReactDOM.render(masterRouter, document.getElementById('app'));
 firebase.auth.onAuthStateChanged((user) => {
   // TODO: how to better handle onAuthStateChanged 
   if(!user) {
-    history.push('/')
+    // history.push('/')
   } else {
     // store.dispatch(signIn(user.uid));
     // store.dispatch(getEventsFromFirebase(user.uid))

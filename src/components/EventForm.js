@@ -1,35 +1,47 @@
 // ========================================================================================
 import React from 'react';
+import moment from 'moment';
+import { SingleDatePicker } from 'react-dates';
 // ========================================================================================
 
-//TODO: add category, "selectedUser", interestedUsers, uninterestedUsers
 class EventForm extends React.Component {
   constructor(props) {
     super(props)
-    let id, name, date, location, description;
-    // if(props.event){
-    //   { id , name, date, location, description } = props.event;
-    // }
+
+    const { event } = props;
     this.state = {
-      eventName:   props.event ? props.event.eventName   : '',
-      date:        props.event ? props.event.date        : '',
-      location:    props.event ? props.event.location    : '',
-      description: props.event ? props.event.description : ''
+      eventName:   event ? event.eventName    : '',
+      date:        event ? event.date         : '',
+      time:        event ? event.time         : '',
+      location:    event ? event.location     : '',
+      category:    event ? event.category     : '',
+      imageUrl:    event ? event.imageUrl     : '',
+      description: event ? event.description  : '',
+      focused: ''
     }
 
     this.onFormSubmit        = this.onFormSubmit.bind(this);
     this.onNameChange        = this.onNameChange.bind(this);
-    this.onDateChange        = this.onDateChange.bind(this);
+    this.onTimeChange        = this.onTimeChange.bind(this);
     this.onLocationChange    = this.onLocationChange.bind(this);
+    this.onCategoryChange    = this.onCategoryChange.bind(this);
+    this.onImageUrlChange    = this.onImageUrlChange.bind(this); 
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
   }
 
   onFormSubmit(e) {
     e.preventDefault();
+    const { firstName, lastName } = this.props.profile;
+
     this.props.onSubmit({
+      userName:    `${firstName} ${lastName}`,
+      uid:         this.props.auth.uid,
       eventName:   this.state.eventName,
-      date:        this.state.date,
+      date:        moment(this.state.date).valueOf(),
+      time:        this.state.time,
       location:    this.state.location,
+      category:    this.state.category,
+      imageUrl:    this.state.imageUrl,
       description: this.state.description
     })
   }
@@ -38,16 +50,29 @@ class EventForm extends React.Component {
     this.setState({ eventName: e.target.value })
   }
 
-  onDateChange(e) {
-    this.setState({ date: e.target.value })
+  onTimeChange(e) {
+    console.log('TIME: ', e.target.value);
+    this.setState({ time: e.target.value  })
   }
 
   onLocationChange(e) {
     this.setState({ location: e.target.value })
   }
 
+  onCategoryChange(e){
+    this.setState({ category: e.target.value })
+  }
+
+  onImageUrlChange(e) {
+    this.setState({ imageUrl: e.target.value })
+  }
+
   onDescriptionChange(e) {
     this.setState({ description: e.target.value })
+  }
+
+  onFocusChange({ focused }) {
+    this.setState(() => ({ calendarFocused: focused }))
   }
 
   render() {
@@ -62,17 +87,39 @@ class EventForm extends React.Component {
           />
 
           <label> Event Date: </label>
-          <input
-            type='text'
-            onChange={this.onDateChange}
-            value={this.state.date}
+          <SingleDatePicker
+            date={this.state.date}
+            onDateChange={ date => this.setState({ date: date }) }
+            focused={this.state.focused}
+            onFocusChange={({ focused }) => this.setState({ focused })}
+            numberOfMonths={1}
+            isOutsideRange={() => false} 
           />
 
+          <label>Time:</label>
+          <input type='time' onChange={this.onTimeChange}/>
           <label> Event Location: </label>
           <input
             type='text'
             onChange={this.onLocationChange}
             value={this.state.location}
+          />
+
+          <label>Category:</label>          
+          <select onChange={this.onCategoryChange} value={this.state.category ? this.state.category : ''}>
+            <option disabled selected value=''>Select A Category</option>
+            <option value="Sports">Sports</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Food">Food</option>
+            <option value="Music">Music</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+          </select>
+
+          <label>Image URL:</label>
+          <input
+            type='text'
+            onChange={this.onImageUrlChange}
+            value={this.state.imageUrl}
           />
 
           <label> Description: </label>
