@@ -1,5 +1,6 @@
 import { auth } from '../firebase/firebaseIndex';
 import { history } from '../router/AppRouter';
+import { firebase } from '../firebase/firebaseIndex';
 import { getEventsFromFirebase } from './Events_Actions';
 import { getProfileFromFirebase, updateProfile, setProfile } from './Profile_Actions';
 
@@ -8,9 +9,6 @@ export const doSignIn = ({ email, password, error }) => {
     return auth.doSignInWithEmailAndPassword(email, password)
       .then((user) => {
         dispatch(signIn(user.uid));
-        dispatch(setProfile({ displayName: user.displayName, photoURL: user.photoURL }))
-        dispatch(getProfileFromFirebase())
-        dispatch(getEventsFromFirebase())
         history.push('/profile')
       })
       .catch((error) => {
@@ -20,6 +18,16 @@ export const doSignIn = ({ email, password, error }) => {
   }
 }
 
+export const signOutOfFirebase = () => {
+  return (dispatch) => {
+    return auth.doSignOut()
+      .then(() => {
+        dispatch(signOut());
+        console.log('SIGN OUT');
+        window.localStorage.removeItem(firebase.storageKey);  
+      })
+  }
+}
 // TODO: Delete this if it won't work
 // export const doSignUp = (dispatch, email, passwordOne) => {
 //   return auth.doSignInWithEmailAndPassword(email, password)

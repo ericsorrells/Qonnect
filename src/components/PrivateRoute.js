@@ -13,7 +13,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
     <Route
       {...rest}
       component={(props) => (
-        firebase.isAuthenticated ? (
+        firebase.isAuthenticated() ? (
           <div>
             <Component {...props} />
           </div>
