@@ -11,19 +11,19 @@ import Profile from '../components/Profile'
 
 const mapStateToProps = (state) => {
   return { 
-    events: state.events,
+    events:  state.events,
     profile: state.profile
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteEvent: (id) => dispatch(deleteEvent(id)),
-    setProfile: (profileUpdates) => dispatch(setProfile(profileUpdates)),
-    getProfileFromFirebase: () => dispatch(getProfileFromFirebase()),
-    getEventsFromFirebase: () => dispatch(getEventsFromFirebase()),
-    setFilters: (searchParams) => dispatch(setFilters(searchParams))
+    deleteEvent:            (id)             => dispatch(deleteEvent(id)),
+    setProfile:             (profileUpdates) => dispatch(setProfile(profileUpdates)),
+    getProfileFromFirebase: ()               => dispatch(getProfileFromFirebase()),
+    getEventsFromFirebase:  ()               => dispatch(getEventsFromFirebase()),
+    setFilters:             (searchParams)   => dispatch(setFilters(searchParams))
   }
 }
-deleteEvent
+
 export default connect(mapStateToProps, mapDispatchToProps)(Profile)

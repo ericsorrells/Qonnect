@@ -9,7 +9,7 @@ export const doSignIn = ({ email, password, error }) => {
     return auth.doSignInWithEmailAndPassword(email, password)
       .then((user) => {
         dispatch(signIn(user.uid));
-        history.push('/profile')
+        history.push(`/profile/${user.uid}`)
       })
       .catch((error) => {
         console.error('ERROR LOGGING IN: ', error)
@@ -28,19 +28,6 @@ export const signOutOfFirebase = () => {
       })
   }
 }
-// TODO: Delete this if it won't work
-// export const doSignUp = (dispatch, email, passwordOne) => {
-//   return auth.doSignInWithEmailAndPassword(email, password)
-//     .then((user) => {
-//       dispatch(signIn(user.uid));
-//       dispatch(getProfileFromFirebase())
-//       dispatch(getEventsFromFirebase())
-//       history.push('/profile')
-//     })
-//     .catch((error) => {
-//       console.error('ERROR LOGGING IN: ', error)
-//     });
-// }
 
 export const signIn = (uid) => {
   return {
@@ -48,12 +35,6 @@ export const signIn = (uid) => {
     uid
   }
 }
-
-// export const doSignOut = () => {
-//   return {
-//     type: 'SIGN_OUT'
-//   }
-// }
 
 export const signOut = () => {
   return {

@@ -34,7 +34,7 @@ const AppRouter = (props) => {
             <Route path="/"                      component={Home} exact={true}        />
             <Route path="/signup"                component={SignUp}                   />
             <Route path="/signin"                component={SignIn}                   />
-            <PrivateRoute path="/profile"        component={ProfileContainer}         />
+            <PrivateRoute path="/profile/:id"    component={ProfileContainer}         />
             <PrivateRoute path="/update-profile" component={ProfileUpdateContainer}   />
             <PrivateRoute path="/edit-profile"   component={EditProfileContainer}     />
             <PrivateRoute path="/show-event/:id" component={ShowEventContainer}       />

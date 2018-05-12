@@ -30,7 +30,7 @@ class ProfileUpdate extends React.Component {
     firebaseProfileUpdate(user, this.props, partitionedData);
     firebaseAppProfileUpdate(this.props, partitionedData);
     
-    this.props.history.push('/profile')
+    this.props.history.push(`/profile/${user.uid}`)
   }
 
   render() {

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../components/SignOutButton';
 // ========================================================================================
 
-const NavigationAuth = () => {
+const NavigationAuth = (user) => {
   return (
     <div>
       <Link to="/">Home</Link> |
-      <Link to="/profile">Profile</Link> |
+      <Link to={`/profile/${encodeURIComponent(user.uid)}`}>My Profile</Link> |
       <Link to="/add-event">Add Event</Link> |
       <Link to="/find-events">Find Events</Link>
       <SignOutButton />
@@ -26,6 +26,7 @@ const NavigationNonAuth = () => {
 }
 
 const NavBar = ({ user }) => {
+  console.log('USER!!!', user);
   return (
     <nav>
       <div className="nav">
@@ -33,7 +34,7 @@ const NavBar = ({ user }) => {
           qonnect
         </div>
         {user
-          ? <NavigationAuth />
+          ? <NavigationAuth uid={user}/>
           : <NavigationNonAuth />
         }
       </div>
