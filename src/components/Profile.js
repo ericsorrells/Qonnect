@@ -30,7 +30,6 @@ const Profile = ({ events, history, profile, deleteEvent }) => {
             <EventsHeader history={history} />
             {events &&
               <EventItems
-                // events={objToArray(events)}
                 events={events}
                 history={history}
                 deleteEvent={deleteEvent}

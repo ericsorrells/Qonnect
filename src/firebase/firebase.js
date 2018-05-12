@@ -12,8 +12,13 @@ var config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
-
 const auth = firebase.auth();
 
-export { firebase, auth };
+const storageKey = 'qonnect_key';
+
+const isAuthenticated = () => {
+  return !!auth.currentUser || !!localStorage.getItem(storageKey);
+};
+
+export { firebase, auth, storageKey, isAuthenticated };
 export default database;

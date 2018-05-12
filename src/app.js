@@ -18,32 +18,57 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-const masterRouter = (
-  <Provider store={store}>
-    <AppRouter />
-  </Provider>
-);
+class QonnectApp extends React.Component {
+  constructor(props) {
+    super(props)
 
-let hasRendered = false;
-const renderApp = () => {
-  if(!hasRendered) {
-    ReactDOM.render(masterRouter, document.getElementById('app'));
-    hasRendered = true;
+    this.state = {
+      uid: null,
+    };
+  }
+
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.localStorage.setItem(firebase.storageKey, user.uid);
+        this.setState({ uid: user.uid });
+      } else {
+        window.localStorage.removeItem(firebase.storageKey);
+        this.setState({ uid: null });
+      }
+    });
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <AppRouter />
+      </Provider>
+    )
   }
 }
 
-ReactDOM.render(masterRouter, document.getElementById('app'));
 
-firebase.auth.onAuthStateChanged((user) => {
+// let hasRendered = false;
+// const renderApp = () => {
+//   if(!hasRendered) {
+//     ReactDOM.render(masterRouter, document.getElementById('app'));
+//     hasRendered = true;
+//   }
+// }
+
+ReactDOM.render(<QonnectApp />, document.getElementById('app'));
+
+// firebase.auth.onAuthStateChanged((user) => {
   // TODO: how to better handle onAuthStateChanged 
-  if(!user) {
+  // if(!user) {
     // history.push('/')
-  } else {
-    // store.dispatch(signIn(user.uid));
+  // } else {
     // store.dispatch(getEventsFromFirebase(user.uid))
-      // renderApp();
-      // if(history.location.pathname === '/') {
-      //   history.push('/profile');
-      // }
-  // })
-}})
+    // renderApp();
+    // if(history.location.pathname === '/') {
+    //   store.dispatch(doSignIn({ password: 'chicken', email: 'me@me.com' }));
+    //   history.push('/profile');
+    // }
+  // }
+// })

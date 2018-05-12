@@ -28,7 +28,7 @@ const UserInfo = ({
         </div>
         <div className="user-info__item">
           <i class="fas fa-birthday-cake"></i>
-          {birthDate} Years Old
+          { moment().diff(birthDate, 'years') } Years Old
         </div>
         <div className="user-info__item">
           <i class="fas fa-sign-in-alt"></i>
