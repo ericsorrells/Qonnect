@@ -20,7 +20,7 @@ export const addEvent = (key, event) => {
   }
 }
 
-export const getEventsFromFirebase = () => {
+export const getUserEventsFromFirebase = () => {
   const events = {};
   return (dispatch, getState) => {
     const userId = getState().auth.uid;
@@ -35,7 +35,25 @@ export const getEventsFromFirebase = () => {
   };
 };
 
+export const getOtherUserEventsFromFirebase = () => {
+  const events = {};
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200)
+      .once('value')
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          if(childSnapshot.val().uid !== userId) {
+            events[childSnapshot.key] = childSnapshot.val()
+          } 
+        })
+        dispatch(addEvents(events))
+      })
+  };
+};
+
 export const addEvents = (events) => {
+  console.log('ADD EVENTS: ', events);
   return {
     type: 'ADD_EVENTS',
     events

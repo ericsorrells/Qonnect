@@ -3,7 +3,7 @@ import React                     from 'react';
 import { connect }               from 'react-redux';
 import { auth }                  from '../firebase/firebaseIndex';
 import { deleteEvent }           from '../actions/Events_Actions';
-import { getEventsFromFirebase } from '../actions/Events_Actions';
+import { getUserEventsFromFirebase } from '../actions/Events_Actions';
 import { setProfile, getProfileFromFirebase } from '../actions/Profile_Actions';
 // ========================================================================================
 import Profile from '../components/Profile'
@@ -12,17 +12,18 @@ import Profile from '../components/Profile'
 const mapStateToProps = (state) => {
   return { 
     events:  state.events,
-    profile: state.profile
+    profile: state.profile,
+    userId:  state.auth.uid
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteEvent:            (id)             => dispatch(deleteEvent(id)),
-    setProfile:             (profileUpdates) => dispatch(setProfile(profileUpdates)),
-    getProfileFromFirebase: ()               => dispatch(getProfileFromFirebase()),
-    getEventsFromFirebase:  ()               => dispatch(getEventsFromFirebase()),
-    setFilters:             (searchParams)   => dispatch(setFilters(searchParams))
+    deleteEvent:               (id)             => dispatch(deleteEvent(id)),
+    setProfile:                (profileUpdates) => dispatch(setProfile(profileUpdates)),
+    getProfileFromFirebase:    ()               => dispatch(getProfileFromFirebase()),
+    getUserEventsFromFirebase: ()               => dispatch(getUserEventsFromFirebase()),
+    setFilters:                (searchParams)   => dispatch(setFilters(searchParams))
   }
 }
 

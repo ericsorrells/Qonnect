@@ -1,6 +1,7 @@
 // ========================================================================================
 import React from 'react';
 import { connect } from 'react-redux';
+import { getOtherUserEventsFromFirebase } from '../actions/Events_Actions';
 // ========================================================================================
 import FindEvents from '../components/FindEvents';
 // ========================================================================================
@@ -13,4 +14,10 @@ const mapStateToProps = (state) => {
   return { events: filterEvents(eventsArray, state.filters) }
 }
 
-export default connect(mapStateToProps)(FindEvents);
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    getOtherUserEventsFromFirebase: () => dispatch(getOtherUserEventsFromFirebase()) 
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindEvents);

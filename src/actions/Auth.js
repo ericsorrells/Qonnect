@@ -1,8 +1,6 @@
 import { auth } from '../firebase/firebaseIndex';
 import { history } from '../router/AppRouter';
 import { firebase } from '../firebase/firebaseIndex';
-import { getEventsFromFirebase } from './Events_Actions';
-import { getProfileFromFirebase, updateProfile, setProfile } from './Profile_Actions';
 
 export const doSignIn = ({ email, password, error }) => {
   return (dispatch, getState) => {
@@ -23,7 +21,6 @@ export const signOutOfFirebase = () => {
     return auth.doSignOut()
       .then(() => {
         dispatch(signOut());
-        console.log('SIGN OUT');
         window.localStorage.removeItem(firebase.storageKey);  
       })
   }

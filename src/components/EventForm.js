@@ -10,14 +10,14 @@ class EventForm extends React.Component {
 
     const { event } = props;
     this.state = {
-      eventName:   event ? event.eventName    : '',
-      date:        event ? event.date         : '',
-      time:        event ? event.time         : '',
-      location:    event ? event.location     : '',
-      category:    event ? event.category     : '',
-      imageUrl:    event ? event.imageUrl     : '',
-      description: event ? event.description  : '',
-      focused: ''
+      eventName:   event ? event.eventName:   '',
+      date:        event ? event.date:        '',
+      time:        event ? event.time:        '',
+      location:    event ? event.location:    '',
+      category:    event ? event.category:    '',
+      imageUrl:    event ? event.imageUrl:    '',
+      description: event ? event.description: '',
+      focused:     ''
     }
 
     this.onFormSubmit        = this.onFormSubmit.bind(this);
@@ -25,7 +25,7 @@ class EventForm extends React.Component {
     this.onTimeChange        = this.onTimeChange.bind(this);
     this.onLocationChange    = this.onLocationChange.bind(this);
     this.onCategoryChange    = this.onCategoryChange.bind(this);
-    this.onImageUrlChange    = this.onImageUrlChange.bind(this); 
+    this.onImageUrlChange    = this.onImageUrlChange.bind(this);
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
   }
 
@@ -34,15 +34,18 @@ class EventForm extends React.Component {
     const { firstName, lastName } = this.props.profile;
 
     this.props.onSubmit({
-      userName:    `${firstName} ${lastName}`,
-      uid:         this.props.auth.uid,
-      eventName:   this.state.eventName,
-      date:        moment(this.state.date).valueOf(),
-      time:        this.state.time,
-      location:    this.state.location,
-      category:    this.state.category,
-      imageUrl:    this.state.imageUrl,
-      description: this.state.description
+      userName:          `${firstName} ${lastName}`,
+      uid:               this.props.auth.uid,
+      eventName:         this.state.eventName,
+      date:              moment(this.state.date).valueOf(),
+      time:              this.state.time,
+      location:          this.state.location,
+      category:          this.state.category,
+      imageUrl:          this.state.imageUrl,
+      description:       this.state.description,
+      selectedUser:      'none',
+      interestedUsers:   'none',
+      uninterestedUsers: 'none',
     })
   }
 
@@ -52,14 +55,14 @@ class EventForm extends React.Component {
 
   onTimeChange(e) {
     console.log('TIME: ', e.target.value);
-    this.setState({ time: e.target.value  })
+    this.setState({ time: e.target.value })
   }
 
   onLocationChange(e) {
     this.setState({ location: e.target.value })
   }
 
-  onCategoryChange(e){
+  onCategoryChange(e) {
     this.setState({ category: e.target.value })
   }
 
@@ -89,15 +92,15 @@ class EventForm extends React.Component {
           <label> Event Date: </label>
           <SingleDatePicker
             date={this.state.date}
-            onDateChange={ date => this.setState({ date: date }) }
+            onDateChange={date => this.setState({ date: date })}
             focused={this.state.focused}
             onFocusChange={({ focused }) => this.setState({ focused })}
             numberOfMonths={1}
-            isOutsideRange={() => false} 
+            isOutsideRange={() => false}
           />
 
           <label>Time:</label>
-          <input type='time' onChange={this.onTimeChange}/>
+          <input type='time' onChange={this.onTimeChange} />
           <label> Event Location: </label>
           <input
             type='text'
@@ -105,7 +108,7 @@ class EventForm extends React.Component {
             value={this.state.location}
           />
 
-          <label>Category:</label>          
+          <label>Category:</label>
           <select onChange={this.onCategoryChange} value={this.state.category ? this.state.category : ''}>
             <option disabled selected value=''>Select A Category</option>
             <option value="Sports">Sports</option>

@@ -11,11 +11,17 @@ import UserInfo from './UserInfo';
 import UserStats from '../containers/UserStats_Container';
 import EventItems from './EventItems';
 // ========================================================================================
-import { objToArray } from '../utils/utils'
+import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 // TODO: add link to update profile info
 class Profile extends React.Component {
+  componentDidMount(){
+    const user = auth.getCurrentUser();
+    this.props.getProfileFromFirebase(user.uid)
+    this.props.setProfile({ displayName: user.displayName, photoURL: user.photoURL })
+    this.props.getUserEventsFromFirebase()
+  }
 
   render(){
     const { events, history, profile, deleteEvent } = this.props
