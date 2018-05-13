@@ -30,7 +30,7 @@ class QonnectApp extends React.Component {
     firebase.auth.onAuthStateChanged((user) => {
       if (user) {
         window.localStorage.setItem(firebase.storageKey, user.uid);
-        // store.dispatch(signIn(user.uid))
+        store.dispatch(signIn(user.uid))
       } else {
         window.localStorage.removeItem(firebase.storageKey);
         history.push('/');

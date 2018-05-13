@@ -1,17 +1,24 @@
 // ========================================================================================
 import React from 'react';
 // ========================================================================================
-import ShowAcceptance from './ShowAcceptance';
+import ShowAcceptance           from './ShowAcceptance';
 import ShowAcceptance_Container from '../containers/ShowAcceptance_Container';
-import moment from 'moment';
+import { withRouter }           from 'react-router-dom';
+import { isCurrentUser }        from '../firebase/auth';
+import moment                   from 'moment';
 // ========================================================================================
 import { objToArray, formatTime } from '../utils/utils'
 // ========================================================================================
 
-// TODO: make this a stateless component???
 class ShowEvent extends React.Component {
   constructor(props){
     super(props)
+
+    // TODO: how to hangle a browser refresh??
+    // https://stackoverflow.com/questions/37195590/how-can-i-persist-redux-state-tree-on-refresh/37197370
+    if(!this.props.event) {
+      this.props.history.push('/profile')
+    }
   }
 
   render() {
@@ -23,24 +30,49 @@ class ShowEvent extends React.Component {
       unselectedAcceptances = acceptances.filter((acceptance) => acceptance.selected !== true) || null;
       formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) => <ShowAcceptance_Container eventId={eventId} acceptance={acceptance} />)
     }
-
+    
     return(
       <div className='show-event container'>
-        <img src={event.imageUrl} className='show-event__image'/>
+        { event && event.imageUrl && <img src={event.imageUrl} className='show-event__image'/> }
         <div>
-          Event:       {event.eventName} <br />
-          Date:        {moment(event.date).format("MMM DD, YYYY")} <br />
-          Time:        {formatTime(event.time)}  <br />
-          Category:    {event.category} <br />
-          Inviter:     {event.userName} <br />
-          Location:    {event.location} <br />
-          Description: {event.description} <br />
-          Selected:    {selectedAcceptance ? <div className='show-event__selected-acceptance'>{selectedAcceptance.acceptance}</div> : 'Open Event'} <br />
+          {event && event.eventName   && <EventInfo name='Name'        info={event.eventName} />}
+          {event && event.date        && <EventInfo name='Date'        info={event.date} />}
+          {event && event.time        && <EventInfo name='Time'        info={event.time} />}
+          {event && event.category    && <EventInfo name='Category'    info={event.category} />}
+          {event && event.userName    && <EventInfo name='Inviter'     info={event.userName} />}
+          {event && event.location    && <EventInfo name='Location'    info={event.location} />}
+          {event && event.description && <EventInfo name='Description' info={event.description} />}
+          Selected: {selectedAcceptance ? <div className='show-event__selected-acceptance'>{selectedAcceptance.acceptance}</div> : 'Open Event'} <br />
           Acceptances: {formattedUnselectedAcceptances ? <ul>{formattedUnselectedAcceptances}</ul> : 'None'}
+          { isCurrentUser(event.uid) && <Menu /> }
+          { !isCurrentUser(event.id) && <AcceptInvite />}
         </div>
       </div>
     )
   }
 }
 
-export default ShowEvent;
+const EventInfo = ({name, info}) => {
+  return(
+    <div>{name}: {info}</div>
+  )
+}
+
+const Menu = () => {
+  return(
+    <div>
+      <button>Edit</button>
+      <button>Delete</button>
+    </div>
+  )
+}
+
+const AcceptInvite = () => {
+  return(
+    <div>
+      <button>Accept Invitation</button>
+    </div>
+  )
+}
+
+export default withRouter(ShowEvent);

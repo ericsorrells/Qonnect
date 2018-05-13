@@ -61,7 +61,7 @@ const Info = ({ value, type }) => {
 
 const SubInfo = ({ value, type, icon }) => {
   if (type === 'date') {
-    value = moment(value).format("dddd, MMMM Do YYYY, h:mm A");
+    value = moment(value).format("dddd, MMMM Do YYYY");
   }
 
   return (
@@ -75,14 +75,14 @@ const SubInfo = ({ value, type, icon }) => {
 }
 
 EventItem.propTypes = {
-  id: PropTypes.number,
-  url: PropTypes.string,
-  name: PropTypes.string,
-  location: PropTypes.string,
+  id:          PropTypes.number,
+  url:         PropTypes.string,
+  name:        PropTypes.string,
+  location:    PropTypes.string,
   description: PropTypes.string,
-  inviter: PropTypes.string,
-  date: PropTypes.string,
-  history: PropTypes.func,
+  inviter:     PropTypes.string,
+  date:        PropTypes.string,
+  history:     PropTypes.func,
   deleteEvent: PropTypes.func
 };
 

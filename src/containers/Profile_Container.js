@@ -8,10 +8,12 @@ import { setProfile, getProfileFromFirebase } from '../actions/Profile_Actions';
 // ========================================================================================
 import Profile from '../components/Profile'
 // ========================================================================================
+import { objToArray } from '../utils/utils';
+// ========================================================================================
 
 const mapStateToProps = (state) => {
   return { 
-    events:  state.events,
+    events:  objToArray(state.events),
     profile: state.profile,
     userId:  state.auth.uid
   }

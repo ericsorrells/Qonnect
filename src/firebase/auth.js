@@ -26,3 +26,7 @@ export const doPasswordUpdate = (password) =>
 
 // Get Current User
 export const getCurrentUser = () => auth.currentUser
+
+export const isCurrentUser = (uid) => {
+  return uid === auth.currentUser.uid
+}

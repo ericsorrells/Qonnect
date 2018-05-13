@@ -8,9 +8,8 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 export const EventItems = ({events, history = null, deleteEvent = null}) => {
-  // const { events } = props;
-  const eventsArray = objToArray(events);
-  return eventsArray.map((event, index) => {
+  
+  return events.map((event, index) => {
     return (
       <div>
         <ul>

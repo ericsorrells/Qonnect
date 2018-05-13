@@ -14,7 +14,6 @@ import EventItems from './EventItems';
 import { objToArray } from '../utils/utils';
 // ========================================================================================
 
-// TODO: add link to update profile info
 class Profile extends React.Component {
   componentDidMount(){
     const user = auth.getCurrentUser();

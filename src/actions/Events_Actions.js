@@ -74,3 +74,10 @@ export const deleteEvent = (id) => {
     id
   }
 }
+
+export acceptInvitation = (acceptanceInfo) => {
+  return {
+    type: 'ACCEPT_INVITATION',
+    acceptanceInfo
+  }
+}

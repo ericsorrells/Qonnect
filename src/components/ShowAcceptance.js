@@ -11,7 +11,7 @@ class ShowAcceptance extends React.Component {
   
   onSelect(eventId, acceptanceId) {
     // TODO: deselect any selected acceptances
-    this.props.selectAcceptance(eventId, acceptanceId)
+    this.props.chooseAcceptance(eventId, acceptanceId)
   }
 
   render() {
