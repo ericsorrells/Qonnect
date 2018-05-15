@@ -10,7 +10,8 @@ import { formatTime, formatDate } from '../utils/utils';
 // ========================================================================================
 
 const EventItem = (event) => {
-  const { id, userName, imageUrl, eventName, location, description, time, date, history, interestedUsers, deleteEvent } = event;
+  // console.log('EVENT ITEM USER', event);
+  const { id, uid, userName, imageUrl, eventName, location, description, time, date, history, interestedUsers, deleteEvent } = event;
 
   const deleteElement = () => {
     deleteEvent(id);                            // passed from showEvents props
@@ -38,7 +39,9 @@ const EventItem = (event) => {
         <Link to={`/show-event/${id}`}>
           <Info value={eventName} type={'title'} />
         </Link>
-        <Info value={userName} type={'inviter'} />
+        <Link to={`/profile/${uid}`}>
+          <Info value={userName} type={'inviter'} />
+        </Link>
         <div className='event-item__date_location'>
           {location && <SubInfo value={location} type={'location'} icon={'map-marker'} />}
           {date && <SubInfo value={formatDate(date)} type={'date'} icon={'calendar'} />  }

@@ -6,30 +6,45 @@ import { withRouter } from 'react-router-dom';
 import { history } from '../router/AppRouter';
 import { firebase } from '../firebase/firebaseIndex';
 // ========================================================================================
-import EventItem from './EventItem';
-import UserInfo from './UserInfo';
-import UserStats from '../containers/UserStats_Container';
+import EventItem  from './EventItem';
+import UserInfo   from './UserInfo';
+import UserStats  from '../containers/UserStats_Container';
 import EventItems from './EventItems';
 // ========================================================================================
 import { objToArray, getCurrentUserId } from '../utils/utils';
 // ========================================================================================
 
 class Profile extends React.Component {
+  constructor(props){
+    super(props)
+  }
 
   loadData(user){
+    console.log('LOAD DATA', user);
     this.props.getProfileFromFirebase(user.uid)
     this.props.setProfile({ 
       displayName: user.displayName, 
       photoURL:    user.photoURL,
       email:       user.email 
     })
-    this.props.getUserEventsFromFirebase(user.uid)
+    this.props.getUserEventsFromFirebase(user.uid);
+    window.scrollTo(0,0)
   }
 
   componentDidMount(){
     let user = getCurrentUserId(auth.getCurrentUser());
+    const urlParam = this.props.match.params.id;
+    if(user.uid !== urlParam) {
+      user = {uid: urlParam}
+    }
     this.loadData(user);
     sessionStorage.setItem('qProfile', JSON.stringify(user))
+  }
+
+  componentWillUnmount(){
+    console.log('COMPONENT_DID_UNMOUNT========');
+    let user = getCurrentUserId(auth.getCurrentUser());
+    this.loadData(user);
   }
 
   render(){

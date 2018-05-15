@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 export const getCurrentUserId = (user) => {
+  console.log('UTILS USER============', user);
   if(!user) { 
     return JSON.parse(sessionStorage.getItem('qProfile')) 
   }
