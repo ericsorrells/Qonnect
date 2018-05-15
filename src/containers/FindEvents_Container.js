@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    getOtherUserEventsFromFirebase: () => dispatch(getOtherUserEventsFromFirebase()) 
+    getOtherUserEventsFromFirebase: (uid) => dispatch(getOtherUserEventsFromFirebase(uid)) 
   }
 }
 

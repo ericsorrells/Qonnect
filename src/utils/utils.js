@@ -1,5 +1,11 @@
 import moment from 'moment';
 
+export const getCurrentUserId = (user) => {
+  if(!user) { 
+    return JSON.parse(sessionStorage.getItem('qProfile')) 
+  }
+  return user
+}
 export const isEventOwner = (userId, eventId) => {
   console.log('IS EVENT OWNER', userId, eventId, userId === eventId);
   return userId === eventId;

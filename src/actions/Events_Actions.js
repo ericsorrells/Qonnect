@@ -35,15 +35,14 @@ export const getUserEventsFromFirebase = (uid) => {
   };
 };
 
-export const getOtherUserEventsFromFirebase = () => {
+export const getOtherUserEventsFromFirebase = (uid) => {
   const events = {};
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
     return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200)
       .once('value')
       .then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
-          if(childSnapshot.val().uid !== userId) {
+          if(childSnapshot.val().uid !== uid) {
             events[childSnapshot.key] = childSnapshot.val()
           } 
         })

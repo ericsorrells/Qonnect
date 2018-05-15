@@ -11,7 +11,7 @@ import UserInfo from './UserInfo';
 import UserStats from '../containers/UserStats_Container';
 import EventItems from './EventItems';
 // ========================================================================================
-import { objToArray } from '../utils/utils';
+import { objToArray, getCurrentUserId } from '../utils/utils';
 // ========================================================================================
 
 class Profile extends React.Component {
@@ -27,8 +27,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount(){
-    let user = auth.getCurrentUser();
-    if(!user) { user = JSON.parse(sessionStorage.getItem('qProfile')) }
+    let user = getCurrentUserId(auth.getCurrentUser());
     this.loadData(user);
     sessionStorage.setItem('qProfile', JSON.stringify(user))
   }
