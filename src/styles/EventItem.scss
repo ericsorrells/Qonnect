@@ -8,56 +8,6 @@
   box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.32);
 }
 
-// overlay settings
-// ============================================================
-
-.event-item {
-  position: relative;                                  
-  transition: .5s ease;
-  background-color: white;
-}
-
-.event-item:hover .event-item__left {
-  opacity: 0.3;
-}
-
-.event-item:hover .event-item__right {
-  opacity: 0.3;
-}
-
-.event-item:hover .hover-container {
-  opacity: 1;
-  display: inline-block;
-}
-
-.hover-container{
-  display: none;                       // gets toggled in component
-  position: absolute;                  // positions absolutely w/in parent   
-  top: 50%;                            // centers the buttons
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: .5s ease;
-  opacity: 0;
-}
-
-.hover-buttons {
-  display: flex;
-}
-
-// end overlay settings
-// ============================================================
-
-.edit-button,
-.delete-button {
-  margin-right: 50px;
-  background-color: $main-color;
-  min-width: 100px;
-  color: white;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 5px;
-}
-
 .event-item__left {
   display: flex;
   justify-content: center;

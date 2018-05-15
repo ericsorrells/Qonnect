@@ -1,7 +1,8 @@
 // ========================================================================================
-import React from 'react';
+import React     from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+import moment    from 'moment';
+import { Link }  from 'react-router-dom';
 // ========================================================================================
 import Acceptances from './EventItem_Acceptances';
 // ========================================================================================
@@ -26,13 +27,17 @@ const EventItem = (event) => {
   return (
     <li className='event-item'>
       <div className='event-item__left'>
-        {imageUrl ?
-          <img src={imageUrl} className='event-item__image' /> :
-          <img src='/images/default.png' className='event-item__image' />
-        }
+        <Link to={`/show-event/${id}`}>
+          {imageUrl ?
+            <img src={imageUrl} className='event-item__image' /> :
+            <img src='/images/default.png' className='event-item__image' />
+          }
+        </Link>
       </div>
       <div className='event-item__right'>
-        <Info value={eventName} type={'title'} />
+        <Link to={`/show-event/${id}`}>
+          <Info value={eventName} type={'title'} />
+        </Link>
         <Info value={userName} type={'inviter'} />
         <div className='event-item__date_location'>
           {location && <SubInfo value={location} type={'location'} icon={'map-marker'} />}
@@ -42,14 +47,6 @@ const EventItem = (event) => {
         <Info value={description} type={'description'} />
       </div>
       {interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length} />}
-      {/* <HoverButtons showElement={showElement()} editElement={editElement} deleteElement={deleteEvent} /> */}
-      <div className='hover-container'>
-        <div className='hover-buttons'>
-          <button className='edit-button' onClick={showElement} >View</button>
-          <button className='edit-button' onClick={editElement} >Edit</button>
-          <button className='delete-button' onClick={deleteElement} >Delete</button>
-        </div>
-      </div>
     </li>
   )
 }
@@ -84,17 +81,5 @@ EventItem.propTypes = {
   history:     PropTypes.func,
   deleteEvent: PropTypes.func
 };
-
-// const HoverButtons = (showElement, editElement, deleteElement) => {
-//   return(
-//     <div className="hover-container">
-//       <div className="hover-buttons">
-//         <button className="edit-button" onClick={showElement}   >View</button>
-//         <button className="edit-button" onClick={editElement}   >Edit</button>
-//         <button className="delete-button" onClick={deleteElement} >Delete</button>
-//       </div>
-//     </div>
-//   )
-// }
 
 export default EventItem;
