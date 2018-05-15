@@ -23,8 +23,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteEvent:               (id)             => dispatch(deleteEvent(id)),
     setProfile:                (profileUpdates) => dispatch(setProfile(profileUpdates)),
-    getProfileFromFirebase:    ()               => dispatch(getProfileFromFirebase()),
-    getUserEventsFromFirebase: ()               => dispatch(getUserEventsFromFirebase()),
+    getProfileFromFirebase:    (uid)            => dispatch(getProfileFromFirebase(uid)),
+    getUserEventsFromFirebase: (uid)            => dispatch(getUserEventsFromFirebase(uid)),
     setFilters:                (searchParams)   => dispatch(setFilters(searchParams))
   }
 }

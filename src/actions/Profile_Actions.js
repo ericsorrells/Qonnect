@@ -1,9 +1,7 @@
 import database from '../firebase/firebase';
 
-export const getProfileFromFirebase = () => {
+export const getProfileFromFirebase = (uid) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    event.uid = uid
     return database.ref(`users/${uid}`).once('value')
       .then((snapshot) => {
         dispatch(setProfile(snapshot.val()));

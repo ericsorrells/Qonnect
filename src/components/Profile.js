@@ -15,11 +15,22 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 class Profile extends React.Component {
-  componentDidMount(){
-    const user = auth.getCurrentUser();
+
+  loadData(user){
     this.props.getProfileFromFirebase(user.uid)
-    this.props.setProfile({ displayName: user.displayName, photoURL: user.photoURL })
-    this.props.getUserEventsFromFirebase()
+    this.props.setProfile({ 
+      displayName: user.displayName, 
+      photoURL:    user.photoURL,
+      email:       user.email 
+    })
+    this.props.getUserEventsFromFirebase(user.uid)
+  }
+
+  componentDidMount(){
+    let user = auth.getCurrentUser();
+    if(!user) { user = JSON.parse(sessionStorage.getItem('qProfile')) }
+    this.loadData(user);
+    sessionStorage.setItem('qProfile', JSON.stringify(user))
   }
 
   render(){

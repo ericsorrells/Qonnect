@@ -21,11 +21,10 @@ export const addEvent = (key, event) => {
   }
 }
 
-export const getUserEventsFromFirebase = () => {
+export const getUserEventsFromFirebase = (uid) => {
   const events = {};
   return (dispatch, getState) => {
-    const userId = getState().auth.uid;
-     return database.ref(`events`).orderByChild('uid').equalTo(userId)
+     return database.ref(`events`).orderByChild('uid').equalTo(uid)
       .once('value')
       .then((snapshot) => {
         snapshot.forEach((childSnapshot) => {
