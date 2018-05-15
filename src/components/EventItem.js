@@ -5,6 +5,8 @@ import moment from 'moment';
 // ========================================================================================
 import Acceptances from './EventItem_Acceptances';
 // ========================================================================================
+import { formatTime, formatDate } from '../utils/utils';
+// ========================================================================================
 
 const EventItem = (event) => {
   const { id, userName, imageUrl, eventName, location, description, time, date, history, interestedUsers, deleteEvent } = event;
@@ -33,8 +35,9 @@ const EventItem = (event) => {
         <Info value={eventName} type={'title'} />
         <Info value={userName} type={'inviter'} />
         <div className='event-item__date_location'>
-          <SubInfo value={location} type={'location'} icon={'map-marker'} />
-          <SubInfo value={date} type={'date'} icon={'calendar'} />
+          {location && <SubInfo value={location} type={'location'} icon={'map-marker'} />}
+          {date && <SubInfo value={formatDate(date)} type={'date'} icon={'calendar'} />  }
+          {time && <SubInfo value={formatTime(time)} type={'time'} icon={'calendar'} />  }
         </div>
         <Info value={description} type={'description'} />
       </div>
@@ -60,10 +63,6 @@ const Info = ({ value, type }) => {
 }
 
 const SubInfo = ({ value, type, icon }) => {
-  if (type === 'date') {
-    value = moment(value).format("dddd, MMMM Do YYYY");
-  }
-
   return (
     <div className={`event-item__${type}`}>
       <div style={{ fontSize: '1em', color: '#6334e3' }}>

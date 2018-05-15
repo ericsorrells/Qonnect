@@ -5,9 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { firebase } from '../firebase/firebaseIndex';
 // ========================================================================================
 
-// const PrivateRoute = ({isAuthenticated, component: Component, ...rest}) => {
 const PrivateRoute = ({component: Component, ...rest}) => {
-  console.log('COMPONENT: ', Component);
   console.log('IS AUTH: ', firebase.isAuthenticated);
   return(
     <Route

@@ -6,6 +6,7 @@ export const createEventInFirebase = (event = {}) => {
     return database.ref(`events`).push(event)
       .then((ref) => {
         dispatch(addEvent(ref.key, {...event}));
+        // TODO: move all redirects to methods calling them
         history.push(`/show-event/${encodeURIComponent(ref.key)}`)
       }
     )
@@ -53,7 +54,6 @@ export const getOtherUserEventsFromFirebase = () => {
 };
 
 export const addEvents = (events) => {
-  console.log('ADD EVENTS: ', events);
   return {
     type: 'ADD_EVENTS',
     events
@@ -68,6 +68,16 @@ export const editEvent = (id, updates) => {
   }
 }
 
+export const deleteEventInFirebase = (eventId) => {
+  return(dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return database.ref(`events/${eventId}`).remove()
+      .then(() => {
+        dispatch(deleteEvent(eventId));
+      })
+  }
+}
+
 export const deleteEvent = (id) => {
   return {
     type: 'DELETE_EVENT',
@@ -75,9 +85,22 @@ export const deleteEvent = (id) => {
   }
 }
 
-export acceptInvitation = (acceptanceInfo) => {
+export const createInterestedUserInFirebase = (eventId) => {
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+    return database.ref(`events/${eventId}`).child('interestedUsers').update({[`${userId}`]: true})
+      .then((ref) => {
+        dispatch(createInterestedUser(eventId, userId));
+        history.push(`/show-event/${encodeURIComponent(eventId)}`)
+      }
+    )
+  };
+} 
+
+export const createInterestedUser = (eventId, userId) => {
   return {
-    type: 'ACCEPT_INVITATION',
-    acceptanceInfo
+    type: 'CREATE_INTERESTED_USER',
+    eventId,
+    userId
   }
 }

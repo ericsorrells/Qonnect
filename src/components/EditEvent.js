@@ -12,8 +12,9 @@ class EditEvent extends React.Component {
   }
 
   onSubmit(event) {
-    const { id, name, date, location, description } = event;
-    this.props.editEvent(id, { name, date, location, description })
+    const { id, eventName, date, time, location, description } = event;
+    // TODO: add support for persisting edited data to Firebase
+    this.props.editEvent(id, { ...event })
     this.props.history.push(`/show-event/${id}`); 
   }
 
@@ -23,27 +24,12 @@ class EditEvent extends React.Component {
         <EventForm
           event={this.props.event}
           onSubmit={this.onSubmit}
+          profile={this.props.profile}
+          auth={this.props.auth}
         />
       </div>
     )
   }
 }
-
-// const EditEvent = (event, props) => {
-//   const onSubmit = (event)  => {
-//     const { id, name, date, location, description } = event;
-//     this.props.editEvent(id, { name, date, location, description })
-//     this.props.history.push(`/show-event/${id}`); 
-//   }
-
-//   return(
-//     <div>
-//       <EventForm 
-//         event={props.event}
-//         onSubmit={onSubmit}
-//       />
-//     </div>
-//   )
-// }
 
 export default EditEvent;

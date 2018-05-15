@@ -9,6 +9,7 @@ class EventForm extends React.Component {
     super(props)
 
     const { event } = props;
+    console.log('EVENT', event);
     this.state = {
       eventName:   event ? event.eventName:   '',
       date:        event ? event.date:        '',
@@ -32,6 +33,7 @@ class EventForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     const { firstName, lastName } = this.props.profile;
+    console.log('AUTH', this.props.auth);
 
     this.props.onSubmit({
       userName:          `${firstName} ${lastName}`,
@@ -54,7 +56,6 @@ class EventForm extends React.Component {
   }
 
   onTimeChange(e) {
-    console.log('TIME: ', e.target.value);
     this.setState({ time: e.target.value })
   }
 
@@ -86,7 +87,7 @@ class EventForm extends React.Component {
           <input
             type='text'
             onChange={this.onNameChange}
-            value={this.state.name}
+            value={this.state.eventName}
           />
 
           <label> Event Date: </label>
@@ -100,7 +101,8 @@ class EventForm extends React.Component {
           />
 
           <label>Time:</label>
-          <input type='time' onChange={this.onTimeChange} />
+          <input type='time' onChange={this.onTimeChange} value={this.state.time}/>
+
           <label> Event Location: </label>
           <input
             type='text'

@@ -74,6 +74,16 @@ const acceptancesReducer = (state = defaultState, action) => {
           }
         }
       }
+    case 'CREATE_ACCEPTANCE':
+      return {
+        ...state,
+        [action.acceptanceInfo.eventId]: {
+          ...state[action.acceptanceInfo.eventId],
+          ...action.acceptanceInfo
+        } 
+      }  
+    case 'CREATE_ACCEPTANCES':
+      return action.acceptances;  
     default:
       return state
   }

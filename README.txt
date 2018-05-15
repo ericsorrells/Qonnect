@@ -62,7 +62,7 @@ TODO: remove 'bindActionCreators' from Containers?
   },
   "acceptances": {
     "event1_xyz123": {
-      "acceptance_123": { userId: 'user1_abc123', eventId: event1_xyz123, userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
+      "acceptance_123": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
       "acceptance_382": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 },
       "acceptance_308": { userId: 'user1_abc123', eventId: event1_xyz123,  userName: 'Alex Smith', acceptance: 'I love steak', selected: false, createdAt: 123875 }
     },

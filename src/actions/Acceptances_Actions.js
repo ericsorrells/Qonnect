@@ -1,7 +1,50 @@
+import database from '../firebase/firebase';
+import { history } from '../router/AppRouter';
+
 export const chooseAcceptance = (eventId, acceptanceId) => {
   return {
     type: 'SELECT_COMMENT',
     eventId,
     acceptanceId
+  }
+}
+
+export const createAcceptanceInFirebase = (acceptanceInfo) => {
+  return (dispatch, getState) => {
+    return database.ref(`acceptances/${acceptanceInfo.eventId}`).push({...acceptanceInfo})
+      .then((ref) => {
+        dispatch(createAcceptance(acceptanceInfo));
+        history.push(`/show-event/${encodeURIComponent(acceptanceInfo.eventId)}`)
+      }
+    )
+  };
+}
+
+export const createAcceptance = (acceptanceInfo) => {
+  return {
+    type: 'CREATE_ACCEPTANCE',
+    acceptanceInfo
+  }
+}
+
+export const getEventAcceptrancesFromFirebase = (eventId) => {
+  const acceptances = {};
+  return (dispatch, getState) => {
+    const userId = getState().auth.uid;
+     return database.ref(`acceptances/${eventId}`)
+      .once('value')
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          acceptances[childSnapshot.key] = childSnapshot.val()
+        })
+        dispatch(createAcceptances(acceptances))
+      })
+  };
+}
+
+export const createAcceptances = (acceptances) => {
+  return {
+    type: 'CREATE_ACCEPTANCES',
+    acceptances
   }
 }

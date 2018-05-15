@@ -26,7 +26,7 @@ const NavigationNonAuth = () => {
 }
 
 const NavBar = ({ user }) => {
-  console.log('USER!!!', user);
+  // console.log('USER!!!', user);
   return (
     <nav>
       <div className="nav">

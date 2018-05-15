@@ -121,6 +121,16 @@ const eventsReducer = (state = defaultState, action) => {
       return {
         ...newState
       }
+    case 'CREATE_INTERESTED_USER':
+      return {
+        ...state,
+        [action.eventId]: {
+          ...state[action.eventId],
+          interestedUsers: {
+            [action.userId]: true
+          }
+        }
+      }  
     default:
       return state;
   }

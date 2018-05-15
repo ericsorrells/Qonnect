@@ -9,8 +9,6 @@ class ProfileForm extends React.Component {
   constructor(props) {
     super(props)
     const { user = null, profile: userProfile = null } = this.props;
-    console.log('USER', user);
-    console.log('PROFILE',userProfile);
 
     this.state = {
       displayName:    userProfile.displayName ? userProfile.displayName : '',

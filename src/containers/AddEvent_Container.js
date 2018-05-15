@@ -7,6 +7,8 @@ import { auth } from '../firebase/firebaseIndex';
 // ========================================================================================
 import AddEvent from '../components/AddEvent';
 // ========================================================================================
+import { objToArray } from '../utils/utils';
+// ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(eventsActions, dispatch)
@@ -14,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return { 
-    events:   state.events,
+    events:   objToArray(state.events),
     userId:   state.auth.uid,
     profile:  state.profile,
     auth:     state.auth

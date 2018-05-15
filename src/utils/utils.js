@@ -1,3 +1,16 @@
+import moment from 'moment';
+
+export const isEventOwner = (userId, eventId) => {
+  console.log('IS EVENT OWNER', userId, eventId, userId === eventId);
+  return userId === eventId;
+}
+
+export const calcOpenEvents = (events) => {
+  const openEvents = events.filter((event) => {
+    return event.selectedGuest === ''
+  })
+  return openEvents;
+}
 
 export const objToArray = (myObj) => {
   if (!myObj) { return null }
@@ -10,13 +23,6 @@ export const objToArray = (myObj) => {
     return objWithId;
   })
   return objWithKeys
-}
-
-export const calcOpenEvents = (events) => {
-  const openEvents = events.filter((event) => {
-    return event.selectedGuest === ''
-  })
-  return openEvents;
 }
 
 // remove unused fields so not to overwrite w blank form data
@@ -57,6 +63,9 @@ export const formatTime = (time) => {
     hour = hour - 12;
     period = 'PM'
   }
-  // const formattedTime = `${hour}:${minutes} ${period}`; 
   return `${hour}:${minutes} ${period}`
+}
+
+export const formatDate = (date) => {
+  return moment(date).format('dddd, MMMM Do YYYY')
 }

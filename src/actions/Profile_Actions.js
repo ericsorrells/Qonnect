@@ -1,13 +1,5 @@
 import database from '../firebase/firebase';
 
-// export const getAuthInfoFromFirebase = () => {
-//   return (dispatch, getState) => {
-//     const uid = getState().auth.uid;
-//     event.uid = uid
-
-//   }
-// }
-
 export const getProfileFromFirebase = () => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -55,5 +47,25 @@ export const updateProfile = (profileUpdates) => {
   return {
     type: 'UPDATE_PROFILE',
     profileUpdates
+  }
+}
+
+
+export const createUserAcceptedEventInFirebase = (eventId, userId) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    event.uid = uid
+    return database.ref(`users/${uid}/acceptedEvents`).update({[`${eventId}`]: true})
+      .then((snapshot) => {
+        dispatch(createUserAcceptedEvent(snapshot.val()));
+    })
+  }
+}
+
+export const createUserAcceptedEvent = (eventId, userId) => {
+  return {
+    type: 'USER_ACCEPTED_EVENT',
+    eventId,
+    userId
   }
 }

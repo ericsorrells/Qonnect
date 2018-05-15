@@ -14,6 +14,7 @@ class AddEvent extends React.Component {
   }
 
   handleSubmit(event) {
+    // TODO: add method to add event to user 'userEvents' list in Profile
     this.props.createEventInFirebase(event);
   }
 
