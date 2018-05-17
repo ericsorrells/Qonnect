@@ -1,23 +1,24 @@
 // ========================================================================================
-import React         from 'react';
-import { connect }   from 'react-redux';
-import { editEvent } from '../actions/Events_Actions';
-import moment        from 'moment';
+import React                   from 'react';
+import { connect }             from 'react-redux';
+import { editEventInFirebase } from '../actions/Events_Actions';
+import moment                  from 'moment';
 // ========================================================================================
 import EditEvent from '../components/EditEvent';
 // ========================================================================================
+import { hasEventOrUseSessionStorage } from '../utils/utils';
+// ========================================================================================
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return { editEvent: (id, event) => dispatch(editEvent(id, event)) }
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    editEventInFirebase: (id, updates) => dispatch(editEventInFirebase(id, updates))
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const paramId = ownProps.match.params.id;
-  const newEvent = state.events[paramId]; 
-  newEvent.id = paramId;
-  // TODO: DatePicker not formatting to the entered data on Edit Pages
-  newEvent.date = moment(event.date);
-  console.log('NEW EVENT', newEvent);
+  const urlParam = ownProps.match.params.id; 
+  const newEvent = hasEventOrUseSessionStorage(urlParam, state.events)
+    // TODO: DatePicker not formatting to the entered data on Edit Pages
   return { 
     event:   newEvent,
     profile: state.profile,

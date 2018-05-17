@@ -25,8 +25,19 @@ export const doPasswordUpdate = (password) =>
   auth.currentUser.updatePassword(password);
 
 // Get Current User
-export const getCurrentUser = () => auth.currentUser
+export const getCurrentUser = () => {
+  let currentUser = auth.currentUser;
+  if(!currentUser) {
+    currentUser = JSON.parse(sessionStorage.getItem('qProfile'))
+  }
+  return currentUser;
+}
 
 export const isCurrentUser = (uid) => {
-  return uid === auth.currentUser.uid
+  let currentUser;
+  if(!auth.currentUser){
+    currentUser = JSON.parse(sessionStorage.getItem('qProfile'));
+    return uid === currentUser.uid
+  }
+  return uid === auth.currentUser.uid; 
 }

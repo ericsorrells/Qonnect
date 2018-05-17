@@ -1,9 +1,9 @@
 // ========================================================================================
-import React from 'react';
-import { connect } from 'react-redux';
-import * as eventsActions from '../actions/Events_Actions';
-import { bindActionCreators } from 'redux';
-import { auth } from '../firebase/firebaseIndex';
+import React                           from 'react';
+import { connect }                     from 'react-redux';
+import { createEventInFirebase }       from '../actions/Events_Actions';
+import { bindActionCreators }          from 'redux';
+import { auth }                        from '../firebase/firebaseIndex';
 // ========================================================================================
 import AddEvent from '../components/AddEvent';
 // ========================================================================================
@@ -11,7 +11,9 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(eventsActions, dispatch)
+  return {
+    createEventInFirebase:       (event) => { dispatch(createEventInFirebase(event)) }
+  }
 }
 
 const mapStateToProps = (state) => {

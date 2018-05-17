@@ -15,11 +15,10 @@ const UserInfo = ({
   birthDate,
   createdAt,
   description }) => {
+  photoURL = photoURL ? photoURL : "/images/user-silhouette.svg" 
   return (
     <div className="user-info">
-      {/*
-      <img className="user-info__silhouete" src="/images/user-silhouette.svg"/>
-    */}
+      <img className="user-info__silhouete" src={photoURL} />
       <h1>{firstName} {lastName}</h1>
       <div className="user-info__personal-stats">
         <div className="user-info__item">

@@ -38,6 +38,22 @@ const profileReducer = (state = defaultState, action) => {
           [action.eventId]: true
         }
       }  
+    case 'EDIT_USER_EVENT_LIST':
+      return {
+        ...state,
+        userEvents: {
+          ...state.userEvents,
+          [action.eventId]: false
+        }
+      }  
+    case 'ADD_EVENT_TO_ACCEPTED_EVENTS':
+      return {
+        ...state,
+        acceptedEvents: {
+          ...state.acceptedEvents,
+          [action.eventId]: false
+        }  
+      }
     default:
       return state;
   }

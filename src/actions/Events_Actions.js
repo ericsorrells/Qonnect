@@ -1,12 +1,13 @@
 import database from '../firebase/firebase';
 import { history } from '../router/AppRouter';
+import { editUserEventListInFirebase } from './Profile_Actions';
 
 export const createEventInFirebase = (event = {}) => {
   return (dispatch, getState) => {
     return database.ref(`events`).push(event)
       .then((ref) => {
         dispatch(addEvent(ref.key, {...event}));
-        // TODO: move all redirects to methods calling them
+        dispatch(editUserEventListInFirebase(event.uid, ref.key))
         history.push(`/show-event/${encodeURIComponent(ref.key)}`)
       }
     )
@@ -58,6 +59,16 @@ export const addEvents = (events) => {
   }
 }
 
+export const editEventInFirebase = (id, updates) => {
+  return(dispatch, getState) => {
+    return database.ref(`events/${id}`).update(updates)
+      .then(() => {
+        dispatch(editEvent(id, updates))
+      }
+    )
+  }  
+}
+
 export const editEvent = (id, updates) => {
   return {
     type: 'EDIT_EVENT',
@@ -72,7 +83,8 @@ export const deleteEventInFirebase = (eventId) => {
     return database.ref(`events/${eventId}`).remove()
       .then(() => {
         dispatch(deleteEvent(eventId));
-      })
+      }
+    )
   }
 }
 

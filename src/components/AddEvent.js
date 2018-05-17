@@ -6,6 +6,8 @@ import { withRouter } from 'react-router-dom';
 import EventItems from './EventItems';
 import EventForm  from './EventForm';
 // ========================================================================================
+import { getCurrentUser } from '../firebase/auth';
+// ========================================================================================
 
 class AddEvent extends React.Component {
   constructor(props) {
@@ -14,8 +16,8 @@ class AddEvent extends React.Component {
   }
 
   handleSubmit(event) {
-    // TODO: add method to add event to user 'userEvents' list in Profile
-    this.props.createEventInFirebase(event);
+    const urlParam = this.props.match.params.id;
+    const eventId = this.props.createEventInFirebase(event);
   }
 
   render() {

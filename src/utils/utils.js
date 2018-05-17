@@ -1,14 +1,32 @@
 import moment from 'moment';
 
 export const getCurrentUserId = (user) => {
-  console.log('UTILS USER============', user);
   if(!user) { 
     return JSON.parse(sessionStorage.getItem('qProfile')) 
   }
   return user
 }
+
+export const saveToSessionStorage = (urlParam, event) => {
+  if(!event.id) {event.id = urlParam};
+  sessionStorage.setItem('qEvent', JSON.stringify(event))
+}
+
+export const hasEventOrUseSessionStorage = (paramId, events) => {
+  const event = events[paramId];
+  let newEvent;
+  if(event) {
+    newEvent = event; 
+    newEvent.date = moment(event.date);
+  } else {
+    newEvent = JSON.parse(sessionStorage.getItem('qEvent'));
+    newEvent.date = moment(newEvent.date);
+  }
+  newEvent.id = paramId;
+  return newEvent;
+}
+
 export const isEventOwner = (userId, eventId) => {
-  console.log('IS EVENT OWNER', userId, eventId, userId === eventId);
   return userId === eventId;
 }
 

@@ -1,37 +1,34 @@
 // ========================================================================================
 import React from 'react';
+import { Link }  from 'react-router-dom';
 // ========================================================================================
-import { isEventOwner } from '../utils/utils'
+import { isEventOwner } from '../utils/utils';
+import { getCurrentUser } from '../firebase/auth';
 // ========================================================================================
 
-// TODO: make this a stateless component???
-class ShowAcceptance extends React.Component {
-  constructor(props) {
-    super(props)
-    this.onSelect = this.onSelect.bind(this);
+const ShowAcceptance = (props) => {
+  const onSelect = (eventId, acceptanceId) => {
+    // TODO: deselect any selected acceptances (ie, ability to change your mind about an acceptance)
+    props.updateAcceptanceSelectionInFirebase(eventId, acceptanceId)
   }
+  
+  const { id, userName, acceptanceNote, createAt, selected = null } = props.acceptance;
 
-  onSelect(eventId, acceptanceId) {
-    // TODO: deselect any selected acceptances
-    this.props.chooseAcceptance(eventId, acceptanceId)
-  }
-  // TODO: add conditional around button to make sure currentUser owns the event
-  // before the button to 'Select Acceptance' is shown
-  render() {
-    const { id, userName, acceptanceNote, selected, createAt } = this.props.acceptance;
-    return (
-      <li>
-        <div>{ acceptanceNote }</div>
-        <div>
-          <span>{userName}</span>
-          {
-            isEventOwner(this.props.userId, this.props.eventId) &&
-            <button onClick={() => this.onSelect(this.props.eventId, id)}>Select Acceptance</button>
-          }
-        </div>
-      </li>
-    )
-  }
+  return (
+    <li>
+      <div>{acceptanceNote}</div>
+      <div>
+        <span>
+          <Link to={`/profile/${props.acceptance.userId}`}>{ userName }</Link>
+        </span>
+        {
+          isEventOwner(props.userId, props.event.uid) &&
+          !selected &&
+          <button onClick={() => onSelect(props.eventId, id)}>Select Acceptance</button>
+        }
+      </div>
+    </li>
+  )
 }
 
 export default ShowAcceptance;

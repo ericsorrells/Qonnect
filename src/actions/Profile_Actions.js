@@ -37,7 +37,7 @@ export const updateProfileInFirebase = (profileUpdates = {}) => {
       .then(() => {
         dispatch(updateProfile(profileUpdates));
       }
-      )
+    )
   }
 }
 
@@ -48,12 +48,62 @@ export const updateProfile = (profileUpdates) => {
   }
 }
 
-
-export const createUserAcceptedEventInFirebase = (eventId, userId) => {
+export const editUserEventListInFirebase = (userId, eventId) => {
   return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    event.uid = uid
-    return database.ref(`users/${uid}/acceptedEvents`).update({[`${eventId}`]: true})
+    return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
+      .then((snapshot) => {
+        dispatch(editUserEventList(userId, eventId))
+      }
+    )
+  }
+}
+
+export const editUserEventList = (userId, eventId) => {
+  return {
+    type: 'EDIT_USER_EVENT_LIST',
+    userId,
+    eventId
+  }
+}
+
+
+export const deleteUserEventListFromFirebase = (userId, eventId) => {
+  return(dispatch, getState) => {
+    return database.ref(`users/${userId}/userEvents/${eventId}`).remove()
+      .then(() => {
+        dispatch(deleteUserEventList(eventId));
+      }
+    )
+  }
+}
+
+// add event to users 'acceptedEvents' object
+export const createUserAcceptedEventInFirebase = (userId, eventId) => {
+  return (dispatch, getState) => {
+    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: false})
+      .then(() => {
+        dispatch(addEventToAcceptedEvent(eventId))
+      })
+  }
+}
+
+const addEventToAcceptedEvent = (eventId) => {
+  return {
+    type: 'ADD_EVENT_TO_ACCEPTED_EVENTS',
+    eventId
+  }
+}
+
+export const deleteUserEventList = (eventId) => {
+  return {
+    type: 'DELETE_USER_EVENT_LIST',
+    eventId
+  }
+}
+
+export const updateUserAcceptedEventInFirebase = (eventId, userId) => {
+  return (dispatch, getState) => {
+    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: true})
       .then((snapshot) => {
         dispatch(createUserAcceptedEvent(snapshot.val()));
     })
