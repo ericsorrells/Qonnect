@@ -23,7 +23,6 @@ class AcceptanceModal extends React.Component {
 
   onFormSubmit(event){
     event.preventDefault();
-    // TODO: add 'acceptedEvents' to user when accepting an event
     this.props.userAcceptEvent({
       acceptanceNote: this.state.acceptanceNote
     })

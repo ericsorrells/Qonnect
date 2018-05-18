@@ -75,6 +75,9 @@ class ShowEvent extends React.Component {
   render() {
     const { event, acceptances, eventId } = this.props;
     const {uid: userId} = getCurrentUser();
+    const currentUser = isCurrentUser(event.uid);
+    const eventOwner = isEventOwner(event.uid, userId);
+    
     let acceptancesArray, selectedAcceptance, unselectedAcceptances, formattedUnselectedAcceptances;
     if (acceptances) {
       acceptancesArray = objToArray(acceptances);
@@ -103,8 +106,8 @@ class ShowEvent extends React.Component {
           Acceptances: {formattedUnselectedAcceptances 
                         ? <ul>{formattedUnselectedAcceptances}</ul> 
                         : 'None'}
-          {isCurrentUser(event.uid) && isEventOwner(event.uid, userId) && <Menu onEdit={this.onEdit} onDelete={this.onDelete}/>}
-          {!isCurrentUser(event.uid) && !isEventOwner(event.uid, userId) && <button onClick={this.openModal}>Accept Invitation</button>}
+          <Menu currentUser={currentUser} eventOwner={eventOwner} onEdit={this.onEdit} onDelete={this.onDelete}/>
+          <AcceptInvitationButton currentUser={currentUser} eventOwner={eventOwner} openModal={this.openModal} />
           <AcceptanceModal
             modalOpen={this.state.modalOpen}
             closeModal={this.closeModal}
@@ -119,17 +122,32 @@ class ShowEvent extends React.Component {
   }
 }
 
+const AcceptInvitationButton = ({currentUser, eventOwner, openModal}) => {
+  // TODO: add if Acceptance not already made by checking user's acceptance list
+  return(
+    <div>
+      {!currentUser && !eventOwner 
+        && <button onClick={openModal}>Accept Invitation</button>
+      }
+    </div>
+  )
+}
+
 const EventInfo = ({name, info}) => {
   return(
     <div>{name}: {info}</div>
  )
 }
 
-const Menu = (props) => {
+const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
   return(
     <div>
-      <button onClick={props.onEdit}>Edit</button>
-      <button onClick={props.onDelete}>Delete</button>
+      { currentUser === true && eventOwner === true && 
+        <div>
+        <button onClick={onEdit}>Edit</button>
+        <button onClick={onDelete}>Delete</button>
+        </div>
+      }
     </div>
   )
 }

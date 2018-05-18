@@ -79,6 +79,7 @@ export const deleteUserEventListFromFirebase = (userId, eventId) => {
 
 // add event to users 'acceptedEvents' object
 export const createUserAcceptedEventInFirebase = (userId, eventId) => {
+  console.log('USER ACCEPTED EVENT', userId, eventId);
   return (dispatch, getState) => {
     return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: false})
       .then(() => {

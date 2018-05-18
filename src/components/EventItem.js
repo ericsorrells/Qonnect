@@ -10,7 +10,6 @@ import { formatTime, formatDate } from '../utils/utils';
 // ========================================================================================
 
 const EventItem = (event) => {
-  // console.log('EVENT ITEM USER', event);
   const { id, uid, userName, imageUrl, eventName, location, description, time, date, history, interestedUsers, deleteEvent } = event;
 
   const deleteElement = () => {

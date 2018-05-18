@@ -17,8 +17,6 @@ const auth = firebase.auth();
 const storageKey = 'qonnect_key';
 
 const isAuthenticated = () => {
-  // console.log('CURRENT USER????', auth.currentUser );
-  // console.log('LOCAL STORAGE???', !!localStorage.getItem(storageKey))
   return !!auth.currentUser || !!localStorage.getItem(storageKey);
 };
 

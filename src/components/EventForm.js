@@ -9,7 +9,6 @@ class EventForm extends React.Component {
     super(props)
 
     const { event } = props;
-    console.log('EVENT', event);
     this.state = {
       eventName:   event ? event.eventName:   '',
       date:        event ? event.date:        '',
@@ -33,7 +32,6 @@ class EventForm extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
     const { firstName, lastName } = this.props.profile;
-    console.log('AUTH', this.props.auth);
 
     this.props.onSubmit({
       userName:          `${firstName} ${lastName}`,

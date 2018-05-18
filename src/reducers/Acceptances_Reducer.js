@@ -1,7 +1,6 @@
 const defaultState = { }
 
 const acceptancesReducer = (state = defaultState, action) => {
-  console.log('REDUCER', action, state);
   switch(action.type) {
     case 'SELECT_ACCEPTANCE':
       return {

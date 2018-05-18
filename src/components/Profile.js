@@ -20,7 +20,6 @@ class Profile extends React.Component {
   }
 
   loadData(user){
-    console.log('LOAD DATA', user);
     this.props.getProfileFromFirebase(user.uid)
     this.props.setProfile({ 
       displayName: user.displayName, 
@@ -42,7 +41,6 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount(){
-    console.log('COMPONENT_DID_UNMOUNT========');
     let user = getCurrentUserId(auth.getCurrentUser());
     this.loadData(user);
   }

@@ -44,7 +44,6 @@ export const createAcceptances = (acceptances) => {
 }
 
 export const updateAcceptanceSelectionInFirebase = (eventId, acceptanceId) => {
-  console.log('IN FIREBASE', eventId, acceptanceId);
   return (dispatch, getState) => {
     return database.ref(`acceptances/${eventId}/${acceptanceId}`).update({selected: true})
       .then(() => {
