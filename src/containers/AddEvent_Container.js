@@ -2,7 +2,6 @@
 import React                           from 'react';
 import { connect }                     from 'react-redux';
 import { createEventInFirebase }       from '../actions/Events_Actions';
-import { bindActionCreators }          from 'redux';
 import { auth }                        from '../firebase/firebaseIndex';
 // ========================================================================================
 import AddEvent from '../components/AddEvent';

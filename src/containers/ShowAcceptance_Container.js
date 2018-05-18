@@ -8,7 +8,6 @@ import ShowAcceptance from '../components/ShowAcceptance';
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    
     updateAcceptanceSelectionInFirebase: (eventId, acceptanceId) => dispatch(updateAcceptanceSelectionInFirebase(eventId, acceptanceId))
   }
 }
