@@ -10,7 +10,7 @@ import moment                   from 'moment';
 import { createUserAcceptedEventInFirebase } from '../actions/Profile_Actions';
 import { isCurrentUser, getCurrentUser }     from '../firebase/auth';
 // ========================================================================================
-import { objToArray, formatTime, isEventOwner, saveToSessionStorage } from '../utils/utils'
+import { objToArray, formatTime, isEventOwner, saveToSessionStorage, isPreviouslyAcceptedEvent } from '../utils/utils'
 // ========================================================================================
 
 class ShowEvent extends React.Component {
@@ -64,7 +64,7 @@ class ShowEvent extends React.Component {
     this.props.createAcceptanceInFirebase({
       eventId: eventId,
       userId: user.uid,
-      userName: `${this.props.userFirstName} ${this.props.userLastName}`,
+      userName: `${this.props.user.firstName} ${this.props.user.lastName}`,
       acceptanceNote: acceptanceInfo.acceptanceNote,
       selected: false,
       createAt: moment.now()
@@ -73,10 +73,11 @@ class ShowEvent extends React.Component {
   }
 
   render() {
-    const { event, acceptances, eventId } = this.props;
-    const {uid: userId} = getCurrentUser();
-    const currentUser = isCurrentUser(event.uid);
-    const eventOwner = isEventOwner(event.uid, userId);
+    const { event, acceptances, eventId, user } = this.props;
+    const {uid: userId}                   = getCurrentUser();
+    const currentUser                     = isCurrentUser(event.uid);
+    const eventOwner                      = isEventOwner(event.uid, userId);
+    const previouslyAcceptedEvent         = isPreviouslyAcceptedEvent(eventId, user.acceptedEvents)
     
     let acceptancesArray, selectedAcceptance, unselectedAcceptances, formattedUnselectedAcceptances;
     if (acceptances) {
@@ -92,22 +93,40 @@ class ShowEvent extends React.Component {
         {event && event.imageUrl && <img src={event.imageUrl} className='show-event__image' />}
         <div>
           {event && <ShowEventDisplay event={event} />}
-          Selected: {selectedAcceptance 
-                    ? <div className='show-event__selected-acceptance'>
-                        { <ShowAcceptance_Container 
-                            acceptance={selectedAcceptance} 
-                            eventId={eventId} 
-                            userId={userId} 
-                            event={event} 
-                            selected
-                          /> }
-                      </div> 
-                    : 'Open Event'} <br />
-          Acceptances: {formattedUnselectedAcceptances 
-                        ? <ul>{formattedUnselectedAcceptances}</ul> 
-                        : 'None'}
-          <Menu currentUser={currentUser} eventOwner={eventOwner} onEdit={this.onEdit} onDelete={this.onDelete}/>
-          <AcceptInvitationButton currentUser={currentUser} eventOwner={eventOwner} openModal={this.openModal} />
+          Selected: 
+            {
+              selectedAcceptance 
+              ? <div className='show-event__selected-acceptance'>
+                  { 
+                    <ShowAcceptance_Container 
+                      acceptance={selectedAcceptance} 
+                      eventId={eventId} 
+                      userId={userId} 
+                      event={event} 
+                      selected
+                    /> 
+                  }
+                </div> 
+                : 'Open Event'
+            } <br/>
+          Acceptances: 
+            {
+              formattedUnselectedAcceptances 
+              ? <ul>{formattedUnselectedAcceptances}</ul> 
+              : 'None'
+            }
+          <Menu 
+            currentUser={currentUser} 
+            eventOwner={eventOwner} 
+            onEdit={this.onEdit} 
+            onDelete={this.onDelete}
+          />
+          <AcceptInvitationButton 
+            currentUser={currentUser} 
+            eventOwner={eventOwner} 
+            openModal={this.openModal} 
+            previouslyAcceptedEvent={previouslyAcceptedEvent}
+          />
           <AcceptanceModal
             modalOpen={this.state.modalOpen}
             closeModal={this.closeModal}
@@ -122,11 +141,10 @@ class ShowEvent extends React.Component {
   }
 }
 
-const AcceptInvitationButton = ({currentUser, eventOwner, openModal}) => {
-  // TODO: add if Acceptance not already made by checking user's acceptance list
+const AcceptInvitationButton = ({currentUser, eventOwner, openModal, previouslyAcceptedEvent}) => {
   return(
     <div>
-      {!currentUser && !eventOwner 
+      {!currentUser && !eventOwner && !previouslyAcceptedEvent
         && <button onClick={openModal}>Accept Invitation</button>
       }
     </div>

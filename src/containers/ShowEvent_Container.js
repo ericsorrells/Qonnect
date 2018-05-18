@@ -26,8 +26,8 @@ const mapStateToProps = (state, ownProps) => {
     event:         newEvent,
     eventId:       paramId,
     acceptances:   objToArray(state.acceptances) || null,
-    userFirstName: state.profile.firstName,
-    userLastName:  state.profile.lastName
+    user:          state.profile,
+    userId:        state.auth.uid
   }
 }
 

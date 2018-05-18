@@ -12,6 +12,11 @@ export const saveToSessionStorage = (urlParam, event) => {
   sessionStorage.setItem('qEvent', JSON.stringify(event))
 }
 
+export const isPreviouslyAcceptedEvent = (eventId, userAcceptances) => {
+  const acceptedEvents = Object.keys(userAcceptances);
+  return acceptedEvents.includes(eventId)
+}
+
 export const hasEventOrUseSessionStorage = (paramId, events) => {
   const event = events[paramId];
   let newEvent;
