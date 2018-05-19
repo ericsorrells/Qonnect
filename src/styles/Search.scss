@@ -1,0 +1,40 @@
+.search__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.search_button {
+  margin-top: 15px;
+}
+
+.search__radio-buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.search__radio-buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.search_radio-button-group {
+  margin-right: 20px;
+}
+
+.search_radio-button-label {
+  margin-right: 5px;
+}
+
+
+/* DatePicker Styles
+=========================================*/
+
+.DateRangePicker {
+  margin-bottom: 10px;
+}
+
+.DateRangePickerInput__withBorder {
+  border: none;
+  border-radius: 5px;
+}

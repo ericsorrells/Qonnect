@@ -8,6 +8,7 @@ import { DateRangePicker } from 'react-dates';
 // ========================================================================================
 
 class Search extends React.Component {
+  // TODO: sort by date isn't working
   constructor(props) {
     super(props)
 
@@ -53,10 +54,6 @@ class Search extends React.Component {
     this.setState({ city: e.target.value })
   }
 
-  // handleDateChange(e) {
-  //   this.setState({ date: e.target.value })
-  // }
-
   handCategoryChange(e) {
     this.setState({ category: e.target.value })
   }
@@ -85,11 +82,18 @@ class Search extends React.Component {
 
   render() {
     return (
+      <div className='form'>
       <form onSubmit={this.handleSubmit}>
         <label>City:</label>
-        <input type='text' onChange={this.handleCityChange} value={this.state.city} />
+        <input
+          className='form__element form__input'
+          placeholder='Search By City Name'
+          type='text'
+          onChange={this.handleCityChange}
+          value={this.state.city}
+        />
 
-        <label>Date:</label>
+        <label>Date Range:</label>
         <DateRangePicker
           startDate={this.state.startDate}
           startDateId={`start-date-${moment.now()}`}
@@ -101,7 +105,11 @@ class Search extends React.Component {
         />
 
         <label>Category:</label>
-        <select onChange={this.handCategoryChange} value={this.state.category ? this.state.category : ''}>
+        <select
+          className='form__element form__select'
+          onChange={this.handCategoryChange}
+          value={this.state.category ? this.state.category : ''}
+        >
           <option disabled selected value=''>Select A Category</option>
           <option value="sports">Sports</option>
           <option value="entertainment">Entertainment</option>
@@ -110,17 +118,42 @@ class Search extends React.Component {
         </select>
 
         <label>Search Term:</label>
-        <input type='text' onChange={this.handleSearchTerm} value={this.state.searchTerm} />
-        <br />
+        <input
+          className='form__element form__input'
+          placeholder='Search By Word'
+          type='text'
+          onChange={this.handleSearchTerm}
+          value={this.state.searchTerm}
+        />
 
-        <span>Sort By Date:</span>
-        Sooner<input type="radio" value='true' checked={this.state.sortBy} onChange={this.handleRadioButton} />
-        Later<input type="radio" value='false' checked={!this.state.sortBy} onChange={this.handleRadioButton} />
+        <div className='search__radio-buttons-container'>
+          <div>Sort By Date:</div>
+          <div className='search__radio-buttons'>
+            <div className='search_radio-button-group'>
+              <span className='search_radio-button-label'>
+                Sooner:
+              </span>
+              <input type="radio" value='true' checked={this.state.sortBy} onChange={this.handleRadioButton} />
+            </div>
+            <div className='search_radio-button-group'>
+              <span className='search_radio-button-label'>
+                Later:
+              </span>
+              <input type="radio" value='false' checked={!this.state.sortBy} onChange={this.handleRadioButton} />
+            </div>
+          </div>
+        </div>
 
-        <br />
-        <button type='submit'>Search For Events</button>
-        <button onClick={this.handleClear}>Clear</button>
+        <div className='search__buttons'>
+          <button type='submit' className='button__purple search_button'>
+            Search For Events
+          </button>
+          <button onClick={this.handleClear} className='button__purple search_button'>
+            Clear Form
+          </button>
+        </div>
       </form>
+      </div>
     )
   }
 }
