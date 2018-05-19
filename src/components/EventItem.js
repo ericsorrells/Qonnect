@@ -26,31 +26,42 @@ const EventItem = (event) => {
 
   return (
     <li className='event-item'>
-      <div className='event-item__left'>
-        <Link to={`/show-event/${id}`}>
-          {imageUrl ?
-            <img src={imageUrl} className='event-item__image' /> :
-            <img src='/images/default.png' className='event-item__image' />
-          }
-        </Link>
-      </div>
-      <div className='event-item__right'>
-        <Link to={`/show-event/${id}`}>
-          <Info value={eventName} type={'title'} />
-        </Link>
-        <Link to={`/profile/${uid}`}>
-          <Info value={userName} type={'inviter'} />
-        </Link>
-        <div className='event-item__date_location'>
-          {location && <SubInfo value={location} type={'location'} icon={'map-marker'} />}
-          {date && <SubInfo value={formatDate(date)} type={'date'} icon={'calendar'} />  }
-          {time && <SubInfo value={formatTime(time)} type={'time'} icon={'calendar'} />  }
+      <div className='event-item__left-container'>
+        <div className='event-item__left'>
+          <Image Link={Link} id={id} imageUrl={imageUrl} />
         </div>
-        <Info value={description} type={'description'} />
+        <div className='event-item__center'>
+          <Link to={`/show-event/${id}`}>
+            <Info value={eventName} type={'title'} />
+          </Link>
+          <Link to={`/profile/${uid}`}>
+            <Info value={userName} type={'inviter'} />
+          </Link>
+          <div className='event-item__date_location'>
+            {location && <SubInfo value={location} value2={null} type={'location'} icon={'map-marker'} />}
+            {date && time && <SubInfo value={formatDate(date)} value2={formatTime(time)} type={'date'} icon={'calendar'} />  }
+            {/*{time && <SubInfo value={formatTime(time)} value2={} type={'time'} icon={'calendar'} />  }*/}
+          </div>
+          <Info value={description} type={'description'} />
+        </div>
       </div>
-      {interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length} />}
+      <div className='event-item__acceptances'>
+        {interestedUsers && <Acceptances acceptances={Object.keys(interestedUsers).length} />}
+      </div>
     </li>
   )
+}
+
+const Image = ({Link, id, imageUrl}) => {
+ return(
+    <Link to={`/show-event/${id}`}>
+      {
+        imageUrl ?
+          <img src={imageUrl} className='event-item__image' /> :
+          <img src='/images/default.png' className='event-item__image' />
+      }
+    </Link>
+ )
 }
 
 const Info = ({ value, type }) => {
@@ -61,13 +72,13 @@ const Info = ({ value, type }) => {
   )
 }
 
-const SubInfo = ({ value, type, icon }) => {
+const SubInfo = ({ value, value2, type, icon }) => {
   return (
     <div className={`event-item__${type}`}>
       <div style={{ fontSize: '1em', color: '#6334e3' }}>
         <i className={`fas fa-${icon}`}></i>
       </div>
-      <div>{value}</div>
+      <div>{value}   {value2}</div>
     </div>
   )
 }

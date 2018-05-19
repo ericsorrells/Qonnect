@@ -4,16 +4,23 @@
   margin-bottom: 30px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   height: 150px;
   box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.32);
 }
 
-.event-item__left {
+.event-item__left-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.event-item__left {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  width: 500px;
+  width: 200px;
 }
 
 .event-item__left img {
@@ -21,8 +28,13 @@
   height: 150px;
 }
 
-.event-item__right {
+.event-item__center {
   padding: 10px;
+  width: 65%;
+}
+
+.event-item__acceptances {
+  width: 20%;
 }
 
 .event-item__image {
@@ -31,11 +43,13 @@
 
 .event-item__inviter {
   margin-top: 5px;
+  color: black;
 }
 
 .event-item__title {
   font-weight: bold;
   text-transform: uppercase;
+  color: black;
 }
 
 .event-item__date_location {

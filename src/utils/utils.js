@@ -1,8 +1,8 @@
 import moment from 'moment';
 
 export const getCurrentUserId = (user) => {
-  if(!user) { 
-    return JSON.parse(sessionStorage.getItem('qProfile')) 
+  if(!user) {
+    return JSON.parse(sessionStorage.getItem('qProfile'))
   }
   return user
 }
@@ -21,7 +21,7 @@ export const hasEventOrUseSessionStorage = (paramId, events) => {
   const event = events[paramId];
   let newEvent;
   if(event) {
-    newEvent = event; 
+    newEvent = event;
     newEvent.date = moment(event.date);
   } else {
     newEvent = JSON.parse(sessionStorage.getItem('qEvent'));
@@ -97,5 +97,5 @@ export const formatTime = (time) => {
 }
 
 export const formatDate = (date) => {
-  return moment(date).format('dddd, MMMM Do YYYY')
+  return moment(date).format('ddd MMM D \'YY')
 }
