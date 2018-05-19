@@ -1,27 +1,43 @@
 // ========================================================================================
 import React from 'react';
 // ========================================================================================
-import { formatTime, formatDate } from '../utils/utils';
+import { formatTime, formatDateLong } from '../utils/utils';
 // ========================================================================================
 
 const ShowEventDisplay = (props) => {
   const { event } = props;
   return (
     <div>
-      {event && event.eventName   && <EventInfo name='Name'        info={event.eventName}            />}
-      {event && event.date        && <EventInfo name='Date'        info={formatDate(event.date)}     />}
-      {event && event.time        && <EventInfo name='Time'        info={formatTime(event.time)}     />}
-      {event && event.category    && <EventInfo name='Category'    info={event.category}             />}
-      {event && event.userName    && <EventInfo name='Inviter'     info={event.userName}             />}
-      {event && event.location    && <EventInfo name='Location'    info={event.location}             />}
-      {event && event.description && <EventInfo name='Description' info={event.description}          />}
+      <h1 className='event-display__title'>
+        { event && event.eventName }
+      </h1>
+      <div className='event-display__name-location'>
+        { event && event.date     && <EventInfo name='Date:'         info={formatDateLong(event.date)} />}
+        { event && event.time     && <EventInfo name='Time:'         info={formatTime(event.time)}     />}
+        { event && event.userName && <EventInfo name='Host/Hostess:' info={event.userName}             />}
+        { event && event.location && <EventInfo name='Location:'     info={event.location}             />}
+      </div>
+      <div>
+        {
+          event && event.category &&
+          <div className='event-display__description'>
+            <div className='event-display__subtitle'>Description: </div>
+            <div className='event-display__info'> {event.description} </div>
+          </div>
+        }
+      </div>
     </div>
   )
 }
 
 const EventInfo = ({name, info}) => {
   return(
-    <div>{name}: {info}</div>
+    <div>
+      <div className='event-display__name-info'>
+        <span className='event-display__name'>{name}</span>
+        <span className='event-display__info'>{info}</span>
+      </div>
+    </div>
   )
 }
 

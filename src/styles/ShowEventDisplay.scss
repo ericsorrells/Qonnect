@@ -1,0 +1,43 @@
+.event-display__title {
+  border-bottom: 1px solid $grey-text;
+  margin-top: 0px;
+}
+
+.event-display__subtitle {
+  margin: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.event-display__date-time {
+  display: flex;
+  color: $grey-text;
+}
+
+.event-display__name-location {
+  margin: 10px 0;
+}
+
+.event-display__date-time-item {
+  margin-right: 30px;
+}
+
+.event-display__name-info {
+  margin-bottom: 10px;
+}
+
+.event-display__info {
+  color: $grey-text;
+}
+
+.event-display__description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.event-display__name {
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
+}

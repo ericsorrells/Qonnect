@@ -100,6 +100,10 @@ export const formatDate = (date) => {
   return moment(date).format('ddd MMM D \'YY')
 }
 
+export const formatDateLong = (date) => {
+  return moment(date).format('dddd MMMM do YYYY')
+}
+
 export const formatText = (text, length) => {
   let formattedString;
   if(text.length > length) {

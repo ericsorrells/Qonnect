@@ -8,7 +8,7 @@ import { DateRangePicker } from 'react-dates';
 // ========================================================================================
 
 class Search extends React.Component {
-  // TODO: sort by date isn't working
+  // TODO: search isn't working (and watch 'sort by')
   constructor(props) {
     super(props)
 

@@ -14,11 +14,12 @@ import { objToArray, formatTime, isEventOwner, saveToSessionStorage, isPreviousl
 // ========================================================================================
 
 class ShowEvent extends React.Component {
+  // TODO: remove 'thumbs-up' icon when an event is selected
   constructor(props){
     super(props)
 
     this.state = {
-      modalOpen: false
+      modalOpen: false,
     }
 
     this.openModal       = this.openModal.bind(this);
@@ -26,7 +27,7 @@ class ShowEvent extends React.Component {
     this.userAcceptEvent = this.userAcceptEvent.bind(this);
     this.onEdit          = this.onEdit.bind(this);
     this.onDelete        = this.onDelete.bind(this);
-    
+
     if(!this.props.event) {
       this.props.history.push('/')
     }
@@ -78,53 +79,70 @@ class ShowEvent extends React.Component {
     const currentUser                     = isCurrentUser(event.uid);
     const eventOwner                      = isEventOwner(event.uid, userId);
     const previouslyAcceptedEvent         = isPreviouslyAcceptedEvent(eventId, user.acceptedEvents)
-    
+
     let acceptancesArray, selectedAcceptance, unselectedAcceptances, formattedUnselectedAcceptances;
     if (acceptances) {
       acceptancesArray = objToArray(acceptances);
       selectedAcceptance = acceptances.find((acceptance) => acceptance.selected === true) || null;
       unselectedAcceptances = acceptances.filter((acceptance) => acceptance.selected !== true) || null;
-      formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) => 
-        <ShowAcceptance_Container acceptance={acceptance} eventId={eventId} userId={userId} event={event} />)
+      formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) =>
+        <ShowAcceptance_Container
+          acceptance={acceptance}
+          eventId={eventId}
+          userId={userId}
+          event={event}
+          user={user}
+        />)
     }
 
     return (
       <div className='show-event container'>
-        {event && event.imageUrl && <img src={event.imageUrl} className='show-event__image' />}
-        <div>
-          {event && <ShowEventDisplay event={event} />}
-          Selected: 
-            {
-              selectedAcceptance 
-              ? <div className='show-event__selected-acceptance'>
-                  { 
-                    <ShowAcceptance_Container 
-                      acceptance={selectedAcceptance} 
-                      eventId={eventId} 
-                      userId={userId} 
-                      event={event} 
-                      selected
-                    /> 
-                  }
-                </div> 
-                : 'Open Event'
-            } <br/>
-          Acceptances: 
-            {
-              formattedUnselectedAcceptances 
-              ? <ul>{formattedUnselectedAcceptances}</ul> 
-              : 'None'
-            }
-          <Menu 
-            currentUser={currentUser} 
-            eventOwner={eventOwner} 
-            onEdit={this.onEdit} 
+        <div className='show-event__image-container'>
+          {event && event.imageUrl && <img src={event.imageUrl} className='show-event__image' />}
+          <Menu
+            currentUser={currentUser}
+            eventOwner={eventOwner}
+            onEdit={this.onEdit}
             onDelete={this.onDelete}
           />
-          <AcceptInvitationButton 
-            currentUser={currentUser} 
-            eventOwner={eventOwner} 
-            openModal={this.openModal} 
+        </div>
+        <div className='show-event__inner-container'>
+          {event && <ShowEventDisplay event={event} />}
+          <div className='event-display__name-info'>
+            <span className='event-display__name'>
+              Selected:
+            </span>
+            {
+              selectedAcceptance
+              ? <div className='show-event__selected-acceptance'>
+                  {
+                    <ShowAcceptance_Container
+                      acceptance={selectedAcceptance}
+                      eventId={eventId}
+                      userId={userId}
+                      event={event}
+                      user={user}
+                      selected
+                    />
+                  }
+                </div>
+                : <span className='event-display__info'>Open Event</span>
+            }
+          </div>
+          <div className='show-event__acc-container'>
+            <div className='event-display__subtitle'>
+              <h3> Acceptances: </h3>
+            </div>
+            {
+              formattedUnselectedAcceptances
+              ? <div>{formattedUnselectedAcceptances}</div>
+              : 'None'
+            }
+          </div>
+          <AcceptInvitationButton
+            currentUser={currentUser}
+            eventOwner={eventOwner}
+            openModal={this.openModal}
             previouslyAcceptedEvent={previouslyAcceptedEvent}
           />
           <AcceptanceModal
@@ -132,7 +150,7 @@ class ShowEvent extends React.Component {
             closeModal={this.closeModal}
             event={event}
             userId={userId}
-            userAcceptEvent={this.userAcceptEvent} 
+            userAcceptEvent={this.userAcceptEvent}
             createUserAcceptedEventInFirebase={this.createUserAcceptedEventInFirebase}
           />
         </div>
@@ -160,10 +178,10 @@ const EventInfo = ({name, info}) => {
 const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
   return(
     <div>
-      { currentUser === true && eventOwner === true && 
-        <div>
-        <button onClick={onEdit}>Edit</button>
-        <button onClick={onDelete}>Delete</button>
+      { currentUser === true && eventOwner === true &&
+        <div className='show-event__button-group'>
+          <button className='button__purple show-event__button' onClick={onEdit}>Edit Event</button>
+          <button className='button__purple show-event__button' onClick={onDelete}>Delete Event</button>
         </div>
       }
     </div>

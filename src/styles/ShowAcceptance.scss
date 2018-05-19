@@ -1,0 +1,43 @@
+.show-acc_container {
+  border-top: 1px solid grey;
+  display: flex;
+  padding: 8px;
+}
+
+.show-acc__main-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-acc__name-container {
+  margin-bottom: 10px;
+}
+
+.show-acc__note {
+  color: $grey-text;
+  margin-bottom: 5px;
+}
+
+.show-acc__name {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.show-acc__imageUrl {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.show-acc__selection-icon {
+  margin-left: auto;
+}
+
+.fa-thumbs-up {
+  font-size: 2rem;
+  padding: 8px;
+  color: green;
+  border: 1px solid green;
+  border-radius: 50%;
+}
