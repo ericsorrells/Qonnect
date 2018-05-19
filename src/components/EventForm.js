@@ -83,6 +83,8 @@ class EventForm extends React.Component {
         <form onSubmit={this.onFormSubmit} >
           <label> Event Name: </label>
           <input
+            className='form__element form__input'
+            placeholder='Give Your Event A Good Name'
             type='text'
             onChange={this.onNameChange}
             value={this.state.eventName}
@@ -99,17 +101,28 @@ class EventForm extends React.Component {
           />
 
           <label>Time:</label>
-          <input type='time' onChange={this.onTimeChange} value={this.state.time}/>
+          <input
+            className='form__element form__input'
+            type='time'
+            onChange={this.onTimeChange}
+            value={this.state.time}
+          />
 
           <label> Event Location: </label>
           <input
+            className='form__element form__input'
+            placeholder='Give The Address Of Your Event'
             type='text'
             onChange={this.onLocationChange}
             value={this.state.location}
           />
 
           <label>Category:</label>
-          <select onChange={this.onCategoryChange} value={this.state.category ? this.state.category : ''}>
+          <select
+            className='form__element form__select'
+            onChange={this.onCategoryChange}
+            value={this.state.category ? this.state.category : ''}
+           >
             <option disabled selected value=''>Select A Category</option>
             <option value="Sports">Sports</option>
             <option value="Entertainment">Entertainment</option>
@@ -120,6 +133,8 @@ class EventForm extends React.Component {
 
           <label>Image URL:</label>
           <input
+            className='form__element form__input'
+            placeholder='Give Your Event A Nice Image'
             type='text'
             onChange={this.onImageUrlChange}
             value={this.state.imageUrl}
@@ -127,11 +142,18 @@ class EventForm extends React.Component {
 
           <label> Description: </label>
           <textarea
+            className='form__element form__textarea'
+            placeholder='Describe Your Event'
             onChange={this.onDescriptionChange}
             value={this.state.description}
           />
 
-          <button type='submit'>Submit</button>
+          <button
+            className='button__purple'
+            type='submit'
+          >
+            Submit
+          </button>
         </form>
       </div>
     )

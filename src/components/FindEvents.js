@@ -19,12 +19,11 @@ class FindEvents extends React.Component {
   render() {
     const { events } = this.props;
     return (
-      <div className="profile__outer-container">
-        <div className="container profile__inner-container">
+        <div className="find-events__container padding-left">
           <aside className="aside-container">
             <SearchContainer />
           </aside>
-          <section>
+          <section className='find-events__section'>
             {events &&
               <EventItems
                 events={events}
@@ -34,7 +33,6 @@ class FindEvents extends React.Component {
             }
           </section>
         </div>
-      </div>
     )
   }
 }

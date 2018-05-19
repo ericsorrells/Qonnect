@@ -1,10 +1,50 @@
 .form {
   display: flex;
+  padding-top: 10px;
+  padding-right: 20px;
 }
 
-.DateRangePickerInput__withBorder {
-  color: red;
+.SingleDatePicker,
+.SingleDatePicker_1,
+.form__element {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: none;
+  color: $dark-grey;
+  background-color: white;
+}
 
+.form__select,
+.form__input {
+  height: 40px;
+}
+
+.form__textarea {
+  height: 75px;
+}
+
+.button__purple {
+  background-color: $main-color;
+  width: 100%;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+}
+
+/* DatePicker Styles
+=========================================*/
+
+.SingleDatePickerInput__withBorder {
+  border: none;
+  border-radius: 5px;
+}
+
+.DateInput_input__focused {
+  border-bottom: none; // color of bottom bar when selected
 }
 
 .CalendarDay__selected_span {
@@ -25,11 +65,6 @@
   color: white;
   border: 1px solid $main-color;
 }
-
-.DateInput_input__focused {
-  border-bottom: 2px solid $main-color;
-}
-
 
 .CalendarDay__selected_span:active,
 .CalendarDay__selected_span:hover {
