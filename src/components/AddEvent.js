@@ -22,16 +22,16 @@ class AddEvent extends React.Component {
 
   render() {
     return (
-      <div className="add-event-container">
+      <div className='add-event-container padding-left'>
         <aside>
-          <EventForm 
-            event={null} 
-            onSubmit={this.handleSubmit}
-            profile={this.props.profile}
-            auth={this.props.auth}
+          <EventForm
+            event    = {null}
+            onSubmit = {this.handleSubmit}
+            profile  = {this.props.profile}
+            auth     = {this.props.auth}
           />
         </aside>
-        <section>
+        <section className='add-event__section'>
           {
             this.props.events &&
             <EventItems
