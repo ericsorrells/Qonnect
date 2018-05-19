@@ -6,7 +6,7 @@ import { Link }  from 'react-router-dom';
 // ========================================================================================
 import Acceptances from './EventItem_Acceptances';
 // ========================================================================================
-import { formatTime, formatDate } from '../utils/utils';
+import { formatTime, formatDate, formatText } from '../utils/utils';
 // ========================================================================================
 
 const EventItem = (event) => {
@@ -38,11 +38,10 @@ const EventItem = (event) => {
             <Info value={userName} type={'inviter'} />
           </Link>
           <div className='event-item__date_location'>
-            {location && <SubInfo value={location} value2={null} type={'location'} icon={'map-marker'} />}
-            {date && time && <SubInfo value={formatDate(date)} value2={formatTime(time)} type={'date'} icon={'calendar'} />  }
-            {/*{time && <SubInfo value={formatTime(time)} value2={} type={'time'} icon={'calendar'} />  }*/}
+            {location && <SubInfo value={formatText(location, 20)} value2={null} type={'location'} icon={'map-marker'} />}
+            {date && time && <SubInfo value={formatDate(date)} value2={`| ${formatTime(time)}`} type={'date'} icon={'calendar'} />  }
           </div>
-          <Info value={description} type={'description'} />
+          <Info value={formatText(description, 250)} type={'description'} />
         </div>
       </div>
       <div className='event-item__acceptances'>

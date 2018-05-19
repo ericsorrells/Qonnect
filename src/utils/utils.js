@@ -99,3 +99,12 @@ export const formatTime = (time) => {
 export const formatDate = (date) => {
   return moment(date).format('ddd MMM D \'YY')
 }
+
+export const formatText = (text, length) => {
+  let formattedString;
+  if(text.length > length) {
+    formattedString = text.substr(0, length);
+    return `${formattedString} ...`
+  }
+  return text;
+}
