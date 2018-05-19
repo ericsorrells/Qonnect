@@ -1,9 +1,12 @@
 import React from 'react';
 
-const HowItWorksItem = () => {
+const HowItWorksItem = (props) => {
+  const { title, icon, text } = props;
   return (
-    <div>
-      <h1>How It Works Item!</h1>
+    <div className='how-it-works__item'>
+      <i className={icon} ></i>
+      <h3 className='how-it-works__title'>{title}</h3>
+      <p className='how-it-works__text'>{text}</p>
     </div>
   )
 }

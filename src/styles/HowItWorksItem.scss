@@ -1,0 +1,29 @@
+.how-it-works__item {
+  border: 1px solid $main-color;
+  border-radius: 5px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.38);
+}
+
+.how-it-works__title {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+}
+
+.fa-calendar-alt,
+.fa-users,
+.fa-hands-helping {
+  color: $main-color;
+  font-size: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.how-it-works__text {
+  color: $grey-text;
+}

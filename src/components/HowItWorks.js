@@ -4,11 +4,32 @@ import React from 'react';
 import HowItWorksItem from './HowItWorksItem';
 // ========================================================================================
 
+const text1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+const text2 = 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+const text3 = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit'
+
 const HowItWorks = () => {
   return (
-    <div>
-      How It Works Component!!
-      <HowItWorksItem />
+    <div className='how-it-works__container'>
+      <div className='how-it-works__inner-container container'>
+      <HowItWorksItem
+        icon='fas fa-calendar-alt'
+        title='Find Something To Do'
+        text={text1}
+      />
+
+      <HowItWorksItem
+        icon='fa fa-users'
+        title='Meet New People'
+        text={text2}
+      />
+
+      <HowItWorksItem
+        icon='fas fa-hands-helping'
+        title='Find Something To Do'
+        text={text3}
+      />
+      </div>
     </div>
   )
 }

@@ -6,11 +6,10 @@ import SignOutButton from '../components/SignOutButton';
 
 const NavigationAuth = (user) => {
   return (
-    <div>
-      <Link to="/">Home</Link> |
-      <Link to={`/profile/${encodeURIComponent(user.uid)}`}>My Profile</Link> |
-      <Link to="/add-event">Add Event</Link> |
-      <Link to="/find-events">Find Events</Link>
+    <div className='nav-auth__container'>
+      <Link className='nav-auth__link' to={`/profile/${encodeURIComponent(user.uid)}`}>My Profile</Link>
+      <Link className='nav-auth__link' to="/add-event">Add Event</Link>
+      <Link className='nav-auth__link' to="/find-events">Find Events</Link>
       <SignOutButton />
     </div>
   )
@@ -28,8 +27,8 @@ const NavigationNonAuth = () => {
 const NavBar = ({ user }) => {
   return (
     <nav>
-      <div className="nav">
-        <div className="nav-title">
+      <div className='nav'>
+        <div className='nav-title'>
           qonnect
         </div>
         {user

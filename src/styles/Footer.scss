@@ -6,7 +6,45 @@
 
 .footer__inner_container {
   width: $container;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   color: white;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__title {
+  border-bottom: 1px solid darkgrey;
+  margin-top: 30px;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  color: $main-color;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.footer__social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.fa-facebook,
+.fa-twitter-square,
+.fa-pinterest-square {
+  font-size: 3rem;
+  margin: 20px 30px;
+  color: $main-color;
+}
+
+.fa-facebook:hover,
+.fa-twitter-square:hover,
+.fa-pinterest-square:hover {
+  color: #5f40b4;
 }

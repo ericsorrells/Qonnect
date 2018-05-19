@@ -7,7 +7,7 @@ import HomeBillboard from './HomeBillBoard';
 
 const Home = () => {
   return(
-    <div className="home-container">
+    <div>
       <HomeBillboard/>
       <HowItWorks />
     </div>

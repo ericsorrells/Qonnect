@@ -1,0 +1,11 @@
+.how-it-works__container {
+  background-image: linear-gradient(to top,$main-color-light, $main-color);
+  background-color: #534292;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.how-it-works__inner-container {
+  display: flex;
+  justify-content: space-around;
+}

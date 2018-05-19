@@ -11,11 +11,11 @@ const SignOutButton = (props) => {
     props.signOutOfFirebase();
     props.history.push('/');
   }
-  
+
   return (
-    <button type="button" onClick={() => signUserOut()} >
+    <a onClick={() => signUserOut()} >
       Sign Out
-    </button>
+    </a>
   )
 }
 

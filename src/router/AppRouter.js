@@ -20,6 +20,8 @@ import NotFound from '../components/NotFound';
 import NavBar from '../components/NavBar';
 import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
+import About from '../components/About';
+import Contact from '../components/Contact';
 // ========================================================================================
 
 const history = createHistory();
@@ -34,6 +36,8 @@ const AppRouter = (props) => {
             <Route path="/"                      component={Home} exact={true}        />
             <Route path="/signup"                component={SignUp}                   />
             <Route path="/signin"                component={SignIn}                   />
+            <Route path="/about"                 component={About}                    />
+            <Route path="/contact"               component={Contact}                  />
             <PrivateRoute path="/profile/:id"    component={ProfileContainer}         />
             <PrivateRoute path="/update-profile" component={ProfileUpdateContainer}   />
             <PrivateRoute path="/edit-profile"   component={EditProfileContainer}     />
