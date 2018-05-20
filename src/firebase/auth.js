@@ -7,7 +7,7 @@ export const doCreateUserWithEmailAndPassword = (email, password) => {
 }
 
 // Sign In
-export const doSignInWithEmailAndPassword = (email, password) => { 
+export const doSignInWithEmailAndPassword = (email, password) => {
   return firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
     .then(() => auth.signInWithEmailAndPassword(email, password))
 }
@@ -39,5 +39,5 @@ export const isCurrentUser = (uid) => {
     currentUser = JSON.parse(sessionStorage.getItem('qProfile'));
     return uid === currentUser.uid
   }
-  return uid === auth.currentUser.uid; 
+  return uid === auth.currentUser.uid;
 }

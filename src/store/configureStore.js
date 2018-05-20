@@ -8,6 +8,7 @@ import profileReducer      from '../reducers/Profile_Reducer';
 import acceptancesReducer  from '../reducers/Acceptances_Reducer';
 import filtersReducer      from '../reducers/Filters_Reducer';
 import authReducer         from '../reducers/Auth_Reducer';
+import loadingReducer      from '../reducers/Loading_Reducer';
 import { mainSaga }        from '../sagas/mainSaga';
 // ========================================================================================
 
@@ -22,7 +23,8 @@ const mainReducer = combineReducers({
       events:      eventsReducer,
       acceptances: acceptancesReducer,
       filters:     filtersReducer,
-      auth:        authReducer
+      auth:        authReducer,
+      loading:     loadingReducer
     })
 
   const store = createStore(

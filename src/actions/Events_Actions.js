@@ -23,18 +23,31 @@ export const addEvent = (key, event) => {
 }
 
 export const getUserEventsFromFirebase = (uid) => {
-  const events = {};
-  return (dispatch, getState) => {
-     return database.ref(`events`).orderByChild('uid').equalTo(uid)
-      .once('value')
+  return new Promise((resolve, reject) => {
+    return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
       .then((snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          events[childSnapshot.key] = childSnapshot.val()
-        })
-        dispatch(addEvents(events))
+        if(snapshot) {
+          resolve(snapshot.val())
+        } else {
+          reject(new Error('FAILED TO GET USER EVENTS FROM FIREBASE: ', error))
+        }
       })
-  };
-};
+  })
+}
+
+// export const getUserEventsFromFirebase = (uid) => {
+//   const events = {};
+//   return (dispatch, getState) => {
+//      return database.ref(`events`).orderByChild('uid').equalTo(uid)
+//       .once('value')
+//       .then((snapshot) => {
+//         snapshot.forEach((childSnapshot) => {
+//           events[childSnapshot.key] = childSnapshot.val()
+//         })
+//         dispatch(addEvents(events))
+//       })
+//   };
+// };
 
 export const getOtherUserEventsFromFirebase = (uid) => {
   const events = {};
@@ -45,7 +58,7 @@ export const getOtherUserEventsFromFirebase = (uid) => {
         snapshot.forEach((childSnapshot) => {
           if(childSnapshot.val().uid !== uid) {
             events[childSnapshot.key] = childSnapshot.val()
-          } 
+          }
         })
         dispatch(addEvents(events))
       })
@@ -66,7 +79,7 @@ export const editEventInFirebase = (id, updates) => {
         dispatch(editEvent(id, updates))
       }
     )
-  }  
+  }
 }
 
 export const editEvent = (id, updates) => {
@@ -105,7 +118,7 @@ export const createInterestedUserInFirebase = (eventId) => {
       }
     )
   };
-} 
+}
 
 export const createInterestedUser = (eventId, userId) => {
   return {

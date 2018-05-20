@@ -1,4 +1,18 @@
-import { auth } from '../firebase/firebaseIndex';
+import { auth, firebase } from '../firebase/firebaseIndex';
+import store from '../store/configureStore';
+import { signIn, signOut }       from '../actions/Auth';
+
+export const firbaseOnAuthStateChange = (user) => {
+  firebase.auth.onAuthStateChanged((user) => {
+      if (user) {
+        window.localStorage.setItem(firebase.storageKey, user.uid);
+        store.dispatch(signIn(user.uid))
+      } else {
+        window.localStorage.removeItem(firebase.storageKey);
+        // history.push('/');
+      }
+    });
+}
 
 export const firebasePasswordUpdate = (partitionedData) => {
   if (partitionedData.authData.passwordOne && partitionedData.authData.passwordTwo) {

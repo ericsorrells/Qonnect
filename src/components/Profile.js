@@ -20,23 +20,17 @@ class Profile extends React.Component {
   }
 
   loadData(user){
-    this.props.getProfileFromFirebase(user.uid)
-    this.props.setProfile({ 
-      displayName: user.displayName, 
-      photoURL:    user.photoURL,
-      email:       user.email 
-    })
-    this.props.getUserEventsFromFirebase(user.uid);
+    // TODO: remove this function
     window.scrollTo(0,0)
   }
 
   componentDidMount(){
+    // TODO: move this to main reducer
     let user = getCurrentUserId(auth.getCurrentUser());
     const urlParam = this.props.match.params.id;
     if(user.uid !== urlParam) {
       user = {uid: urlParam}
     }
-    this.loadData(user);
     sessionStorage.setItem('qProfile', JSON.stringify(user))
   }
 
@@ -80,7 +74,7 @@ class Profile extends React.Component {
 
 const EventsHeader = (props) => {
   const handleClick = () =>  props.history.push(`/add-event/`)
-  
+
   return(
     <div className='events-header'>
       <h1>My Events!</h1>

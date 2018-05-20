@@ -1,22 +1,17 @@
 // ========================================================================================
-import React                     from 'react';
-import ReactDOM                  from 'react-dom';
-import { Provider }              from 'react-redux';
-import { withRouter }            from 'react-router-dom';
-import AppRouter, { history }    from './router/AppRouter';
-import configureStore            from './store/configureStore';
-import { auth, firebase }        from './firebase/firebaseIndex';
-import { doSignOut }             from './firebase/auth';
-import { signIn, signOut }       from './actions/Auth';
-import { getUserEventsFromFirebase } from './actions/Events_Actions'
-import {
-  getProfileFromFirebase,
-  setProfile }                   from './actions/Profile_Actions'
+import React                         from 'react';
+import { connect }                     from 'react-redux';
+import ReactDOM                      from 'react-dom';
+import { Provider }                  from 'react-redux';
+import AppRouter, { history }        from './router/AppRouter';
+import { auth, firebase }            from './firebase/firebaseIndex';
+import { firbaseOnAuthStateChange }  from './utils/firebaseHelpers';
+import store                         from './store/configureStore';
+// ========================================================================================
+import Home from './components/Home';
+import Spinner from './components/Spinner';
+// ========================================================================================
 import 'normalize.css/normalize.css';
-import store from './store/configureStore';
-// ========================================================================================
-import Home from '../src/components/Home';
-// ========================================================================================
 import './styles/styles.scss';
 // ========================================================================================
 
@@ -26,15 +21,8 @@ class QonnectApp extends React.Component {
   }
 
   componentDidMount() {
-    firebase.auth.onAuthStateChanged((user) => {
-      if (user) {
-        window.localStorage.setItem(firebase.storageKey, user.uid);
-        store.dispatch(signIn(user.uid))
-      } else {
-        window.localStorage.removeItem(firebase.storageKey);
-        history.push('/');
-      }
-    });
+    const user = auth.getCurrentUser();
+    firbaseOnAuthStateChange(user);
   }
 
   render() {

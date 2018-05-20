@@ -12,7 +12,7 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 const mapStateToProps = (state) => {
-  return { 
+  return {
     events:  objToArray(state.events),
     profile: state.profile,
     userId:  state.auth.uid

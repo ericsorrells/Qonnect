@@ -1,32 +1,46 @@
 // ========================================================================================
-import React from 'react';
-import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
+import React              from 'react';
+import { connect }        from 'react-redux';
+import createHistory      from 'history/createBrowserHistory';
 import { auth, firebase } from '../firebase/firebaseIndex';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 // ========================================================================================
-import PrivateRoute from '../components/PrivateRoute';
 // import PublicRoute from './PublicRoute';
-import AddEventsContainer from '../containers/AddEvent_Container';
-import EditEventContainer from '../containers/EditEvent_Container';
-import EditProfileContainer from '../containers/EditProfile_Container';
-import FindEventsContainer from '../containers/FindEvents_Container';
-import ProfileContainer from '../containers/Profile_Container';
+import PrivateRoute           from '../components/PrivateRoute';
+import AddEventsContainer     from '../containers/AddEvent_Container';
+import EditEventContainer     from '../containers/EditEvent_Container';
+import EditProfileContainer   from '../containers/EditProfile_Container';
+import FindEventsContainer    from '../containers/FindEvents_Container';
+import ProfileContainer       from '../containers/Profile_Container';
 import ProfileUpdateContainer from '../containers/ProfileUpdate_Container';
-import ShowEventContainer from '../containers/ShowEvent_Container';
-import Footer from '../components/Footer';
-import Home from '../components/Home';
+import ShowEventContainer     from '../containers/ShowEvent_Container';
+import Footer   from '../components/Footer';
+import Home     from '../components/Home';
 import NotFound from '../components/NotFound';
-import NavBar from '../components/NavBar';
-import SignIn from '../components/SignIn';
-import SignUp from '../components/SignUp';
-import About from '../components/About';
-import Contact from '../components/Contact';
+import NavBar   from '../components/NavBar';
+import SignIn   from '../components/SignIn';
+import SignUp   from '../components/SignUp';
+import About    from '../components/About';
+import Contact  from '../components/Contact';
+import Spinner  from '../components/Spinner';
 // ========================================================================================
 
 const history = createHistory();
 
 const AppRouter = (props) => {
+  // TODO: how to set top-level state as true/false (ie, no 'loading.loading')
+  const loadingState = props.loading.loading;
+  return (
+    <div className='app-router'>
+      { loadingState ?
+        <Spinner/> :
+        <Routes user={props.user}/>
+      }
+    </div>
+  )
+}
+
+const Routes = (props) => {
   return (
     <Router history={history}>
       <div className="router-container">
@@ -54,9 +68,12 @@ const AppRouter = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  user: state.auth.uid
-});
+const mapStateToProps = (state) => {
+  return {
+    user:    state.auth.uid,
+    loading: state.loading
+  }
+};
 
 export { history };
 export default connect(mapStateToProps)(AppRouter);

@@ -1,13 +1,30 @@
 import database from '../firebase/firebase';
 
 export const getProfileFromFirebase = (uid) => {
-  return (dispatch, getState) => {
-    return database.ref(`users/${uid}`).once('value')
-      .then((snapshot) => {
-        dispatch(setProfile(snapshot.val()));
-    })
-  }
+   return new Promise((resolve, reject) => {
+    database.ref(`users/${uid}`).once('value')
+     .then((snapshot) => {
+       if(snapshot.val()) {
+         resolve(snapshot.val())
+       } else {
+         reject(new Error('FAILED TO GET PROFILE FROM FIREBASE: ', error))
+       }
+     })
+  })
 }
+// export const getProfileFromFirebase = (uid) => {
+//   console.log('GETTING PROFILE FROM FB', uid);
+//   return (dispatch, getState) => {
+//     console.log('GETTING PROFILE FROM FB 2');
+//     return database.ref(`users/${uid}`).once('value')
+//       .then((snapshot) => {
+
+//     console.log('GETTING PROFILE FROM FB 3', snapshot.val());
+//         dispatch(setProfile(snapshot.val()));
+//         console.log('END GETTING PROFILE FROM FB');
+//     })
+//   }
+// }
 
 export const setProfile = (profileUpdates) => {
   return {
