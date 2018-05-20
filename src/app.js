@@ -9,17 +9,16 @@ import { auth, firebase }        from './firebase/firebaseIndex';
 import { doSignOut }             from './firebase/auth';
 import { signIn, signOut }       from './actions/Auth';
 import { getUserEventsFromFirebase } from './actions/Events_Actions'
-import { 
-  getProfileFromFirebase, 
+import {
+  getProfileFromFirebase,
   setProfile }                   from './actions/Profile_Actions'
 import 'normalize.css/normalize.css';
+import store from './store/configureStore';
 // ========================================================================================
 import Home from '../src/components/Home';
 // ========================================================================================
 import './styles/styles.scss';
 // ========================================================================================
-
-const store = configureStore();
 
 class QonnectApp extends React.Component {
   constructor(props) {
