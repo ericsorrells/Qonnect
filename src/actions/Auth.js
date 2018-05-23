@@ -1,28 +1,19 @@
+// ========================================================================================
 import { auth } from '../firebase/firebaseIndex';
 import { history } from '../router/AppRouter';
 import { firebase } from '../firebase/firebaseIndex';
+// ========================================================================================
 
-export const doSignIn = ({ email, password, error }) => {
-  return (dispatch, getState) => {
-    return auth.doSignInWithEmailAndPassword(email, password)
-      .then((user) => {
-        dispatch(signIn(user.uid));
-        history.push(`/profile/${user.uid}`)
-      })
-      .catch((error) => {
-        console.error('ERROR LOGGING IN: ', error)
-        throw error
-      })
+export const startSignIn = (authInfo) => {
+  return {
+    type: 'START_SIGN_IN',
+    authInfo
   }
 }
 
-export const signOutOfFirebase = () => {
-  return (dispatch) => {
-    return auth.doSignOut()
-      .then(() => {
-        dispatch(signOut());
-        window.localStorage.removeItem(firebase.storageKey);  
-      })
+export const startSignOut = () => {
+  return {
+    type: 'START_SIGN_OUT'
   }
 }
 
@@ -36,5 +27,17 @@ export const signIn = (uid) => {
 export const signOut = () => {
   return {
     type: 'SIGN_OUT'
+  }
+}
+
+export const endSignIn = () => {
+  return {
+    type: 'END_SIGN_IN'
+  }
+}
+
+export const endSignOut = () => {
+  return {
+    type: 'END_SIGN_OUT'
   }
 }

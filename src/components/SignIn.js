@@ -1,7 +1,7 @@
 // ========================================================================================
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { doSignIn } from '../actions/Auth';
+import { startSignIn } from '../actions/Auth';
 // ========================================================================================
 import { SignUpLink } from './SignUp';
 import ProfileForm from './ProfileForm';
@@ -11,7 +11,7 @@ const SignIn = (props) => {
   return (
     <div>
       <h1>SignIn</h1>
-      <SignInForm history={props.history} doSignIn={props.doSignIn} />
+      <SignInForm history={props.history} startSignIn={props.startSignIn} />
       <SignUpLink />
     </div>
   )
@@ -36,8 +36,10 @@ class SignInForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const signInResult = this.props.doSignIn({ ...this.state })
-      .catch(error => this.setState({ error: error }))
+    this.props.startSignIn({ ...this.state });
+
+    // const signInResult = this.props.doSignIn({ ...this.state })
+    //   .catch(error => this.setState({ error: error }))
   }
 
   render() {
@@ -69,7 +71,7 @@ class SignInForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { doSignIn: (email, password) => dispatch(doSignIn(email, password)) }
+  return { startSignIn: (authInfo) => dispatch(startSignIn(authInfo)) }
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

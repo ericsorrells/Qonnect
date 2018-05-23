@@ -16,8 +16,7 @@ class AddEvent extends React.Component {
   }
 
   handleSubmit(event) {
-    const urlParam = this.props.match.params.id;
-    const eventId = this.props.createEventInFirebase(event);
+    this.props.startCreateEvent(event)
   }
 
   render() {

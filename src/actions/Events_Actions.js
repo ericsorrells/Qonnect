@@ -2,52 +2,46 @@ import database from '../firebase/firebase';
 import { history } from '../router/AppRouter';
 import { editUserEventListInFirebase } from './Profile_Actions';
 
-export const createEventInFirebase = (event = {}) => {
-  return (dispatch, getState) => {
-    return database.ref(`events`).push(event)
-      .then((ref) => {
-        dispatch(addEvent(ref.key, {...event}));
-        dispatch(editUserEventListInFirebase(event.uid, ref.key))
-        history.push(`/show-event/${encodeURIComponent(ref.key)}`)
-      }
-    )
+export const startCreateEvent = (event) => {
+  return {
+    type: 'START_EVENTS',
+    event
   }
 }
 
-export const addEvent = (key, event) => {
+// export const createEventInFirebase = (event = {}) => {
+//   return new Promise((resolve, reject) => {
+//     return database.ref(`events`).push(event)
+//       .then((ref) => {
+//         if(ref) {
+//           resolve({key: ref.key, event: {...event}});
+//         } else {
+//           reject(new Error('FAILED TO SAVE EVENT TO FIREBASE: ', error))
+//         }
+//       })
+//   })
+// }
+
+export const createEvent = (key, event) => {
   return {
-    type: 'ADD_EVENT',
+    type: 'CREATE_EVENT',
     key,
     event
   }
 }
 
-export const getUserEventsFromFirebase = (uid) => {
-  return new Promise((resolve, reject) => {
-    return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
-      .then((snapshot) => {
-        if(snapshot) {
-          resolve(snapshot.val())
-        } else {
-          reject(new Error('FAILED TO GET USER EVENTS FROM FIREBASE: ', error))
-        }
-      })
-  })
-}
-
 // export const getUserEventsFromFirebase = (uid) => {
-//   const events = {};
-//   return (dispatch, getState) => {
-//      return database.ref(`events`).orderByChild('uid').equalTo(uid)
-//       .once('value')
+//   return new Promise((resolve, reject) => {
+//     return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
 //       .then((snapshot) => {
-//         snapshot.forEach((childSnapshot) => {
-//           events[childSnapshot.key] = childSnapshot.val()
-//         })
-//         dispatch(addEvents(events))
+//         if(snapshot) {
+//           resolve(snapshot.val())
+//         } else {
+//           reject(new Error('FAILED TO GET USER EVENTS FROM FIREBASE: ', error))
+//         }
 //       })
-//   };
-// };
+//   })
+// }
 
 export const getOtherUserEventsFromFirebase = (uid) => {
   const events = {};

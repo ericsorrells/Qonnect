@@ -3,13 +3,14 @@ import React from 'react';
 import { auth } from '../firebase/firebaseIndex';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signOutOfFirebase } from '../actions/Auth';
+import { startSignOut } from '../actions/Auth';
 // ========================================================================================
 
 const SignOutButton = (props) => {
   const signUserOut = () => {
-    props.signOutOfFirebase();
-    props.history.push('/');
+    props.startSignOut();
+    window.sessionStorage.removeItem('qProfile');
+    window.sessionStorage.removeItem('qEvent');
   }
 
   return (
@@ -20,7 +21,7 @@ const SignOutButton = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { signOutOfFirebase: () => dispatch(signOutOfFirebase()) }
+  return { startSignOut: () => dispatch(startSignOut()) }
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(SignOutButton));
