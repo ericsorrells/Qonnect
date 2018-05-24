@@ -43,10 +43,7 @@ class ShowEvent extends React.Component {
   }
 
   onDelete() {
-    const user = getCurrentUser()
-    this.props.deleteEventInFirebase(this.props.eventId);
-    this.props.deleteUserEventListFromFirebase(user.uid, this.props.eventId)
-    this.props.history.push(`/profile/${user.uid}`)
+    this.props.startDeleteEvent(this.props.userId, this.props.eventId);
   }
 
   openModal() {

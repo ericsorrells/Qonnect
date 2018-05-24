@@ -9,19 +9,6 @@ export const startCreateEvent = (event) => {
   }
 }
 
-// export const createEventInFirebase = (event = {}) => {
-//   return new Promise((resolve, reject) => {
-//     return database.ref(`events`).push(event)
-//       .then((ref) => {
-//         if(ref) {
-//           resolve({key: ref.key, event: {...event}});
-//         } else {
-//           reject(new Error('FAILED TO SAVE EVENT TO FIREBASE: ', error))
-//         }
-//       })
-//   })
-// }
-
 export const createEvent = (key, event) => {
   return {
     type: 'CREATE_EVENT',
@@ -29,19 +16,6 @@ export const createEvent = (key, event) => {
     event
   }
 }
-
-// export const getUserEventsFromFirebase = (uid) => {
-//   return new Promise((resolve, reject) => {
-//     return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
-//       .then((snapshot) => {
-//         if(snapshot) {
-//           resolve(snapshot.val())
-//         } else {
-//           reject(new Error('FAILED TO GET USER EVENTS FROM FIREBASE: ', error))
-//         }
-//       })
-//   })
-// }
 
 export const getOtherUserEventsFromFirebase = (uid) => {
   const events = {};
@@ -84,14 +58,11 @@ export const editEvent = (id, updates) => {
   }
 }
 
-export const deleteEventInFirebase = (eventId) => {
-  return(dispatch, getState) => {
-    const userId = getState().auth.uid;
-    return database.ref(`events/${eventId}`).remove()
-      .then(() => {
-        dispatch(deleteEvent(eventId));
-      }
-    )
+export const startDeleteEvent = (userId, eventId) => {
+  return {
+    type: 'START_DELETE_EVENT',
+    userId,
+    eventId
   }
 }
 

@@ -13,12 +13,11 @@ import { objToArray } from '../utils/utils';
 const mapDispatchToProps = (dispatch) => {
   return {
     startCreateEvent: (event) => dispatch(startCreateEvent(event))
-    // createEventInFirebase:       (event) => { dispatch(createEventInFirebase(event)) }
   }
 }
 
 const mapStateToProps = (state) => {
-  return { 
+  return {
     events:   objToArray(state.events),
     userId:   state.auth.uid,
     profile:  state.profile,

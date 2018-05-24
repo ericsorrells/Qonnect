@@ -11,27 +11,26 @@ import { signIn, signOut }                      from '../actions/Auth';
 import initializeSaga                           from './initializeSaga';
 import signInSaga                               from './signInSaga';
 import signOutSaga                              from './signoutSaga';
-import eventsSaga                               from './eventsSaga';
+import { eventsCreateSaga, eventsDeleteSaga }   from './eventsSaga';
 // ========================================================================================
 
 export function* mainSaga() {
-    console.log('MAIN_SAGA')
-
     // call loading saga
     // loading saga listens for loading events
     // yield fork(loadingSaga)
     // state initializeSaga
     // yield fork(initializeSaga)
-    
+
     // listen for:
     // login
     yield fork(signInSaga);
     // set profile
-    // yield call(profileSaga); 
+    // yield call(profileSaga);
 
     // logout
     // add events
-    yield fork(eventsSaga);
+    yield fork(eventsCreateSaga);
+    yield fork(eventsDeleteSaga);
     // find events (both users and others)
     // filterings
     // acceptances

@@ -65,32 +65,21 @@ export const updateProfile = (profileUpdates) => {
   }
 }
 
-export const editUserEventListInFirebase = (userId, eventId) => {
-  return (dispatch, getState) => {
-    return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
-      .then((snapshot) => {
-        dispatch(editUserEventList(userId, eventId))
-      }
-    )
-  }
-}
+// export const editUserEventListInFirebase = (userId, eventId) => {
+//   return (dispatch, getState) => {
+//     return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
+//       .then((snapshot) => {
+//         dispatch(editUserEventList(userId, eventId))
+//       }
+//     )
+//   }
+// }
 
 export const editUserEventList = (userId, eventId) => {
   return {
     type: 'EDIT_USER_EVENT_LIST',
     userId,
     eventId
-  }
-}
-
-
-export const deleteUserEventListFromFirebase = (userId, eventId) => {
-  return(dispatch, getState) => {
-    return database.ref(`users/${userId}/userEvents/${eventId}`).remove()
-      .then(() => {
-        dispatch(deleteUserEventList(eventId));
-      }
-    )
   }
 }
 

@@ -1,3 +1,9 @@
+// ========================================================================================
+import { auth }     from '../firebaseIndex';
+import { firebase } from '../firebaseIndex';
+import database     from '../firebase';
+// ========================================================================================
+
 export const getUserEventsFromFirebase = (uid) => {
   return new Promise((resolve, reject) => {
     return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
@@ -21,5 +27,13 @@ export const createEventInFirebase = (event = {}) => {
           reject(new Error('FAILED TO SAVE EVENT TO FIREBASE: ', error))
         }
       })
+  })
+}
+
+// TODO: does FB return anything here?
+export const deleteEventInFirebase = (eventId) => {
+  return new Promise((resolve, reject) => {
+    return database.ref(`events/${eventId}`).remove()
+      .then(() =>  resolve() )
   })
 }

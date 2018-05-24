@@ -1,17 +1,16 @@
 // ========================================================================================
 import React       from 'react';
 import { connect } from 'react-redux';
-import { 
-  deleteUserEventListFromFirebase, 
-  createUserAcceptedEventInFirebase 
+import {
+  createUserAcceptedEventInFirebase
 } from '../actions/Profile_Actions';
-import { 
-  createInterestedUserInFirebase, 
-  deleteEventInFirebase 
+import {
+  createInterestedUserInFirebase,
+  startDeleteEvent
 } from '../actions/Events_Actions';
-import { 
-  createAcceptanceInFirebase, 
-  getEventAcceptancesFromFirebase 
+import {
+  createAcceptanceInFirebase,
+  getEventAcceptancesFromFirebase
 } from '../actions/Acceptances_Actions';
 // ========================================================================================
 import ShowEvent from '../components/ShowEvent';
@@ -33,13 +32,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    startDeleteEvent: (userId, eventId) => dispatch(startDeleteEvent(userId, eventId)),
     createInterestedUserInFirebase:    (eventId, userId) => dispatch(createInterestedUserInFirebase(eventId, userId)),
     createAcceptanceInFirebase:        (acceptanceInfo)  => dispatch(createAcceptanceInFirebase(acceptanceInfo)),
     createUserAcceptedEventInFirebase: (userId, eventId) => dispatch(createUserAcceptedEventInFirebase(userId, eventId)),
     updateUserAcceptedEventInFirebase: (eventId, userId) => dispatch(updateUserAcceptedEventInFirebase(eventId, userId)),
-    getEventAcceptancesFromFirebase:   (eventId)         => dispatch(getEventAcceptancesFromFirebase(eventId)),
-    deleteEventInFirebase:             (eventId)         => dispatch(deleteEventInFirebase(eventId)),
-    deleteUserEventListFromFirebase:   (userId, eventId) => dispatch(deleteUserEventListFromFirebase(userId, eventId))
+    getEventAcceptancesFromFirebase:   (eventId)         => dispatch(getEventAcceptancesFromFirebase(eventId))
   }
 }
 
