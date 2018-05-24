@@ -100,8 +100,6 @@ const defaultState = {
 };
 
 const eventsReducer = (state = defaultState, action) => {
-  console.log('EVENTS REDUCER', action)
-  
   switch(action.type) {
     case 'ADD_EVENTS':
       return action.events;
@@ -132,7 +130,7 @@ const eventsReducer = (state = defaultState, action) => {
             [action.userId]: true
           }
         }
-      }  
+      }
     default:
       return state;
   }

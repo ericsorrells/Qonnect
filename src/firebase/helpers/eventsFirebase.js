@@ -4,9 +4,9 @@ import { firebase } from '../firebaseIndex';
 import database     from '../firebase';
 // ========================================================================================
 
-export const getUserEventsFromFirebase = (uid) => {
+export const getUserEventsFromFirebase = (userId) => {
   return new Promise((resolve, reject) => {
-    return database.ref(`events`).orderByChild('uid').equalTo(uid) .once('value')
+    return database.ref(`events`).orderByChild('uid').equalTo(userId) .once('value')
       .then((snapshot) => {
         if(snapshot) {
           resolve(snapshot.val())

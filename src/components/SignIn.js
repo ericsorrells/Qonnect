@@ -37,9 +37,6 @@ class SignInForm extends Component {
   onSubmit(e) {
     e.preventDefault();
     this.props.startSignIn({ ...this.state });
-
-    // const signInResult = this.props.doSignIn({ ...this.state })
-    //   .catch(error => this.setState({ error: error }))
   }
 
   render() {

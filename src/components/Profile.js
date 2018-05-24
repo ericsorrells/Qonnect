@@ -21,29 +21,21 @@ class Profile extends React.Component {
 
   loadData(user){
     this.props.getProfileFromFirebase(user.uid)
-    this.props.setProfile({ 
-      displayName: user.displayName, 
+    this.props.setProfile({
+      displayName: user.displayName,
       photoURL:    user.photoURL,
-      email:       user.email 
+      email:       user.email
     })
     this.props.getUserEventsFromFirebase(user.uid);
     window.scrollTo(0,0)
   }
 
   componentDidMount(){
-    let user = getCurrentUserId(auth.getCurrentUser());
-    // const urlParam = this.props.match.params.id;
-    // if(user.uid !== urlParam) {
-    //   user = {uid: urlParam}
-    // }
-    // this.loadData(user);
-    // sessionStorage.setItem('qProfile', JSON.stringify(user))
+    this.props.startGetProfile(this.props.match.params.id);
   }
 
   componentWillUnmount(){
     let user = getCurrentUserId(auth.getCurrentUser());
-    // use profileSaga instead (ie, 'START_PROFILE')
-    // this.loadData(user);
   }
 
   render(){
@@ -89,6 +81,5 @@ const EventsHeader = (props) => {
     </div>
   )
 }
-
 
 export default withRouter(Profile);

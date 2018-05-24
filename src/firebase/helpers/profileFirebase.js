@@ -4,26 +4,29 @@ import { firebase } from '../firebaseIndex';
 import database     from '../firebase';
 // ========================================================================================
 
-export const deleteUserEventListFromFirebase = (userId, eventId) => {
-  return new Promise((resolve, reject) => {
-    return database.ref(`users/${userId}/userEvents/${eventId}`).remove()
-      .then(() => resolve())
+export const getProfileFromFirebase = (userId) => {
+   return new Promise((resolve, reject) => {
+    database.ref(`users/${userId}`).once('value')
+     .then((snapshot) => {
+       if(snapshot.val()) {
+         resolve(snapshot.val())
+       } else {
+         reject(new Error('FAILED TO GET PROFILE FROM FIREBASE: ', error))
+       }
+     })
   })
 }
 
 export const addToUserEventListInFirebase = (userId, eventId) => {
   return new Promise((resolve, reject) => {
     return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
-      .then(() => resolve())
+    .then(() => resolve())
   })
 }
 
-// export const editUserEventListInFirebase = (userId, eventId) => {
-//   return (dispatch, getState) => {
-//     return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
-//       .then((snapshot) => {
-//         dispatch(editUserEventList(userId, eventId))
-//       }
-//     )
-//   }
-// }
+export const deleteUserEventListFromFirebase = (userId, eventId) => {
+  return new Promise((resolve, reject) => {
+    return database.ref(`users/${userId}/userEvents/${eventId}`).remove()
+    .then(() => resolve())
+  })
+}

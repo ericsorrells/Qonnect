@@ -14,7 +14,7 @@ const SignUp = ({ history, signIn, updateProfile }) =>
       history={history}
       doSignUp={doSignUp}
       signIn={signIn}
-      updateProfile={updateProfile} 
+      updateProfile={updateProfile}
     />
   </div>
 
@@ -44,7 +44,7 @@ class SignUpForm extends Component {
 
     return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((user) => {
-        this.props.signIn(user)
+        // this.props.signIn(user)    COMMENTED TO TEST FOR 'SIGN_IN' ACTION FIRINGS
         this.props.updateProfile({email: email})
         this.props.history.push('/update-profile')
       })
