@@ -17,21 +17,21 @@ export const createEvent = (key, event) => {
   }
 }
 
-export const getOtherUserEventsFromFirebase = (uid) => {
-  const events = {};
-  return (dispatch, getState) => {
-    return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200)
-      .once('value')
-      .then((snapshot) => {
-        snapshot.forEach((childSnapshot) => {
-          if(childSnapshot.val().uid !== uid) {
-            events[childSnapshot.key] = childSnapshot.val()
-          }
-        })
-        dispatch(addEvents(events))
-      })
-  };
-};
+// export const getOtherUserEventsFromFirebase = (uid) => {
+//   const events = {};
+//   return (dispatch, getState) => {
+//     return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200)
+//       .once('value')
+//       .then((snapshot) => {
+//         snapshot.forEach((childSnapshot) => {
+//           if(childSnapshot.val().uid !== uid) {
+//             events[childSnapshot.key] = childSnapshot.val()
+//           }
+//         })
+//         dispatch(addEvents(events))
+//       })
+//   };
+// };
 
 export const addEvents = (events) => {
   return {
@@ -68,6 +68,13 @@ export const deleteEvent = (id) => {
   return {
     type: 'DELETE_EVENT',
     id
+  }
+}
+
+export const startGetOtherEvents = (userId) => {
+  return {
+    type: 'START_GET_OTHER_EVENTS',
+    userId
   }
 }
 

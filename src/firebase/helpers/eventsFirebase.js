@@ -44,3 +44,23 @@ export const deleteEventInFirebase = (eventId) => {
       .then(() =>  resolve() )
   })
 }
+
+export const getOtherUserEventsFromFirebase = (userId) => {
+  let events = {}
+  return new Promise((resolve, reject) => {
+    return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200).once('value')
+      .then((snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+          if(childSnapshot.val().uid !== userId) {
+            events[childSnapshot.key] = childSnapshot.val()
+          }
+        })
+      }).then(() => {
+        if(Object.keys(events).length > 0) {
+          resolve(events)
+        } else {
+          reject(new Error('FAILURE IN GET OTHER USER EVENTS FROM FIREBASE: ', error))
+        }
+      })
+  })
+}

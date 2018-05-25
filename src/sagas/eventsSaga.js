@@ -8,7 +8,8 @@ import {
   getUserEventsFromFirebase,
   createEventInFirebase,
   editEventInFirebase,
-  deleteEventInFirebase
+  deleteEventInFirebase,
+  getOtherUserEventsFromFirebase
 } from '../firebase/helpers/eventsFirebase';
 import {
   deleteUserEventListFromFirebase,
@@ -48,4 +49,16 @@ function* eventsDeleteSaga({ userId, eventId }) {
   yield put({ type: 'DELETE_EVENTS_SUCCESS' });
 }
 
-export { getEventsSaga, eventsCreateSaga, eventsEditSaga, eventsDeleteSaga };
+function* eventsOtherEventsSaga({ userId }) {
+  const events = yield call(getOtherUserEventsFromFirebase, userId);
+  yield put(addEvents(events));
+  yield put({ type: 'GET_OTHER_EVENTS_SUCCESS' })
+}
+
+export {
+  getEventsSaga,
+  eventsCreateSaga,
+  eventsEditSaga,
+  eventsDeleteSaga,
+  eventsOtherEventsSaga
+};

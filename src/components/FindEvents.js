@@ -1,19 +1,22 @@
 // ========================================================================================
-import React from 'react';
-import PropTypes from 'prop-types';
+import React       from 'react';
+import PropTypes   from 'prop-types';
+import { connect } from 'react-redux';
 // ========================================================================================
-import EventItems      from './EventItems';
-import SearchContainer from '../containers/Search_Container';
-import { auth }        from '../firebase/firebaseIndex';
+import EventItems              from './EventItems';
+import SearchContainer         from '../containers/Search_Container';
+import { auth }                from '../firebase/firebaseIndex';
+import { startGetOtherEvents } from '../actions/Events_Actions';
 // ========================================================================================
-import { getCurrentUserId } from '../utils/utils';
+import { objToArray, getCurrentUserId } from '../utils/utils';
+import { filterEvents }                 from '../utils/filters';
 // ========================================================================================
 
 class FindEvents extends React.Component {
 
   componentDidMount() {
     const user = getCurrentUserId(auth.getCurrentUser());
-    this.props.getOtherUserEventsFromFirebase(user.uid)
+    this.props.startGetOtherEvents(user.uid)
   }
 
   render() {
@@ -37,4 +40,15 @@ class FindEvents extends React.Component {
   }
 }
 
-export default FindEvents;
+const mapStateToProps = (state) => {
+  const eventsArray = objToArray(state.events);
+  return { events: filterEvents(eventsArray, state.filters) }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    startGetOtherEvents: (userId) => dispatch(startGetOtherEvents(userId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindEvents);
