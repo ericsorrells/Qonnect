@@ -35,7 +35,8 @@ class ShowEvent extends React.Component {
 
   componentDidMount(){
     // TODO: where does this go?
-    this.props.getEventAcceptancesFromFirebase(this.props.eventId);
+    // this.props.getEventAcceptancesFromFirebase(this.props.eventId);
+    this.props.startGettingEventAcceptances(this.props.eventId);
     saveToSessionStorage(this.props.match.params.id, this.props.event)
   }
 
@@ -58,17 +59,8 @@ class ShowEvent extends React.Component {
   userAcceptEvent(acceptanceInfo) {
     const user = getCurrentUser()
     const { eventId } = this.props;
-    this.props.createInterestedUserInFirebase(eventId, user.uid);
-    this.props.getEventAcceptancesFromFirebase()
-    this.props.createAcceptanceInFirebase({
-      eventId: eventId,
-      userId: user.uid,
-      userName: `${this.props.user.firstName} ${this.props.user.lastName}`,
-      acceptanceNote: acceptanceInfo.acceptanceNote,
-      selected: false,
-      createAt: moment.now()
-    })
-    this.props.createUserAcceptedEventInFirebase(user.uid, eventId)
+    this.props.startUserAcceptEvent(user, eventId, acceptanceInfo)
+    // TODO: close modal when user clicks 'Yes, I Accept'
   }
 
   render() {

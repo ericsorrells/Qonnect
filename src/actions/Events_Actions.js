@@ -1,6 +1,8 @@
+// ========================================================================================
 import database from '../firebase/firebase';
 import { history } from '../router/AppRouter';
 import { editUserEventListInFirebase } from './Profile_Actions';
+// ========================================================================================
 
 export const startCreateEvent = (event) => {
   return {
@@ -16,22 +18,6 @@ export const createEvent = (key, event) => {
     event
   }
 }
-
-// export const getOtherUserEventsFromFirebase = (uid) => {
-//   const events = {};
-//   return (dispatch, getState) => {
-//     return database.ref(`events`).orderByChild('selectedUser').equalTo('none').limitToFirst(200)
-//       .once('value')
-//       .then((snapshot) => {
-//         snapshot.forEach((childSnapshot) => {
-//           if(childSnapshot.val().uid !== uid) {
-//             events[childSnapshot.key] = childSnapshot.val()
-//           }
-//         })
-//         dispatch(addEvents(events))
-//       })
-//   };
-// };
 
 export const addEvents = (events) => {
   return {
@@ -78,22 +64,24 @@ export const startGetOtherEvents = (userId) => {
   }
 }
 
-export const createInterestedUserInFirebase = (eventId) => {
-  return (dispatch, getState) => {
-    const userId = getState().auth.uid;
-    return database.ref(`events/${eventId}`).child('interestedUsers').update({[`${userId}`]: true})
-      .then((ref) => {
-        dispatch(createInterestedUser(eventId, userId));
-        history.push(`/show-event/${encodeURIComponent(eventId)}`)
-      }
-    )
-  };
-}
+// export const createInterestedUserInFirebase = (eventId) => {
+//   return (dispatch, getState) => {
+//     const userId = getState().auth.uid;
+//     return database.ref(`events/${eventId}`).child('interestedUsers').update({[`${userId}`]: true})
+//       .then((ref) => {
+//         dispatch(createInterestedUser(eventId, userId));
+//         history.push(`/show-event/${encodeURIComponent(eventId)}`)
+//       }
+//     )
+//   };
+// }
 
-export const createInterestedUser = (eventId, userId) => {
+export const createInterestedUser = (userId, eventId) => {
+  console.log('CREATE_INTERESTED_USER_ACTION', userId, eventId)
+  
   return {
     type: 'CREATE_INTERESTED_USER',
-    eventId,
-    userId
+    userId,
+    eventId
   }
 }

@@ -1,4 +1,6 @@
+// ========================================================================================
 import database from '../firebase/firebase';
+// ========================================================================================
 
 export const startGetProfile = (userId) => {
   return {
@@ -46,16 +48,6 @@ export const updateProfile = (profileUpdates) => {
   }
 }
 
-// export const editUserEventListInFirebase = (userId, eventId) => {
-//   return (dispatch, getState) => {
-//     return database.ref(`users/${userId}/userEvents`).update({[`${eventId}`]: false})
-//       .then((snapshot) => {
-//         dispatch(editUserEventList(userId, eventId))
-//       }
-//     )
-//   }
-// }
-
 export const editUserEventList = (userId, eventId) => {
   return {
     type: 'EDIT_USER_EVENT_LIST',
@@ -64,18 +56,7 @@ export const editUserEventList = (userId, eventId) => {
   }
 }
 
-// add event to users 'acceptedEvents' object
-export const createUserAcceptedEventInFirebase = (userId, eventId) => {
-  console.log('USER ACCEPTED EVENT', userId, eventId);
-  return (dispatch, getState) => {
-    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: false})
-      .then(() => {
-        dispatch(addEventToAcceptedEvent(eventId))
-      })
-  }
-}
-
-const addEventToAcceptedEvent = (eventId) => {
+export const addEventToAcceptedEvent = (eventId) => {
   return {
     type: 'ADD_EVENT_TO_ACCEPTED_EVENTS',
     eventId

@@ -30,3 +30,11 @@ export const deleteUserEventListFromFirebase = (userId, eventId) => {
     .then(() => resolve())
   })
 }
+
+// add event to users 'acceptedEvents' object
+export const createUserAcceptedEventInFirebase = (userId, eventId) => {
+  return new Promise((resolve, rejct) => {
+    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: false})
+      .then(() => resolve())
+  })
+}
