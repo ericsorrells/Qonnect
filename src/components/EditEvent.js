@@ -9,11 +9,11 @@ class EditEvent extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this);
   }
-  
+
   onSubmit(event) {
     const urlParam = this.props.match.params.id;
-    this.props.editEventInFirebase(urlParam, { ...event })
-    this.props.history.push(`/show-event/${urlParam}`); 
+    this.props.startEditEvent(urlParam, { ...event })
+    // this.props.history.push(`/show-event/${urlParam}`);
   }
 
   render() {

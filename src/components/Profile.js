@@ -19,17 +19,6 @@ class Profile extends React.Component {
     super(props)
   }
 
-  loadData(user){
-    this.props.getProfileFromFirebase(user.uid)
-    this.props.setProfile({
-      displayName: user.displayName,
-      photoURL:    user.photoURL,
-      email:       user.email
-    })
-    this.props.getUserEventsFromFirebase(user.uid);
-    window.scrollTo(0,0)
-  }
-
   componentDidMount(){
     this.props.startGetProfile(this.props.match.params.id);
   }

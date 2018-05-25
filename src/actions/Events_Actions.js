@@ -4,7 +4,7 @@ import { editUserEventListInFirebase } from './Profile_Actions';
 
 export const startCreateEvent = (event) => {
   return {
-    type: 'START_EVENTS',
+    type: 'START_CREATE_EVENT',
     event
   }
 }
@@ -40,21 +40,19 @@ export const addEvents = (events) => {
   }
 }
 
-export const editEventInFirebase = (id, updates) => {
-  return(dispatch, getState) => {
-    return database.ref(`events/${id}`).update(updates)
-      .then(() => {
-        dispatch(editEvent(id, updates))
-      }
-    )
+export const startEditEvent = (eventId, eventUpdates) => {
+  return {
+    type: 'START_EDIT_EVENT',
+    eventId,
+    eventUpdates
   }
 }
 
-export const editEvent = (id, updates) => {
+export const editEvent = (eventId, eventUpdates) => {
   return {
     type: 'EDIT_EVENT',
-    id,
-    updates
+    eventId,
+    eventUpdates
   }
 }
 

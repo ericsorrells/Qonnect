@@ -30,7 +30,6 @@ const history = createHistory();
 class AppRouter extends React.Component {
   constructor(props) {
     super(props)
-    console.log('APP ROUTER: alive!!!', history);
   }
 
   componentDidMount() {

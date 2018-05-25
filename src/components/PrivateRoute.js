@@ -6,7 +6,7 @@ import { firebase } from '../firebase/firebaseIndex';
 // ========================================================================================
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-  console.log('IS AUTH: ', firebase.isAuthenticated);
+  // console.log('IS AUTH: ', firebase.isAuthenticated);
   return(
     <Route
       {...rest}
@@ -26,6 +26,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 
 const mapStateToProps = (state) => {
   // return {isAuthenticated: Boolean(state.auth.uid)}
+  // TODO: what is this?
   return {coolio: Boolean(state.auth.uid)}
 };
 

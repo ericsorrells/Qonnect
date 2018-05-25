@@ -30,6 +30,13 @@ export const createEventInFirebase = (event = {}) => {
   })
 }
 
+export const editEventInFirebase = (eventId, eventUpdates) => {
+  return new Promise((resolve, reject) => {
+    return database.ref(`events/${eventId}`).update(eventUpdates)
+      .then(() => resolve())
+  })
+}
+
 // TODO: does FB return anything here?
 export const deleteEventInFirebase = (eventId) => {
   return new Promise((resolve, reject) => {

@@ -10,7 +10,7 @@ function* signInSaga() {
   const { email, password, error } = signInData.authInfo;
   const user = yield call(doSignIn, email, password, error);
   const signInResult = yield call(signIn, user.uid);
-  yield history.push('/profile/${signInResult.uid}');
+  yield history.push(`/profile/${signInResult.uid}`);
   yield put(endSignIn())
 }
 

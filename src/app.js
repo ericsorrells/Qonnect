@@ -17,7 +17,6 @@ import './styles/styles.scss';
 
 class QonnectApp extends React.Component {
   constructor(props) {
-    console.log('APPjs: Alive!!!')
     super(props)
   }
 
