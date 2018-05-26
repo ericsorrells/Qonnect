@@ -15,10 +15,12 @@ const UserInfo = ({
   birthDate,
   createdAt,
   description }) => {
-  photoURL = photoURL ? photoURL : "/images/user-silhouette.svg" 
+  photoURL = photoURL ? photoURL : "/images/user-silhouette.png" 
   return (
     <div className="user-info">
-      <img className="user-info__silhouete" src={photoURL} />
+      <div className='user-info__photoURL'>
+        <img className="user-info__silhouete" src={photoURL} />
+      </div>
       <h1>{firstName} {lastName}</h1>
       <div className="user-info__personal-stats">
         <div className="user-info__item">

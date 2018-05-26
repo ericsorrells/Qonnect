@@ -11,7 +11,7 @@ const text3 = 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac
 const HowItWorks = () => {
   return (
     <div className='how-it-works__container'>
-      <div className='how-it-works__inner-container container'>
+      <div className='how-it-works__inner-container'>
       <HowItWorksItem
         icon='fas fa-calendar-alt'
         title='Find Something To Do'

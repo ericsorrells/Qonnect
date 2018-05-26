@@ -34,6 +34,9 @@ class AppRouter extends React.Component {
 
   componentDidMount() {
     const user = auth.getCurrentUser();
+    // TODO: add 'sessionStorage.getItem('qProfile')' in PrivateRoute
+    // causing issues w signup => since this is no user, it re-routes to 'home'
+    // this shouldn't happen because at signup there is no user
     if(!user) { history.push('/') }
   }
 
@@ -53,6 +56,8 @@ class AppRouter extends React.Component {
 }
 
 const Routes = (props) => {
+  console.log('APP ROUTER: props', props)
+  
   return (
     <Router history={history}>
       <div className="router-container">

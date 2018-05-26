@@ -9,8 +9,8 @@ import ProfileForm from './ProfileForm';
 
 const SignIn = (props) => {
   return (
-    <div>
-      <h1>SignIn</h1>
+    <div className='profile_form sign-in-margins'>
+      <h1>Sign In</h1>
       <SignInForm history={props.history} startSignIn={props.startSignIn} />
       <SignUpLink />
     </div>
@@ -48,16 +48,18 @@ class SignInForm extends Component {
         <input
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
+          type='text'
+          placeholder='Email Address'
+          className='form__element_border form__input'
         />
         <input
           value={password}
           onChange={event => this.setState(byPropKey('password', event.target.value))}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
+          className='form__element_border form__input'
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type='submit' className='button__purple'>
           Sign In
         </button>
 

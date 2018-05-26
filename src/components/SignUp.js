@@ -7,16 +7,19 @@ import { doSignUp, signIn } from '../actions/Auth';
 import { updateProfile } from '../actions/Profile_Actions';
 // ========================================================================================
 
-const SignUp = ({ history, signIn, updateProfile }) =>
-  <div>
-    <h1>SignUp</h1>
+const SignUp = ({ history, signIn, updateProfile }) => {
+  return (
+    <div className='profile_form sign-in-margins'>
+    <h1>Sign Up</h1>
     <SignUpForm
-      history={history}
-      doSignUp={doSignUp}
-      signIn={signIn}
-      updateProfile={updateProfile}
+    history={history}
+    doSignUp={doSignUp}
+    signIn={signIn}
+    updateProfile={updateProfile}
     />
-  </div>
+    </div>
+  )
+}
 
 const INITIAL_STATE = {
   email: '',
@@ -67,22 +70,25 @@ class SignUpForm extends Component {
         <input
           value={email}
           onChange={event => this.setState(byPropKey('email', event.target.value))}
-          type="text"
-          placeholder="Email Address"
+          type='text'
+          placeholder='Email Address'
+          className='form__element_border form__input'
         />
         <input
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
-          type="password"
-          placeholder="Password"
+          type='password'
+          placeholder='Password'
+          className='form__element_border form__input'
         />
         <input
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
-          type="password"
-          placeholder="Confirm Password"
+          type='password'
+          placeholder='Confirm Password'
+          className='form__element_border form__input'
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type='submit'  className='button__purple'>
           Sign Up
         </button>
         {error && <p className='error'>{error.message}</p>}
@@ -106,7 +112,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(SignUp);
-
 export {
   SignUpForm,
   SignUpLink,

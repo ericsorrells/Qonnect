@@ -8,8 +8,10 @@ import { objToArray, calcOpenEvents } from '../utils/utils';
 // ========================================================================================
 
 const mapStateToProps = (state) => {
-  const eventsArray    = objToArray(state.events);
-
+  let eventsArray    = objToArray(state.events);
+  if(!eventsArray) {
+    eventsArray = [];
+  }
   return {
     totalEvents:    eventsArray.length,
     openEvents:     calcOpenEvents(eventsArray).length,
