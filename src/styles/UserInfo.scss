@@ -1,20 +1,24 @@
 .user-info {
   font-size: .9rem;
+  width: 90%;
+  position: relative;
+  top:-150px;
 }
 
 .user-info__silhouete{
   max-width: 12rem;
-  border: 3px solid black;
+  border: 1px solid black;
   background-color: white;
   padding: 30px 10px 0 10px;
-  position: relative;
-  top:-200px;
 }
 
 .user-info__personal-stats,
 .user-info__description {
-  // color: $grey-text;
   color: black;
+}
+
+.user-info__description {
+  margin-bottom: 50px;
 }
 
 .user-info__personal-stats,

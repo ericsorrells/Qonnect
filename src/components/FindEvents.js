@@ -27,13 +27,15 @@ class FindEvents extends React.Component {
             <SearchContainer />
           </aside>
           <section className='find-events__section'>
-            {events &&
-              <EventItems
+            <div className='add-event__inner-container'>
+              {events &&
+                <EventItems
                 events={events}
                 history={this.props.history}
                 deleteEvent={this.props.deleteEvent}
-              />
-            }
+                />
+              }
+            </div>
           </section>
         </div>
     )

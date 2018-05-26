@@ -16,13 +16,14 @@ import {
 } from './eventsSaga';
 // ========================================================================================
 
+// TODO: fix loading
 function* listeners() {
 	console.log('LISTENERS: starting');
 	yield [
 		takeEvery('START_SIGN_IN',       		  signInSaga              ),
 		// takeEvery('START_LOADING',                startLoadingSaga        ),
 		// takeEvery('END_LOADING',                  endLoadingSaga          ),
-		takeEvery('START_GET_PROFILE',   		  getProfileSaga          ),
+		takeLatest('START_GET_PROFILE',   		  getProfileSaga          ),
 		takeLatest('START_GET_EVENTS',   		  getEventsSaga           ),
 		takeLatest('START_CREATE_EVENT', 		  eventsCreateSaga        ),
 		takeLatest('START_EDIT_EVENT', 	 		  eventsEditSaga          ),

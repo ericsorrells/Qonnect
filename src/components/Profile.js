@@ -34,10 +34,15 @@ class Profile extends React.Component {
     const { events, history, profile, deleteEvent } = this.props
     return(
       <div className="profile">
+      {/*
         <div className="container">
+      */}
+        <div>
           <div className="profile__user-stats">
             <section>
-              <UserStats />
+              <div className='profile__user-stats-inner-container'>
+                <UserStats />
+              </div>
             </section>
           </div>
         </div>
@@ -47,6 +52,7 @@ class Profile extends React.Component {
               <UserInfo {...profile} />
             </aside>
             <section>
+              <div className='profile__section-inner-container'>
               <EventsHeader history={history} />
               {events &&
                 <EventItems
@@ -55,6 +61,7 @@ class Profile extends React.Component {
                   deleteEvent={deleteEvent}
                 />
               }
+              </div>
             </section>
           </div>
         </div>
@@ -65,7 +72,6 @@ class Profile extends React.Component {
 
 const EventsHeader = (props) => {
   const handleClick = () =>  props.history.push(`/add-event/`)
-
   return(
     <div className='events-header'>
       <h1>My Events!</h1>

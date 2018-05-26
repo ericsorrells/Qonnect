@@ -27,7 +27,7 @@ function* getProfileSaga({ userId }) {
   if (eventUserIds.length === 0 || !eventUserIds.includes(userId)) {
     yield put({ type: 'START_GET_EVENTS' });
   }
-  yield put({ type: 'END_LOADING'})
+  // yield put({ type: 'END_LOADING'})
   // const userAcceptances = yield select(state => state.acceptances)
   // if (Object.keys(userAcceptances).length === 0) {
   //   yield put({ type: 'START_GET_USER_ACCEPTANCES' });

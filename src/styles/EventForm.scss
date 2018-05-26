@@ -6,7 +6,8 @@
 
 .SingleDatePicker,
 .SingleDatePicker_1,
-.form__element {
+.form__element,
+.form__element_border {
   width: 100%;
   margin-top: 5px;
   margin-bottom: 15px;
@@ -14,6 +15,11 @@
   border: none;
   color: $dark-grey;
   background-color: white;
+}
+
+.form__element_border {
+  border: 1px solid $dark-grey; 
+  margin-bottom: 20px;
 }
 
 .form__select,

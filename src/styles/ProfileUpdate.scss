@@ -1,0 +1,22 @@
+.update-profile__form-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.profile_form {
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid $dark-grey;
+	border-radius: 5px;
+	box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.32);
+}
+
+.profile_form--header {
+	margin-bottom: 50px;
+}

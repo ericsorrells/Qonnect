@@ -12,7 +12,7 @@ export const EventItems = ({events, history = null, deleteEvent = null}) => {
   return events.map((event, index) => {
     return (
       <div>
-        <ul>
+        <ul className='event-itme__ul'>
           <EventItem
             {...event}
             key={event.id}

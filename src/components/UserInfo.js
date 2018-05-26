@@ -37,7 +37,9 @@ const UserInfo = ({
       <div className="user-info__description">
         {description}
       </div>
-      <button><Link to='/update-profile'>Update</Link></button>
+      <button className='button__purple'>
+        <Link to='/update-profile'>Update</Link>
+      </button>
     </div>
   )
 }

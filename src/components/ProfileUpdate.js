@@ -35,7 +35,7 @@ class ProfileUpdate extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='update-profile__form-container'>
         <ProfileForm
           handleSubmit={this.handleSubmit}
           user={auth.getCurrentUser()}

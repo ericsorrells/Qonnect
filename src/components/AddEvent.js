@@ -31,14 +31,16 @@ class AddEvent extends React.Component {
           />
         </aside>
         <section className='add-event__section'>
-          {
-            this.props.events &&
-            <EventItems
-              events      = {this.props.events}
-              history     = {this.props.history}
-              deleteEvent = {this.props.deleteEvent}
-            />
-          }
+          <div className='add-event__inner-container'>
+            {
+              this.props.events &&
+              <EventItems
+                events      = {this.props.events}
+                history     = {this.props.history}
+                deleteEvent = {this.props.deleteEvent}
+              />
+            } 
+          </div>
         </section>
       </div>
     )

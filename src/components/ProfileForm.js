@@ -99,30 +99,71 @@ class ProfileForm extends React.Component {
     const isInvalid = passwordOne !== passwordTwo;
 
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <form onSubmit={this.onFormSubmit} className='profile_form'>
+        <h3 className='profile_form--header'>Update Your Profile Information:</h3>
         <label>User Name:</label>
-        <input type='text' onChange={this.handleDisplayName} value={this.state.displayName}/>
+        <input 
+          type='text' 
+          onChange={this.handleDisplayName} 
+          value={this.state.displayName}
+          className='form__element_border form__input'
+        />
 
         <label>First Name:</label>
-        <input type='input' onChange={this.handleFirstNameChange} value={this.state.firstName}/>
+        <input 
+          type='input' 
+          onChange={this.handleFirstNameChange} 
+          value={this.state.firstName}
+          className='form__element_border form__input'
+        />
 
         <label>Last Name:</label>
-        <input type='input' onChange={this.handleLastNameChange} value={this.state.lastName}/>
+        <input 
+          type='input' 
+          onChange={this.handleLastNameChange} 
+          value={this.state.lastName}
+          className='form__element_border form__input'
+        />
 
         <label>Email:</label>
-        <input type='input' onChange={this.handleEmailChange} value={this.state.email}/>
+        <input 
+          type='input' 
+          onChange={this.handleEmailChange} 
+          value={this.state.email}
+          className='form__element_border form__input'
+        />
 
         <label>Photo URL:</label>
-        <input type='input' onChange={this.handlePhotoURLChange} value={this.state.photoURL}/>
+        <input 
+          type='input' 
+          onChange={this.handlePhotoURLChange} 
+          value={this.state.photoURL}
+          className='form__element_border form__input'  
+        />
 
         <label>City:</label>
-        <input type='input' onChange={this.handleCityChange} value={this.state.city}/>
+        <input 
+          type='input' 
+          onChange={this.handleCityChange} 
+          value={this.state.city}
+          className='form__element_border form__input'
+        />
 
         <label>State:</label>
-        <input type='input' onChange={this.handleStateChange} value={this.state.state}/>
+        <input 
+          type='input' 
+          onChange={this.handleStateChange} 
+          value={this.state.state}
+          className='form__element_border form__input'
+        />
 
         <label>Birthday:</label>
-        <input type='date' onChange={this.handleBirthdateChange} value={this.state.birthDate}/>
+        <input 
+          type='date' 
+          onChange={this.handleBirthdateChange} 
+          value={this.state.birthDate}
+          className='form__element_border form__input'
+        />
 
         <label>Personal Description:</label>
         <input
@@ -130,25 +171,28 @@ class ProfileForm extends React.Component {
           onChange={this.handleDescriptionChange}
           placeholder='Tell Us About Yourself'
           value={this.state.description}
+          className='form__element_border form__input'
         />
 
         <label>New Password:</label>
         <input
           value={this.state.passwordOne}
           onChange={this.handlePasswordChange}
-          type="password"
-          placeholder="New Password"
+          type='password'
+          placeholder='New Password'
+          className='form__element_border form__input'
         />
 
         <label>Reenter New Password:</label>
         <input
           value={this.state.passwordTwo}
           onChange={this.handlePasswordConfirmation}
-          type="password"
-          placeholder="Confirm New Password"
+          type='password'
+          placeholder='Confirm New Password'
+          className='form__element_border form__input'
         />
         {/*<button disabled={isInvalid} type="submit">*/}
-        <button type="submit">
+        <button type='submit' className='button__purple'>
           Submit
         </button>
       </form>
