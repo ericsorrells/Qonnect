@@ -7,6 +7,7 @@ import EventItems from './EventItems';
 import EventForm  from './EventForm';
 // ========================================================================================
 import { getCurrentUser } from '../firebase/auth';
+import { startGetProfile } from '../actions/Profile_Actions';
 // ========================================================================================
 
 class AddEvent extends React.Component {
@@ -17,6 +18,14 @@ class AddEvent extends React.Component {
 
   handleSubmit(event) {
     this.props.startCreateEvent(event)
+  }
+
+  componentDidMount(){
+    const { userId, events } = this.props
+
+    if(userId && events.length === 0) {
+      this.props.startGetProfile(userId);
+    }
   }
 
   render() {

@@ -11,7 +11,8 @@ export const getProfileFromFirebase = (userId) => {
        if(snapshot.val()) {
          resolve(snapshot.val())
        } else {
-         reject(new Error('FAILED TO GET PROFILE FROM FIREBASE: ', error))
+         reject(new Error('FAILED TO GET PROFILE FROM FIREBASE: '))
+        //  reject(new Error('FAILED TO GET PROFILE FROM FIREBASE: ', error))
        }
      })
   })

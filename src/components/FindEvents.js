@@ -19,6 +19,9 @@ class FindEvents extends React.Component {
     this.props.startGetOtherEvents(user.uid)
   }
 
+  // TODO: when clicking here and then back on Profile, get 'other' events on 'AddEvent' page
+  // do a componentDidUnmount that calls 'startGetProfile' here?
+
   render() {
     const { events } = this.props;
     return (

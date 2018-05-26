@@ -10,7 +10,6 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 function* getProfileSaga({ userId }) {
-  // yield put({ type: 'START_LOADING' })
   console.log('PROFILE_SAGA: start')
   
   // TODO: change this to get other user prorfiles
@@ -27,7 +26,6 @@ function* getProfileSaga({ userId }) {
   if (eventUserIds.length === 0 || !eventUserIds.includes(userId)) {
     yield put({ type: 'START_GET_EVENTS' });
   }
-  // yield put({ type: 'END_LOADING'})
   // const userAcceptances = yield select(state => state.acceptances)
   // if (Object.keys(userAcceptances).length === 0) {
   //   yield put({ type: 'START_GET_USER_ACCEPTANCES' });

@@ -18,25 +18,20 @@ class Profile extends React.Component {
   constructor(props){
     super(props)
   }
-
+  
   componentDidMount(){
-    this.props.startGetProfile(this.props.match.params.id);
-    console.log('PROFILE: did Mount', this.props.profile);
-    
-    sessionStorage.setItem('qEvent', JSON.stringify(this.props.profile));
-  }
-
-  componentWillUnmount(){
-    let user = getCurrentUserId(auth.getCurrentUser());
+    // TODO: conditional render here? Need to check event keys aren't from user
+    // const { userId, profile } = this.props;
+    // if(userId && Object.keys(profile).length === 0) {
+    //   console.log('PROFILE: inside if')
+      this.props.startGetProfile(this.props.match.params.id);
+    // }
   }
 
   render(){
-    const { events, history, profile, deleteEvent } = this.props
+    let { events, history, profile, deleteEvent } = this.props;
     return(
       <div className="profile">
-      {/*
-        <div className="container">
-      */}
         <div>
           <div className="profile__user-stats">
             <section>

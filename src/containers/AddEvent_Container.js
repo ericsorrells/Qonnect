@@ -8,11 +8,13 @@ import { auth }                        from '../firebase/firebaseIndex';
 import AddEvent from '../components/AddEvent';
 // ========================================================================================
 import { objToArray } from '../utils/utils';
+import { startGetProfile } from '../actions/Profile_Actions';
 // ========================================================================================
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startCreateEvent: (event) => dispatch(startCreateEvent(event))
+    startCreateEvent: (event) => dispatch(startCreateEvent(event)),
+    startGetProfile:  (userId) => dispatch(startGetProfile(userId))
   }
 }
 
