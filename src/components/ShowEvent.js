@@ -2,7 +2,6 @@
 import React from 'react';
 // ========================================================================================
 import ShowAcceptance           from './ShowAcceptance';
-import ShowAcceptance_Container from '../containers/ShowAcceptance_Container';
 import ShowEventDisplay         from '../components/ShowEventDisplay';
 import AcceptanceModal          from '../components/AcceptanceModal';
 import { withRouter }           from 'react-router-dom';
@@ -76,7 +75,7 @@ class ShowEvent extends React.Component {
       selectedAcceptance = acceptances.find((acceptance) => acceptance.selected === true) || null;
       unselectedAcceptances = acceptances.filter((acceptance) => acceptance.selected !== true) || null;
       formattedUnselectedAcceptances = unselectedAcceptances.map((acceptance) =>
-        <ShowAcceptance_Container
+        <ShowAcceptance
           acceptance={acceptance}
           eventId={eventId}
           userId={userId}
@@ -106,7 +105,7 @@ class ShowEvent extends React.Component {
               selectedAcceptance
               ? <div className='show-event__selected-acceptance'>
                   {
-                    <ShowAcceptance_Container
+                    <ShowAcceptance
                       acceptance={selectedAcceptance}
                       eventId={eventId}
                       userId={userId}

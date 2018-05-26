@@ -22,8 +22,6 @@ function* getEventAcceptancesSaga({ eventId }) {
 }
 
 function* userAcceptEvent({ userId, user, eventId, acceptanceInfo }) {
-  console.log('USER ACCEPTED EVENT SAGA: info', userId, user, eventId, acceptanceInfo)
-  
   yield call(createInterestedUserInFirebase, userId, eventId);
   yield put(createInterestedUser(userId, eventId));
   yield call(getEventAcceptancesFromFirebase, eventId);

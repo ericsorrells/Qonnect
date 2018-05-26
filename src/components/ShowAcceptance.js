@@ -1,7 +1,9 @@
 // ========================================================================================
 import React from 'react';
 import { Link }  from 'react-router-dom';
+import { connect } from 'react-redux';
 // ========================================================================================
+import { updateAcceptanceSelectionInFirebase } from '../actions/Acceptances_Actions';
 import { isEventOwner, formatText } from '../utils/utils';
 import { getCurrentUser } from '../firebase/auth';
 // ========================================================================================
@@ -44,4 +46,10 @@ const ShowAcceptance = (props) => {
   )
 }
 
-export default ShowAcceptance;
+const mapDispatchToProps = (dispatch) => {
+  return { 
+    updateAcceptanceSelectionInFirebase: (eventId, acceptanceId) => dispatch(updateAcceptanceSelectionInFirebase(eventId, acceptanceId))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(ShowAcceptance);
