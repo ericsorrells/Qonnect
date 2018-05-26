@@ -1,3 +1,11 @@
+TODO:
+- testing
+- props checks
+- confirmation email
+- upload own photo 
+
+
+
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opacity
 
 // FIREBASE SCHEMA:

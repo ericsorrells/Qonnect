@@ -1,10 +1,13 @@
 // ========================================================================================
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+// ========================================================================================
 import moment from 'moment';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
+import { setFilters, clearFilters } from '../actions/Filters_Actions';
 // ========================================================================================
 
 class Search extends React.Component {
@@ -13,7 +16,7 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      city:         '',
+      location:     '',
       date:         '',
       category:     '',
       searchTerm:   '',
@@ -23,26 +26,26 @@ class Search extends React.Component {
       focusedInput: false
     }
 
-    this.handleSubmit       = this.handleSubmit.bind(this);
-    this.handleCityChange   = this.handleCityChange.bind(this);
+    this.handleSubmit         = this.handleSubmit.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
     // this.handleDateChange   = this.handleDateChange.bind(this);
-    this.handCategoryChange = this.handCategoryChange.bind(this);
-    this.handleSearchTerm   = this.handleSearchTerm.bind(this);
-    this.handleRadioButton  = this.handleRadioButton.bind(this);
-    this.handleClear        = this.handleClear.bind(this);
+    this.handCategoryChange   = this.handCategoryChange.bind(this);
+    this.handleSearchTerm     = this.handleSearchTerm.bind(this);
+    this.handleRadioButton    = this.handleRadioButton.bind(this);
+    this.handleClear          = this.handleClear.bind(this);
     this.onFocusChange      = this.onFocusChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.setFilters({
-      city:       this.state.city,
+      location:   this.state.location,
       date:       this.state.date,
       category:   this.state.category,
       searchTerm: this.state.searchTerm,
       sortBy:     this.state.sortBy,
-      startDate:  this.state.startDate,
-      endDate:    moment(this.state.endDate)
+      startDate:  moment(this.state.startDate).valueOf(),
+      endDate:    moment(this.state.endDate).valueOf()
     });
   }
 
@@ -50,8 +53,8 @@ class Search extends React.Component {
     this.setState(() => ({ calendarFocused: focused }))
   }
 
-  handleCityChange(e) {
-    this.setState({ city: e.target.value })
+  handleLocationChange(e) {
+    this.setState({ location: e.target.value })
   }
 
   handCategoryChange(e) {
@@ -84,13 +87,13 @@ class Search extends React.Component {
     return (
       <div className='form'>
       <form onSubmit={this.handleSubmit}>
-        <label>City:</label>
+        <label>Location:</label>
         <input
           className='form__element form__input'
-          placeholder='Search By City Name'
+          placeholder='Search By Address Term (Address, City, State)'
           type='text'
-          onChange={this.handleCityChange}
-          value={this.state.city}
+          onChange={this.handleLocationChange}
+          value={this.state.location}
         />
 
         <label>Date Range:</label>
@@ -111,10 +114,11 @@ class Search extends React.Component {
           value={this.state.category ? this.state.category : ''}
         >
           <option disabled selected value=''>Select A Category</option>
-          <option value="sports">Sports</option>
-          <option value="entertainment">Entertainment</option>
-          <option value="food">Food</option>
-          <option value="music">Music</option>
+          <option value="Sports">Sports</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Food">Food</option>
+          <option value="Music">Music</option>
+          <option value="Miscellaneous">Miscellaneous</option>
         </select>
 
         <label>Search Term:</label>
@@ -158,4 +162,11 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setFilters: (searchParams) => dispatch(setFilters(searchParams)),
+    clearFilters: () => dispatch(clearFilters())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Search)

@@ -43,6 +43,7 @@ class SignUpForm extends Component {
     e.preventDefault();
     const { email, passwordOne } = this.state;
     // TODO: WHY DOES THIS NOT WORK???
+    // create signUp saga?
     // this.props.doSignUp(dispatch, email, passwordOne)
 
     return auth.doCreateUserWithEmailAndPassword(email, passwordOne)

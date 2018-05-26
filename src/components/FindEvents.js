@@ -4,7 +4,7 @@ import PropTypes   from 'prop-types';
 import { connect } from 'react-redux';
 // ========================================================================================
 import EventItems              from './EventItems';
-import SearchContainer         from '../containers/Search_Container';
+import Search                  from '../components/Search';
 import { auth }                from '../firebase/firebaseIndex';
 import { startGetOtherEvents } from '../actions/Events_Actions';
 // ========================================================================================
@@ -28,7 +28,7 @@ class FindEvents extends React.Component {
     return (
         <div className="find-events__container padding-left">
           <aside className="aside-container">
-            <SearchContainer />
+            <Search />
           </aside>
           <section className='find-events__section'>
             <div className='add-event__inner-container'>

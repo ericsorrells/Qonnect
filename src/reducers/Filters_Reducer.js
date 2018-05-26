@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 const defaultState = {
-  city:       '',
+  location:   '',
   startDate:  moment(),
   endDate:    null,
   category:   '',

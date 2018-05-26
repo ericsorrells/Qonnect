@@ -33,10 +33,7 @@ class ShowEvent extends React.Component {
   }
 
   componentDidMount(){
-    // TODO: where does this go?
-    // this.props.getEventAcceptancesFromFirebase(this.props.eventId);
     this.props.startGettingEventAcceptances(this.props.eventId);
-    saveToSessionStorage(this.props.match.params.id, this.props.event)
   }
 
   onEdit() {
