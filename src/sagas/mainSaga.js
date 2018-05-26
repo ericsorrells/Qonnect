@@ -6,6 +6,7 @@ import signInSaga 									from './signInSaga';
 import signOutSaga 									from './signoutSaga';
 import { getProfileSaga } 							from './profileSaga';
 import { getEventAcceptancesSaga, userAcceptEvent }	from './acceptancesSaga';
+import { startLoadingSaga, endLoadingSaga }         from './loadingSaga';   
 import { 
 	getEventsSaga, 
 	eventsCreateSaga, 
@@ -19,6 +20,8 @@ function* listeners() {
 	console.log('LISTENERS: starting');
 	yield [
 		takeEvery('START_SIGN_IN',       		  signInSaga              ),
+		// takeEvery('START_LOADING',                startLoadingSaga        ),
+		// takeEvery('END_LOADING',                  endLoadingSaga          ),
 		takeEvery('START_GET_PROFILE',   		  getProfileSaga          ),
 		takeLatest('START_GET_EVENTS',   		  getEventsSaga           ),
 		takeLatest('START_CREATE_EVENT', 		  eventsCreateSaga        ),
