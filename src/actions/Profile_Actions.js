@@ -29,18 +29,6 @@ export const createProfile = (profileInfo) => {
   }
 }
 
-export const updateProfileInFirebase = (profileUpdates = {}) => {
-  return (dispatch, getState) => {
-    const uid = getState().auth.uid;
-    event.uid = uid
-    return database.ref(`users/${uid}`).update(profileUpdates)
-      .then(() => {
-        dispatch(updateProfile(profileUpdates));
-      }
-    )
-  }
-}
-
 export const updateProfile = (profileUpdates) => {
   return {
     type: 'UPDATE_PROFILE',
@@ -70,19 +58,22 @@ export const deleteUserEventList = (eventId) => {
   }
 }
 
-export const updateUserAcceptedEventInFirebase = (eventId, userId) => {
-  return (dispatch, getState) => {
-    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: true})
-      .then((snapshot) => {
-        dispatch(createUserAcceptedEvent(snapshot.val()));
-    })
-  }
-}
-
 export const createUserAcceptedEvent = (eventId, userId) => {
   return {
     type: 'USER_ACCEPTED_EVENT',
     eventId,
     userId
+  }
+}
+
+export const updateProfileInFirebase = (profileUpdates = {}) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    event.uid = uid
+    return database.ref(`users/${uid}`).update(profileUpdates)
+      .then(() => {
+        dispatch(updateProfile(profileUpdates));
+      }
+      )
   }
 }

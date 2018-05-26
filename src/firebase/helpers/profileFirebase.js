@@ -38,3 +38,18 @@ export const createUserAcceptedEventInFirebase = (userId, eventId) => {
       .then(() => resolve())
   })
 }
+
+// TODO: where is this being used?
+export const updateUserAcceptedEventInFirebase = (eventId, userId) => {
+  return new Promise((resolve, reject) => {
+    return database.ref(`users/${userId}/acceptedEvents`).update({[`${eventId}`]: true})
+      .then((snapshot) => {
+        if(snapshot) {
+          resolve(snapshot.val())
+          // dispatch(createUserAcceptedEvent(snapshot.val()));
+        } else {
+          reject(new Error('ERROR IN UPDATE USER ACCEPTED EVENT IN FIREBASE: ', error));
+        }
+      })
+  })
+}
