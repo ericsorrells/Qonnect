@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     startDeleteEvent:                  (userId, eventId) => dispatch(startDeleteEvent(userId, eventId)),
     createUserAcceptedEventInFirebase: (userId, eventId) => dispatch(createUserAcceptedEventInFirebase(userId, eventId)),
     startGettingEventAcceptances:      (eventId)         => dispatch(startGettingEventAcceptances(eventId)),
-    startUserAcceptEvent:              (user, eventId, acceptanceInfo) => dispatch(startUserAcceptEvent(user, eventId, acceptanceInfo))
+    startUserAcceptEvent:              (userId, user, eventId, acceptanceInfo) => dispatch(startUserAcceptEvent(userId, user, eventId, acceptanceInfo))
   }
 }
 

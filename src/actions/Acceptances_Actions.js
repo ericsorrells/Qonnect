@@ -38,9 +38,10 @@ export const createAcceptances = (acceptances) => {
   }
 }
 
-export const startUserAcceptEvent = (user, eventId, acceptanceInfo) => {
+export const startUserAcceptEvent = (userId, user, eventId, acceptanceInfo) => {
   return {
     type: 'START_USER_ACCEPT_EVENTS',
+    userId,
     user,
     eventId,
     acceptanceInfo

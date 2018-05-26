@@ -21,6 +21,9 @@ class Profile extends React.Component {
 
   componentDidMount(){
     this.props.startGetProfile(this.props.match.params.id);
+    console.log('PROFILE: did Mount', this.props.profile);
+    
+    sessionStorage.setItem('qEvent', JSON.stringify(this.props.profile));
   }
 
   componentWillUnmount(){

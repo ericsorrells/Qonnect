@@ -64,21 +64,7 @@ export const startGetOtherEvents = (userId) => {
   }
 }
 
-// export const createInterestedUserInFirebase = (eventId) => {
-//   return (dispatch, getState) => {
-//     const userId = getState().auth.uid;
-//     return database.ref(`events/${eventId}`).child('interestedUsers').update({[`${userId}`]: true})
-//       .then((ref) => {
-//         dispatch(createInterestedUser(eventId, userId));
-//         history.push(`/show-event/${encodeURIComponent(eventId)}`)
-//       }
-//     )
-//   };
-// }
-
 export const createInterestedUser = (userId, eventId) => {
-  console.log('CREATE_INTERESTED_USER_ACTION', userId, eventId)
-  
   return {
     type: 'CREATE_INTERESTED_USER',
     userId,

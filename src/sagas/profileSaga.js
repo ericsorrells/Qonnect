@@ -10,6 +10,8 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 function* getProfileSaga({ userId }) {
+  console.log('PROFILE_SAGA: start')
+  
   // TODO: change this to get other user prorfiles
   const currentUserInfo = yield call(auth.getCurrentUser)
   const userInfo = yield call(getProfileFromFirebase, userId);
@@ -28,6 +30,7 @@ function* getProfileSaga({ userId }) {
   // if (Object.keys(userAcceptances).length === 0) {
   //   yield put({ type: 'START_GET_USER_ACCEPTANCES' });
   // }
+  console.log('PROFILE_SAGA: end')
 }
 
 const getEventUserIDs = (events) => {

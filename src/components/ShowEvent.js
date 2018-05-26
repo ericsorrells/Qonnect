@@ -57,10 +57,10 @@ class ShowEvent extends React.Component {
   }
 
   userAcceptEvent(acceptanceInfo) {
-    const user = getCurrentUser()
-    const { eventId } = this.props;
-    this.props.startUserAcceptEvent(user, eventId, acceptanceInfo)
-    // TODO: close modal when user clicks 'Yes, I Accept'
+    const { uid: userId } = getCurrentUser()
+    const { eventId, user } = this.props;
+    this.props.startUserAcceptEvent(userId, user, eventId, acceptanceInfo)
+    this.setState({ modalOpen: false })
   }
 
   render() {

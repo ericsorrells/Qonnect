@@ -34,7 +34,6 @@ function* eventsCreateSaga({ event: eventInfo }) {
 }
 
 function* eventsEditSaga({ eventId, eventUpdates }) {
-  console.log('EDIT_EVENTS_SAGA', eventId, eventUpdates);
   yield call(editEventInFirebase, eventId, eventUpdates);
   yield put(editEvent(eventId, eventUpdates))
   yield history.push(`/show-event/${eventId}`);
