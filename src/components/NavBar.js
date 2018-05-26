@@ -18,8 +18,7 @@ const NavigationAuth = (user) => {
 const NavigationNonAuth = () => {
   return(
     <div>
-      <Link to={'/'}>Home</Link> |
-      <Link to={'/signin'}>Sign In</Link>
+      <Link className='nav-auth__link' to={'/signin'}>Sign In</Link>
     </div>
   )
 }
@@ -29,7 +28,7 @@ const NavBar = ({ user }) => {
     <nav>
       <div className='nav'>
         <div className='nav-title'>
-          qonnect
+        <Link to={'/'}>qonnect</Link>
         </div>
         {user
           ? <NavigationAuth uid={user}/>
@@ -39,4 +38,5 @@ const NavBar = ({ user }) => {
     </nav>
   )
 }
+
 export default NavBar;
