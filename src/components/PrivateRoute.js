@@ -24,10 +24,4 @@ const PrivateRoute = ({component: Component, ...rest}) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  // return {isAuthenticated: Boolean(state.auth.uid)}
-  // TODO: what is this?
-  return {coolio: Boolean(state.auth.uid)}
-};
-
-export default connect(mapStateToProps)(PrivateRoute);
+export default PrivateRoute;
