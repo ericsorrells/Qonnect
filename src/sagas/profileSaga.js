@@ -11,7 +11,6 @@ import { objToArray } from '../utils/utils';
 
 function* getProfileSaga({ userId }) {
   console.log('PROFILE_SAGA: start')
-  
   // TODO: change this to get other user prorfiles
   const currentUserInfo = yield call(auth.getCurrentUser)
   const userInfo = yield call(getProfileFromFirebase, userId);
