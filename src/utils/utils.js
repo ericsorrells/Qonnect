@@ -22,6 +22,15 @@ export const isPreviouslyAcceptedEvent = (eventId, userAcceptances) => {
   return null;
 }
 
+// gets all the userID from a list of events
+export const getEventUserIDs = (events) => {
+  const userIds = []
+  events.forEach((event) => {
+    userIds.push(event.uid);
+  })
+  return userIds;
+}
+
 export const hasEventOrUseSessionStorage = (paramId, events) => {
   const event = events[paramId];
   let newEvent;

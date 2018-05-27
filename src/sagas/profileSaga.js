@@ -6,7 +6,7 @@ import { getProfileFromFirebase } from '../firebase/helpers/profileFirebase';
 import { getProfile, setProfile } from '../actions/Profile_Actions';
 import { auth } from '../firebase/firebaseIndex';
 import { getEventsSaga } from './eventsSaga';
-import { objToArray } from '../utils/utils';
+import { objToArray, getEventUserIDs } from '../utils/utils';
 // ========================================================================================
 
 function* getProfileSaga({ userId }) {
@@ -34,14 +34,6 @@ function* getProfileSaga({ userId }) {
   //   yield put({ type: 'START_GET_USER_ACCEPTANCES' });
   // }
   console.log('PROFILE_SAGA: end')
-}
-
-const getEventUserIDs = (events) => {
-  const userIds = []
-  events.forEach((event) => {
-    userIds.push(event.uid);
-  })
-  return userIds;
 }
 
 export { getProfileSaga };
