@@ -17,8 +17,7 @@ import {
 } from '../firebase/helpers/profileFirebase';
 // ========================================================================================
 
-function* getEventsSaga(event) {
-  const { uid: userId } = yield call(auth.getCurrentUser);
+function* getEventsSaga({ userId }) {
   const events = yield call(getUserEventsFromFirebase, userId)
   yield put(addEvents(events));
   yield put({ type: 'GET_EVENTS_SUCCESS' });

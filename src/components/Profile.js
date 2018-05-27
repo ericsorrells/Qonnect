@@ -20,12 +20,13 @@ class Profile extends React.Component {
   }
   
   componentDidMount(){
-    // TODO: conditional render here? Need to check event keys aren't from user
-    // const { userId, profile } = this.props;
-    // if(userId && Object.keys(profile).length === 0) {
-    //   console.log('PROFILE: inside if')
-      this.props.startGetProfile(this.props.match.params.id);
-    // }
+    this.props.startGetProfile(this.props.match.params.id);
+  }
+
+  componentDidUnmount() {
+    if (this.props.match.params.id !== this.props.userId) {
+      this.props.startGetProfile(this.props.userId);
+    }
   }
 
   render(){
