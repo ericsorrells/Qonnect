@@ -65,7 +65,8 @@ export const objToArray = (myObj) => {
 // to user or app databases
 export const partitionData = (data) => {
   const authFields = ['email', 'passwordOne', 'passwordTwo'];
-  const profileFields = ['displayName', 'photoURL'];
+  // const profileFields = ['displayName', 'photoURL'];
+  const profileFields = ['displayName'];
   const dataArray = objToPairedArray(data);
 
   let partionedData = { authData: {}, profileData: {}, appData: {} }

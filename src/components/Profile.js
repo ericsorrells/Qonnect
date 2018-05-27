@@ -30,7 +30,7 @@ class Profile extends React.Component {
   }
 
   render(){
-    let { events, history, profile, deleteEvent } = this.props;
+    let { events, history, profile, deleteEvent, urlParam, userId } = this.props;
     return(
       <div className="profile">
         <div>
@@ -45,7 +45,7 @@ class Profile extends React.Component {
         <div className="profile__outer-container">
           <div className="container profile__inner-container">
             <aside className="aside-container">
-              <UserInfo {...profile} />
+              <UserInfo {...profile} urlParam={urlParam} userId={userId} />
             </aside>
             <section>
               <div className='profile__section-inner-container'>

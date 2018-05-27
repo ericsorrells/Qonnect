@@ -10,11 +10,13 @@ import Profile from '../components/Profile'
 import { objToArray } from '../utils/utils';
 // ========================================================================================
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const urlParam = ownProps.match.params.id;
   return {
     events:  objToArray(state.events),
     profile: state.profile,
-    userId:  state.auth.uid
+    userId:  state.auth.uid,
+    urlParam: urlParam
   }
 }
 

@@ -14,7 +14,10 @@ const UserInfo = ({
   state,
   birthDate,
   createdAt,
-  description }) => {
+  description,
+  urlParam,
+  userId
+ }) => {
   photoURL = photoURL ? photoURL : "/images/user-silhouette.png" 
   return (
     <div className="user-info">
@@ -39,9 +42,12 @@ const UserInfo = ({
       <div className="user-info__description">
         {description}
       </div>
-      <button className='button__purple'>
-        <Link to='/update-profile'>Update</Link>
-      </button>
+      {
+        urlParam === userId && 
+          <button className='button__purple'>
+            <Link to='/update-profile'>Update</Link>
+          </button>
+      }
     </div>
   )
 }
