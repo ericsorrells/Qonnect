@@ -21,8 +21,6 @@ class QonnectApp extends React.Component {
 
   componentDidMount() {
     const user = auth.getCurrentUser();
-    console.log('APP.JS: currentUser', user)
-    
     firbaseOnAuthStateChange(user);
   }
 

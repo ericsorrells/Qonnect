@@ -8,17 +8,27 @@ class EditEvent extends React.Component {
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this);
+    this.secureRoute = this.secureRoute.bind(this);
   }
 
   onSubmit(event) {
     const urlParam = this.props.match.params.id;
     this.props.startEditEvent(urlParam, { ...event })
-    // this.props.history.push(`/show-event/${urlParam}`);
+  }
+
+  secureRoute(event, auth, history) {
+    if (event.uid !== auth.uid) {
+      history.push(`/not-found`)
+    }
   }
 
   render() {
+    const { event, auth, history } = this.props;
+    // TODO: this doesn't work with deelink - props not available
+    this.secureRoute(event, auth, history);
+    
     return (
-      <div>
+      <div className='edit-event'>
         <EventForm
           event={this.props.event}
           onSubmit={this.onSubmit}

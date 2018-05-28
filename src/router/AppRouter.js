@@ -34,15 +34,13 @@ class AppRouter extends React.Component {
   render() {
     return (
       <div className='app-router'>
-            <Routes user={this.props.user} />
+        <Routes user={this.props.user} />
       </div >
     )
   }
 }
 
 const Routes = (props) => {
-  console.log('APP ROUTER: props', props)
-  
   return (
     <Router history={history}>
       <div className="router-container">

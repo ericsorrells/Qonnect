@@ -9,7 +9,7 @@ export const getProfileFromFirebase = (userId) => {
    return new Promise((resolve, reject) => {
     database.ref(`users/${userId}`).once('value')
      .then((snapshot) => {
-       if(!snapshot.val()) {
+       if(snapshot.val()) {
          resolve(snapshot.val())
        } else {
          history.push('/not_found');
