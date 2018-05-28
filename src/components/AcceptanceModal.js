@@ -33,18 +33,24 @@ class AcceptanceModal extends React.Component {
       <Modal
         isOpen={this.props.modalOpen}
         onRequestClose={this.props.closeModal}
-        // style={customStyles}
         contentLabel="Example Modal"
+        className="Modal"
       >
-        <h2>Pleases Confirm You Wish To Accept This Event:</h2>
+        <h3 className='modal__title modal__container'>
+          Please Confirm You Wish To Accept This Event:
+        </h3>
         <ShowEventDisplay event={this.props.event} />
-        <form onSubmit={this.onFormSubmit}>
-          <label>Acceptance Note:</label>
+        <form onSubmit={this.onFormSubmit} className='modal__container'>
+          <label className='modal__label'>Acceptance Note:</label>
           <textarea
             onChange={this.onNoteInput}
             value={this.state.acceptanceNote}
+            className='modal__textarea'
           />
-          <button type='submit'>Yes, I Accept!</button>
+          <br/>
+          <button type='submit' className='button__purple modal__button'>
+            Yes, I Accept!
+          </button>
         </form>
       </Modal>
     )

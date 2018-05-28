@@ -1,0 +1,45 @@
+.Modal {
+	padding: 0;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	right: 40px;
+	bottom: 40px;
+	border: 1px solid rgb(204, 204, 204);
+	background: rgb(255, 255, 255);
+	overflow: auto;
+	border-radius: 5px;
+	outline: none;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.modal__container {
+	padding-left: 5%;
+	padding-right: 5%;
+	margin: 20px 0;
+}
+
+.modal__title {
+	background-color: $main-color;
+	color: white;
+	padding: 20px 5%;
+	margin: 0;
+}
+
+.modal__label {
+	font-weight: bold;
+}
+.modal__textarea {
+	width: 75%;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.modal__button {
+	width: 75%;
+	margin-top: 20px;
+}
+
+

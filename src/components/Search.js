@@ -11,7 +11,6 @@ import { setFilters, clearFilters } from '../actions/Filters_Actions';
 // ========================================================================================
 
 class Search extends React.Component {
-  // TODO: search isn't working (and watch 'sort by')
   constructor(props) {
     super(props)
 
@@ -85,7 +84,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className='form'>
+      <div className='form search__form'>
       <form onSubmit={this.handleSubmit}>
         <label>Location:</label>
         <input

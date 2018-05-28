@@ -7,7 +7,7 @@ import { formatTime, formatDateLong } from '../utils/utils';
 const ShowEventDisplay = (props) => {
   const { event } = props;
   return (
-    <div>
+    <div className='modal__container'>
       <h1 className='event-display__title'>
         { event && event.eventName }
       </h1>

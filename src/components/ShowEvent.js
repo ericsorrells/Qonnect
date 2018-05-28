@@ -149,7 +149,7 @@ const AcceptInvitationButton = ({currentUser, eventOwner, openModal, previouslyA
   return(
     <div>
       {!currentUser && !eventOwner && !previouslyAcceptedEvent
-        && <button onClick={openModal}>Accept Invitation</button>
+        && <button className='button__purple show-event__button' onClick={openModal}>I'd Like To Go!</button>
       }
     </div>
   )
