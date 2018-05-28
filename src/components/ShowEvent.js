@@ -68,7 +68,6 @@ class ShowEvent extends React.Component {
 
   render() {
     const { event, acceptances, eventId, user } = this.props;
-    // TODO: if no currentUser, pull from localStorage
     const {uid: userId}                   = getCurrentUser();
     const currentUser                     = isCurrentUser(event.uid);
     const eventOwner                      = isEventOwner(event.uid, userId);

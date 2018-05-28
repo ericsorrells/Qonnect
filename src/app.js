@@ -1,6 +1,5 @@
 // ========================================================================================
 import React                         from 'react';
-import { connect }                     from 'react-redux';
 import ReactDOM                      from 'react-dom';
 import { Provider }                  from 'react-redux';
 import AppRouter, { history }        from './router/AppRouter';
@@ -22,6 +21,8 @@ class QonnectApp extends React.Component {
 
   componentDidMount() {
     const user = auth.getCurrentUser();
+    console.log('APP.JS: currentUser', user)
+    
     firbaseOnAuthStateChange(user);
   }
 

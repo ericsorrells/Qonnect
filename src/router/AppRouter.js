@@ -22,7 +22,6 @@ import SignIn from '../components/SignIn';
 import SignUp from '../components/SignUp';
 import About from '../components/About';
 import Contact from '../components/Contact';
-import Spinner from '../components/Spinner';
 // ========================================================================================
 
 const history = createHistory();
@@ -33,14 +32,9 @@ class AppRouter extends React.Component {
   }
 
   render() {
-    const loadingState = this.props.loading.loading;
     return (
       <div className='app-router'>
-        {
-          loadingState ?
-            <Spinner /> :
             <Routes user={this.props.user} />
-        }
       </div >
     )
   }
@@ -78,8 +72,7 @@ const Routes = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.uid,
-    loading: state.loading
+    user: state.auth.uid
   }
 };
 

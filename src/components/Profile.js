@@ -17,6 +17,8 @@ import { objToArray, getCurrentUserId } from '../utils/utils';
 class Profile extends React.Component {
   constructor(props){
     super(props)
+    console.log('PROFILE: constructor')
+    
   }
   
   componentDidMount(){
@@ -27,10 +29,10 @@ class Profile extends React.Component {
     if (this.props.match.params.id !== this.props.userId) {
       this.props.startGetProfile(this.props.userId);
     }
-    sessionStorage.setItem('qProfile', JSON.stringify(this.props.profile));
   }
-
+  
   render(){
+    window.sessionStorage.setItem('qProfile', JSON.stringify(this.props.profile));
     let { events, history, profile, deleteEvent, urlParam, userId } = this.props;
     return(
       <div className="profile">

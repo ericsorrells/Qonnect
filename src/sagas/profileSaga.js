@@ -10,6 +10,7 @@ import { objToArray, getEventUserIDs } from '../utils/utils';
 // ========================================================================================
 
 function* getProfileSaga({ userId }) {
+  yield put({ type: 'START_LOADING', loading: true })
   const userInfo = yield call(getProfileFromFirebase, userId);
   yield put(setProfile(userInfo));
   yield put({ type: 'GET_PROFILE_SUCCESS' });
@@ -19,6 +20,7 @@ function* getProfileSaga({ userId }) {
   // if (Object.keys(userAcceptances).length === 0) {
   //   yield put({ type: 'START_GET_USER_ACCEPTANCES' });
   // }
+  yield put({ type: 'END_LOADING', loading: false })
 }
 
 export { getProfileSaga };
