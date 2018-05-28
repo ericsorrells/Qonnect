@@ -17,6 +17,14 @@ export const startCreateAcceptance = (acceptanceInfo) => {
   }
 }
 
+export const startOwnerSelectsGuest = (eventId, acceptanceId) => {
+  return {
+    type: 'OWNER_SELECTS_GUEST',
+    eventId,
+    acceptanceId
+  }
+}
+
 export const createAcceptance = (acceptanceInfo) => {
   return {
     type: 'CREATE_ACCEPTANCE',

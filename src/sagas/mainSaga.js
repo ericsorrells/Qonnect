@@ -5,8 +5,12 @@ import { call, put, fork, takeEvery, takeLatest } from 'redux-saga/effects';
 import signInSaga 									from './signInSaga';
 import signOutSaga 									from './signoutSaga';
 import { getProfileSaga } 							from './profileSaga';
-import { getEventAcceptancesSaga, userAcceptEvent }	from './acceptancesSaga';
 import { startLoadingSaga, endLoadingSaga }         from './loadingSaga';   
+import { 
+	getEventAcceptancesSaga, 
+	userAcceptEvent,
+	ownerSelectsGuestSaga 
+}	from './acceptancesSaga';
 import { 
 	getEventsSaga, 
 	eventsCreateSaga, 
@@ -31,6 +35,7 @@ function* listeners() {
 		takeLatest('START_GET_OTHER_EVENTS',      eventsOtherEventsSaga   ),
 		takeLatest('START_GET_EVENT_ACCEPTANCES', getEventAcceptancesSaga ),
 		takeLatest('START_USER_ACCEPT_EVENTS', 	  userAcceptEvent         ),
+		takeLatest('OWNER_SELECTS_GUEST',         ownerSelectsGuestSaga   ),
 		takeLatest('START_SIGN_OUT',     		  signOutSaga             )
 	];
 }

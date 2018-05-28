@@ -5,6 +5,9 @@ TODO:
 - upload own photo 
 
 
+this is the check to see if events are from other people besides currentUser
+const eventUserIds = yield select(state => getEventUserIDs(objToArray(state.events)));
+if (eventUserIds.length === 0 || !eventUserIds.includes(userId)) {
 
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opacity
 

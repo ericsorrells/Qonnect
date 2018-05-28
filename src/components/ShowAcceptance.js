@@ -3,7 +3,7 @@ import React from 'react';
 import { Link }  from 'react-router-dom';
 import { connect } from 'react-redux';
 // ========================================================================================
-import { updateAcceptanceSelectionInFirebase } from '../actions/Acceptances_Actions';
+import { startOwnerSelectsGuest } from '../actions/Acceptances_Actions';
 import { isEventOwner, formatText } from '../utils/utils';
 import { getCurrentUser } from '../firebase/auth';
 // ========================================================================================
@@ -11,17 +11,17 @@ import { getCurrentUser } from '../firebase/auth';
 const ShowAcceptance = (props) => {
   const onSelect = (eventId, acceptanceId) => {
     // TODO: deselect any selected acceptances (ie, ability to change your mind about an acceptance)
-    props.updateAcceptanceSelectionInFirebase(eventId, acceptanceId)
+    props.startOwnerSelectsGuest(eventId, acceptanceId)
   }
 
-  const { id, userName, acceptanceNote, createAt, selected = null } = props.acceptance;
+  const { id, userName, acceptanceNote, userPhotoURL, createAt, selected = null } = props.acceptance;
   const { photoURL } = props.user
 
   return (
     <div className='show-acc_container'>
       <div>
         <Link to={`/profile/${props.acceptance.userId}`} >
-          <img src={photoURL} className='show-acc__imageUrl'/>
+          <img src={userPhotoURL} className='show-acc__imageUrl'/>
         </Link>
       </div>
       <div className='show-acc__main-body'>
@@ -48,7 +48,7 @@ const ShowAcceptance = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return { 
-    updateAcceptanceSelectionInFirebase: (eventId, acceptanceId) => dispatch(updateAcceptanceSelectionInFirebase(eventId, acceptanceId))
+    startOwnerSelectsGuest: (eventId, acceptanceId) => dispatch(startOwnerSelectsGuest(eventId, acceptanceId))
   }
 }
 

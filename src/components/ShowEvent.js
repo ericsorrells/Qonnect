@@ -9,7 +9,13 @@ import moment                   from 'moment';
 import { createUserAcceptedEventInFirebase } from '../actions/Profile_Actions';
 import { isCurrentUser, getCurrentUser }     from '../firebase/auth';
 // ========================================================================================
-import { objToArray, formatTime, isEventOwner, saveToSessionStorage, isPreviouslyAcceptedEvent } from '../utils/utils'
+import { 
+  objToArray, 
+  formatTime, 
+  isEventOwner, 
+  saveToSessionStorage, 
+  isPreviouslyAcceptedEvent 
+} from '../utils/utils'
 // ========================================================================================
 
 class ShowEvent extends React.Component {
@@ -34,6 +40,7 @@ class ShowEvent extends React.Component {
 
   componentDidMount(){
     this.props.startGettingEventAcceptances(this.props.eventId);
+    saveToSessionStorage(this.props.eventId, this.props.event)
   }
 
   onEdit() {
@@ -61,6 +68,7 @@ class ShowEvent extends React.Component {
 
   render() {
     const { event, acceptances, eventId, user } = this.props;
+    // TODO: if no currentUser, pull from localStorage
     const {uid: userId}                   = getCurrentUser();
     const currentUser                     = isCurrentUser(event.uid);
     const eventOwner                      = isEventOwner(event.uid, userId);

@@ -32,16 +32,7 @@ class AppRouter extends React.Component {
     super(props)
   }
 
-  componentDidMount() {
-    const user = auth.getCurrentUser();
-    // TODO: add 'sessionStorage.getItem('qProfile')' in PrivateRoute
-    // causing issues w signup => since this is no user, it re-routes to 'home'
-    // this shouldn't happen because at signup there is no user
-    if(!user) { history.push('/') }
-  }
-
   render() {
-    // TODO: how to set top-level state as true/false (ie, no 'loading.loading')
     const loadingState = this.props.loading.loading;
     return (
       <div className='app-router'>

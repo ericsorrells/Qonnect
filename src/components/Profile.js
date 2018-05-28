@@ -22,11 +22,12 @@ class Profile extends React.Component {
   componentDidMount(){
     this.props.startGetProfile(this.props.match.params.id);
   }
-
+  
   componentDidUnmount() {
     if (this.props.match.params.id !== this.props.userId) {
       this.props.startGetProfile(this.props.userId);
     }
+    sessionStorage.setItem('qProfile', JSON.stringify(this.props.profile));
   }
 
   render(){
