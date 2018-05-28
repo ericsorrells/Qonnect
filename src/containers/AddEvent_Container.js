@@ -23,7 +23,8 @@ const mapStateToProps = (state) => {
     events:   objToArray(state.events),
     userId:   state.auth.uid,
     profile:  state.profile,
-    auth:     state.auth
+    auth:     state.auth,
+    loading:  state.loading
   }
 }
 

@@ -18,9 +18,11 @@ import {
 // ========================================================================================
 
 function* getEventsSaga({ userId }) {
+  yield put({ type: 'START_LOADING', loading: true })
   const events = yield call(getUserEventsFromFirebase, userId)
   yield put(addEvents(events));
   yield put({ type: 'GET_EVENTS_SUCCESS' });
+  yield put({ type: 'END_LOADING', loading: true })
 }
 
 function* eventsCreateSaga({ event: eventInfo }) {
@@ -48,9 +50,11 @@ function* eventsDeleteSaga({ userId, eventId }) {
 }
 
 function* eventsOtherEventsSaga({ userId }) {
+  yield put({ type: 'START_LOADING', loading: true })
   const events = yield call(getOtherUserEventsFromFirebase, userId);
   yield put(addEvents(events));
   yield put({ type: 'GET_OTHER_EVENTS_SUCCESS' })
+  yield put({ type: 'END_LOADING', loading: true })
 }
 
 export {

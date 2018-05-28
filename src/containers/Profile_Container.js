@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
     events:  objToArray(state.events),
     profile: state.profile,
     userId:  state.auth.uid,
-    urlParam: urlParam
+    urlParam: urlParam,
+    loading: state.loading
   }
 }
 
