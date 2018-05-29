@@ -89,9 +89,10 @@ EventItem.propTypes = {
   location:    PropTypes.string,
   description: PropTypes.string,
   inviter:     PropTypes.string,
-  date:        PropTypes.string,
+  date:        PropTypes.number,
   history:     PropTypes.func,
   deleteEvent: PropTypes.func
 };
 
+export { Image };
 export default EventItem;

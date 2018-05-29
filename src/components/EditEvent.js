@@ -44,7 +44,8 @@ class EditEvent extends React.Component {
 EditEvent.propTypes = {
   event:   PropTypes.object,
   profile: PropTypes.object,
-  auth:    PropTypes.object 
+  auth:    PropTypes.object,
+  startEditEvent: PropTypes.func
 }
 
 export default EditEvent;

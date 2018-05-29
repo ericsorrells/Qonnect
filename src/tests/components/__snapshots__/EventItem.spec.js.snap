@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EventItem /> renders correctly with a valid event 1`] = `
+<li
+  className="event-item"
+>
+  <div
+    className="event-item__left-container"
+  >
+    <div
+      className="event-item__left"
+    >
+      <Image
+        Link={[Function]}
+        imageUrl="https://image.com"
+      />
+    </div>
+    <div
+      className="event-item__center"
+    >
+      <Link
+        replace={false}
+        to="/show-event/undefined"
+      >
+        <Info
+          type="title"
+          value="Cool Event Title"
+        />
+      </Link>
+      <Link
+        replace={false}
+        to="/profile/abc123"
+      >
+        <Info
+          type="inviter"
+          value="Rachel Deckard"
+        />
+      </Link>
+      <div
+        className="event-item__date_location"
+      >
+        <SubInfo
+          icon="map-marker"
+          type="location"
+          value="123 Elm St."
+          value2={null}
+        />
+        <SubInfo
+          icon="calendar"
+          type="date"
+          value="Sun Jan 4 '70"
+          value2="| 02:13 AM"
+        />
+      </div>
+      <Info
+        type="description"
+        value="Lorem ipsum text"
+      />
+    </div>
+  </div>
+  <div
+    className="event-item__acceptances"
+  >
+    <EventItemAcceptances
+      acceptances={4}
+    />
+  </div>
+</li>
+`;

@@ -1,17 +1,18 @@
+import moment from 'moment';
 
 const basicEvent = {
 	eventName: "Cool Event Title",
 	category: "sports",
-	date: 1525968000000,
+	date: moment(0).add(4, 'days').valueOf(),
 	description: "Lorem ipsum text",
 	imageUrl: "https://image.com",
 	interestedUsers: "none",
-	location: "4351 Kings Way Marietta, GA 30067",
+	location: "123 Elm St.",
 	selectedUser: "none",
 	time: "02:13",
-	uid: "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+	uid: "abc123",
 	uninterestedUsers: "none",
-	userId: "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+	userId: "abc123",
 	userName: "Rachel Deckard"
 }
 

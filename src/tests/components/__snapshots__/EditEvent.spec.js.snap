@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<EditEvent /> should render correctly 1`] = `
+exports[`<EditEvent /> basic functionality should render correctly 1`] = `
 <div
   className="edit-event"
 >
@@ -13,17 +13,17 @@ exports[`<EditEvent /> should render correctly 1`] = `
     event={
       Object {
         "category": "sports",
-        "date": 1525968000000,
+        "date": 345600000,
         "description": "Lorem ipsum text",
         "eventName": "Cool Event Title",
         "imageUrl": "https://image.com",
         "interestedUsers": "none",
-        "location": "4351 Kings Way Marietta, GA 30067",
+        "location": "123 Elm St.",
         "selectedUser": "none",
         "time": "02:13",
-        "uid": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+        "uid": "abc123",
         "uninterestedUsers": "none",
-        "userId": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+        "userId": "abc123",
         "userName": "Rachel Deckard",
       }
     }

@@ -19,7 +19,7 @@ class EventForm extends React.Component {
       category:    event ? event.category:    '',
       imageUrl:    event ? event.imageUrl:    '',
       description: event ? event.description: '',
-      focused:     ''
+      focused:     undefined
     }
 
     this.onFormSubmit        = this.onFormSubmit.bind(this);
@@ -86,6 +86,7 @@ class EventForm extends React.Component {
           <label> Event Name: </label>
           <input
             className='form__element form__input'
+            id='eventNameInput'
             placeholder='Give Your Event A Good Name'
             type='text'
             onChange={this.onNameChange}
@@ -94,6 +95,7 @@ class EventForm extends React.Component {
 
           <label> Event Date: </label>
           <SingleDatePicker
+            id='datePicker'
             date={this.state.date}
             onDateChange={date => this.setState({ date: date })}
             focused={this.state.focused}
@@ -105,6 +107,7 @@ class EventForm extends React.Component {
           <label>Time:</label>
           <input
             className='form__element form__input'
+            id='timeInput'
             type='time'
             onChange={this.onTimeChange}
             value={this.state.time}
@@ -113,6 +116,7 @@ class EventForm extends React.Component {
           <label> Event Location: </label>
           <input
             className='form__element form__input'
+            id='locationInput'
             placeholder='Give The Address Of Your Event'
             type='text'
             onChange={this.onLocationChange}
@@ -122,6 +126,7 @@ class EventForm extends React.Component {
           <label>Category:</label>
           <select
             className='form__element form__select'
+            id='categoryInput'
             onChange={this.onCategoryChange}
             value={this.state.category ? this.state.category : ''}
            >
@@ -136,6 +141,7 @@ class EventForm extends React.Component {
           <label>Image URL:</label>
           <input
             className='form__element form__input'
+            id='imageUrlInput'
             placeholder='Give Your Event A Nice Image'
             type='text'
             onChange={this.onImageUrlChange}
@@ -145,6 +151,7 @@ class EventForm extends React.Component {
           <label> Description: </label>
           <textarea
             className='form__element form__textarea'
+            id='descriptionInput'
             placeholder='Describe Your Event'
             onChange={this.onDescriptionChange}
             value={this.state.description}
@@ -163,7 +170,8 @@ class EventForm extends React.Component {
 }
 
 EventForm.propTypes = {
-  event: PropTypes.object
+  event: PropTypes.object,
+  onSubmit: PropTypes.func
 }
 
 export default EventForm;

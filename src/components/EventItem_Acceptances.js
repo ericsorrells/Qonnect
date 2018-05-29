@@ -15,7 +15,7 @@ const EventItemAcceptances = (props) => {
 }
 
 EventItemAcceptances.propTypes = {
-  acceptances: PropTypes.object
+  acceptances: PropTypes.number
 }
 
 export default EventItemAcceptances;

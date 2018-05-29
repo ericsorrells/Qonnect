@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AcceptanceModal /> rendering renders initial state correctly 1`] = `
+<Modal
+  ariaHideApp={true}
+  bodyOpenClassName="ReactModal__Body--open"
+  className="Modal"
+  closeTimeoutMS={0}
+  contentLabel="Example Modal"
+  isOpen={true}
+  onRequestClose={[MockFunction]}
+  parentSelector={[Function]}
+  portalClassName="ReactModalPortal"
+  shouldCloseOnEsc={true}
+  shouldCloseOnOverlayClick={true}
+  shouldFocusAfterRender={true}
+  shouldReturnFocusAfterClose={true}
+>
+  <h3
+    className="modal__title modal__container"
+  >
+    Please Confirm You Wish To Accept This Event:
+  </h3>
+  <ShowEventDisplay
+    event={
+      Object {
+        "category": "sports",
+        "date": 345600000,
+        "description": "Lorem ipsum text",
+        "eventName": "Cool Event Title",
+        "imageUrl": "https://image.com",
+        "interestedUsers": "none",
+        "location": "123 Elm St.",
+        "selectedUser": "none",
+        "time": "02:13",
+        "uid": "abc123",
+        "uninterestedUsers": "none",
+        "userId": "abc123",
+        "userName": "Rachel Deckard",
+      }
+    }
+  />
+  <form
+    className="modal__container"
+    onSubmit={[Function]}
+  >
+    <label
+      className="modal__label"
+    >
+      Acceptance Note:
+    </label>
+    <textarea
+      className="modal__textarea"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <button
+      className="button__purple modal__button"
+      type="submit"
+    >
+      Yes, I Accept!
+    </button>
+  </form>
+</Modal>
+`;

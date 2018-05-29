@@ -80,8 +80,8 @@ const AddEventComponent = ({ events, history, deleteEvent, onSubmit, profile, au
 }
 
 AddEvent.propTypes = {
-  events: PropTypes.array,
-  history: PropTypes.func,
+  events:      PropTypes.array,
+  history:     PropTypes.func,
   deleteEvent: PropTypes.func
 };
 

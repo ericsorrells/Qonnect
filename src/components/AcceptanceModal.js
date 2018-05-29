@@ -18,7 +18,6 @@ class AcceptanceModal extends React.Component {
   }
 
   onNoteInput(e) {
-    event.preventDefault();
     this.setState({ acceptanceNote: e.target.value })
   }
 
@@ -59,9 +58,10 @@ class AcceptanceModal extends React.Component {
 }
 
 AcceptanceModal.propTypes = {
-  modalOpen:       PropTypes.func,
-  modalClose:      PropTypes.func,
-  userAcceptEvent: PropTypes.func 
+  modalOpen:       PropTypes.bool,
+  closeModal:      PropTypes.func,
+  userAcceptEvent: PropTypes.func,
+  event:           PropTypes.object
 }
 
 export default AcceptanceModal;
