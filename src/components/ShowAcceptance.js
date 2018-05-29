@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link }  from 'react-router-dom';
 import { connect } from 'react-redux';
 // ========================================================================================
@@ -50,6 +51,12 @@ const mapDispatchToProps = (dispatch) => {
   return { 
     startOwnerSelectsGuest: (eventId, acceptanceId) => dispatch(startOwnerSelectsGuest(eventId, acceptanceId))
   }
+}
+
+ShowAcceptance.propTypes = {
+  acceptance: PropTypes.object,
+  user:       PropTypes.object,
+  startOwnerSelectsGuest: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(ShowAcceptance);

@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import { formatTime, formatDateLong } from '../utils/utils';
 // ========================================================================================
@@ -39,6 +40,10 @@ const EventInfo = ({name, info}) => {
       </div>
     </div>
   )
+}
+
+ShowEventDisplay.propTypes = {
+  event: PropTypes.object
 }
 
 export default ShowEventDisplay;

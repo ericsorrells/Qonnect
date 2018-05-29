@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // ========================================================================================
 
-
 class EditProfile extends React.Component {
   constructor(props) {
     super(props)
@@ -76,6 +75,10 @@ class EditProfile extends React.Component {
       </div>
     )
   }
+}
+
+EditProfile.propTypes = {
+  profile: PropTypes.object
 }
 
 export default EditProfile;

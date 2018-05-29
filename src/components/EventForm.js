@@ -1,5 +1,7 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
+// ========================================================================================
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 // ========================================================================================
@@ -158,6 +160,10 @@ class EventForm extends React.Component {
       </div>
     )
   }
+}
+
+EventForm.propTypes = {
+  event: PropTypes.object
 }
 
 export default EventForm;

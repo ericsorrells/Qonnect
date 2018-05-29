@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 import { auth } from '../firebase/firebaseIndex';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -22,6 +23,10 @@ const SignOutButton = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return { startSignOut: () => dispatch(startSignOut()) }
+}
+
+SignOutButton.propTypes = {
+  startSignOut: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(withRouter(SignOutButton));

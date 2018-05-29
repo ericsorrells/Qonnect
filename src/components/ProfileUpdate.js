@@ -24,7 +24,6 @@ class ProfileUpdate extends React.Component {
 
   handleSubmit(data) {
     const partitionedData = partitionData(data);
-    console.log('PROFILE UPDATE', partitionedData)
     
     var user = auth.getCurrentUser();
 

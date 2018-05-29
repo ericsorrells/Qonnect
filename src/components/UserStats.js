@@ -20,11 +20,11 @@ const UserStats = (props) => {
 
 UserStats.propTypes = {
   props: PropTypes.shape({
-  totalEvents:    PropTypes.number,
-  openEvents:     PropTypes.number,
-  eventsAttended: PropTypes.number,
-  followers:      PropTypes.number,
-  following:      PropTypes.number
+    totalEvents: PropTypes.number,
+    openEvents: PropTypes.number,
+    eventsAttended: PropTypes.number,
+    followers: PropTypes.number,
+    following: PropTypes.number
   })
 };
 

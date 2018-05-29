@@ -1,5 +1,6 @@
 // ========================================================================================
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { startSignIn } from '../actions/Auth';
 // ========================================================================================
@@ -71,6 +72,11 @@ class SignInForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return { startSignIn: (authInfo) => dispatch(startSignIn(authInfo)) }
+}
+
+SignIn.propTypes = {
+  startSignIn: PropTypes.func,
+  history:     PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(SignIn)

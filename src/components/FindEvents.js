@@ -77,4 +77,13 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+FindEvents.propTypes = {
+  events:              PropTypes.func,
+  loading:             PropTypes.func,
+  history:             PropTypes.object,
+  deleteEvent:         PropTypes.func,
+  startGetProfile:     PropTypes.func,
+  startGetOtherEvents: PropTypes.func
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(FindEvents);

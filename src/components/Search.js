@@ -168,4 +168,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+Search.propTypes = {
+  setFilters:   PropTypes.func,
+  clearFilters: PropTypes.func
+}
+
 export default connect(null, mapDispatchToProps)(Search)

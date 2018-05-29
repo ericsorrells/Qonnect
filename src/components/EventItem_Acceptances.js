@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 
 const EventItemAcceptances = (props) => {
@@ -11,6 +12,10 @@ const EventItemAcceptances = (props) => {
       <span className='acceptance__subheader'>Acceptances</span>
     </div>
   )
+}
+
+EventItemAcceptances.propTypes = {
+  acceptances: PropTypes.object
 }
 
 export default EventItemAcceptances;

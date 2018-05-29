@@ -14,10 +14,10 @@ firebase.initializeApp(config);
 const database = firebase.database();
 const auth = firebase.auth();
 
-const storageKey = 'qonnect_key';
+const storageKey = 'qKey';
 
 const isAuthenticated = () => {
-  return !!auth.currentUser || !!localStorage.getItem(storageKey);
+  return !!auth.currentUser || !!sessionStorage.getItem(storageKey);
 };
 
 export { firebase, auth, storageKey, isAuthenticated };

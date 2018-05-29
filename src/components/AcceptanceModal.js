@@ -1,6 +1,7 @@
 // ========================================================================================
 import React from 'react';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import ShowEventDisplay from '../components/ShowEventDisplay';
 // ========================================================================================
@@ -55,6 +56,12 @@ class AcceptanceModal extends React.Component {
       </Modal>
     )
   }
+}
+
+AcceptanceModal.propTypes = {
+  modalOpen:       PropTypes.func,
+  modalClose:      PropTypes.func,
+  userAcceptEvent: PropTypes.func 
 }
 
 export default AcceptanceModal;

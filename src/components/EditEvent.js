@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import EventForm from '../components/EventForm';
 // ========================================================================================
@@ -38,6 +39,12 @@ class EditEvent extends React.Component {
       </div>
     )
   }
+}
+
+EditEvent.propTypes = {
+  event:   PropTypes.object,
+  profile: PropTypes.object,
+  auth:    PropTypes.object 
 }
 
 export default EditEvent;

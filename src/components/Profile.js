@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase/firebaseIndex';
 import { withRouter } from 'react-router-dom';
@@ -18,8 +19,6 @@ import { objToArray, getCurrentUserId } from '../utils/utils';
 class Profile extends React.Component {
   constructor(props) {
     super(props)
-    console.log('PROFILE: constructor')
-
   }
 
   componentDidMount() {
@@ -74,7 +73,7 @@ const ProfileComponent = ({ events, history, profile, deleteEvent, urlParam, use
           </section>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 
@@ -86,6 +85,18 @@ const EventsHeader = (props) => {
       <button className='events-header__button' onClick={handleClick}>Create</button>
     </div>
   )
+}
+
+Profile.propTypes = {
+    events:          PropTypes.array,
+    profile:         PropTypes.object,
+    userId:          PropTypes.string,
+    urlParam:        PropTypes.string,
+    loading:         PropTypes.object,
+    startGetProfile: PropTypes.func,
+    deleteEvent:     PropTypes.func,
+    setProfile:      PropTypes.func,
+    setFilters:      PropTypes.func,
 }
 
 export default withRouter(Profile);

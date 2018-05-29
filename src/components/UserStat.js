@@ -1,4 +1,7 @@
+// ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
+// ========================================================================================
 
 const UserStat = ({ stat, title }) => {
   return (
@@ -7,6 +10,11 @@ const UserStat = ({ stat, title }) => {
       <div className="user-stat__title">{title}</div>
     </div>
   )
+}
+
+UserStat.propTypes = {
+  stat:  PropTypes.number,
+  title: PropTypes.string
 }
 
 export default UserStat;

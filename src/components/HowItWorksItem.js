@@ -1,4 +1,7 @@
+// ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
+// ========================================================================================
 
 const HowItWorksItem = (props) => {
   const { title, icon, text } = props;
@@ -9,6 +12,12 @@ const HowItWorksItem = (props) => {
       <p className='how-it-works__text'>{text}</p>
     </div>
   )
+}
+
+HowItWorksItem.propTypes = {
+  icon: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string
 }
 
 export default HowItWorksItem;

@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 // ========================================================================================
 import ShowAcceptance           from './ShowAcceptance';
 import ShowEventDisplay         from '../components/ShowEventDisplay';
@@ -181,4 +182,15 @@ const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
   )
 }
 
+ShowEvent.propTypes = {
+    event:       PropTypes.object, 
+    eventId:     PropTypes.string,
+    acceptances: PropTypes.object,
+    user:        PropTypes.object,      
+    userId:      PropTypes.string,  
+    startDeleteEvent:             PropTypes.func,
+    startGettingEventAcceptances: PropTypes.func,
+    startUserAcceptEvent:         PropTypes.func,
+    createUserAcceptedEventInFirebase: PropTypes.func
+}
 export default withRouter(ShowEvent);

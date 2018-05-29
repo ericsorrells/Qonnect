@@ -1,6 +1,8 @@
+// ========================================================================================
 import React from 'react';
+// ========================================================================================
 
-const Spinner = (props) => {
+const Spinner = () => {
   return (
     <div className='spinner__container'>
       <i className='fa fa-spinner fa-4x fa-spin' ></i>

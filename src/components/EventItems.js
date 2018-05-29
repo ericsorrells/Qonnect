@@ -25,7 +25,7 @@ export const EventItems = ({events, history = null, deleteEvent = null}) => {
   })
 }
 
-EventItem.propTypes = {
+EventItems.propTypes = {
   event:       PropTypes.object,
   history:     PropTypes.func,
   showEvent:   PropTypes.func,

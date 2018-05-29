@@ -1,5 +1,6 @@
 // ========================================================================================
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import moment from 'moment';
 // ========================================================================================
@@ -50,6 +51,10 @@ const UserInfo = ({
       }
     </div>
   )
+}
+
+UserInfo.propTypes = {
+  user: PropTypes.object
 }
 
 export default UserInfo;

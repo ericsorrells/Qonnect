@@ -1,5 +1,6 @@
 // ========================================================================================
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../firebase/firebaseIndex';
@@ -110,6 +111,12 @@ const mapDispatchToProps = (dispatch) => {
     signIn: (user) => dispatch(signIn(user.uid)),
     updateProfile: (profileUpdates) => dispatch(updateProfile(profileUpdates))
   }
+}
+
+SignUp.propTypes = {
+  signIn:        PropTypes.func,
+  updateProfile: PropTypes.func,
+  history:       PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(SignUp);

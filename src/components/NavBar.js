@@ -1,6 +1,8 @@
 // ========================================================================================
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+// ========================================================================================
 import SignOutButton from '../components/SignOutButton';
 // ========================================================================================
 
@@ -37,6 +39,10 @@ const NavBar = ({ user }) => {
       </div>
     </nav>
   )
+}
+
+NavBar.propTypes = {
+  user: PropTypes.object
 }
 
 export default NavBar;
