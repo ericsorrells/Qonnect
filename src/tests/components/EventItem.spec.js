@@ -27,7 +27,7 @@ describe('<EventItem />', () => {
   it('renders default image when no imageURL provided', () => {
     const newEvent = { ...basicProfile, imageUrl: '' }
     const component = mount(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[ {key: 'testKey' } ]}>
         <Image Link={MemoryRouter} id={'abc123'} imageUrl={null} />
       </MemoryRouter>
     )

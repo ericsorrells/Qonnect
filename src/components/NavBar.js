@@ -2,6 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import 'react-dates/lib/css/_datepicker.css';
+
 // ========================================================================================
 import SignOutButton from '../components/SignOutButton';
 // ========================================================================================

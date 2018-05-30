@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomeBillBoard /> renders correctly 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <HomeBillBoard>
+      <div
+        className="home__container"
+      >
+        <div
+          className="home__inner-container"
+        >
+          <div
+            className="home__text-container"
+          >
+            <div
+              className="home__text"
+            >
+              New Friends.
+            </div>
+            <div
+              className="home__text"
+            >
+              New Experiences.
+            </div>
+            <div
+              className="home__text"
+            >
+              Have Fun.
+            </div>
+          </div>
+          <Link
+            className="home__button"
+            replace={false}
+            to="signup"
+          >
+            <a
+              className="home__button"
+              href="signup"
+              onClick={[Function]}
+            >
+              Have Fun Now!
+            </a>
+          </Link>
+        </div>
+      </div>
+    </HomeBillBoard>
+  </Router>
+</MemoryRouter>
+`;

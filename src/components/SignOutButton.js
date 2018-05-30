@@ -5,6 +5,8 @@ import { auth } from '../firebase/firebaseIndex';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { startSignOut } from '../actions/Auth';
+import 'react-dates/lib/css/_datepicker.css';
+
 // ========================================================================================
 
 const SignOutButton = (props) => {

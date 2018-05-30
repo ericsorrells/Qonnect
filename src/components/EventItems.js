@@ -8,11 +8,11 @@ import { objToArray } from '../utils/utils';
 // ========================================================================================
 
 export const EventItems = ({events, history = null, deleteEvent = null}) => {
-  
+
   return events.map((event, index) => {
     return (
       <div>
-        <ul className='event-itme__ul'>
+        <ul className='event-item__ul'>
           <EventItem
             {...event}
             key={event.id}

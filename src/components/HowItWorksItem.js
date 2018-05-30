@@ -15,9 +15,9 @@ const HowItWorksItem = (props) => {
 }
 
 HowItWorksItem.propTypes = {
-  icon: PropTypes.string,
+  icon:  PropTypes.string,
   title: PropTypes.string,
-  text: PropTypes.string
+  text:  PropTypes.string
 }
 
 export default HowItWorksItem;

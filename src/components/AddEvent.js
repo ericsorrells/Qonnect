@@ -24,9 +24,9 @@ class AddEvent extends React.Component {
 
   componentDidMount() {
     const { userId, events } = this.props
-    const eventIds = getEventUserIDs(events)
-    const hasEvents = events.length === 0;
-    const areUserEvents = eventIds.includes(userId);
+    const eventIds           = getEventUserIDs(events)
+    const hasEvents          = events.length === 0;
+    const areUserEvents      = eventIds.includes(userId);
 
     if (userId && (hasEvents || !areUserEvents)) {
       this.props.startGetProfile(userId);
@@ -34,16 +34,16 @@ class AddEvent extends React.Component {
   }
 
   render() {
-    const component = this.props.loading.loading 
-      ? <Spinner /> 
-      : <AddEventComponent {...this.props} 
-          events={this.props.events}
-          history={this.props.history}
-          deleteEvent={this.props.deleteEvent}
-          onSubmit={this.handleSubmit}
-          profile={this.props.profile}
-          auth={this.props.auth}
-        />
+    const component = this.props.loading.loading
+      ? <Spinner />
+      : <AddEventComponent {...this.props}
+        events={this.props.events}
+        history={this.props.history}
+        deleteEvent={this.props.deleteEvent}
+        onSubmit={this.handleSubmit}
+        profile={this.props.profile}
+        auth={this.props.auth}
+      />
     return (
       <div>
         {component}
@@ -82,7 +82,11 @@ const AddEventComponent = ({ events, history, deleteEvent, onSubmit, profile, au
 AddEvent.propTypes = {
   events:      PropTypes.array,
   history:     PropTypes.func,
-  deleteEvent: PropTypes.func
+  deleteEvent: PropTypes.func,
+  userId:      PropTypes.number,
+  profile:     PropTypes.object,
+  auth:        PropTypes.object,
+  loading:     PropTypes.object
 };
 
 export default AddEvent;
