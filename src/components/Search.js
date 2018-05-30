@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // ========================================================================================
 import moment from 'moment';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
+// import 'react-dates/initialize';
+// import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 import { setFilters, clearFilters } from '../actions/Filters_Actions';
 // ========================================================================================

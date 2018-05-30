@@ -3,31 +3,33 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import 'jest-enzyme';
 // ========================================================================================
-// import AddEvent from '../../containers/AddEvent_Container';
+import AddEvent from '../../components/AddEvent';
 // ========================================================================================
-// import { startCreateEvent } from '../../actions/Events_Actions'
+import { startCreateEvent } from '../../actions/Events_Actions'
 import { basicEvent }       from '../stubs/event';
 import { basicProfile }     from '../stubs/profile'
 // ========================================================================================
 
 describe('<AddEvent />', () => {
-  // let component;
-  // beforeEach(() => {
-    // TODO: component seems to be calling <Search />, which is failing
-    // component = shallow(
-    //   <AddEvent
-    //     events={events}
-    //     userId={ 'abc123' }
-    //     profile={basicProfile}
-    //     auth={ { uid: 'abc123' } }
-    //     loading={false}
-    //   />
-    // )
-  // });
+  let component;
+  const eventWithId = { ...basicEvent, id: 123 }
+  const events = [{...eventWithId}, {...eventWithId}, {...eventWithId}];
+  beforeEach(() => {
+    //TODO: component seems to be calling <Search />, which is failing
+    component = shallow(
+      <AddEvent
+        events={events}
+        userId={ 'abc123' }
+        profile={basicProfile}
+        auth={ { uid: 'abc123' } }
+        loading={false}
+      />
+    )
+  });
 
   describe('rendering', () => {
     it('renders correctly', () => {
-      // console.log('ADDEVENTS COMP', component)
+      console.log('ADDEVENTS COMP', component.debug())
 
     });
 

@@ -11,6 +11,8 @@ import Home from './components/Home';
 import Spinner from './components/Spinner';
 // ========================================================================================
 import 'normalize.css/normalize.css';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
 import './styles/styles.scss';
 // ========================================================================================
 

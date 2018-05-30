@@ -1,27 +1,36 @@
 // ========================================================================================
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, render, mount } from 'enzyme';
+import { Provider } from 'react-redux';
+import store from '../../store/configureStore';
 import { MemoryRouter } from 'react-router-dom';
 import 'jest-enzyme';
 // ========================================================================================
-import NavBar from '../../components/NavBar';
-import SignOutButton from '../../components/SignOutButton';
+import NavBar, { NavigationAuth } from '../../components/NavBar';
 // ========================================================================================
 import { basicProfile } from '../stubs/profile'
 // ========================================================================================
 
 describe('<NavBar />', () => {
   it('displays secure NavBar when logged in', () => {
-    const component = shallow(
-      <MemoryRouter initialEntries={[ {key: 'testKey' } ]} >
-      <Navbar user={basicProfile} />
-      </MemoryRouter>
+    const component = mount(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={[{ key: 'testKey' }]} >
+          <NavBar user={basicProfile} />
+        </MemoryRouter>
+      </Provider>
     )
-    console.log('NAVABAR: ', component.debug());
-
+    expect(component.find('.nav-auth__container')).toExist();
   });
 
   it('displays non-secure NavBar when not logged in', () => {
-
+    const component = mount(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={[{ key: 'testKey' }]} >
+          <NavBar />
+        </MemoryRouter>
+      </Provider>
+    )
+    expect(component.find('.nav-auth__container')).not.toExist();
   });
 });
