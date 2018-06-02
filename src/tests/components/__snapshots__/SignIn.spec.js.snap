@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignIn/> renders correctly 1`] = `
+<MemoryRouter
+  initialEntries={
+    Array [
+      Object {
+        "key": "testKey",
+      },
+    ]
+  }
+>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 0,
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "testKey",
+          "pathname": "/",
+          "search": "",
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <SignIn
+      history={[MockFunction]}
+      startSignIn={[MockFunction]}
+    >
+      <div
+        className="profile_form sign-in-margins"
+      >
+        <h1>
+          Sign In
+        </h1>
+        <SignInForm
+          history={[MockFunction]}
+          startSignIn={[MockFunction]}
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <input
+              className="form__element_border form__input"
+              id="emailInput"
+              onChange={[Function]}
+              placeholder="Email Address"
+              type="text"
+              value=""
+            />
+            <input
+              className="form__element_border form__input"
+              id="passwordInput"
+              onChange={[Function]}
+              placeholder="Password"
+              type="password"
+              value=""
+            />
+            <button
+              className="button__purple"
+              disabled={true}
+              type="submit"
+            >
+              Sign In
+            </button>
+          </form>
+        </SignInForm>
+        <SignUpLink>
+          <p>
+            Don't have an account?
+             
+            <Link
+              replace={false}
+              to="/signup"
+            >
+              <a
+                href="/signup"
+                onClick={[Function]}
+              >
+                Sign Up
+              </a>
+            </Link>
+          </p>
+        </SignUpLink>
+      </div>
+    </SignIn>
+  </Router>
+</MemoryRouter>
+`;

@@ -13,20 +13,20 @@ import { objToArray } from '../utils/utils';
 const mapStateToProps = (state, ownProps) => {
   const urlParam = ownProps.match.params.id;
   return {
-    events:  objToArray(state.events),
-    profile: state.profile,
-    userId:  state.auth.uid,
+    events:   objToArray(state.events),
+    profile:  state.profile,
+    userId:   state.auth.uid,
     urlParam: urlParam,
-    loading: state.loading
+    loading:  state.loading
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startGetProfile:           (userId)         => dispatch(startGetProfile(userId)),
-    deleteEvent:               (id)             => dispatch(deleteEvent(id)),
-    setProfile:                (profileUpdates) => dispatch(setProfile(profileUpdates)),
-    setFilters:                (searchParams)   => dispatch(setFilters(searchParams))
+    startGetProfile: (userId)         => dispatch(startGetProfile(userId)),
+    deleteEvent:     (id)             => dispatch(deleteEvent(id)),
+    setProfile:      (profileUpdates) => dispatch(setProfile(profileUpdates)),
+    setFilters:      (searchParams)   => dispatch(setFilters(searchParams))
   }
 }
 

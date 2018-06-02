@@ -1,0 +1,84 @@
+{
+   "profile": {
+      "acceptedEvents": {
+         "-LC1oouVZ2uS2WVF1GNR": false,
+         "-LCaSYc1PdYqDHpfxbyk": false,
+         "-LCaig9Xu1qk07j-qclP": false,
+         "-LCaj5Xvcvf-HenrFrD4": false,
+         "-LDTUFH9x8NyS-bAuPMb": false
+      },
+      "birthDate": "1976-11-04",
+      "city": "The Sprawl!!!",
+      "createdAt": 1526041717660,
+      "description": "I am a replicant! I think. I know...!",
+      "firstName": "Rachel",
+      "lastName": "Deckard",
+      "photoURL": "https://ih0.redbubble.net/image.14393202.3421/flat,800x800,070,f.u1.jpg",
+      "state": "Ga",
+      "updatedAt": 1527427279191,
+      "userEvents": {
+         "-LCfyBNNDMw6CHxm0uQT": false,
+         "-LCxprm-OcVySt_LXZiz": false,
+         "-LDMwtJqajA7RCImcxS1": false,
+         "-LDO26Tb-CQlxebfvbWV": false,
+         "-LDbET5MW8sYrio1c-oE": false,
+         "-LDbVEPX0rGjmS21JxrU": false,
+         "NClNDy4YHLMdy7ILKcQGcHpI4OD3": false
+      }
+   },
+   "events": {
+      "-LCGJP9RcujBnu4QA7XJ": {
+         "category": "sports",
+         "date": 1525968000000,
+         "description": "YO!!! At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. ",
+         "eventName": "Something BALL GAMES!!!!!",
+         "imageUrl": "https://static1.squarespace.com/static/56ab82d789a60a49487e0dc8/t/5873d5888419c2fab26206e7/1483986321384/SPORTS.jpg?format=1500w",
+         "interestedUsers": "none",
+         "location": "4351 Kings Way Marietta, GA 30067",
+         "selectedUser": "none",
+         "time": "02:13",
+         "uid": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+         "uninterestedUsers": "none",
+         "userId": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+         "userName": "Rachel Deckard"
+      },
+      "-LCJV_YRy4nw6cHSqfI4": {
+         "category": "sports",
+         "date": 1526745600000,
+         "description": "lets go!!!",
+         "eventName": "Braves",
+         "imageUrl": "http://media-cdn.timesfreepress.com/img/photos/2016/04/05/nationalsbravesbasepark15501908785_t1070_h3c89ea48cd9c1787b65db51769596261eea64569.jpg",
+         "location": "Stadium",
+         "time": "19:15",
+         "uid": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+         "userId": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+         "userName": "Rachel Deckard"
+      },
+      "-LCJfpz-oARGXdUHMh0x": {
+         "category": "Miscellaneous",
+         "date": 1526745600000,
+         "description": "let's go fishing together! i'd love to catch some fish",
+         "eventName": "Fishing w Me",
+         "imageUrl": "http://mediad.publicbroadcasting.net/p/wcbu/files/styles/x_large/public/201802/bass_fishing.jpg",
+         "location": "Pond",
+         "time": "20:15",
+         "uid": "NClNDy4YHLMdy7ILKcQGcHpI4OD3",
+         "userName": "Rachel Deckard"
+      }
+   },
+   "acceptances": {},
+   "filters": {
+      "location": "",
+      "startDate": "2018-05-31T00:59:13.444Z",
+      "endDate": null,
+      "category": "",
+      "searchTerm": "",
+      "sortBy": true
+   },
+   "auth": {
+      "uid": "NClNDy4YHLMdy7ILKcQGcHpI4OD3"
+   },
+   "loading": {
+      "loading": false
+   }
+}

@@ -1,0 +1,1155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile /> rendering renders correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <MemoryRouter
+    initialEntries={
+      Array [
+        Object {
+          "key": "testKey",
+        },
+      ]
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "testKey",
+              "pathname": "/",
+              "search": "",
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "testKey",
+            "pathname": "/",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Profile
+        deleteEvent={[MockFunction]}
+        events={
+          Array [
+            Object {
+              "category": "sports",
+              "date": 345600000,
+              "description": "Lorem ipsum text",
+              "eventName": "Cool Event Title",
+              "id": 123,
+              "imageUrl": "https://image.com",
+              "interestedUsers": "none",
+              "location": "123 Elm St.",
+              "selectedUser": "none",
+              "time": "02:13",
+              "uid": "abc123",
+              "uninterestedUsers": "none",
+              "userId": "abc123",
+              "userName": "Rachel Deckard",
+            },
+            Object {
+              "category": "sports",
+              "date": 345600000,
+              "description": "Lorem ipsum text",
+              "eventName": "Cool Event Title",
+              "id": 123,
+              "imageUrl": "https://image.com",
+              "interestedUsers": "none",
+              "location": "123 Elm St.",
+              "selectedUser": "none",
+              "time": "02:13",
+              "uid": "abc123",
+              "uninterestedUsers": "none",
+              "userId": "abc123",
+              "userName": "Rachel Deckard",
+            },
+            Object {
+              "category": "sports",
+              "date": 345600000,
+              "description": "Lorem ipsum text",
+              "eventName": "Cool Event Title",
+              "id": 123,
+              "imageUrl": "https://image.com",
+              "interestedUsers": "none",
+              "location": "123 Elm St.",
+              "selectedUser": "none",
+              "time": "02:13",
+              "uid": "abc123",
+              "uninterestedUsers": "none",
+              "userId": "abc123",
+              "userName": "Rachel Deckard",
+            },
+          ]
+        }
+        loading={
+          Object {
+            "loading": false,
+          }
+        }
+        match={
+          Object {
+            "params": Object {
+              "id": "-LDTTYL9PSqqroO6JLYh",
+            },
+          }
+        }
+        profile={
+          Object {
+            "acceptedEvents": Object {
+              "-LC1oouVZ2uS2WVF1GNR": false,
+              "-LCaSYc1PdYqDHpfxbyk": false,
+              "-LCaig9Xu1qk07j-qclP": false,
+            },
+            "birthDate": "1976-11-04",
+            "city": "The Sprawl!!!",
+            "createdAt": 1526041717660,
+            "description": "I am a replicant! I think. I know...!",
+            "firstName": "Rachel",
+            "lastName": "Deckard",
+            "photoURL": "https://ih0.redbubble.net/image.14393202.3421/flat,800x800,070,f.u1.jpg",
+            "state": "Ga",
+            "updatedAt": 1527427279191,
+            "userEvents": Object {
+              "-LCfyBNNDMw6CHxm0uQT": false,
+              "-LCxprm-OcVySt_LXZiz": false,
+              "-LDMwtJqajA7RCImcxS1": false,
+            },
+          }
+        }
+        startGetProfile={
+          [MockFunction] {
+            "calls": Array [
+              Array [
+                "-LDTTYL9PSqqroO6JLYh",
+              ],
+            ],
+          }
+        }
+        urlParam="abc123"
+        userId="abc123"
+      >
+        <div>
+          <ProfileComponent
+            deleteEvent={[MockFunction]}
+            events={
+              Array [
+                Object {
+                  "category": "sports",
+                  "date": 345600000,
+                  "description": "Lorem ipsum text",
+                  "eventName": "Cool Event Title",
+                  "id": 123,
+                  "imageUrl": "https://image.com",
+                  "interestedUsers": "none",
+                  "location": "123 Elm St.",
+                  "selectedUser": "none",
+                  "time": "02:13",
+                  "uid": "abc123",
+                  "uninterestedUsers": "none",
+                  "userId": "abc123",
+                  "userName": "Rachel Deckard",
+                },
+                Object {
+                  "category": "sports",
+                  "date": 345600000,
+                  "description": "Lorem ipsum text",
+                  "eventName": "Cool Event Title",
+                  "id": 123,
+                  "imageUrl": "https://image.com",
+                  "interestedUsers": "none",
+                  "location": "123 Elm St.",
+                  "selectedUser": "none",
+                  "time": "02:13",
+                  "uid": "abc123",
+                  "uninterestedUsers": "none",
+                  "userId": "abc123",
+                  "userName": "Rachel Deckard",
+                },
+                Object {
+                  "category": "sports",
+                  "date": 345600000,
+                  "description": "Lorem ipsum text",
+                  "eventName": "Cool Event Title",
+                  "id": 123,
+                  "imageUrl": "https://image.com",
+                  "interestedUsers": "none",
+                  "location": "123 Elm St.",
+                  "selectedUser": "none",
+                  "time": "02:13",
+                  "uid": "abc123",
+                  "uninterestedUsers": "none",
+                  "userId": "abc123",
+                  "userName": "Rachel Deckard",
+                },
+              ]
+            }
+            loading={
+              Object {
+                "loading": false,
+              }
+            }
+            match={
+              Object {
+                "params": Object {
+                  "id": "-LDTTYL9PSqqroO6JLYh",
+                },
+              }
+            }
+            profile={
+              Object {
+                "acceptedEvents": Object {
+                  "-LC1oouVZ2uS2WVF1GNR": false,
+                  "-LCaSYc1PdYqDHpfxbyk": false,
+                  "-LCaig9Xu1qk07j-qclP": false,
+                },
+                "birthDate": "1976-11-04",
+                "city": "The Sprawl!!!",
+                "createdAt": 1526041717660,
+                "description": "I am a replicant! I think. I know...!",
+                "firstName": "Rachel",
+                "lastName": "Deckard",
+                "photoURL": "https://ih0.redbubble.net/image.14393202.3421/flat,800x800,070,f.u1.jpg",
+                "state": "Ga",
+                "updatedAt": 1527427279191,
+                "userEvents": Object {
+                  "-LCfyBNNDMw6CHxm0uQT": false,
+                  "-LCxprm-OcVySt_LXZiz": false,
+                  "-LDMwtJqajA7RCImcxS1": false,
+                },
+              }
+            }
+            startGetProfile={
+              [MockFunction] {
+                "calls": Array [
+                  Array [
+                    "-LDTTYL9PSqqroO6JLYh",
+                  ],
+                ],
+              }
+            }
+            urlParam="abc123"
+            userId="abc123"
+          >
+            <div
+              className="profile"
+            >
+              <div>
+                <div
+                  className="profile__user-stats"
+                >
+                  <section>
+                    <div
+                      className="profile__user-stats-inner-container"
+                    >
+                      <Connect(UserStats)>
+                        <UserStats
+                          dispatch={[Function]}
+                          eventsAttended={0}
+                          followers={0}
+                          following={0}
+                          openEvents={0}
+                          totalEvents={0}
+                        >
+                          <div
+                            className="user-stats__container"
+                          >
+                            <UserStat
+                              stat={0}
+                              title="Events Created"
+                            >
+                              <div
+                                className="user-stat"
+                              >
+                                <div
+                                  className="user-stat__stat"
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="user-stat__title"
+                                >
+                                  Events Created
+                                </div>
+                              </div>
+                            </UserStat>
+                            <UserStat
+                              stat={0}
+                              title="Open Events"
+                            >
+                              <div
+                                className="user-stat"
+                              >
+                                <div
+                                  className="user-stat__stat"
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="user-stat__title"
+                                >
+                                  Open Events
+                                </div>
+                              </div>
+                            </UserStat>
+                            <UserStat
+                              stat={0}
+                              title="Events Attended"
+                            >
+                              <div
+                                className="user-stat"
+                              >
+                                <div
+                                  className="user-stat__stat"
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="user-stat__title"
+                                >
+                                  Events Attended
+                                </div>
+                              </div>
+                            </UserStat>
+                            <UserStat
+                              stat={0}
+                              title="Followers"
+                            >
+                              <div
+                                className="user-stat"
+                              >
+                                <div
+                                  className="user-stat__stat"
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="user-stat__title"
+                                >
+                                  Followers
+                                </div>
+                              </div>
+                            </UserStat>
+                            <UserStat
+                              stat={0}
+                              title="Following"
+                            >
+                              <div
+                                className="user-stat"
+                              >
+                                <div
+                                  className="user-stat__stat"
+                                >
+                                  0
+                                </div>
+                                <div
+                                  className="user-stat__title"
+                                >
+                                  Following
+                                </div>
+                              </div>
+                            </UserStat>
+                          </div>
+                        </UserStats>
+                      </Connect(UserStats)>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div
+                className="profile__outer-container"
+              >
+                <div
+                  className="container profile__inner-container"
+                >
+                  <aside
+                    className="aside-container"
+                  >
+                    <UserInfo
+                      acceptedEvents={
+                        Object {
+                          "-LC1oouVZ2uS2WVF1GNR": false,
+                          "-LCaSYc1PdYqDHpfxbyk": false,
+                          "-LCaig9Xu1qk07j-qclP": false,
+                        }
+                      }
+                      birthDate="1976-11-04"
+                      city="The Sprawl!!!"
+                      createdAt={1526041717660}
+                      description="I am a replicant! I think. I know...!"
+                      firstName="Rachel"
+                      lastName="Deckard"
+                      photoURL="https://ih0.redbubble.net/image.14393202.3421/flat,800x800,070,f.u1.jpg"
+                      state="Ga"
+                      updatedAt={1527427279191}
+                      urlParam="abc123"
+                      userEvents={
+                        Object {
+                          "-LCfyBNNDMw6CHxm0uQT": false,
+                          "-LCxprm-OcVySt_LXZiz": false,
+                          "-LDMwtJqajA7RCImcxS1": false,
+                        }
+                      }
+                      userId="abc123"
+                    >
+                      <div
+                        className="user-info"
+                      >
+                        <div
+                          className="user-info__photoURL"
+                        >
+                          <img
+                            className="user-info__silhouete"
+                            src="https://ih0.redbubble.net/image.14393202.3421/flat,800x800,070,f.u1.jpg"
+                          />
+                        </div>
+                        <h1>
+                          Rachel
+                           
+                          Deckard
+                        </h1>
+                        <div
+                          className="user-info__personal-stats"
+                        >
+                          <div
+                            className="user-info__item"
+                          >
+                            <i
+                              className="fas fa-globe"
+                            />
+                            The Sprawl!!!
+                            , 
+                            Ga
+                          </div>
+                          <div
+                            className="user-info__item"
+                          >
+                            <i
+                              className="fas fa-birthday-cake"
+                            />
+                            41
+                             Years Old
+                          </div>
+                          <div
+                            className="user-info__item"
+                          >
+                            <i
+                              className="fas fa-sign-in-alt"
+                            />
+                            May 11th 2018
+                          </div>
+                        </div>
+                        <div
+                          className="user-info__description"
+                        >
+                          I am a replicant! I think. I know...!
+                        </div>
+                        <button
+                          className="button__purple"
+                        >
+                          <Link
+                            replace={false}
+                            to="/update-profile"
+                          >
+                            <a
+                              href="/update-profile"
+                              onClick={[Function]}
+                            >
+                              Update
+                            </a>
+                          </Link>
+                        </button>
+                      </div>
+                    </UserInfo>
+                  </aside>
+                  <section>
+                    <div
+                      className="profile__section-inner-container"
+                    >
+                      <EventsHeader>
+                        <div
+                          className="events-header"
+                        >
+                          <h1>
+                            My Events!
+                          </h1>
+                          <button
+                            className="events-header__button"
+                            onClick={[Function]}
+                          >
+                            Create
+                          </button>
+                        </div>
+                      </EventsHeader>
+                      <EventItems
+                        deleteEvent={[MockFunction]}
+                        events={
+                          Array [
+                            Object {
+                              "category": "sports",
+                              "date": 345600000,
+                              "description": "Lorem ipsum text",
+                              "eventName": "Cool Event Title",
+                              "id": 123,
+                              "imageUrl": "https://image.com",
+                              "interestedUsers": "none",
+                              "location": "123 Elm St.",
+                              "selectedUser": "none",
+                              "time": "02:13",
+                              "uid": "abc123",
+                              "uninterestedUsers": "none",
+                              "userId": "abc123",
+                              "userName": "Rachel Deckard",
+                            },
+                            Object {
+                              "category": "sports",
+                              "date": 345600000,
+                              "description": "Lorem ipsum text",
+                              "eventName": "Cool Event Title",
+                              "id": 123,
+                              "imageUrl": "https://image.com",
+                              "interestedUsers": "none",
+                              "location": "123 Elm St.",
+                              "selectedUser": "none",
+                              "time": "02:13",
+                              "uid": "abc123",
+                              "uninterestedUsers": "none",
+                              "userId": "abc123",
+                              "userName": "Rachel Deckard",
+                            },
+                            Object {
+                              "category": "sports",
+                              "date": 345600000,
+                              "description": "Lorem ipsum text",
+                              "eventName": "Cool Event Title",
+                              "id": 123,
+                              "imageUrl": "https://image.com",
+                              "interestedUsers": "none",
+                              "location": "123 Elm St.",
+                              "selectedUser": "none",
+                              "time": "02:13",
+                              "uid": "abc123",
+                              "uninterestedUsers": "none",
+                              "userId": "abc123",
+                              "userName": "Rachel Deckard",
+                            },
+                          ]
+                        }
+                      >
+                        <div>
+                          <ul
+                            className="event-item__ul"
+                          >
+                            <EventItem
+                              category="sports"
+                              date={345600000}
+                              deleteEvent={[MockFunction]}
+                              description="Lorem ipsum text"
+                              eventName="Cool Event Title"
+                              history={null}
+                              id={123}
+                              imageUrl="https://image.com"
+                              interestedUsers="none"
+                              key="Cool Event Title"
+                              location="123 Elm St."
+                              selectedUser="none"
+                              time="02:13"
+                              uid="abc123"
+                              uninterestedUsers="none"
+                              userId="abc123"
+                              userName="Rachel Deckard"
+                            >
+                              <li
+                                className="event-item"
+                              >
+                                <div
+                                  className="event-item__left-container"
+                                >
+                                  <div
+                                    className="event-item__left"
+                                  >
+                                    <Image
+                                      Link={[Function]}
+                                      id={123}
+                                      imageUrl="https://image.com"
+                                    >
+                                      <Link
+                                        replace={false}
+                                        to="/show-event/123"
+                                      >
+                                        <a
+                                          href="/show-event/123"
+                                          onClick={[Function]}
+                                        >
+                                          <img
+                                            className="event-item__image"
+                                            src="https://image.com"
+                                          />
+                                        </a>
+                                      </Link>
+                                    </Image>
+                                  </div>
+                                  <div
+                                    className="event-item__center"
+                                  >
+                                    <Link
+                                      replace={false}
+                                      to="/show-event/123"
+                                    >
+                                      <a
+                                        href="/show-event/123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="title"
+                                          value="Cool Event Title"
+                                        >
+                                          <div
+                                            className="event-item__title"
+                                          >
+                                            Cool Event Title
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <Link
+                                      replace={false}
+                                      to="/profile/abc123"
+                                    >
+                                      <a
+                                        href="/profile/abc123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="inviter"
+                                          value="Rachel Deckard"
+                                        >
+                                          <div
+                                            className="event-item__inviter"
+                                          >
+                                            Rachel Deckard
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <div
+                                      className="event-item__date_location"
+                                    >
+                                      <SubInfo
+                                        icon="map-marker"
+                                        type="location"
+                                        value="123 Elm St."
+                                        value2={null}
+                                      >
+                                        <div
+                                          className="event-item__location"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-map-marker"
+                                            />
+                                          </div>
+                                          <div>
+                                            123 Elm St.
+                                               
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                      <SubInfo
+                                        icon="calendar"
+                                        type="date"
+                                        value="Sun Jan 4 '70"
+                                        value2="| 02:13 AM"
+                                      >
+                                        <div
+                                          className="event-item__date"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-calendar"
+                                            />
+                                          </div>
+                                          <div>
+                                            Sun Jan 4 '70
+                                               
+                                            | 02:13 AM
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                    </div>
+                                    <Info
+                                      type="description"
+                                      value="Lorem ipsum text"
+                                    >
+                                      <div
+                                        className="event-item__description"
+                                      >
+                                        Lorem ipsum text
+                                      </div>
+                                    </Info>
+                                  </div>
+                                </div>
+                                <div
+                                  className="event-item__acceptances"
+                                >
+                                  <EventItemAcceptances
+                                    acceptances={4}
+                                  >
+                                    <div
+                                      className="acceptance"
+                                    >
+                                      <div
+                                        className="acceptance__count"
+                                      >
+                                        4
+                                      </div>
+                                      <span
+                                        className="acceptance__subheader"
+                                      >
+                                        Acceptances
+                                      </span>
+                                    </div>
+                                  </EventItemAcceptances>
+                                </div>
+                              </li>
+                            </EventItem>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul
+                            className="event-item__ul"
+                          >
+                            <EventItem
+                              category="sports"
+                              date={345600000}
+                              deleteEvent={[MockFunction]}
+                              description="Lorem ipsum text"
+                              eventName="Cool Event Title"
+                              history={null}
+                              id={123}
+                              imageUrl="https://image.com"
+                              interestedUsers="none"
+                              key="Cool Event Title"
+                              location="123 Elm St."
+                              selectedUser="none"
+                              time="02:13"
+                              uid="abc123"
+                              uninterestedUsers="none"
+                              userId="abc123"
+                              userName="Rachel Deckard"
+                            >
+                              <li
+                                className="event-item"
+                              >
+                                <div
+                                  className="event-item__left-container"
+                                >
+                                  <div
+                                    className="event-item__left"
+                                  >
+                                    <Image
+                                      Link={[Function]}
+                                      id={123}
+                                      imageUrl="https://image.com"
+                                    >
+                                      <Link
+                                        replace={false}
+                                        to="/show-event/123"
+                                      >
+                                        <a
+                                          href="/show-event/123"
+                                          onClick={[Function]}
+                                        >
+                                          <img
+                                            className="event-item__image"
+                                            src="https://image.com"
+                                          />
+                                        </a>
+                                      </Link>
+                                    </Image>
+                                  </div>
+                                  <div
+                                    className="event-item__center"
+                                  >
+                                    <Link
+                                      replace={false}
+                                      to="/show-event/123"
+                                    >
+                                      <a
+                                        href="/show-event/123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="title"
+                                          value="Cool Event Title"
+                                        >
+                                          <div
+                                            className="event-item__title"
+                                          >
+                                            Cool Event Title
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <Link
+                                      replace={false}
+                                      to="/profile/abc123"
+                                    >
+                                      <a
+                                        href="/profile/abc123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="inviter"
+                                          value="Rachel Deckard"
+                                        >
+                                          <div
+                                            className="event-item__inviter"
+                                          >
+                                            Rachel Deckard
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <div
+                                      className="event-item__date_location"
+                                    >
+                                      <SubInfo
+                                        icon="map-marker"
+                                        type="location"
+                                        value="123 Elm St."
+                                        value2={null}
+                                      >
+                                        <div
+                                          className="event-item__location"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-map-marker"
+                                            />
+                                          </div>
+                                          <div>
+                                            123 Elm St.
+                                               
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                      <SubInfo
+                                        icon="calendar"
+                                        type="date"
+                                        value="Sun Jan 4 '70"
+                                        value2="| 02:13 AM"
+                                      >
+                                        <div
+                                          className="event-item__date"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-calendar"
+                                            />
+                                          </div>
+                                          <div>
+                                            Sun Jan 4 '70
+                                               
+                                            | 02:13 AM
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                    </div>
+                                    <Info
+                                      type="description"
+                                      value="Lorem ipsum text"
+                                    >
+                                      <div
+                                        className="event-item__description"
+                                      >
+                                        Lorem ipsum text
+                                      </div>
+                                    </Info>
+                                  </div>
+                                </div>
+                                <div
+                                  className="event-item__acceptances"
+                                >
+                                  <EventItemAcceptances
+                                    acceptances={4}
+                                  >
+                                    <div
+                                      className="acceptance"
+                                    >
+                                      <div
+                                        className="acceptance__count"
+                                      >
+                                        4
+                                      </div>
+                                      <span
+                                        className="acceptance__subheader"
+                                      >
+                                        Acceptances
+                                      </span>
+                                    </div>
+                                  </EventItemAcceptances>
+                                </div>
+                              </li>
+                            </EventItem>
+                          </ul>
+                        </div>
+                        <div>
+                          <ul
+                            className="event-item__ul"
+                          >
+                            <EventItem
+                              category="sports"
+                              date={345600000}
+                              deleteEvent={[MockFunction]}
+                              description="Lorem ipsum text"
+                              eventName="Cool Event Title"
+                              history={null}
+                              id={123}
+                              imageUrl="https://image.com"
+                              interestedUsers="none"
+                              key="Cool Event Title"
+                              location="123 Elm St."
+                              selectedUser="none"
+                              time="02:13"
+                              uid="abc123"
+                              uninterestedUsers="none"
+                              userId="abc123"
+                              userName="Rachel Deckard"
+                            >
+                              <li
+                                className="event-item"
+                              >
+                                <div
+                                  className="event-item__left-container"
+                                >
+                                  <div
+                                    className="event-item__left"
+                                  >
+                                    <Image
+                                      Link={[Function]}
+                                      id={123}
+                                      imageUrl="https://image.com"
+                                    >
+                                      <Link
+                                        replace={false}
+                                        to="/show-event/123"
+                                      >
+                                        <a
+                                          href="/show-event/123"
+                                          onClick={[Function]}
+                                        >
+                                          <img
+                                            className="event-item__image"
+                                            src="https://image.com"
+                                          />
+                                        </a>
+                                      </Link>
+                                    </Image>
+                                  </div>
+                                  <div
+                                    className="event-item__center"
+                                  >
+                                    <Link
+                                      replace={false}
+                                      to="/show-event/123"
+                                    >
+                                      <a
+                                        href="/show-event/123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="title"
+                                          value="Cool Event Title"
+                                        >
+                                          <div
+                                            className="event-item__title"
+                                          >
+                                            Cool Event Title
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <Link
+                                      replace={false}
+                                      to="/profile/abc123"
+                                    >
+                                      <a
+                                        href="/profile/abc123"
+                                        onClick={[Function]}
+                                      >
+                                        <Info
+                                          type="inviter"
+                                          value="Rachel Deckard"
+                                        >
+                                          <div
+                                            className="event-item__inviter"
+                                          >
+                                            Rachel Deckard
+                                          </div>
+                                        </Info>
+                                      </a>
+                                    </Link>
+                                    <div
+                                      className="event-item__date_location"
+                                    >
+                                      <SubInfo
+                                        icon="map-marker"
+                                        type="location"
+                                        value="123 Elm St."
+                                        value2={null}
+                                      >
+                                        <div
+                                          className="event-item__location"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-map-marker"
+                                            />
+                                          </div>
+                                          <div>
+                                            123 Elm St.
+                                               
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                      <SubInfo
+                                        icon="calendar"
+                                        type="date"
+                                        value="Sun Jan 4 '70"
+                                        value2="| 02:13 AM"
+                                      >
+                                        <div
+                                          className="event-item__date"
+                                        >
+                                          <div
+                                            style={
+                                              Object {
+                                                "color": "#6334e3",
+                                                "fontSize": "1em",
+                                              }
+                                            }
+                                          >
+                                            <i
+                                              className="fas fa-calendar"
+                                            />
+                                          </div>
+                                          <div>
+                                            Sun Jan 4 '70
+                                               
+                                            | 02:13 AM
+                                          </div>
+                                        </div>
+                                      </SubInfo>
+                                    </div>
+                                    <Info
+                                      type="description"
+                                      value="Lorem ipsum text"
+                                    >
+                                      <div
+                                        className="event-item__description"
+                                      >
+                                        Lorem ipsum text
+                                      </div>
+                                    </Info>
+                                  </div>
+                                </div>
+                                <div
+                                  className="event-item__acceptances"
+                                >
+                                  <EventItemAcceptances
+                                    acceptances={4}
+                                  >
+                                    <div
+                                      className="acceptance"
+                                    >
+                                      <div
+                                        className="acceptance__count"
+                                      >
+                                        4
+                                      </div>
+                                      <span
+                                        className="acceptance__subheader"
+                                      >
+                                        Acceptances
+                                      </span>
+                                    </div>
+                                  </EventItemAcceptances>
+                                </div>
+                              </li>
+                            </EventItem>
+                          </ul>
+                        </div>
+                      </EventItems>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </ProfileComponent>
+        </div>
+      </Profile>
+    </Router>
+  </MemoryRouter>
+</Provider>
+`;

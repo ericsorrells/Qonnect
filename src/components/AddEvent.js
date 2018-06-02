@@ -9,6 +9,7 @@ import Spinner from './Spinner';
 // ========================================================================================
 import { getCurrentUser } from '../firebase/auth';
 import { startGetProfile } from '../actions/Profile_Actions';
+import { startCreateEvent } from '../actions/Events_Actions';
 import { getEventUserIDs } from '../utils/utils';
 // ========================================================================================
 
@@ -23,8 +24,12 @@ class AddEvent extends React.Component {
   }
 
   componentDidMount() {
-    const { userId, events } = this.props
-    const eventIds           = getEventUserIDs(events)
+    const { userId, events } = this.props;
+
+    let eventIds = null;
+    if (events) {
+      eventIds = getEventUserIDs(events);
+    }
     const hasEvents          = events.length === 0;
     const areUserEvents      = eventIds.includes(userId);
 
@@ -89,4 +94,5 @@ AddEvent.propTypes = {
   loading:     PropTypes.object
 };
 
+export { AddEventComponent };
 export default AddEvent;

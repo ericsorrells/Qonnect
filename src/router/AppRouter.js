@@ -11,11 +11,11 @@ import AddEventsContainer from '../containers/AddEvent_Container';
 import EditEventContainer from '../containers/EditEvent_Container';
 import EditProfileContainer from '../containers/EditProfile_Container';
 import ProfileContainer from '../containers/Profile_Container';
-import ProfileUpdateContainer from '../containers/ProfileUpdate_Container';
 import ShowEventContainer from '../containers/ShowEvent_Container';
 import Footer from '../components/Footer';
 import FindEvents from '../components/FindEvents';
 import Home from '../components/Home';
+import ProfileUpdate from '../components/ProfileUpdate';
 import NotFound from '../components/NotFound';
 import NavBar from '../components/NavBar';
 import SignIn from '../components/SignIn';
@@ -53,7 +53,7 @@ const Routes = (props) => {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <PrivateRoute path="/profile/:id" component={ProfileContainer} />
-            <PrivateRoute path="/update-profile" component={ProfileUpdateContainer} />
+            <PrivateRoute path="/update-profile" component={ProfileUpdate} />
             <PrivateRoute path="/edit-profile" component={EditProfileContainer} />
             <PrivateRoute path="/show-event/:id" component={ShowEventContainer} />
             <PrivateRoute path="/add-event" component={AddEventsContainer} />

@@ -10,12 +10,12 @@ import moment                   from 'moment';
 import { createUserAcceptedEventInFirebase } from '../actions/Profile_Actions';
 import { isCurrentUser, getCurrentUser }     from '../firebase/auth';
 // ========================================================================================
-import { 
-  objToArray, 
-  formatTime, 
-  isEventOwner, 
-  saveToSessionStorage, 
-  isPreviouslyAcceptedEvent 
+import {
+  objToArray,
+  formatTime,
+  isEventOwner,
+  saveToSessionStorage,
+  isPreviouslyAcceptedEvent
 } from '../utils/utils'
 // ========================================================================================
 
@@ -183,11 +183,11 @@ const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
 }
 
 ShowEvent.propTypes = {
-    event:       PropTypes.object, 
+    event:       PropTypes.object,
     eventId:     PropTypes.string,
-    acceptances: PropTypes.object,
-    user:        PropTypes.object,      
-    userId:      PropTypes.string,  
+    acceptances: PropTypes.array,
+    user:        PropTypes.object,
+    userId:      PropTypes.string,
     startDeleteEvent:             PropTypes.func,
     startGettingEventAcceptances: PropTypes.func,
     startUserAcceptEvent:         PropTypes.func,

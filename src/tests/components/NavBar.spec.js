@@ -1,6 +1,6 @@
 // ========================================================================================
 import React from 'react';
-import { shallow, render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/configureStore';
 import { MemoryRouter } from 'react-router-dom';

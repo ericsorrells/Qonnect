@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowAcceptance/> rendering renders correctly 1`] = `
+<div
+  className="show-acc_container"
+>
+  <div>
+    <Link
+      replace={false}
+      to="/profile/NClNDy4YHLMdy7ILKcQGcHpI4OD3"
+    >
+      <img
+        className="show-acc__imageUrl"
+        src="https://image.jpg"
+      />
+    </Link>
+  </div>
+  <div
+    className="show-acc__main-body"
+  >
+    <div>
+      <div
+        className="show-acc__name-container"
+      >
+        <Link
+          className="show-acc__name"
+          replace={false}
+          to="/profile/NClNDy4YHLMdy7ILKcQGcHpI4OD3"
+        >
+          Rachel Deckard
+        </Link>
+      </div>
+      <div
+        className="show-acc__note"
+      >
+        asdfasdf
+      </div>
+    </div>
+  </div>
+  <div
+    className="show-acc__selection-icon"
+  >
+    <a
+      onClick={[Function]}
+    >
+      <i
+        className="fas fa-thumbs-up"
+      />
+    </a>
+  </div>
+</div>
+`;

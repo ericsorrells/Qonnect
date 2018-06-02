@@ -43,13 +43,13 @@ exports[`<Footer /> renders correctly 1`] = `
       className="footer__social-icons"
     >
       <i
-        class="fab fa-facebook"
+        className="fab fa-facebook"
       />
       <i
-        class="fab fa-twitter-square"
+        className="fab fa-twitter-square"
       />
       <i
-        class="fab fa-pinterest-square"
+        className="fab fa-pinterest-square"
       />
     </div>
   </div>

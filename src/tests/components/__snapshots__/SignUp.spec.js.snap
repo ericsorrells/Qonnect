@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp/> renders correctly 1`] = `
+<SignUpForm
+  doSignUp={[MockFunction]}
+  history={[MockFunction]}
+  signIn={[MockFunction]}
+  updateProfile={[MockFunction]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="form__element_border form__input"
+      onChange={[Function]}
+      placeholder="Email Address"
+      type="text"
+      value=""
+    />
+    <input
+      className="form__element_border form__input"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value=""
+    />
+    <input
+      className="form__element_border form__input"
+      onChange={[Function]}
+      placeholder="Confirm Password"
+      type="password"
+      value=""
+    />
+    <button
+      className="button__purple"
+      disabled={true}
+      type="submit"
+    >
+      Sign Up
+    </button>
+  </form>
+</SignUpForm>
+`;

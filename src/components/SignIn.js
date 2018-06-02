@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { startSignIn } from '../actions/Auth';
 // ========================================================================================
 import { SignUpLink } from './SignUp';
-import ProfileForm from './ProfileForm';
 // ========================================================================================
 
 const SignIn = (props) => {
@@ -36,13 +35,15 @@ class SignInForm extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault();
     this.props.startSignIn({ ...this.state });
+    e.preventDefault();
   }
 
   render() {
     const { email, password, error } = this.state;
+
     const isInvalid = password === '' || email === '';
+    console.log('STATE', email, password, isInvalid)
 
     return (
       <form onSubmit={this.onSubmit}>
@@ -52,6 +53,7 @@ class SignInForm extends Component {
           type='text'
           placeholder='Email Address'
           className='form__element_border form__input'
+          id='emailInput'
         />
         <input
           value={password}
@@ -59,6 +61,7 @@ class SignInForm extends Component {
           type='password'
           placeholder='Password'
           className='form__element_border form__input'
+          id='passwordInput'
         />
         <button disabled={isInvalid} type='submit' className='button__purple'>
           Sign In
@@ -79,5 +82,5 @@ SignIn.propTypes = {
   history:     PropTypes.func
 }
 
+export { SignIn, SignInForm };
 export default connect(null, mapDispatchToProps)(SignIn)
-export { SignInForm };

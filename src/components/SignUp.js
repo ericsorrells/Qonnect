@@ -11,13 +11,13 @@ import { updateProfile } from '../actions/Profile_Actions';
 const SignUp = ({ history, signIn, updateProfile }) => {
   return (
     <div className='profile_form sign-in-margins'>
-    <h1>Sign Up</h1>
-    <SignUpForm
-    history={history}
-    doSignUp={doSignUp}
-    signIn={signIn}
-    updateProfile={updateProfile}
-    />
+      <h1>Sign Up</h1>
+      <SignUpForm
+        history={history}
+        doSignUp={doSignUp}
+        signIn={signIn}
+        updateProfile={updateProfile}
+      />
     </div>
   )
 }
@@ -47,7 +47,7 @@ class SignUpForm extends Component {
     // create signUp saga?
     // this.props.doSignUp(dispatch, email, passwordOne)
 
-    return auth.doCreateUserWithEmailAndPassword(email, passwordOne)
+    return auth.doCreateUserWithEmailAndPasswor(email, passwordOne)
       .then((user) => {
         // this.props.signIn(user)    COMMENTED TO TEST FOR 'SIGN_IN' ACTION FIRINGS
         this.props.updateProfile({email: email})
@@ -119,8 +119,5 @@ SignUp.propTypes = {
   history:       PropTypes.func
 }
 
+export { SignUpForm, SignUpLink };
 export default connect(null, mapDispatchToProps)(SignUp);
-export {
-  SignUpForm,
-  SignUpLink,
-};

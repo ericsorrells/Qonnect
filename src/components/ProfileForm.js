@@ -12,11 +12,11 @@ class ProfileForm extends React.Component {
     const { user = null, profile: userProfile = null } = this.props;
 
     this.state = {
-      displayName:    userProfile.displayName ? userProfile.displayName : '',
+      displayName:    user.displayName        ? user.displayName        : '',
       firstName:      userProfile.firstName   ? userProfile.firstName   : '',
       lastName:       userProfile.lastName    ? userProfile.lastName    : '',
       email:          userProfile.email       ? userProfile.email       : '',
-      photoURL:       userProfile.photoURL    ? user.photoURL           : '',
+      photoURL:       userProfile.photoURL    ? userProfile.photoURL    : '',
       city:           userProfile.city        ? userProfile.city        : '',
       state:          userProfile.state       ? userProfile.state       : '',
       birthDate:      userProfile.birthDate   ? userProfile.birthDate   : '',
@@ -103,67 +103,75 @@ class ProfileForm extends React.Component {
       <form onSubmit={this.onFormSubmit} className='profile_form'>
         <h3 className='profile_form--header'>Update Your Profile Information:</h3>
         <label>User Name:</label>
-        <input 
-          type='text' 
-          onChange={this.handleDisplayName} 
+        <input
+          type='text'
+          onChange={this.handleDisplayName}
           value={this.state.displayName}
           className='form__element_border form__input'
+          id='userNameInput'
         />
 
         <label>First Name:</label>
-        <input 
-          type='input' 
-          onChange={this.handleFirstNameChange} 
+        <input
+          type='input'
+          onChange={this.handleFirstNameChange}
           value={this.state.firstName}
           className='form__element_border form__input'
+          id='firstNameInput'
         />
 
         <label>Last Name:</label>
-        <input 
-          type='input' 
-          onChange={this.handleLastNameChange} 
+        <input
+          type='input'
+          onChange={this.handleLastNameChange}
           value={this.state.lastName}
           className='form__element_border form__input'
+          id='lastNameInput'
         />
 
         <label>Email:</label>
-        <input 
-          type='input' 
-          onChange={this.handleEmailChange} 
+        <input
+          type='input'
+          onChange={this.handleEmailChange}
           value={this.state.email}
           className='form__element_border form__input'
+          id='emailInput'
         />
 
         <label>Photo URL:</label>
-        <input 
-          type='input' 
-          onChange={this.handlePhotoURLChange} 
+        <input
+          type='input'
+          onChange={this.handlePhotoURLChange}
           value={this.state.photoURL}
-          className='form__element_border form__input'  
+          className='form__element_border form__input'
+          id='photoUrlInput'
         />
 
         <label>City:</label>
-        <input 
-          type='input' 
-          onChange={this.handleCityChange} 
+        <input
+          type='input'
+          onChange={this.handleCityChange}
           value={this.state.city}
           className='form__element_border form__input'
+          id='cityInput'
         />
 
         <label>State:</label>
-        <input 
-          type='input' 
-          onChange={this.handleStateChange} 
+        <input
+          type='input'
+          onChange={this.handleStateChange}
           value={this.state.state}
           className='form__element_border form__input'
+          id='stateInput'
         />
 
         <label>Birthday:</label>
-        <input 
-          type='date' 
-          onChange={this.handleBirthdateChange} 
+        <input
+          type='date'
+          onChange={this.handleBirthdateChange}
           value={this.state.birthDate}
           className='form__element_border form__input'
+          id='birthdayInput'
         />
 
         <label>Personal Description:</label>
@@ -173,6 +181,7 @@ class ProfileForm extends React.Component {
           placeholder='Tell Us About Yourself'
           value={this.state.description}
           className='form__element_border form__input'
+          id='descriptionInput'
         />
 
         <label>New Password:</label>
@@ -182,6 +191,7 @@ class ProfileForm extends React.Component {
           type='password'
           placeholder='New Password'
           className='form__element_border form__input'
+          id='passwordInput1'
         />
 
         <label>Reenter New Password:</label>
@@ -191,9 +201,10 @@ class ProfileForm extends React.Component {
           type='password'
           placeholder='Confirm New Password'
           className='form__element_border form__input'
+          id='passwordInput2'
         />
         {/*<button disabled={isInvalid} type="submit">*/}
-        <button type='submit' className='button__purple'>
+        <button type='submit' className='button__purple' id='submitButton'>
           Submit
         </button>
       </form>

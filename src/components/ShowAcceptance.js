@@ -1,12 +1,12 @@
 // ========================================================================================
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link }  from 'react-router-dom';
+import React       from 'react';
+import PropTypes   from 'prop-types';
+import { Link }    from 'react-router-dom';
 import { connect } from 'react-redux';
 // ========================================================================================
-import { startOwnerSelectsGuest } from '../actions/Acceptances_Actions';
+import { startOwnerSelectsGuest }   from '../actions/Acceptances_Actions';
 import { isEventOwner, formatText } from '../utils/utils';
-import { getCurrentUser } from '../firebase/auth';
+import { getCurrentUser }           from '../firebase/auth';
 // ========================================================================================
 
 const ShowAcceptance = (props) => {
@@ -48,7 +48,7 @@ const ShowAcceptance = (props) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return { 
+  return {
     startOwnerSelectsGuest: (eventId, acceptanceId) => dispatch(startOwnerSelectsGuest(eventId, acceptanceId))
   }
 }
@@ -59,4 +59,5 @@ ShowAcceptance.propTypes = {
   startOwnerSelectsGuest: PropTypes.func
 }
 
+export { ShowAcceptance };
 export default connect(null, mapDispatchToProps)(ShowAcceptance);

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ShowEventDisplay/> should render correctly 1`] = `
+<div
+  className="modal__container"
+>
+  <h1
+    className="event-display__title"
+  >
+    Cool Event Title
+  </h1>
+  <div
+    className="event-display__name-location"
+  >
+    <EventInfo
+      info="Sunday January 0th 1970"
+      name="Date:"
+    />
+    <EventInfo
+      info="02:13 AM"
+      name="Time:"
+    />
+    <EventInfo
+      info="Rachel Deckard"
+      name="Host/Hostess:"
+    />
+    <EventInfo
+      info="123 Elm St."
+      name="Location:"
+    />
+  </div>
+  <div>
+    <div
+      className="event-display__description"
+    >
+      <div
+        className="event-display__subtitle"
+      >
+        Description: 
+      </div>
+      <div
+        className="event-display__info"
+      >
+         
+        Lorem ipsum text
+         
+      </div>
+    </div>
+  </div>
+</div>
+`;

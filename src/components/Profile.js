@@ -7,11 +7,11 @@ import { withRouter } from 'react-router-dom';
 import { history } from '../router/AppRouter';
 import { firebase } from '../firebase/firebaseIndex';
 // ========================================================================================
-import EventItem from './EventItem';
-import UserInfo from './UserInfo';
-import UserStats from '../containers/UserStats_Container';
+import EventItem  from './EventItem';
+import UserInfo   from './UserInfo';
+import UserStats  from '../containers/UserStats_Container';
 import EventItems from './EventItems';
-import Spinner from './Spinner';
+import Spinner    from './Spinner';
 // ========================================================================================
 import { objToArray, getCurrentUserId } from '../utils/utils';
 // ========================================================================================
@@ -25,7 +25,7 @@ class Profile extends React.Component {
     this.props.startGetProfile(this.props.match.params.id);
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     if (this.props.match.params.id !== this.props.userId) {
       this.props.startGetProfile(this.props.userId);
     }
@@ -94,9 +94,8 @@ Profile.propTypes = {
     urlParam:        PropTypes.string,
     loading:         PropTypes.object,
     startGetProfile: PropTypes.func,
-    deleteEvent:     PropTypes.func,
-    setProfile:      PropTypes.func,
-    setFilters:      PropTypes.func,
+    deleteEvent:     PropTypes.func
 }
 
+export { Profile, EventsHeader };
 export default withRouter(Profile);

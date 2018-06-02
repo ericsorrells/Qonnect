@@ -1,18 +1,18 @@
 // ========================================================================================
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import { firebase } from '../firebase/firebaseIndex';
+import { isAuthenticated } from '../firebase/firebase';
 // ========================================================================================
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-  // console.log('IS AUTH: ', firebase.isAuthenticated);
+  // console.log('IS AUTH: ', isAuthenticated);
+
   return(
     <Route
       {...rest}
       component={(props) => (
-        firebase.isAuthenticated() ? (
+        isAuthenticated() ? (
           <div>
             <Component {...props} />
           </div>

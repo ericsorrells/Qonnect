@@ -1,6 +1,7 @@
 // ========================================================================================
 import React from 'react';
-import moment from 'moment';
+import { connect } from 'react-redux';
+import { updateProfileInFirebase, updateProfile } from '../actions/Profile_Actions';
 import { auth } from '../firebase/firebaseIndex';
 import { withRouter } from 'react-router-dom';
 import { objToPairedArray, partitionData } from '../utils/utils';
@@ -24,13 +25,13 @@ class ProfileUpdate extends React.Component {
 
   handleSubmit(data) {
     const partitionedData = partitionData(data);
-    
-    var user = auth.getCurrentUser();
+    var user              = auth.getCurrentUser();
 
+    // TODO: is this calling sagas?
     firebasePasswordUpdate(partitionedData);
     firebaseProfileUpdate(user, this.props, partitionedData);
     firebaseAppProfileUpdate(this.props, partitionedData);
-    
+
     this.props.history.push(`/profile/${user.uid}`)
   }
 
@@ -48,4 +49,17 @@ class ProfileUpdate extends React.Component {
   }
 }
 
-export default withRouter(ProfileUpdate);
+const mapStateToProps = (state) => {
+  return { profile: state.profile }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  // TODO: these aren't used?
+  return {
+    updateProfileInFirebase: (data) => dispatch(updateProfileInFirebase(data)),
+    updateProfile:           (data) => dispatch(updateProfile(data))
+  }
+}
+
+export { ProfileUpdate };
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileUpdate));

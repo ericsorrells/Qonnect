@@ -12,6 +12,7 @@ exports[`<EventItem /> renders correctly with a valid event 1`] = `
     >
       <Image
         Link={[Function]}
+        id="-LDTTYL9PSqqroO6JLYh"
         imageUrl="https://image.com"
       />
     </div>
@@ -20,7 +21,7 @@ exports[`<EventItem /> renders correctly with a valid event 1`] = `
     >
       <Link
         replace={false}
-        to="/show-event/undefined"
+        to="/show-event/-LDTTYL9PSqqroO6JLYh"
       >
         <Info
           type="title"

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserStat/> renders correctly 1`] = `
+<div
+  className="user-stat"
+>
+  <div
+    className="user-stat__stat"
+  >
+    43
+  </div>
+  <div
+    className="user-stat__title"
+  >
+    Some Stat
+  </div>
+</div>
+`;

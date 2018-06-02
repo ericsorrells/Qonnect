@@ -16,9 +16,9 @@ const Footer = () => {
           <Link to='/'>Blog</Link>
         </div>
         <div className='footer__social-icons'>
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-twitter-square"></i>
-          <i class="fab fa-pinterest-square"></i>
+          <i className="fab fa-facebook"></i>
+          <i className="fab fa-twitter-square"></i>
+          <i className="fab fa-pinterest-square"></i>
         </div>
       </div>
     </div>

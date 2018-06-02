@@ -28,6 +28,7 @@ exports[`<AcceptanceModal /> rendering renders initial state correctly 1`] = `
         "date": 345600000,
         "description": "Lorem ipsum text",
         "eventName": "Cool Event Title",
+        "id": "-LDTTYL9PSqqroO6JLYh",
         "imageUrl": "https://image.com",
         "interestedUsers": "none",
         "location": "123 Elm St.",

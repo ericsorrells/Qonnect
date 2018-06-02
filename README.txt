@@ -1,9 +1,14 @@
 TODO:
 - testing
 - props checks
+- combine containers/components
+- add esLint
+- hosted on prod
 - confirmation email
-- upload own photo 
+- upload own photo
 
+- TOOLS USER:
+  - to mock sessionStoreage: jest-localstorage-mock [https://www.npmjs.com/package/jest-localstorage-mock]
 
 this is the check to see if events are from other people besides currentUser
 const eventUserIds = yield select(state => getEventUserIDs(objToArray(state.events)));

@@ -93,6 +93,7 @@ class Search extends React.Component {
           type='text'
           onChange={this.handleLocationChange}
           value={this.state.location}
+          id={'locationInput'}
         />
 
         <label>Date Range:</label>
@@ -104,6 +105,7 @@ class Search extends React.Component {
           onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
           focusedInput={this.state.focusedInput}
           onFocusChange={focusedInput => this.setState({ focusedInput })}
+          id={'dateRangePicker'}
         />
 
         <label>Category:</label>
@@ -111,6 +113,7 @@ class Search extends React.Component {
           className='form__element form__select'
           onChange={this.handCategoryChange}
           value={this.state.category ? this.state.category : ''}
+          id={'categoryInput'}
         >
           <option disabled selected value=''>Select A Category</option>
           <option value="Sports">Sports</option>
@@ -127,6 +130,7 @@ class Search extends React.Component {
           type='text'
           onChange={this.handleSearchTerm}
           value={this.state.searchTerm}
+          id={'searchTermInput'}
         />
 
         <div className='search__radio-buttons-container'>
@@ -136,22 +140,22 @@ class Search extends React.Component {
               <span className='search_radio-button-label'>
                 Sooner:
               </span>
-              <input type="radio" value='true' checked={this.state.sortBy} onChange={this.handleRadioButton} />
+              <input type="radio" value='true' checked={this.state.sortBy} onChange={this.handleRadioButton} id={'soonerSort'}/>
             </div>
             <div className='search_radio-button-group'>
               <span className='search_radio-button-label'>
                 Later:
               </span>
-              <input type="radio" value='false' checked={!this.state.sortBy} onChange={this.handleRadioButton} />
+              <input type="radio" value='false' checked={!this.state.sortBy} onChange={this.handleRadioButton} id={'laterSort'}/>
             </div>
           </div>
         </div>
 
         <div className='search__buttons'>
-          <button type='submit' className='button__purple search_button'>
+          <button type='submit' className='button__purple search_button' id={'searchButton'}>
             Search For Events
           </button>
-          <button onClick={this.handleClear} className='button__purple search_button'>
+          <button onClick={this.handleClear} className='button__purple search_button' id={'clearButton'}>
             Clear Form
           </button>
         </div>
@@ -173,4 +177,5 @@ Search.propTypes = {
   clearFilters: PropTypes.func
 }
 
+export { Search };
 export default connect(null, mapDispatchToProps)(Search)

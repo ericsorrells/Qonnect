@@ -15,7 +15,7 @@ export const EventItems = ({events, history = null, deleteEvent = null}) => {
         <ul className='event-item__ul'>
           <EventItem
             {...event}
-            key={event.id}
+            key={event.eventName}
             history={history}
             deleteEvent={deleteEvent}
           />

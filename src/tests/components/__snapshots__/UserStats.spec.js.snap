@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserStats/> renders correctly 1`] = `
+<div
+  className="user-stats__container"
+>
+  <UserStat
+    stat={1}
+    title="Events Created"
+  />
+  <UserStat
+    stat={2}
+    title="Open Events"
+  />
+  <UserStat
+    stat={3}
+    title="Events Attended"
+  />
+  <UserStat
+    stat={4}
+    title="Followers"
+  />
+  <UserStat
+    stat={5}
+    title="Following"
+  />
+</div>
+`;
