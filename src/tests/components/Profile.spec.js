@@ -77,6 +77,7 @@ describe('<Profile />', () => {
   });
 
   it('loads user profile in componentDidMount()', () => {
+    // calls startGetProfile when component loads in the life cycle
     expect(startGetProfile).toHaveBeenCalled();
   });
 

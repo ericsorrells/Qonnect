@@ -36,7 +36,6 @@ class PasswordChangeForm extends Component {
 
   render() {
     const { passwordOne, passwordTwo, error } = this.state;
-
     const isInvalid = passwordOne !== passwordTwo || passwordOne === '';
 
     return (
@@ -44,16 +43,18 @@ class PasswordChangeForm extends Component {
         <input
           value={passwordOne}
           onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
-          type="password"
+          type='password'
           placeholder="New Password"
+          id='passwordOne'
         />
         <input
           value={passwordTwo}
           onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
-          type="password"
-          placeholder="Confirm New Password"
+          type='password'
+          placeholder='Confirm New Password'
+          id='passwordTwo'
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type='submit' id='passwordSubmitButton'>
           Reset My Password
         </button>
 

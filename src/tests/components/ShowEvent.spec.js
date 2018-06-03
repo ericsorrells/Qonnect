@@ -13,6 +13,7 @@ import { basicAcceptance } from '../stubs/acceptance';
 // ========================================================================================
 
 // TODO TEST: failing bc firebase getCurrentUser() can't get something from sessionStorage
+// add this in beforeEach block: sessionStorage.setItem('qProfile', JSON.stringify('someProfile'))
 xdescribe('<ShowEvent/>', () => {
   const acceptances = [{ ...basicAcceptance }, { ...basicAcceptance }, { ...basicAcceptance }];
   const startDeleteEvent                  = jest.fn();

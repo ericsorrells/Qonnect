@@ -13,8 +13,6 @@ import { firebasePasswordUpdate } from '../../utils/firebaseHelpers';
 import { basicProfile } from '../stubs/profile'
 // ========================================================================================
 
-// TODO TEST
-
 describe('<ProfileUpdate/>', () => {
   let component, updateProfileMock, updateProfileInFirebaseMock, historyMock, handleSubmitMock;
   historyMock                 = { push: jest.fn() };

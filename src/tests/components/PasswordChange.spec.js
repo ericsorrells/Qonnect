@@ -5,13 +5,20 @@ import { MemoryRouter } from 'react-router-dom';
 import mockStoreSetup from '../../utils/mockStoreHelpers';
 import 'jest-enzyme';
 // ========================================================================================
-import PasswordChange from '../../components/PasswordChange';
+import PasswordChangeForm from '../../components/PasswordChange';
 // ========================================================================================
 
 // TODO TEST
 describe('<PasswordChange/>', () => {
-  it('should render correctly', () => {
+  const component = shallow(
+    <PasswordChangeForm />
+  );
 
+  it('should render correctly', () => {
+    console.log('COMP', component.debug())
+    expect(component.find('#passwordOne')).toExist();
+    expect(component.find('#passwordTwo')).toExist();
+    expect(component.find('#passwordSubmitButton')).toExist();
   });
 
   it('should call doPasswordUpdate()', () => {

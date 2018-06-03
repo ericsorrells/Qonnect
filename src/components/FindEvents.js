@@ -20,16 +20,16 @@ class FindEvents extends React.Component {
     this.props.startGetOtherEvents(user.uid)
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     if (this.props.match.params.id !== this.props.userId) {
       this.props.startGetProfile(this.props.userId);
     }
   }
 
   render() {
-    const component = this.props.loading.loading 
-      ? <Spinner /> 
-      : <FindEventsComponent  
+    const component = this.props.loading.loading
+      ? <Spinner />
+      : <FindEventsComponent
           events={this.props.events}
           history={this.props.history}
           deleteEvent={this.props.deleteEvent}
@@ -78,7 +78,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 FindEvents.propTypes = {
-  events:              PropTypes.func,
+  events:              PropTypes.array,
   loading:             PropTypes.func,
   history:             PropTypes.object,
   deleteEvent:         PropTypes.func,
@@ -86,4 +86,5 @@ FindEvents.propTypes = {
   startGetOtherEvents: PropTypes.func
 }
 
+export { FindEvents }
 export default connect(mapStateToProps, mapDispatchToProps)(FindEvents);
