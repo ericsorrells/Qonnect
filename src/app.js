@@ -4,7 +4,7 @@ import ReactDOM                      from 'react-dom';
 import { Provider }                  from 'react-redux';
 import AppRouter, { history }        from './router/AppRouter';
 import { auth, firebase }            from './firebase/firebaseIndex';
-import { firbaseOnAuthStateChange }  from './utils/firebaseHelpers';
+import { firebaseOnAuthStateChange }  from './utils/firebaseHelpers';
 import store                         from './store/configureStore';
 // ========================================================================================
 import Home from './components/Home';
@@ -23,7 +23,7 @@ class QonnectApp extends React.Component {
 
   componentDidMount() {
     const user = auth.getCurrentUser();
-    firbaseOnAuthStateChange(user);
+    firebaseOnAuthStateChange(user);
   }
 
   render() {

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { auth } from '../firebase/firebaseIndex';
 import { doSignUp, signIn } from '../actions/Auth';
 import { updateProfile } from '../actions/Profile_Actions';
+import { doCreateUserWithEmailAndPassword } from '../firebase/auth';
 // ========================================================================================
 
 const SignUp = ({ history, signIn, updateProfile }) => {
@@ -43,13 +44,10 @@ class SignUpForm extends Component {
   onSubmit(e) {
     e.preventDefault();
     const { email, passwordOne } = this.state;
-    // TODO: WHY DOES THIS NOT WORK???
-    // create signUp saga?
-    // this.props.doSignUp(dispatch, email, passwordOne)
 
-    return auth.doCreateUserWithEmailAndPasswor(email, passwordOne)
+    return doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((user) => {
-        // this.props.signIn(user)    COMMENTED TO TEST FOR 'SIGN_IN' ACTION FIRINGS
+        this.props.signIn(user);
         this.props.updateProfile({email: email})
         this.props.history.push('/update-profile')
       })

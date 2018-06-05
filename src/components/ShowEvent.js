@@ -157,7 +157,7 @@ const AcceptInvitationButton = ({currentUser, eventOwner, openModal, previouslyA
   return(
     <div>
       {!currentUser && !eventOwner && !previouslyAcceptedEvent
-        && <button className='button__purple show-event__button' onClick={openModal}>I'd Like To Go!</button>
+        && <button className='button__purple show-event__button accceptance-button' onClick={openModal}>I'd Like To Go!</button>
       }
     </div>
   )
@@ -170,6 +170,10 @@ const EventInfo = ({name, info}) => {
 }
 
 export const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
+  console.log('CURRENT USER', currentUser)
+  console.log('EVENT OWNER', eventOwner)
+
+
   return(
     <div>
       {currentUser === true && eventOwner === true &&

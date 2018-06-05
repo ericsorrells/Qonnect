@@ -2,18 +2,20 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import mockStoreSetup from '../../utils/mockStoreHelpers';
-import { StorageMock } from '../../../setupTests';
 import 'jest-enzyme';
 // ========================================================================================
 import { ProfileUpdate } from '../../components/ProfileUpdate';
 import ProfileForm from '../../components/ProfileForm';
 // ========================================================================================
-import { firebasePasswordUpdate } from '../../utils/firebaseHelpers';
 import { basicProfile } from '../stubs/profile'
 // ========================================================================================
 
-// jest.mock('../../utils/firebaseHelpers.js');
+import {
+  firebasePasswordUpdate,
+  firebaseProfileUpdate,
+  firebaseAppProfileUpdate } from '../../utils/firebaseHelpers';
+
+jest.mock('../../utils/firebaseHelpers.js');
 
 describe('<ProfileUpdate/>', () => {
   let component, updateProfileMock, updateProfileInFirebaseMock, historyMock, handleSubmitMock;
@@ -49,11 +51,11 @@ describe('<ProfileUpdate/>', () => {
   });
 
   describe('onSubmit()', () => {
-    it.only('calls correct methods', () => {
-      // TODO TEST: how to call methods inside handleSubmit not passed as a prop
-      // const firebasePasswordUpdateMock = jest.fn();
-      // component.find('ProfileForm').prop('handleSubmit')(basicProfile);
-      // expect(firebasePasswordUpdateMock).toHaveBeenCalled();
+    it('calls correct methods', () => {
+      component.find('ProfileForm').prop('handleSubmit')(basicProfile);
+      expect(firebasePasswordUpdate).toHaveBeenCalled();
+      expect(firebaseProfileUpdate).toHaveBeenCalled();
+      expect(firebaseAppProfileUpdate).toHaveBeenCalled();
     });
 
     it('redirects to user Profile page', () => {

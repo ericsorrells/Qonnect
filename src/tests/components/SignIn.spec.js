@@ -2,7 +2,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import mockStoreSetup from '../../utils/mockStoreHelpers';
+import '../../firebase/firebase';
 import 'jest-enzyme';
 // ========================================================================================
 import { SignIn, SignInForm } from '../../components/SignIn';

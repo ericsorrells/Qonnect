@@ -16,8 +16,8 @@ export const saveToSessionStorage = (urlParam, event) => {
 
 export const isPreviouslyAcceptedEvent = (eventId, userAcceptances) => {
   if (userAcceptances) {
-  const acceptedEvents = Object.keys(userAcceptances);
-  return acceptedEvents.includes(eventId)
+    const acceptedEvents = Object.keys(userAcceptances);
+    return acceptedEvents.includes(eventId)
   }
   return null;
 }

@@ -11,7 +11,9 @@ import { basicEvent } from '../stubs/event';
 import { basicProfile } from '../stubs/profile';
 // ========================================================================================
 
-// TODO TEST
+import { doCreateUserWithEmailAndPassword } from '../../firebase/auth';
+jest.mock('../../firebase/auth.js');
+
 describe('<SignUp/>', () => {
   const doSignUp      = jest.fn();
   const signIn        = jest.fn();
@@ -32,7 +34,10 @@ describe('<SignUp/>', () => {
 
   describe('form', () => {
     it('calls doCreateUserWithEmailAndPassword()', () => {
-        // TODO: fix this test
+      component.find('form').simulate('submit', {
+        preventDefault: () => { }
+      });
+      expect(doCreateUserWithEmailAndPassword).toHaveBeenCalled();
     });
   });
 });

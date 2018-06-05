@@ -2,14 +2,13 @@ import { auth, firebase } from '../firebase/firebaseIndex';
 import store from '../store/configureStore';
 import { signIn, signOut }       from '../actions/Auth';
 
-export const firbaseOnAuthStateChange = (user) => {
+export const firebaseOnAuthStateChange = (user) => {
   firebase.auth.onAuthStateChanged((user) => {
       if (user) {
         window.sessionStorage.setItem(firebase.storageKey, user.uid);
         store.dispatch(signIn(user.uid))
       } else {
         window.sessionStorage.removeItem(firebase.storageKey);
-        // history.push('/');
       }
     });
 }

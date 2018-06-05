@@ -3,7 +3,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import mockStoreSetup from '../../utils/mockStoreHelpers';
 import 'jest-enzyme';
 // ========================================================================================
 import { ShowAcceptance } from '../../components/ShowAcceptance';
