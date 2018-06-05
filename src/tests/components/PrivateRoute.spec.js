@@ -12,6 +12,7 @@ import { isAuthenticated } from '../../firebase/firebase';
 
 // TODO TEST: conditional rendering not working bc isAuthenticated
 // in component is not being changed
+jest.mock('../../firebase/firebase');
 
 describe('<PrivateRoute />', () => {
   const component = mount(
@@ -21,8 +22,8 @@ describe('<PrivateRoute />', () => {
   )
 
   describe('when authenticated', () => {
-    it('renders the correct component', () => {
-      // expect(isAuthenticated).toHaveBeenCalled()
+    it.only('renders the correct component', () => {
+      expect(isAuthenticated).toHaveBeenCalled()
     });
   });
 

@@ -1,31 +1,36 @@
 // ========================================================================================
 import React from 'react';
-import { shallow } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import mockStoreSetup from '../../utils/mockStoreHelpers';
+import { mount } from 'enzyme';
 import 'jest-enzyme';
 // ========================================================================================
 import PasswordChangeForm from '../../components/PasswordChange';
 // ========================================================================================
 
-// TODO TEST
+import { doPasswordUpdate } from '../../firebase/auth';
+
+jest.mock('../../firebase/auth.js');
+
 describe('<PasswordChange/>', () => {
-  const component = shallow(
+  const component = mount(
     <PasswordChangeForm />
   );
 
   it('should render correctly', () => {
-    console.log('COMP', component.debug())
     expect(component.find('#passwordOne')).toExist();
     expect(component.find('#passwordTwo')).toExist();
     expect(component.find('#passwordSubmitButton')).toExist();
   });
 
-  it('should call doPasswordUpdate()', () => {
-    // TODO: does 'doPasswordUpdate' call sagas?
-    // const doPasswordUpdate = jest.fn();
-    // const component = shallow(<LogIn doPasswordUpdate={doPasswordUpdate} />);
-    // component.find('button').simulate('click')
-    // expect(doPasswordUpdate).toHaveBeenCalled();
+  it.only('should call doPasswordUpdate()', () => {
+    const value = 'password';
+    component.find('#passwordOne').simulate('change', { target: { value } });
+    component.find('#passwordTwo').simulate('change', { target: { value } });
+
+    component.find('form').simulate('submit', {
+      preventDefault: () => { }
+    });
+
+    expect(doPasswordUpdate).toHaveBeenCalled();
+//    TODO: does 'doPasswordUpdate' call sagas?
   });
 });

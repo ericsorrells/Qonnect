@@ -43,7 +43,6 @@ class SignInForm extends Component {
     const { email, password, error } = this.state;
 
     const isInvalid = password === '' || email === '';
-    console.log('STATE', email, password, isInvalid)
 
     return (
       <form onSubmit={this.onSubmit}>

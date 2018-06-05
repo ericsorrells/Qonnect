@@ -5,22 +5,23 @@ import { call, put, fork, takeEvery, takeLatest } from 'redux-saga/effects';
 import signInSaga 									from './signInSaga';
 import signOutSaga 									from './signoutSaga';
 import { getProfileSaga } 							from './profileSaga';
-import { 
-	getEventAcceptancesSaga, 
+import {
+	getEventAcceptancesSaga,
 	userAcceptEvent,
-	ownerSelectsGuestSaga 
+	ownerSelectsGuestSaga
 }	from './acceptancesSaga';
-import { 
-	getEventsSaga, 
-	eventsCreateSaga, 
-	eventsDeleteSaga, 
-	eventsEditSaga, 
-	eventsOtherEventsSaga 
+import {
+	getEventsSaga,
+	eventsCreateSaga,
+	eventsDeleteSaga,
+	eventsEditSaga,
+	eventsOtherEventsSaga
 } from './eventsSaga';
 // ========================================================================================
 
 function* listeners() {
-	console.log('LISTENERS: starting');
+	console.
+	log('LISTENERS: starting');
 	yield [
 		takeEvery('START_SIGN_IN',       		  signInSaga              ),
 		takeLatest('START_GET_PROFILE',   		  getProfileSaga          ),

@@ -72,7 +72,7 @@ class ShowEvent extends React.Component {
     const {uid: userId}                   = getCurrentUser();
     const currentUser                     = isCurrentUser(event.uid);
     const eventOwner                      = isEventOwner(event.uid, userId);
-    const previouslyAcceptedEvent         = isPreviouslyAcceptedEvent(eventId, user.acceptedEvents)
+    const previouslyAcceptedEvent         = isPreviouslyAcceptedEvent(eventId, user.acceptedEvents);
 
     let acceptancesArray, selectedAcceptance, unselectedAcceptances, formattedUnselectedAcceptances;
     if (acceptances) {
@@ -129,7 +129,7 @@ class ShowEvent extends React.Component {
             </div>
             {
               formattedUnselectedAcceptances
-              ? <div>{formattedUnselectedAcceptances}</div>
+              ? <div className='show-event__unselected-acceptances'>{formattedUnselectedAcceptances}</div>
               : 'None'
             }
           </div>
@@ -169,13 +169,25 @@ const EventInfo = ({name, info}) => {
  )
 }
 
-const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
+export const Menu = ({currentUser, eventOwner, onEdit, onDelete}) => {
   return(
     <div>
-      { currentUser === true && eventOwner === true &&
-        <div className='show-event__button-group'>
-          <button className='button__purple show-event__button' onClick={onEdit}>Edit Event</button>
-          <button className='button__purple show-event__button' onClick={onDelete}>Delete Event</button>
+      {currentUser === true && eventOwner === true &&
+        <div className='show-event__button-group show-event__menu'>
+          <button
+            className='button__purple show-event__button'
+            id='show-event__edit-button'
+            onClick={onEdit}
+          >
+            Edit Event
+          </button>
+          <button
+            className='button__purple show-event__button'
+            id='show-event__delete-button'
+            onClick={onDelete}
+          >
+            Delete Event
+          </button>
         </div>
       }
     </div>
@@ -193,4 +205,6 @@ ShowEvent.propTypes = {
     startUserAcceptEvent:         PropTypes.func,
     createUserAcceptedEventInFirebase: PropTypes.func
 }
+
+export { ShowEvent };
 export default withRouter(ShowEvent);

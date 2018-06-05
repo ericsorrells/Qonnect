@@ -14,13 +14,9 @@ import signInSaga                               from '../sagas/signInSaga';
 
 export function* initializeSaga() {
   try {
-    console.log('INITIALIZE SAGA: Starting Loading');
       yield put(startLoading());
-
-    console.log('INITIALIZE SAGA: Getting Current User');
       let user = yield call(getCurrentUser);
         if(!user) {
-          console.log('INITIALIZE SAGA: Checking Session Storage');
           user = JSON.parse(sessionStorage.getItem('qProfile'));
         }
       //if no user or no user in sessionStorage, redirect to login

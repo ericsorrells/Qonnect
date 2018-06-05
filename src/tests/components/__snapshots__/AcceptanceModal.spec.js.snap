@@ -58,6 +58,7 @@ exports[`<AcceptanceModal /> rendering renders initial state correctly 1`] = `
     <br />
     <button
       className="button__purple modal__button"
+      id="modal__accept-button"
       type="submit"
     >
       Yes, I Accept!

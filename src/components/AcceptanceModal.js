@@ -48,7 +48,7 @@ class AcceptanceModal extends React.Component {
             className='modal__textarea'
           />
           <br/>
-          <button type='submit' className='button__purple modal__button'>
+          <button type='submit' className='button__purple modal__button' id='modal__accept-button'>
             Yes, I Accept!
           </button>
         </form>

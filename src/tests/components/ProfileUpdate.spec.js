@@ -13,12 +13,16 @@ import { firebasePasswordUpdate } from '../../utils/firebaseHelpers';
 import { basicProfile } from '../stubs/profile'
 // ========================================================================================
 
+// jest.mock('../../utils/firebaseHelpers.js');
+
 describe('<ProfileUpdate/>', () => {
   let component, updateProfileMock, updateProfileInFirebaseMock, historyMock, handleSubmitMock;
+  let firebasePasswordUpdateMock;
   historyMock                 = { push: jest.fn() };
   updateProfileMock           = jest.fn();
   handleSubmitMock            = jest.fn();
   updateProfileInFirebaseMock = jest.fn();
+  firebasePasswordUpdateMock  = jest.fn();
 
   beforeEach(() => {
     sessionStorage.setItem('qProfile', JSON.stringify('someProfile'));
@@ -45,7 +49,7 @@ describe('<ProfileUpdate/>', () => {
   });
 
   describe('onSubmit()', () => {
-    it('calls correct methods', () => {
+    it.only('calls correct methods', () => {
       // TODO TEST: how to call methods inside handleSubmit not passed as a prop
       // const firebasePasswordUpdateMock = jest.fn();
       // component.find('ProfileForm').prop('handleSubmit')(basicProfile);

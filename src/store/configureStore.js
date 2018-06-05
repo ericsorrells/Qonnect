@@ -11,7 +11,7 @@ import authReducer         from '../reducers/Auth_Reducer';
 import loadingReducer      from '../reducers/Loading_Reducer';
 import { mainSaga }        from '../sagas/mainSaga';
 // ========================================================================================
-console.log('CONFIGURE_STORE')
+
 const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

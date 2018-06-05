@@ -88,11 +88,11 @@ AddEvent.propTypes = {
   events:      PropTypes.array,
   history:     PropTypes.func,
   deleteEvent: PropTypes.func,
-  userId:      PropTypes.number,
+  userId:      PropTypes.string,
   profile:     PropTypes.object,
   auth:        PropTypes.object,
   loading:     PropTypes.object
 };
 
-export { AddEventComponent };
+export { AddEventComponent, AddEvent };
 export default AddEvent;
