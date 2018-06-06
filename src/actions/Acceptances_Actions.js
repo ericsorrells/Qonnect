@@ -59,9 +59,11 @@ export const startUserAcceptEvent = (userId, user, eventId, acceptanceInfo) => {
 export const startChooseAcceptance = (eventId, acceptanceId) => {
   return {
     type: 'START_CHOOSE_ACCEPTANCE',
-
+    eventId,
+    acceptanceId
   }
 }
+
 export const chooseAcceptance = (eventId, acceptanceId) => {
   return {
     type: 'SELECT_ACCEPTANCE',
