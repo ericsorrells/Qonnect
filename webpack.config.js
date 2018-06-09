@@ -2,7 +2,7 @@
 const path = require('path');
 
 // node method for exporting
-// entry: define entry poinVt
+// entry: define entry point
 // output: define location of final bundle
 module.exports = {
   entry: './src/app.js',

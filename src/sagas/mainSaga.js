@@ -23,47 +23,23 @@ function* listeners() {
 	console.
 	log('LISTENERS: starting');
 	yield [
-		takeEvery('START_SIGN_IN',       		  signInSaga              ),
-		takeLatest('START_GET_PROFILE',   		  getProfileSaga          ),
-		takeLatest('START_GET_EVENTS',   		  getEventsSaga           ),
-		takeLatest('START_CREATE_EVENT', 		  eventsCreateSaga        ),
-		takeLatest('START_EDIT_EVENT', 	 		  eventsEditSaga          ),
-		takeLatest('START_DELETE_EVENT', 		  eventsDeleteSaga        ),
+		takeEvery('START_SIGN_IN',       		  		signInSaga              ),
+		takeLatest('START_GET_PROFILE',   		 	 	getProfileSaga          ),
+		takeLatest('START_GET_EVENTS',   		  		getEventsSaga           ),
+		takeLatest('START_CREATE_EVENT', 		  		eventsCreateSaga        ),
+		takeLatest('START_EDIT_EVENT', 	 		  		eventsEditSaga          ),
+		takeLatest('START_DELETE_EVENT', 		  		eventsDeleteSaga       	),
 		takeLatest('START_GET_OTHER_EVENTS',      eventsOtherEventsSaga   ),
 		takeLatest('START_GET_EVENT_ACCEPTANCES', getEventAcceptancesSaga ),
 		takeLatest('START_USER_ACCEPT_EVENTS', 	  userAcceptEvent         ),
 		takeLatest('OWNER_SELECTS_GUEST',         ownerSelectsGuestSaga   ),
-		takeLatest('START_SIGN_OUT',     		  signOutSaga             )
+		takeLatest('START_SIGN_OUT',     		  		signOutSaga             )
 	];
 }
 
 export function* mainSaga() {
-	console.log('MAIN SAGA: starting ============')
-
-	// call loading saga
-	// loading saga listens for loading events
-	// yield fork(loadingSaga)
-	// state initializeSaga
-	// yield fork(initializeSaga)
-
-	// listen for:
 	yield fork(listeners);
-	// login
 	yield fork(signInSaga);
-	// set profile
-
-	// yield fork(getProfileSaga);
-
-	// yield fork(getEventsSaga);
-
-	// logout
-	// add events
-	// yield fork(eventsCreateSaga);
-	// yield fork(eventsDeleteSaga);
-	// find events (both users and others)
-	// filterings
-	// acceptances
-	//logout
 	yield fork(signOutSaga)
 }
 
